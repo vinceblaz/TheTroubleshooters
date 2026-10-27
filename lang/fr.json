@@ -1,0 +1,326 @@
+{
+  "TYPES": {
+    "Actor": {
+      "character": "Risque-tout",
+      "npc": "Personnage secondaire"
+    },
+    "Item": {
+      "archetype": "Archétype",
+      "ability": "Capacité",
+      "flaw": "Désavantage",
+      "hook": "Accroche scénaristique",
+      "kit": "Kit de matériel",
+      "language": "Langue"
+    }
+  },
+  "TTS": {
+    "Skill": {
+      "Agility": "Agilité",
+      "Bureaucracy": "Bureaucratie",
+      "Charm": "Charme",
+      "Contacts": "Contacts",
+      "Melee": "Corps-à-corps",
+      "Electronics": "Électronique",
+      "Endurance": "Endurance",
+      "Investigation": "Enquête",
+      "Strength": "Force",
+      "Search": "Fouille",
+      "Stealth": "Furtivité",
+      "Engineering": "Ingénierie",
+      "Languages": "Langues",
+      "Mechanics": "Mécanique",
+      "Medicine": "Médecine",
+      "SleightOfHand": "Passe-passe",
+      "Driving": "Pilotage",
+      "Resources": "Ressources",
+      "Science": "Science",
+      "Humanities": "Sciences humaines",
+      "Security": "Sécurité",
+      "Performance": "Spectacle",
+      "Status": "Statut",
+      "Survival": "Survie",
+      "Shooting": "Tir",
+      "Deception": "Tromperie",
+      "Vigilance": "Vigilance",
+      "Willpower": "Volonté",
+      "Improvement": "Case d'amélioration",
+      "Hint": "Valeurs de 15 à 106 %. Cochez la case d'amélioration quand la compétence est utilisée de manière significative (une seule coche par compétence)."
+    },
+    "SkillFamily": {
+      "Basic": "Élémentaires",
+      "Social": "Sociabilité",
+      "Research": "Recherche",
+      "Action": "Action",
+      "Combat": "Combat"
+    },
+    "NpcRank": {
+      "Extra": "Figurant",
+      "Minion": "Sbire",
+      "Henchman": "Sous-fifre",
+      "Lieutenant": "Lieutenant",
+      "Boss": "Chef"
+    },
+    "KitCategory": {
+      "Standard": "Standard",
+      "SpyTech": "Technologie d'espionnage",
+      "SuperScience": "Super-science",
+      "AncientLore": "Savoir ancien",
+      "LostLore": "Savoir perdu"
+    },
+    "KitOrigin": {
+      "Owned": "Personnel",
+      "Mission": "Équipement de mission",
+      "Purchased": "Obtenu avec des points de récit",
+      "JuryRigged": "Bricolé",
+      "Found": "Objet trouvé"
+    },
+    "FlawMode": {
+      "Penalty": "Malus de scène (−2 pips)",
+      "Fail": "Rater un jet réussi",
+      "Condition": "Subir une condition",
+      "Absent": "Absent de la scène",
+      "Free": "Libre (narratif)"
+    },
+    "Initiative": {
+      "Label": "Initiative",
+      "Fixed": "Fixe",
+      "Roll": "Jet de Vigilance"
+    },
+    "Condition": {
+      "Blinded": "Aveuglé",
+      "Wounded": "Blessé",
+      "MortalDanger": "Danger de mort",
+      "Frightened": "Effrayé",
+      "OnFire": "En feu",
+      "Exhausted": "Épuisé",
+      "OutOfAction": "Hors de combat",
+      "Paralyzed": "Paralysé",
+      "Restrained": "Prisonnier",
+      "Drunk": "Saoul",
+      "Stunned": "Sonné",
+      "Deafened": "Sourd",
+      "Encumbered": "Surchargé",
+      "Surprised": "Surpris",
+      "Terrified": "Terrifié",
+      "Vulnerable": "Vulnérable"
+    },
+    "Tab": {
+      "Skills": "Compétences",
+      "Traits": "Capacités & accroches",
+      "Gear": "Matériel",
+      "Bio": "Identité & notes"
+    },
+    "Sheet": {
+      "Character": "Fiche de Risque-tout",
+      "Npc": "Fiche de personnage secondaire",
+      "Item": "Fiche d'objet",
+      "Name": "Nom",
+      "Add": "Ajouter",
+      "Edit": "Modifier",
+      "Delete": "Supprimer",
+      "Empty": "Rien pour l'instant.",
+      "NewItem": "Nouveau : {type}",
+      "DeleteTitle": "Supprimer",
+      "DeleteConfirm": "Supprimer définitivement « {name} » ?",
+      "Description": "Description",
+      "Source": "Source",
+      "Notes": "Notes",
+      "Clues": "Feuille d'indices"
+    },
+    "Identity": {
+      "Concept": "Profession, concept",
+      "Nationality": "Nationalité",
+      "Birthplace": "Lieu de naissance",
+      "Residence": "Résidence",
+      "Age": "Âge",
+      "Height": "Taille",
+      "Weight": "Poids",
+      "DistinctiveFeatures": "Signes distinctifs",
+      "Biography": "Biographie",
+      "Meeting": "La rencontre du casting"
+    },
+    "Team": {
+      "HomeBase": "Lieu de départ de l'équipe"
+    },
+    "Vitality": {
+      "Label": "Vitalité",
+      "Bonus": "Bonus"
+    },
+    "StoryPoints": {
+      "Label": "Points de récit"
+    },
+    "Combat": {
+      "InCover": "À couvert"
+    },
+    "Item": {
+      "Archetypes": "Archétype",
+      "Abilities": "Capacités",
+      "Flaws": "Désavantages",
+      "Hooks": "Accroches scénaristiques",
+      "Languages": "Langues",
+      "Kits": "Kits de matériel"
+    },
+    "Ability": {
+      "Level": "Niveau",
+      "LevelShort": "Niv.",
+      "Cost": "Coût (coches)",
+      "Crosses": "Croix",
+      "Acquired": "Acquise",
+      "Specialization": "Spécialisation (sport, discipline, grade…)",
+      "LearnWith": "Compétences d'apprentissage",
+      "Prerequisites": "Prérequis",
+      "PrerequisiteAbilities": "Capacités requises (une par ligne)",
+      "PhaseHint": "Les prérequis de compétence et les activations en points de récit seront éditables en phase 3."
+    },
+    "Flaw": {
+      "Target": "Cible (préjugé, phobie…)",
+      "TargetHint": "facultatif",
+      "Triggers": "Déclencheurs",
+      "TriggerLabel": "Situation",
+      "Mode": "Mode",
+      "Condition": "Condition liée",
+      "Hint": "Le déclenchement reste à l'initiative du joueur (LdB p. 75) ; le bouton « Déclencher » arrive en phase 3."
+    },
+    "Hook": {
+      "Hint": "Une accroche n'a aucun effet mécanique : c'est un fait de contexte que le Chef utilise pour lancer l'aventure (règle d'or)."
+    },
+    "Language": {
+      "Fluent": "Courante",
+      "Native": "Maternelle",
+      "Crosses": "Croix d'apprentissage",
+      "Hint": "Cinq croix : la langue devient courante. Tant qu'elle ne l'est pas, +1 pip par croix aux jets de Langues (LdB p. 128). « Maternelle » n'a pas d'effet de règle.",
+      "ExtraAllowed": "Langues supplémentaires autorisées à la création par la compétence Langues : {count}."
+    },
+    "Kit": {
+      "Name": "Kit",
+      "Profile": "Profil",
+      "Carried": "Emporté",
+      "CarriedShort": "Emp.",
+      "Signature": "Matériel signature",
+      "SignatureShort": "Sign.",
+      "SignatureDescription": "Description du matériel signature",
+      "OverLimit": "Plus de 5 kits emportés : le livre limite à 5 emplacements (simple avertissement).",
+      "StoryPointCost": "Coût en points de récit",
+      "Category": "Catégorie",
+      "Origin": "Origine",
+      "Uses": "Utilisations restantes",
+      "Contents": "Contenu",
+      "Prerequisites": "Prérequis",
+      "Descriptors": "Descripteurs",
+      "Weapon": "Profil d'arme",
+      "Protection": "Protection"
+    },
+    "Descriptor": {
+      "Key": "Descripteur",
+      "Situation": "Situation",
+      "Note": "Note"
+    },
+    "Weapon": {
+      "Skill": "Compétence",
+      "Damage": "Dégâts",
+      "Ammo": "Munitions (X)",
+      "Descriptors": "Descripteurs d'arme",
+      "Empty": "Vide",
+      "Jammed": "Enrayée"
+    },
+    "Protection": {
+      "Dice": "Protection",
+      "InitiativePenalty": "Limite d'initiative"
+    },
+    "Archetype": {
+      "Skills": "Compétences de l'archétype",
+      "Primary": "Principale",
+      "Secondary": "Secondaires",
+      "Tertiary": "Annexes",
+      "ExtraLanguages": "Langues supplémentaires",
+      "IgnorePrerequisites": "Ignorer les prérequis",
+      "Abilities": "Capacités proposées (5)",
+      "Flaws": "Désavantages proposés (3)",
+      "Kits": "Kits fournis (3)",
+      "SuggestedHooks": "Accroches suggérées",
+      "ListHint": "Une entrée par ligne. Pour un choix exclusif de kits, écrivez « A | B » sur une même ligne. L'assistant de création (phase 7) utilisera ces listes."
+    },
+    "Npc": {
+      "Rank": "Rang",
+      "CoreSkills": "Compétences de référence",
+      "BaseSkill": "Compétence de base",
+      "Specialty": "Spécialité",
+      "SpecialtyDomain": "Domaine de spécialité",
+      "Defense": "Défense",
+      "DefenseHint": "Laisser la défense vide pour un PNJ sans jet de défense (sbires, la plupart des sous-fifres).",
+      "Skills": "Compétences importantes et de personnalisation",
+      "SkillImportant": "Importante",
+      "SkillFlavor": "Personnalisation",
+      "NewSkill": "Nouvelle compétence",
+      "Attacks": "Attaques",
+      "AttackName": "Attaque",
+      "NewAttack": "Nouvelle attaque",
+      "Uses": "Util.",
+      "Range": "Portée",
+      "Counter": "Contre",
+      "Descriptors": "Descripteurs",
+      "AdversaryDescriptors": "Descripteurs d'adversaire",
+      "ReversesLeft": "Inversions restantes (ce combat)",
+      "CanTakeWounded": "Peut prendre Blessé",
+      "CanTakeMortalDanger": "Peut prendre Danger de mort",
+      "GoodKarmaKnocksOut": "Hors de combat sur Bon Karma"
+    },
+    "Notify": {
+      "StoryPointsCapped": "{name} : points de récit plafonnés à {max}."
+    },
+    "Relay": {
+      "NoGM": "Aucun MJ connecté : l'action ne peut pas être relayée."
+    },
+    "Init": {
+      "GmOnly": "Seul le MJ peut initialiser le système.",
+      "Pack": {
+        "Hooks": "Accroches scénaristiques"
+      },
+      "StepReport": "{label} : {created} créée(s), {updated} mise(s) à jour, {unchanged} inchangée(s)",
+      "Orphans": "absentes du catalogue (conservées) : {list}",
+      "Duplicates": "doublons dans le catalogue : {list}",
+      "StepFailed": "{label} : échec — {error}",
+      "ReportTitle": "Initialisation de The Troubleshooters",
+      "Done": "Initialisation terminée.",
+      "DoneWithErrors": "Initialisation terminée avec des erreurs : voir le message privé.",
+      "PromptTitle": "Initialiser The Troubleshooters ?",
+      "PromptContent": "Le système (version {version}) n'a pas encore été initialisé dans ce monde, ou a été mis à jour. L'initialisation crée ou met à jour les compendiums du système sans toucher à vos acteurs ni à vos objets. Lancer maintenant ? (Vous pourrez aussi la relancer avec la macro « The Troubleshooters — Initialiser le système ».)"
+    },
+    "Settings": {
+      "ModifierMode": {
+        "Name": "Mode des modificateurs",
+        "Hint": "Pips (règle standard, lus sur le chiffre des unités) ou valeur de tâche (règle optionnelle : ±5 % par pip, LdB p. 81).",
+        "Pips": "Pips (standard)",
+        "TaskValue": "Valeur de tâche (optionnelle)"
+      },
+      "XpSystem": {
+        "Name": "Système de progression",
+        "Hint": "Coches d'amélioration (classique) ou points d'expérience (règle alternative, LdB p. 131).",
+        "Ticks": "Coches d'amélioration",
+        "Points": "Points d'expérience"
+      },
+      "SessionStartStoryPoints": {
+        "Name": "Points de récit en début de session",
+        "Hint": "4 selon le livre (LdB p. 104)."
+      },
+      "MaxStoryPoints": {
+        "Name": "Plafond de points de récit",
+        "Hint": "12 selon le livre (LdB p. 104)."
+      },
+      "SuggestImprovementTick": {
+        "Name": "Proposer la case d'amélioration",
+        "Hint": "Après un jet, proposer de cocher la case d'amélioration de la compétence (le joueur décide, le Chef peut décocher)."
+      },
+      "AutoKarmaStoryPoint": {
+        "Name": "Point de récit automatique sur Karma",
+        "Hint": "Créditer automatiquement 1 point de récit à chaque Bon ou Mauvais Karma (LdB p. 83)."
+      },
+      "NpcRollVisibility": {
+        "Name": "Visibilité des jets de PNJ",
+        "Hint": "Visibilité par défaut des jets des personnages secondaires ; modifiable à chaque jet.",
+        "Public": "Visibles de tous",
+        "Gm": "Réservés au MJ"
+      }
+    }
+  }
+}

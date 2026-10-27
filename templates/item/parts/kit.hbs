@@ -1,0 +1,56 @@
+<div class="tts-grid-3">
+  <div class="form-group"><label>{{localize "TTS.Kit.StoryPointCost"}}</label><input name="system.storyPointCost" type="number" value="{{system.storyPointCost}}" min="0" max="12"></div>
+  <div class="form-group"><label>{{localize "TTS.Kit.Category"}}</label><select name="system.category">{{selectOptions kitCategoryChoices selected=system.category}}</select></div>
+  <div class="form-group"><label>{{localize "TTS.Kit.Origin"}}</label><select name="system.origin">{{selectOptions kitOriginChoices selected=system.origin}}</select></div>
+  <label class="tts-check-label"><input name="system.carried" type="checkbox" {{checked system.carried}}> {{localize "TTS.Kit.Carried"}}</label>
+  <label class="tts-check-label"><input name="system.signature" type="checkbox" {{checked system.signature}}> {{localize "TTS.Kit.Signature"}}</label>
+  <div class="form-group"><label>{{localize "TTS.Kit.Uses"}}</label><input name="system.uses" type="number" value="{{system.uses}}" min="0" max="9" placeholder="—"></div>
+</div>
+{{#if system.signature}}
+<div class="form-group"><label>{{localize "TTS.Kit.SignatureDescription"}}</label><input name="system.signatureDescription" type="text" value="{{system.signatureDescription}}"></div>
+{{/if}}
+<div class="form-group"><label>{{localize "TTS.Kit.Contents"}}</label><input name="system.contents" type="text" value="{{system.contents}}"></div>
+<div class="form-group"><label>{{localize "TTS.Kit.Prerequisites"}}</label><input name="system.prerequisites" type="text" value="{{system.prerequisites}}"></div>
+
+<fieldset class="tts-fieldset">
+  <legend>{{localize "TTS.Kit.Descriptors"}}
+    {{#if editable}}<a class="tts-icon-button" data-action="addRow" data-path="descriptors" data-tooltip="TTS.Sheet.Add"><i class="fa-solid fa-plus"></i></a>{{/if}}</legend>
+  <table class="tts-row-table">
+    <thead><tr><th>{{localize "TTS.Descriptor.Key"}}</th><th>{{localize "TTS.Descriptor.Situation"}}</th><th>Pips</th><th>X</th><th></th></tr></thead>
+    <tbody>
+      {{#each system.descriptors as |row i|}}
+      <tr data-index="{{i}}">
+        <td><input name="system.descriptors.{{i}}.key" type="text" value="{{row.key}}"></td>
+        <td><input name="system.descriptors.{{i}}.situation" type="text" value="{{row.situation}}"></td>
+        <td class="tts-num"><input name="system.descriptors.{{i}}.pips" type="number" value="{{row.pips}}" min="-9" max="9"></td>
+        <td class="tts-num"><input name="system.descriptors.{{i}}.value" type="text" value="{{row.value}}"></td>
+        <td class="tts-row-controls">{{#if @root.editable}}<a data-action="removeRow" data-path="descriptors"><i class="fa-solid fa-trash"></i></a>{{/if}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</fieldset>
+
+<fieldset class="tts-fieldset">
+  <legend><label class="tts-check-label"><input name="system.hasWeapon" type="checkbox" {{checked system.hasWeapon}}> {{localize "TTS.Kit.Weapon"}}</label></legend>
+  {{#if system.hasWeapon}}
+  <div class="tts-grid-3">
+    <div class="form-group"><label>{{localize "TTS.Weapon.Skill"}}</label><select name="system.weapon.skill">{{selectOptions combatSkillChoices selected=system.weapon.skill}}</select></div>
+    <div class="form-group"><label>{{localize "TTS.Weapon.Damage"}}</label><div class="tts-inline"><input name="system.weapon.damage" type="number" value="{{system.weapon.damage}}" min="0" max="20"> dX</div></div>
+    <div class="form-group"><label>{{localize "TTS.Weapon.Ammo"}}</label><input name="system.weapon.ammo" type="text" value="{{system.weapon.ammo}}" placeholder="9-0"></div>
+    <div class="form-group tts-span-3"><label>{{localize "TTS.Weapon.Descriptors"}}</label><input name="system.weapon.descriptors" type="text" value="{{system.weapon.descriptors}}"></div>
+    <label class="tts-check-label"><input name="system.weapon.empty" type="checkbox" {{checked system.weapon.empty}}> {{localize "TTS.Weapon.Empty"}}</label>
+    <label class="tts-check-label"><input name="system.weapon.jammed" type="checkbox" {{checked system.weapon.jammed}}> {{localize "TTS.Weapon.Jammed"}}</label>
+  </div>
+  {{/if}}
+</fieldset>
+
+<fieldset class="tts-fieldset">
+  <legend><label class="tts-check-label"><input name="system.hasProtection" type="checkbox" {{checked system.hasProtection}}> {{localize "TTS.Kit.Protection"}}</label></legend>
+  {{#if system.hasProtection}}
+  <div class="tts-grid-3">
+    <div class="form-group"><label>{{localize "TTS.Protection.Dice"}}</label><div class="tts-inline"><input name="system.protection.dice" type="number" value="{{system.protection.dice}}" min="0" max="10"> dR</div></div>
+    <div class="form-group"><label>{{localize "TTS.Protection.InitiativePenalty"}}</label><input name="system.protection.initiativePenalty" type="number" value="{{system.protection.initiativePenalty}}" min="0" max="10"></div>
+  </div>
+  {{/if}}
+</fieldset>

@@ -1,0 +1,19 @@
+<div class="tts-grid-3">
+  <div class="form-group"><label>{{localize "TTS.Ability.Level"}}</label><input name="system.level" type="number" value="{{system.level}}" min="0" max="9"></div>
+  <div class="form-group"><label>{{localize "TTS.Ability.Cost"}}</label><input name="system.cost" type="number" value="{{system.cost}}" min="1" max="12"></div>
+  <div class="form-group"><label>{{localize "TTS.Ability.Crosses"}}</label><input name="system.crosses" type="number" value="{{system.crosses}}" min="0" max="12"></div>
+  <label class="tts-check-label"><input name="system.acquired" type="checkbox" {{checked system.acquired}}> {{localize "TTS.Ability.Acquired"}}</label>
+  <div class="form-group tts-span-2"><label>{{localize "TTS.Ability.Specialization"}}</label><input name="system.specialization" type="text" value="{{system.specialization}}"></div>
+</div>
+<div class="form-group"><label>{{localize "TTS.Ability.LearnWith"}}</label>
+  {{formInput systemFields.learnWith name="system.learnWith" value=learnWithValues options=skillOptions}}
+</div>
+<fieldset class="tts-fieldset">
+  <legend>{{localize "TTS.Ability.Prerequisites"}}</legend>
+  {{#if prerequisiteSkills.length}}
+  <p>{{#each prerequisiteSkills as |p|}}<span class="tts-tag">{{p.label}} {{p.min}} %</span>{{/each}}</p>
+  {{/if}}
+  <div class="form-group"><label>{{localize "TTS.Ability.PrerequisiteAbilities"}}</label>
+    <textarea name="system.prerequisites.abilities" rows="2">{{listText.prerequisiteAbilities}}</textarea></div>
+  <p class="tts-hint">{{localize "TTS.Ability.PhaseHint"}}</p>
+</fieldset>

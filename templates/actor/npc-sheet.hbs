@@ -1,0 +1,94 @@
+<div class="tts-npc-body">
+  <header class="tts-sheet-header">
+    <img class="tts-portrait" src="{{actor.img}}" alt="{{actor.name}}" data-edit="img" data-action="editImage" width="80" height="80">
+    <div class="tts-header-main">
+      <input class="tts-name" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'TTS.Sheet.Name'}}">
+      <div class="tts-grid-3">
+        <div class="form-group"><label>{{localize "TTS.Npc.Rank"}}</label>
+          <select name="system.rank">{{selectOptions rankChoices selected=system.rank}}</select></div>
+        <div class="form-group"><label>{{localize "TTS.Vitality.Label"}}</label>
+          <div class="tts-inline"><input name="system.vitality.value" type="number" value="{{system.vitality.value}}" min="0"> / <input name="system.vitality.max" type="number" value="{{system.vitality.max}}" min="0"></div></div>
+        <div class="form-group"><label>{{localize "TTS.Initiative.Label"}}</label>
+          <div class="tts-inline"><select name="system.initiative.mode">{{selectOptions initiativeChoices selected=system.initiative.mode}}</select>
+          {{#if (eq system.initiative.mode "fixed")}}<input name="system.initiative.value" type="number" value="{{system.initiative.value}}" min="0">{{/if}}</div></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="tts-rank-capabilities">
+    <span class="tts-tag {{#unless capabilities.canTakeWounded}}tts-off{{/unless}}">{{localize "TTS.Npc.CanTakeWounded"}}</span>
+    <span class="tts-tag {{#unless capabilities.canTakeMortalDanger}}tts-off{{/unless}}">{{localize "TTS.Npc.CanTakeMortalDanger"}}</span>
+    <span class="tts-tag {{#unless capabilities.goodKarmaKnocksOut}}tts-off{{/unless}}">{{localize "TTS.Npc.GoodKarmaKnocksOut"}}</span>
+  </div>
+
+  <fieldset class="tts-fieldset">
+    <legend>{{localize "TTS.Npc.CoreSkills"}}</legend>
+    <div class="tts-grid-3">
+      <div class="form-group"><label>{{localize "TTS.Npc.BaseSkill"}}</label><input name="system.baseSkill" type="number" value="{{system.baseSkill}}" min="0" max="106"></div>
+      <div class="form-group"><label>{{localize "TTS.Npc.Specialty"}}</label><input name="system.specialty.value" type="number" value="{{system.specialty.value}}" min="0" max="106"></div>
+      <div class="form-group"><label>{{localize "TTS.Npc.Defense"}}</label><input name="system.defense" type="number" value="{{system.defense}}" min="0" max="106" placeholder="—"></div>
+      <div class="form-group tts-span-3"><label>{{localize "TTS.Npc.SpecialtyDomain"}}</label><input name="system.specialty.domain" type="text" value="{{system.specialty.domain}}"></div>
+    </div>
+    <p class="tts-hint">{{localize "TTS.Npc.DefenseHint"}}</p>
+  </fieldset>
+
+  <fieldset class="tts-fieldset">
+    <legend>{{localize "TTS.Npc.Skills"}}
+      {{#if editable}}<a class="tts-icon-button" data-action="addRow" data-path="skills" data-tooltip="TTS.Sheet.Add"><i class="fa-solid fa-plus"></i></a>{{/if}}</legend>
+    <table class="tts-row-table">
+      <tbody>
+        {{#each system.skills as |row i|}}
+        <tr data-index="{{i}}">
+          <td><input name="system.skills.{{i}}.name" type="text" value="{{row.name}}"></td>
+          <td class="tts-num"><input name="system.skills.{{i}}.value" type="number" value="{{row.value}}" min="0" max="106"></td>
+          <td><select name="system.skills.{{i}}.kind">{{selectOptions @root.kindChoices selected=row.kind}}</select></td>
+          <td class="tts-row-controls">{{#if @root.editable}}<a data-action="removeRow" data-path="skills"><i class="fa-solid fa-trash"></i></a>{{/if}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </fieldset>
+
+  <fieldset class="tts-fieldset">
+    <legend>{{localize "TTS.Npc.Attacks"}}
+      {{#if editable}}<a class="tts-icon-button" data-action="addRow" data-path="attacks" data-tooltip="TTS.Sheet.Add"><i class="fa-solid fa-plus"></i></a>{{/if}}</legend>
+    <table class="tts-row-table">
+      <thead><tr><th>{{localize "TTS.Npc.AttackName"}}</th><th>%</th><th>dX</th><th>{{localize "TTS.Npc.Uses"}}</th><th>{{localize "TTS.Npc.Range"}}</th><th>{{localize "TTS.Npc.Counter"}}</th><th>{{localize "TTS.Npc.Descriptors"}}</th><th></th></tr></thead>
+      <tbody>
+        {{#each system.attacks as |row i|}}
+        <tr data-index="{{i}}">
+          <td><input name="system.attacks.{{i}}.name" type="text" value="{{row.name}}"></td>
+          <td class="tts-num"><input name="system.attacks.{{i}}.value" type="number" value="{{row.value}}" min="0" max="106"></td>
+          <td class="tts-num"><input name="system.attacks.{{i}}.damage" type="number" value="{{row.damage}}" min="0" max="20"></td>
+          <td class="tts-num"><input name="system.attacks.{{i}}.uses" type="number" value="{{row.uses}}" min="1" max="9"></td>
+          <td class="tts-num"><input name="system.attacks.{{i}}.range" type="number" value="{{row.range}}" min="0" max="20" placeholder="—"></td>
+          <td class="tts-check"><input name="system.attacks.{{i}}.counter" type="checkbox" {{checked row.counter}}></td>
+          <td><input name="system.attacks.{{i}}.descriptors" type="text" value="{{row.descriptors}}"></td>
+          <td class="tts-row-controls">{{#if @root.editable}}<a data-action="removeRow" data-path="attacks"><i class="fa-solid fa-trash"></i></a>{{/if}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </fieldset>
+
+  <fieldset class="tts-fieldset">
+    <legend>{{localize "TTS.Npc.AdversaryDescriptors"}}
+      {{#if editable}}<a class="tts-icon-button" data-action="addRow" data-path="descriptors" data-tooltip="TTS.Sheet.Add"><i class="fa-solid fa-plus"></i></a>{{/if}}</legend>
+    <table class="tts-row-table">
+      <tbody>
+        {{#each system.descriptors as |row i|}}
+        <tr data-index="{{i}}">
+          <td><input name="system.descriptors.{{i}}.key" type="text" value="{{row.key}}" placeholder="{{localize 'TTS.Descriptor.Key'}}"></td>
+          <td><input name="system.descriptors.{{i}}.value" type="text" value="{{row.value}}" placeholder="X"></td>
+          <td><input name="system.descriptors.{{i}}.situation" type="text" value="{{row.situation}}" placeholder="{{localize 'TTS.Descriptor.Note'}}"></td>
+          <td class="tts-row-controls">{{#if @root.editable}}<a data-action="removeRow" data-path="descriptors"><i class="fa-solid fa-trash"></i></a>{{/if}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <div class="tts-inline"><label>{{localize "TTS.Npc.ReversesLeft"}}</label><input name="system.counters.reversesLeft" type="number" value="{{system.counters.reversesLeft}}" min="0"></div>
+  </fieldset>
+
+  <h3>{{localize "TTS.Sheet.Description"}}</h3>
+  {{formInput systemFields.description name="system.description" value=system.description enriched=enrichedDescription toggled=true}}
+</div>

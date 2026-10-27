@@ -1,0 +1,10 @@
+<div class="tts-item-body">
+  {{> (lookup this "bodyPartial")}}
+  {{#if systemFields.description}}
+  <h3>{{localize "TTS.Sheet.Description"}}</h3>
+  {{formInput systemFields.description name="system.description" value=system.description enriched=enrichedDescription toggled=true}}
+  {{/if}}
+  {{#if systemFields.source}}
+  <div class="form-group tts-source"><label>{{localize "TTS.Sheet.Source"}}</label><input name="system.source" type="text" value="{{system.source}}" placeholder="LdB p. …"></div>
+  {{/if}}
+</div>

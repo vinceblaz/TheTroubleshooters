@@ -1,0 +1,42 @@
+/* The Troubleshooters — styles de base (phase 1 : sobre ; charte graphique en phase 10). */
+.thetroubleshooters.tts-sheet {
+  --tts-accent: #c8382c;
+  --tts-accent-2: #1f5fa8;
+  --tts-muted: #6b7280;
+  --tts-line: rgba(0, 0, 0, 0.15);
+  --tts-warn: #b45309;
+}
+.thetroubleshooters.tts-sheet .window-content { padding: 0.5rem 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.thetroubleshooters .tts-sheet-header { display: flex; gap: 0.75rem; align-items: flex-start; }
+.thetroubleshooters .tts-portrait { flex: 0 0 auto; object-fit: cover; border: 1px solid var(--tts-line); border-radius: 4px; cursor: pointer; }
+.thetroubleshooters .tts-header-main { flex: 1; display: flex; flex-direction: column; gap: 0.35rem; min-width: 0; }
+.thetroubleshooters .tts-name { font-size: 1.5rem; height: auto; font-weight: bold; }
+.thetroubleshooters .tts-tabs { display: flex; gap: 0.25rem; border-bottom: 2px solid var(--tts-accent); }
+.thetroubleshooters .tts-tab { padding: 0.25rem 0.75rem; border-radius: 4px 4px 0 0; }
+.thetroubleshooters .tts-tab.active { background: var(--tts-accent); color: #fff; text-shadow: none; }
+.thetroubleshooters .tab:not(.active) { display: none; }
+.thetroubleshooters .tts-tab-body { overflow-y: auto; }
+.thetroubleshooters h3 { border-bottom: 1px solid var(--tts-line); margin: 0.75rem 0 0.35rem; font-size: 1.05rem; }
+.thetroubleshooters .tts-hint { color: var(--tts-muted); font-size: 0.85em; font-style: italic; margin: 0.25rem 0; }
+.thetroubleshooters .tts-warning { color: var(--tts-warn); font-weight: bold; }
+.thetroubleshooters .tts-warn { color: var(--tts-warn); }
+.thetroubleshooters .tts-empty { color: var(--tts-muted); font-style: italic; margin: 0.25rem 0 0.5rem; }
+.thetroubleshooters .tts-tag { display: inline-block; font-size: 0.75em; padding: 0 0.4em; border: 1px solid var(--tts-line); border-radius: 0.6em; margin-right: 0.25em; white-space: nowrap; }
+.thetroubleshooters .tts-tag.tts-off { opacity: 0.4; text-decoration: line-through; }
+.thetroubleshooters .tts-icon-button { flex: 0 0 auto; width: auto; line-height: 1; padding: 0.15rem 0.4rem; margin-left: 0.4rem; cursor: pointer; }
+.thetroubleshooters .tts-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem 0.75rem; }
+.thetroubleshooters .tts-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.35rem 0.75rem; align-items: end; }
+.thetroubleshooters .tts-span-2 { grid-column: span 2; }
+.thetroubleshooters .tts-span-3 { grid-column: span 3; }
+.thetroubleshooters .tts-inline { display: flex; align-items: center; gap: 0.35rem; }
+.thetroubleshooters .tts-inline input[type="number"] { width: 4rem; }
+.thetroubleshooters .tts-check-label { display: flex; align-items: center; gap: 0.3rem; }
+.thetroubleshooters .tts-fieldset { border: 1px solid var(--tts-line); border-radius: 4px; margin: 0.5rem 0; padding: 0.35rem 0.6rem; }
+.thetroubleshooters .tts-fieldset legend { font-weight: bold; padding: 0 0.3rem; display: flex; align-items: center; }
+.thetroubleshooters .tts-row-table { width: 100%; border-collapse: collapse; margin: 0; }
+.thetroubleshooters .tts-row-table th { text-align: left; font-size: 0.8em; color: var(--tts-muted); }
+.thetroubleshooters .tts-row-table td { padding: 0.1rem 0.15rem; }
+.thetroubleshooters .tts-num input { width: 3.5rem; text-align: center; }
+.thetroubleshooters .tts-check { text-align: center; }
+.thetroubleshooters .tts-row-controls { white-space: nowrap; text-align: right; }
+.thetroubleshooters .tts-row-controls a { margin-left: 0.35rem; }

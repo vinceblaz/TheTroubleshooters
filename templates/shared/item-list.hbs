@@ -1,0 +1,29 @@
+{{!-- Liste d'Items intégrés. Paramètres : items, type, title --}}
+<section class="tts-item-list" data-type="{{type}}">
+  <header class="tts-list-header">
+    <h3>{{localize title}}</h3>
+    {{#if @root.editable}}
+    <button type="button" class="tts-icon-button" data-action="createItem" data-type="{{type}}" data-tooltip="TTS.Sheet.Add" aria-label="{{localize 'TTS.Sheet.Add'}}"><i class="fa-solid fa-plus"></i></button>
+    {{/if}}
+  </header>
+  {{#if items.length}}
+  <ul class="tts-items">
+    {{#each items as |item|}}
+    <li class="tts-item-row" data-item-id="{{item.id}}">
+      <img src="{{item.img}}" alt="" width="24" height="24">
+      <a class="tts-item-name" data-action="editItem">{{item.name}}</a>
+      {{#if (eq item.type "ability")}}<span class="tts-tag">{{localize "TTS.Ability.LevelShort"}} {{item.system.level}}</span>{{#unless item.system.acquired}}<span class="tts-tag tts-warn">{{item.system.crosses}}/{{item.system.cost}}</span>{{/unless}}{{/if}}
+      {{#if (eq item.type "language")}}{{#if item.system.fluent}}<span class="tts-tag">{{localize "TTS.Language.Fluent"}}</span>{{else}}<span class="tts-tag tts-warn">{{item.system.crosses}}/5</span>{{/if}}{{/if}}
+      {{#if @root.editable}}
+      <span class="tts-row-controls">
+        <a data-action="editItem" data-tooltip="TTS.Sheet.Edit"><i class="fa-solid fa-pen"></i></a>
+        <a data-action="deleteItem" data-tooltip="TTS.Sheet.Delete"><i class="fa-solid fa-trash"></i></a>
+      </span>
+      {{/if}}
+    </li>
+    {{/each}}
+  </ul>
+  {{else}}
+  <p class="tts-empty">{{localize "TTS.Sheet.Empty"}}</p>
+  {{/if}}
+</section>

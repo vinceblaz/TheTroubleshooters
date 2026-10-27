@@ -1,0 +1,134 @@
+[
+  {
+    "seedKey": "hook.secretAgent",
+    "data": {
+      "name": "Agent secret",
+      "type": "hook",
+      "img": "icons/svg/book.svg",
+      "system": {
+        "description": "<p>L’Europe est une colonie d’espions. Tout le monde s’espionne, y compris les États alliés comme les États-Unis, l’Allemagne et le Royaume-Uni. Même les pays scandinaves sont de la partie ! Vous êtes un agent secret au service du gouvernement. La plupart du temps, vous produisez des rapports et repérez les nouvelles recrues, mais il arrive que votre hiérarchie vous confie d’autres missions…</p>",
+        "source": "LdB p. 47"
+      }
+    }
+  },
+  {
+    "seedKey": "hook.friendsInHighPlaces",
+    "data": {
+      "name": "Amis haut placés",
+      "type": "hook",
+      "img": "icons/svg/book.svg",
+      "system": {
+        "description": "<p>Il est bon d’avoir des amis influents, cela ouvre de nombreuses portes. Mais l’amitié est une épée à double tranchant : parfois, ce sont vos connaissances qui vous entraînent dans leurs problèmes.</p>",
+        "source": "LdB p. 47"
+      }
+    }
+  },
+  {
+    "seedKey": "hook.adventurer",
+    "data": {
+      "name": "Aventurier",
+      "type": "hook",
+      "img": "icons/svg/book.svg",
+      "system": {
+        "description": "<p>La routine, ce n’est pas votre tasse de thé. Vous voulez repousser les limites, vous jeter dans l’inconnu. Vous êtes le genre de personne qui part naviguer autour du monde en solitaire, escalade les plus hauts sommets, traverse les étendues sauvages et indomptées, skie jusqu’aux pôles. Bref, n’importe quoi plutôt que de se laisser bercer par le quotidien monotone de la civilisation.</p>",
+        "source": "LdB p. 47"
+      }
+    }
+  },
+  {
+    "seedKey": "hook.whiteKnight",
+    "data": {
+      "name": "Chevalier blanc",
+      "type": "hook",
+      "img": "icons/svg/book.svg",
+      "system": {
+        "description": "<p>Vous ne pouvez pas vous en empêcher ! Vous vous sentez obligé d’aider votre prochain, surtout s’il est démuni. Vous ne prêtez pas assistance à tous ceux que vous croisez, mais, parfois, personne ne tend de main secourable, hormis vous.</p>",
+        "source": "LdB p. 47"
+      }
+    }
+  },
+  {
+    "seedKey": "hook.mediaDarling",
+    "data": {
+      "name": "Coqueluche des médias",
+      "type": "hook",
+      "img": "icons/svg/book.svg",
+      "system": {
+        "description": "<p>Vous êtes constamment sous le feu des projecteurs. Ce qui signifie non seulement que les magazines et les journaux publient régulièrement des articles vous concernant, mais aussi que vous avez des contacts parmi les reporters et les journalistes.</p>",
+        "source": "LdB p. 47"
+      }
+    }
+  },
+  {
+    "seedKey": "hook.debt",
+    "data": {
+      "name": "Dette",
+      "type": "hook",
+      "img": "icons/svg/book.svg",
+      "system": {
+        "description": "<p>Vous avez une dette immense envers un individu. Un jour, cette personne ou quelqu’un de sa connaissance se rappellera à vous. Ce qui donnera lieu à n’en pas douter à des aventures inédites et palpitantes.</p>",
+        "source": "LdB p. 47"
+      }
+    }
+  },
+  {
+    "seedKey": "hook.investigator",
+    "data": {
+      "name": "Enquêteur",
+      "type": "hook",
+      "img": "icons/svg/book.svg",
+      "system": {
+        "description": "<p>Certaines personnes gagnent leur vie en résolvant les problèmes des autres. Certaines personnes gagnent leur vie en publiant les problèmes des autres. Certaines personnes ont juste la fâcheuse habitude de fourrer leur nez partout.</p>",
+        "source": "LdB p. 47"
+      }
+    }
+  },
+  {
+    "seedKey": "hook.exile",
+    "data": {
+      "name": "Exilé",
+      "type": "hook",
+      "img": "icons/svg/book.svg",
+      "system": {
+        "description": "<p>Vous continuez d’entretenir des liens avec votre terre natale, que vous avez quittée il y a des lustres. Pour couronner le tout, les agences de renseignement de votre pays d’origine sont toujours à votre recherche. Parfois, elles vous somment de rentrer. Parfois, elles emploient la manière forte. Et parfois, vous rencontrez des personnes qui connaissent un destin similaire.</p>",
+        "source": "LdB p. 48"
+      }
+    }
+  },
+  {
+    "seedKey": "hook.historian",
+    "data": {
+      "name": "Historien",
+      "type": "hook",
+      "img": "icons/svg/book.svg",
+      "system": {
+        "description": "<p>L’Europe, et le monde entier, possèdent une longue histoire qui remonte de temps en temps à la surface. Vous vous intéressez au passé et, parfois, celui-ci s’intéresse à vous. De quoi partir à l’aventure de façon inattendue.</p>",
+        "source": "LdB p. 48"
+      }
+    }
+  },
+  {
+    "seedKey": "hook.nemesisOctopus",
+    "data": {
+      "name": "Némésis : la Pieuvre",
+      "type": "hook",
+      "img": "icons/svg/book.svg",
+      "system": {
+        "description": "<p>La Pieuvre est un mélange entre une fédération d’entités du crime organisé, une organisation terroriste et une machination mondiale pour la domination absolue de la planète. Tous les moyens sont bons pour prendre le contrôle, que ce soit de façon directe en mettant en œuvre des plans machiavéliques, ou bien de manière indirecte en exerçant son influence dans l’ombre des gouvernements. Ses agents sont partout, tels les tentacules d’une pieuvre et, même si vous en coupez un, elle en a d’autres en réserve. La Pieuvre n’aime pas qu’on se mêle de ses affaires. Cela fait quelque temps qu’elle vous a dans son collimateur.</p>",
+        "source": "LdB p. 48"
+      }
+    }
+  },
+  {
+    "seedKey": "hook.foreigner",
+    "data": {
+      "name": "Étranger",
+      "type": "hook",
+      "img": "icons/svg/book.svg",
+      "system": {
+        "description": "<p>Vous n’êtes pas d’ici, vous êtes issu d’une culture totalement différente. Pas de quoi vous freiner : tout dans votre terre d’accueil vous fascine ! Tout y est tellement pittoresque ! Votre soif de découverte vous entraîne dans des situations plus aventureuses que prévu.</p>",
+        "source": "LdB p. 48"
+      }
+    }
+  }
+]

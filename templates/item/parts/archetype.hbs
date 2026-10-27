@@ -1,0 +1,21 @@
+<fieldset class="tts-fieldset">
+  <legend>{{localize "TTS.Archetype.Skills"}}</legend>
+  <div class="form-group"><label>{{localize "TTS.Archetype.Primary"}} (75 %)</label>
+    <select name="system.skills.primary">{{selectOptions skillChoicesWithBlank selected=system.skills.primary}}</select></div>
+  <div class="form-group"><label>{{localize "TTS.Archetype.Secondary"}} (65 %)</label>
+    <div class="tts-select-row">{{#each system.skills.secondary as |key i|}}<select name="system.skills.secondary.{{i}}">{{selectOptions @root.skillChoicesWithBlank selected=key}}</select>{{/each}}</div></div>
+  <div class="form-group"><label>{{localize "TTS.Archetype.Tertiary"}} (45 %)</label>
+    <div class="tts-select-row">{{#each system.skills.tertiary as |key i|}}<select name="system.skills.tertiary.{{i}}">{{selectOptions @root.skillChoicesWithBlank selected=key}}</select>{{/each}}</div></div>
+</fieldset>
+<div class="tts-grid-3">
+  <div class="form-group"><label>{{localize "TTS.Vitality.Label"}}</label><input name="system.vitality" type="number" value="{{system.vitality}}" min="4" max="7"></div>
+  <div class="form-group"><label>{{localize "TTS.Archetype.ExtraLanguages"}}</label><input name="system.extraLanguages" type="number" value="{{system.extraLanguages}}" min="0" max="5"></div>
+  <label class="tts-check-label"><input name="system.ignorePrerequisites" type="checkbox" {{checked system.ignorePrerequisites}}> {{localize "TTS.Archetype.IgnorePrerequisites"}}</label>
+</div>
+<div class="tts-grid-2">
+  <div class="form-group"><label>{{localize "TTS.Archetype.Abilities"}}</label><textarea name="system.abilities" rows="5">{{listText.abilities}}</textarea></div>
+  <div class="form-group"><label>{{localize "TTS.Archetype.Flaws"}}</label><textarea name="system.flaws" rows="5">{{listText.flaws}}</textarea></div>
+  <div class="form-group"><label>{{localize "TTS.Archetype.Kits"}}</label><textarea name="system.kits" rows="3">{{listText.kits}}</textarea></div>
+  <div class="form-group"><label>{{localize "TTS.Archetype.SuggestedHooks"}}</label><textarea name="system.suggestedHooks" rows="3">{{listText.suggestedHooks}}</textarea></div>
+</div>
+<p class="tts-hint">{{localize "TTS.Archetype.ListHint"}}</p>

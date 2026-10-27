@@ -1,0 +1,29 @@
+/* Fiche de Risque-tout */
+.thetroubleshooters.tts-character .tts-header-stats { display: flex; gap: 1rem; align-items: flex-start; flex-wrap: wrap; }
+.thetroubleshooters.tts-character .tts-stat { display: flex; flex-direction: column; gap: 0.15rem; }
+.thetroubleshooters.tts-character .tts-stat > label { font-weight: bold; color: var(--tts-accent); }
+.thetroubleshooters.tts-character .tts-stat-values { display: flex; align-items: center; gap: 0.3rem; font-size: 1.2rem; }
+.thetroubleshooters.tts-character .tts-stat-values input { width: 3.5rem; text-align: center; font-size: 1.1rem; }
+.thetroubleshooters.tts-character .tts-stat-sub { display: flex; align-items: center; gap: 0.3rem; font-size: 0.8em; color: var(--tts-muted); }
+.thetroubleshooters.tts-character .tts-stat-sub input { width: 3rem; }
+.thetroubleshooters.tts-character .tts-stat-toggle { justify-content: flex-end; align-self: center; }
+.thetroubleshooters.tts-character .tts-skill-families { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 0.75rem; }
+.thetroubleshooters.tts-character .tts-skill-family { border: 1px solid var(--tts-line); border-radius: 4px; padding: 0.2rem 0.5rem 0.4rem; margin: 0; }
+.thetroubleshooters.tts-character .tts-skill-family legend { font-weight: bold; color: var(--tts-accent-2); padding: 0 0.3rem; }
+.thetroubleshooters.tts-character .tts-skill-table { width: 100%; margin: 0; border: none; background: none; }
+.thetroubleshooters.tts-character .tts-skill-table td { padding: 0.05rem 0.2rem; border: none; }
+.thetroubleshooters.tts-character .tts-skill-label { width: 60%; }
+.thetroubleshooters.tts-character .tts-skill-value { white-space: nowrap; }
+.thetroubleshooters.tts-character .tts-skill-value input { width: 3.5rem; text-align: center; }
+.thetroubleshooters.tts-character .tts-skill-tick { width: 1.5rem; text-align: center; }
+.thetroubleshooters.tts-character .tts-item-list { margin-bottom: 0.5rem; }
+.thetroubleshooters.tts-character .tts-list-header { display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--tts-line); }
+.thetroubleshooters.tts-character .tts-list-header h3 { flex: 1; border: none; margin: 0.5rem 0 0.2rem; }
+.thetroubleshooters.tts-character .tts-items { list-style: none; margin: 0; padding: 0; }
+.thetroubleshooters.tts-character .tts-item-row { display: flex; align-items: center; gap: 0.4rem; padding: 0.15rem 0; border-bottom: 1px dotted var(--tts-line); }
+.thetroubleshooters.tts-character .tts-item-row img { border: none; }
+.thetroubleshooters.tts-character .tts-item-name { flex: 1; cursor: pointer; }
+.thetroubleshooters.tts-character .tts-kit-table { width: 100%; margin: 0.25rem 0; }
+.thetroubleshooters.tts-character .tts-kit-table tr.tts-item-row { display: table-row; }
+.thetroubleshooters.tts-character .tts-kit-table td, .thetroubleshooters.tts-character .tts-kit-table th { padding: 0.15rem 0.3rem; text-align: left; }
+.thetroubleshooters.tts-character .tts-kit-count { font-size: 0.85em; }

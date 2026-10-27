@@ -1,0 +1,33 @@
+<header class="tts-sheet-header">
+  <img class="tts-portrait" src="{{actor.img}}" alt="{{actor.name}}" data-edit="img" data-action="editImage" width="96" height="96">
+  <div class="tts-header-main">
+    <input class="tts-name" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'TTS.Sheet.Name'}}">
+    <input class="tts-concept" name="system.identity.concept" type="text" value="{{system.identity.concept}}" placeholder="{{localize 'TTS.Identity.Concept'}}">
+    <div class="tts-header-stats">
+      <div class="tts-stat">
+        <label>{{localize "TTS.Vitality.Label"}}</label>
+        <div class="tts-stat-values">
+          <input name="system.vitality.value" type="number" value="{{system.vitality.value}}" min="0" step="1">
+          <span>/ {{system.vitality.max}}</span>
+        </div>
+        <div class="tts-stat-sub">
+          <label>{{localize "TTS.Vitality.Bonus"}}</label>
+          <input name="system.vitality.bonus" type="number" value="{{source.vitality.bonus}}" step="1">
+        </div>
+      </div>
+      <div class="tts-stat">
+        <label>{{localize "TTS.StoryPoints.Label"}}</label>
+        <div class="tts-stat-values">
+          <input name="system.storyPoints.value" type="number" value="{{system.storyPoints.value}}" min="0" max="{{maxStoryPoints}}" step="1">
+          <span>/ {{maxStoryPoints}}</span>
+        </div>
+      </div>
+      <div class="tts-stat tts-stat-toggle">
+        <label>
+          <input name="system.combat.inCover" type="checkbox" {{checked system.combat.inCover}}>
+          {{localize "TTS.Combat.InCover"}}
+        </label>
+      </div>
+    </div>
+  </div>
+</header>

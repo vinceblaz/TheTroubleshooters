@@ -1,0 +1,20 @@
+<section class="tab tts-tab-body {{tab.cssClass}}" data-group="primary" data-tab="bio">
+  <div class="tts-grid-2">
+    <div class="form-group"><label>{{localize "TTS.Identity.Nationality"}}</label><input name="system.identity.nationality" type="text" value="{{system.identity.nationality}}"></div>
+    <div class="form-group"><label>{{localize "TTS.Identity.Birthplace"}}</label><input name="system.identity.birthplace" type="text" value="{{system.identity.birthplace}}"></div>
+    <div class="form-group"><label>{{localize "TTS.Identity.Residence"}}</label><input name="system.identity.residence" type="text" value="{{system.identity.residence}}"></div>
+    <div class="form-group"><label>{{localize "TTS.Identity.Age"}}</label><input name="system.identity.age" type="text" value="{{system.identity.age}}"></div>
+    <div class="form-group"><label>{{localize "TTS.Identity.Height"}}</label><input name="system.identity.height" type="text" value="{{system.identity.height}}"></div>
+    <div class="form-group"><label>{{localize "TTS.Identity.Weight"}}</label><input name="system.identity.weight" type="text" value="{{system.identity.weight}}"></div>
+    <div class="form-group tts-span-2"><label>{{localize "TTS.Identity.DistinctiveFeatures"}}</label><input name="system.identity.distinctiveFeatures" type="text" value="{{system.identity.distinctiveFeatures}}"></div>
+    <div class="form-group tts-span-2"><label>{{localize "TTS.Team.HomeBase"}}</label><input name="system.team.homeBase" type="text" value="{{system.team.homeBase}}"></div>
+  </div>
+  <h3>{{localize "TTS.Identity.Biography"}}</h3>
+  {{formInput systemFields.identity.fields.biography name="system.identity.biography" value=system.identity.biography enriched=enriched.biography toggled=true}}
+  <h3>{{localize "TTS.Identity.Meeting"}}</h3>
+  {{formInput systemFields.identity.fields.meeting name="system.identity.meeting" value=system.identity.meeting enriched=enriched.meeting toggled=true}}
+  <h3>{{localize "TTS.Sheet.Clues"}}</h3>
+  {{formInput systemFields.clues name="system.clues" value=system.clues enriched=enriched.clues toggled=true}}
+  <h3>{{localize "TTS.Sheet.Notes"}}</h3>
+  {{formInput systemFields.notes name="system.notes" value=system.notes enriched=enriched.notes toggled=true}}
+</section>

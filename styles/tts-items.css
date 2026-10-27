@@ -1,0 +1,7 @@
+/* Fiches d'Items */
+.thetroubleshooters.tts-item .tts-item-type { color: var(--tts-muted); font-style: italic; }
+.thetroubleshooters.tts-item .tts-item-body { overflow-y: auto; }
+.thetroubleshooters.tts-item .tts-select-row { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.thetroubleshooters.tts-item .tts-select-row select { flex: 1 1 30%; min-width: 8rem; }
+.thetroubleshooters.tts-item textarea { width: 100%; font-family: inherit; }
+.thetroubleshooters.tts-item .tts-source { margin-top: 0.5rem; }

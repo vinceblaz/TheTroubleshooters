@@ -1,0 +1,14 @@
+{
+  "name": "thetroubleshooters",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Système Foundry VTT (non officiel) pour The Troubleshooters : les Risque-tout — outillage de développement",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/**/*.test.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

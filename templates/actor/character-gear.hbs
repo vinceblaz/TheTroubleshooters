@@ -1,0 +1,44 @@
+<section class="tab tts-tab-body {{tab.cssClass}}" data-group="primary" data-tab="gear">
+  <section class="tts-item-list" data-type="kit">
+    <header class="tts-list-header">
+      <h3>{{localize "TTS.Item.Kits"}}</h3>
+      <span class="tts-kit-count {{#if kitStatus.over}}tts-warn{{/if}}">{{localize "TTS.Kit.Carried"}} : {{kitStatus.carried}} / {{kitStatus.max}}</span>
+      {{#if editable}}
+      <button type="button" class="tts-icon-button" data-action="createItem" data-type="kit" data-tooltip="TTS.Sheet.Add" aria-label="{{localize 'TTS.Sheet.Add'}}"><i class="fa-solid fa-plus"></i></button>
+      {{/if}}
+    </header>
+    {{#if kitStatus.over}}<p class="tts-warning">{{localize "TTS.Kit.OverLimit"}}</p>{{/if}}
+    {{#if items.kit.length}}
+    <table class="tts-kit-table">
+      <thead>
+        <tr>
+          <th></th><th>{{localize "TTS.Kit.Name"}}</th><th>{{localize "TTS.Kit.Profile"}}</th>
+          <th>{{localize "TTS.Kit.CarriedShort"}}</th><th>{{localize "TTS.Kit.SignatureShort"}}</th><th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each items.kit as |kit|}}
+        <tr class="tts-item-row" data-item-id="{{kit.id}}">
+          <td><img src="{{kit.img}}" alt="" width="24" height="24"></td>
+          <td><a class="tts-item-name" data-action="editItem">{{kit.name}}</a></td>
+          <td class="tts-kit-profile">
+            {{#if kit.system.hasWeapon}}<span class="tts-tag">{{kit.system.weapon.damage}}dX</span>{{#if kit.system.weapon.empty}}<span class="tts-tag tts-warn">{{localize "TTS.Weapon.Empty"}}</span>{{/if}}{{/if}}
+            {{#if kit.system.hasProtection}}<span class="tts-tag">{{kit.system.protection.dice}}dR</span>{{/if}}
+          </td>
+          <td><a data-action="toggleItemFlag" data-flag="system.carried" aria-label="{{localize 'TTS.Kit.Carried'}}"><i class="fa-{{#if kit.system.carried}}solid{{else}}regular{{/if}} fa-square-check"></i></a></td>
+          <td><a data-action="toggleItemFlag" data-flag="system.signature" aria-label="{{localize 'TTS.Kit.Signature'}}"><i class="fa-{{#if kit.system.signature}}solid{{else}}regular{{/if}} fa-star"></i></a></td>
+          <td class="tts-row-controls">
+            {{#if @root.editable}}
+            <a data-action="editItem" data-tooltip="TTS.Sheet.Edit"><i class="fa-solid fa-pen"></i></a>
+            <a data-action="deleteItem" data-tooltip="TTS.Sheet.Delete"><i class="fa-solid fa-trash"></i></a>
+            {{/if}}
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <p class="tts-empty">{{localize "TTS.Sheet.Empty"}}</p>
+    {{/if}}
+  </section>
+</section>

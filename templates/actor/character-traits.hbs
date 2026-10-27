@@ -1,0 +1,8 @@
+<section class="tab tts-tab-body {{tab.cssClass}}" data-group="primary" data-tab="traits">
+  {{> "systems/thetroubleshooters/templates/shared/item-list.hbs" items=items.archetype type="archetype" title="TTS.Item.Archetypes"}}
+  {{> "systems/thetroubleshooters/templates/shared/item-list.hbs" items=items.ability type="ability" title="TTS.Item.Abilities"}}
+  {{> "systems/thetroubleshooters/templates/shared/item-list.hbs" items=items.flaw type="flaw" title="TTS.Item.Flaws"}}
+  {{> "systems/thetroubleshooters/templates/shared/item-list.hbs" items=items.hook type="hook" title="TTS.Item.Hooks"}}
+  {{> "systems/thetroubleshooters/templates/shared/item-list.hbs" items=items.language type="language" title="TTS.Item.Languages"}}
+  <p class="tts-hint">{{localize "TTS.Language.ExtraAllowed" count=extraLanguagesAllowed}}</p>
+</section>

@@ -1,0 +1,20 @@
+<div class="form-group"><label>{{localize "TTS.Flaw.Target"}}</label><input name="system.target" type="text" value="{{system.target}}" placeholder="{{localize 'TTS.Flaw.TargetHint'}}"></div>
+<fieldset class="tts-fieldset">
+  <legend>{{localize "TTS.Flaw.Triggers"}}
+    {{#if editable}}<a class="tts-icon-button" data-action="addRow" data-path="triggers" data-tooltip="TTS.Sheet.Add"><i class="fa-solid fa-plus"></i></a>{{/if}}</legend>
+  <table class="tts-row-table">
+    <thead><tr><th>{{localize "TTS.Flaw.TriggerLabel"}}</th><th>{{localize "TTS.Flaw.Mode"}}</th><th>PR</th><th>{{localize "TTS.Flaw.Condition"}}</th><th></th></tr></thead>
+    <tbody>
+      {{#each system.triggers as |row i|}}
+      <tr data-index="{{i}}">
+        <td><input name="system.triggers.{{i}}.label" type="text" value="{{row.label}}"></td>
+        <td><select name="system.triggers.{{i}}.mode">{{selectOptions @root.flawModeChoices selected=row.mode}}</select></td>
+        <td class="tts-num"><input name="system.triggers.{{i}}.gain" type="number" value="{{row.gain}}" min="0" max="9"></td>
+        <td><input name="system.triggers.{{i}}.condition" type="text" value="{{row.condition}}" placeholder="drunk…"></td>
+        <td class="tts-row-controls">{{#if @root.editable}}<a data-action="removeRow" data-path="triggers"><i class="fa-solid fa-trash"></i></a>{{/if}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <p class="tts-hint">{{localize "TTS.Flaw.Hint"}}</p>
+</fieldset>

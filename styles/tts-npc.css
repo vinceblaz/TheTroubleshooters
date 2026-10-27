@@ -1,0 +1,4 @@
+/* Fiche de personnage secondaire */
+.thetroubleshooters.tts-npc .tts-npc-body { overflow-y: auto; }
+.thetroubleshooters.tts-npc .tts-rank-capabilities { margin: 0.25rem 0; }
+.thetroubleshooters.tts-npc .tts-row-table input[type="text"] { width: 100%; }

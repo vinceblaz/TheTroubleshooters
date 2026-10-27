@@ -1,0 +1,5 @@
+<nav class="tts-tabs sheet-tabs tabs" data-group="primary">
+  {{#each tabs as |tab|}}
+  <a class="tts-tab {{tab.cssClass}}" data-action="tab" data-group="{{tab.group}}" data-tab="{{tab.id}}">{{localize tab.label}}</a>
+  {{/each}}
+</nav>

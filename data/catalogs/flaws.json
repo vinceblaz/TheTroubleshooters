@@ -1,0 +1,618 @@
+[
+  {
+    "seedKey": "flaw.alcoholic",
+    "data": {
+      "name": "Alcoolique",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [
+          {
+            "label": "L'addiction vous handicape : condition Saoul",
+            "gain": 3,
+            "mode": "condition",
+            "skills": [],
+            "condition": "drunk"
+          },
+          {
+            "label": "En porte-à-faux avec les autorités",
+            "gain": 3,
+            "mode": "free",
+            "skills": [],
+            "condition": ""
+          },
+          {
+            "label": "Vous empêche de participer à une scène décisive",
+            "gain": 6,
+            "mode": "absent",
+            "skills": [],
+            "condition": ""
+          }
+        ],
+        "target": "",
+        "special": "",
+        "aliases": [],
+        "description": "<p>Vous êtes alcoolique. Lorsque vous ne satisfaites pas votre addiction, vous ressentez un effet de manque. Trouver un équilibre entre votre dépendance à l’alcool et votre vie quotidienne représente un défi et, même si vous parvenez à rester sobre, le moindre écart vous renverra au fond du trou.</p><p><strong>Points de récit :</strong> gagnez 3 points de récit quand votre addiction ou le manque d’alcool vous handicape et que vous subissez la condition Saoul.</p><p>Gagnez 3 points de récit quand votre alcoolisme vous met en porte-à-faux avec les autorités.</p><p>Gagnez 6 points de récit quand votre alcoolisme vous empêche de participer à une scène décisive.</p>",
+        "source": "LdB p. 75"
+      }
+    }
+  },
+  {
+    "seedKey": "flaw.codeOfHonor",
+    "data": {
+      "name": "Code d’honneur",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [
+          {
+            "label": "Un méchant s'échappe à cause de votre code",
+            "gain": 3,
+            "mode": "free",
+            "skills": [],
+            "condition": ""
+          },
+          {
+            "label": "−2 pips sur les actions contraires à votre code",
+            "gain": 3,
+            "mode": "penalty",
+            "skills": [],
+            "condition": ""
+          },
+          {
+            "label": "Quitter la scène pour ne pas commettre l'irréparable",
+            "gain": 6,
+            "mode": "absent",
+            "skills": [],
+            "condition": ""
+          }
+        ],
+        "target": "",
+        "special": "",
+        "aliases": [],
+        "description": "<p>Il y a des choses que vous ne faites tout simplement pas. Ce n’est pas une question d’éducation ou de politesse, mais une affaire de principes, d’honneur. Certes, ces règles de conduite limitent vos possibilités, parfois drastiquement, néanmoins ce sont elles qui distinguent le monde civilisé des brutes et des barbares. Alors qu’il en soit ainsi.</p><p><strong>Points de récit :</strong> gagnez 3 points de récit lorsqu’un méchant s’échappe à cause de votre code d’honneur.</p><p>Gagnez 3 points de récit en subissant –2 pips sur les actions qui vont à l’encontre de votre code d’honneur.</p><p>Gagnez 6 points de récit quand quelqu’un trahit votre code d’honneur et que vous devez quitter la scène pour ne pas commettre d’acte irréparable à son encontre.</p>",
+        "source": "LdB p. 75"
+      }
+    }
+  },
+  {
+    "seedKey": "flaw.greedy",
+    "data": {
+      "name": "Cupide",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [
+          {
+            "label": "−2 pips sur vos interactions sociales",
+            "gain": 3,
+            "mode": "penalty",
+            "skills": [
+              "charm",
+              "contacts",
+              "languages",
+              "performance",
+              "status",
+              "deception"
+            ],
+            "condition": ""
+          },
+          {
+            "label": "Ennuis : incapable de participer à une scène décisive",
+            "gain": 6,
+            "mode": "absent",
+            "skills": [],
+            "condition": ""
+          },
+          {
+            "label": "Inimitié d'un personnage secondaire important",
+            "gain": 6,
+            "mode": "free",
+            "skills": [],
+            "condition": ""
+          }
+        ],
+        "target": "",
+        "special": "",
+        "aliases": [],
+        "description": "<p>Vous voulez tout. Vous éprouvez peut-être aussi de la jalousie, mais le plus important, c’est que vous réclamiez votre part et plus si c’est possible. Les gens sont choqués, pourtant vous êtes dans votre bon droit. C’est à vous et à personne d’autre !</p><p><strong>Points de récit :</strong> gagnez 3 points de récit en subissant –2 pips sur vos interactions sociales à cause de votre cupidité.</p><p>Gagnez 6 points de récit quand votre convoitise vous cause des problèmes avec les autorités ou avec un personnage secondaire influent et que vous êtes dans l’incapacité de participer à une scène décisive.</p><p>Gagnez 6 points de récit quand votre cupidité vous attire l’inimitié d’un personnage secondaire important.</p>",
+        "source": "LdB p. 76"
+      }
+    }
+  },
+  {
+    "seedKey": "flaw.sleepy",
+    "data": {
+      "name": "Endormi",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [
+          {
+            "label": "Bâillement : −2 pips en Vigilance, Endurance ou Initiative",
+            "gain": 3,
+            "mode": "penalty",
+            "skills": [
+              "vigilance",
+              "endurance"
+            ],
+            "condition": ""
+          },
+          {
+            "label": "Vous manquez la scène (endormi)",
+            "gain": 6,
+            "mode": "absent",
+            "skills": [],
+            "condition": ""
+          }
+        ],
+        "target": "",
+        "special": "",
+        "aliases": [],
+        "description": "<p>Vous n’êtes pas du matin. Ni du soir d’ailleurs et, à bien y penser, une petite sieste après le repas de midi puis dans la journée ne vous ferait pas de mal. Vous n’êtes pas fainéant, vous avez juste besoin de plus d’heures de sommeil que la moyenne des gens.</p><p>Seriez-vous un chat ?</p><p><strong>Points de récit :</strong> gagnez 3 points de récit en subissant –2 pips sur un jet de Vigilance, d’Endurance ou d’Initiative tandis que vous bâillez à un moment critique.</p><p>Gagnez 6 points de récit lorsque vous manquez la scène parce que vous ne vous réveillez pas à temps ou que vous vous endormez juste avant le début de la scène.</p>",
+        "source": "LdB p. 76"
+      }
+    }
+  },
+  {
+    "seedKey": "flaw.prejudiced",
+    "data": {
+      "name": "Farci de préjugés",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [
+          {
+            "label": "−2 pips pendant une scène où vos préjugés s'expriment",
+            "gain": 3,
+            "mode": "penalty",
+            "skills": [],
+            "condition": ""
+          }
+        ],
+        "target": "",
+        "special": "",
+        "aliases": [],
+        "description": "<p>Vous n’aimez pas une certaine catégorie de gens. Vous devez lutter pour masquer votre mépris. En fait, vous préféreriez assumer ouvertement votre opinion, mais la société voit d’un mauvais œil que l’on puisse détester ces gens. Mais parfois, ou peut-être souvent, il vous arrive de déraper.</p><p>Choisissez la cible de vos préjugés : les membres du sexe opposé, les personnes originaires d’un pays en particulier, la classe ouvrière, la bourgeoisie, etc.</p><p><strong>Points de récit :</strong> gagnez 3 points de récit en subissant –2 pips durant une scène où vous laissez libre cours à vos préjugés.</p>",
+        "source": "LdB p. 76"
+      }
+    }
+  },
+  {
+    "seedKey": "flaw.rude",
+    "data": {
+      "name": "Grossier",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [
+          {
+            "label": "Vous vous ridiculisez par vos manières frustes",
+            "gain": 3,
+            "mode": "free",
+            "skills": [],
+            "condition": ""
+          },
+          {
+            "label": "Ignoré ou expulsé d'une scène sociale",
+            "gain": 6,
+            "mode": "absent",
+            "skills": [],
+            "condition": ""
+          }
+        ],
+        "target": "",
+        "special": "",
+        "aliases": [],
+        "description": "<p>L’étiquette et vous n’êtes pas les meilleurs amis du monde. Vous n’êtes pas forcément vulgaire (quoi que…). Vous êtes juste un peu trop franc. Brut de décoffrage. Ce manque de tact, vous le devez à vos origines ouvrières, rurales ou étrangères. Vous avez du mal à saisir les subtilités des relations sociales dans le pays où vous vous trouvez.</p><p><strong>Points de récit :</strong> gagnez 3 points de récit lorsque vous vous ridiculisez avec vos manières frustes.</p><p>Gagnez 6 points de récit en vous faisant ignorer durant une scène d’actions sociales ou en vous faisant expulser si votre comportement paraît dangereux ou menaçant.</p>",
+        "source": "LdB p. 76"
+      }
+    }
+  },
+  {
+    "seedKey": "flaw.honest",
+    "data": {
+      "name": "Honnête",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [
+          {
+            "label": "−2 pips quand vous mentez ou bluffez",
+            "gain": 3,
+            "mode": "penalty",
+            "skills": [
+              "deception",
+              "charm"
+            ],
+            "condition": ""
+          },
+          {
+            "label": "Ennuis : incapable de participer à une scène importante",
+            "gain": 6,
+            "mode": "absent",
+            "skills": [],
+            "condition": ""
+          },
+          {
+            "label": "Inimitié d'un personnage secondaire influent",
+            "gain": 6,
+            "mode": "free",
+            "skills": [],
+            "condition": ""
+          }
+        ],
+        "target": "",
+        "special": "",
+        "aliases": [],
+        "description": "<p>L’honnêteté est le fondement de la civilisation. Vous détestez les mensonges et les faux semblants. Ces pratiques vont à l’encontre de votre caractère et vous mettent mal à l’aise.</p><p><strong>Points de récit :</strong> gagnez 3 points de récit en subissant –2 pips sur vos jets lorsque vous mentez ou bluffez.</p><p>Gagnez 6 points de récit quand votre honnêteté vous cause des problèmes avec les autorités ou un personnage secondaire influent de telle manière que vous êtes dans l’incapacité de participer à une scène importante.</p><p>Gagnez 6 points de récit quand votre honnêteté vous attire l’inimitié d’un personnage secondaire influent.</p>",
+        "source": "LdB p. 76"
+      }
+    }
+  },
+  {
+    "seedKey": "flaw.unlucky",
+    "data": {
+      "name": "Malchanceux",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [],
+        "target": "",
+        "special": "unlucky",
+        "aliases": [],
+        "description": "<p>La fortune ne sourit pas à tout le monde. Pas à vous en tout cas.</p><p><strong>Points de récit :</strong> le Chef des Opérations peut inverser n’importe lequel de vos jets de tâche. Chaque fois qu’il le fait, vous gagnez 3 points de récit.</p>",
+        "source": "LdB p. 76"
+      }
+    }
+  },
+  {
+    "seedKey": "flaw.badReputation",
+    "data": {
+      "name": "Mauvaise réputation",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [
+          {
+            "label": "−2 pips en Charme, Contacts et Statut pour la scène",
+            "gain": 3,
+            "mode": "penalty",
+            "skills": [
+              "charm",
+              "contacts",
+              "status"
+            ],
+            "condition": ""
+          },
+          {
+            "label": "Éjecté d'une scène : vous n'êtes pas le bienvenu",
+            "gain": 6,
+            "mode": "absent",
+            "skills": [],
+            "condition": ""
+          }
+        ],
+        "target": "",
+        "special": "",
+        "aliases": [],
+        "description": "<p>Votre réputation vous précède, mais pas en bien. Tout le monde parle de vous, autant dire que les ennuis vous guettent.</p><p><strong>Points de récit :</strong> gagnez 3 points de récit en subissant –2 pips sur vos jets de Charme, de Contacts ou de Statut lors d’une scène.</p><p>Gagnez 6 points de récit lorsque vous êtes éjecté d’une scène parce que vous n’êtes pas le bienvenu dans le coin.</p>",
+        "source": "LdB p. 76"
+      }
+    }
+  },
+  {
+    "seedKey": "flaw.minor",
+    "data": {
+      "name": "Mineur",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [
+          {
+            "label": "Rater un jet de Charme ou de Tromperie réussi",
+            "gain": 3,
+            "mode": "fail",
+            "skills": [
+              "charm",
+              "deception"
+            ],
+            "condition": ""
+          },
+          {
+            "label": "Établissement interdit : vous ne participez pas à la scène",
+            "gain": 6,
+            "mode": "absent",
+            "skills": [],
+            "condition": ""
+          }
+        ],
+        "target": "",
+        "special": "",
+        "aliases": [],
+        "description": "<p>La jeunesse n’est pas toujours un avantage. En effet, votre âge vous interdit de participer à certaines activités.</p><p><strong>Contraintes légales :</strong> en étant mineur, vous ne pouvez pas acheter d’alcool, conduire une voiture, posséder une arme à feu, entrer dans certains établissements. Selon votre âge il peut même vous être interdit d’avoir des relations sexuelles. Pour de très nombreuses autres choses, vous devrez parfois obtenir l’autorisation d’un parent ou d’un responsable légal.</p><p><strong>Points de récit :</strong> gagnez 3 points de récit en ratant un jet de Charme ou de Tromperie réussi. Vos interlocuteurs balaient vos arguments d’un revers de main à cause de votre jeune âge.</p><p>Gagnez 6 points de récit lorsque vous êtes dans l’impossibilité de participer à une scène se déroulant dans un établissement auquel vous n’avez pas le droit d’accéder.</p>",
+        "source": "LdB p. 76"
+      }
+    }
+  },
+  {
+    "seedKey": "flaw.criminalPast",
+    "data": {
+      "name": "Passé criminel",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [
+          {
+            "label": "La police arrive au pire moment (accord du Chef)",
+            "gain": 3,
+            "mode": "free",
+            "skills": [],
+            "condition": ""
+          },
+          {
+            "label": "−2 pips sur vos jets sociaux pour la scène",
+            "gain": 3,
+            "mode": "penalty",
+            "skills": [
+              "charm",
+              "contacts",
+              "languages",
+              "performance",
+              "status",
+              "deception"
+            ],
+            "condition": ""
+          },
+          {
+            "label": "Placé en détention le temps d'une scène",
+            "gain": 6,
+            "mode": "absent",
+            "skills": [],
+            "condition": ""
+          }
+        ],
+        "target": "",
+        "special": "",
+        "aliases": [],
+        "description": "<p>Vous êtes ou étiez un voyou. Les autorités vous connaissent bien et, dès qu’il y a du grabuge, vous êtes en tête de la liste des suspects. Que vos accointances criminelles soient une source de fierté ou de honte, la police est toujours sur vos talons, même quand son intervention n’est pas justifiée.</p><p><strong>Points de récit :</strong> gagnez 3 points de récit lorsque des policiers arrivent au pire moment (avec accord du Chef des Opérations).</p><p>Gagnez 3 points de récit en subissant –2 pips sur vos jets sociaux lors d’une scène.</p><p>Gagnez 6 points de récit quand la police vous place en détention le temps d’une scène, et vous relâche plus tard.</p>",
+        "source": "LdB p. 77"
+      }
+    }
+  },
+  {
+    "seedKey": "flaw.patriot",
+    "data": {
+      "name": "Patriote",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [
+          {
+            "label": "Rater un jet d'Enquête ou de Tromperie réussi",
+            "gain": 3,
+            "mode": "fail",
+            "skills": [
+              "investigation",
+              "deception"
+            ],
+            "condition": ""
+          },
+          {
+            "label": "Se sacrifier : subir quand même une attaque ratée",
+            "gain": 6,
+            "mode": "free",
+            "skills": [],
+            "condition": ""
+          }
+        ],
+        "target": "",
+        "special": "",
+        "aliases": [],
+        "description": "<p>Il n’y a rien de mal à aimer son pays, mais, parfois, cette affection obscurcit votre jugement.</p><p><strong>Points de récit :</strong> gagnez 3 points de récit en transformant en échec un jet d’Enquête ou de Tromperie réussi. Vous parvenez à une mauvaise conclusion, basée sur votre patriotisme.</p><p>Lorsqu’un jet d’attaque rate ou que vous détournez le coup, gagnez 6 points de récit et sacrifiez-vous pour votre patrie en subissant quand même l’attaque.</p>",
+        "source": "LdB p. 77"
+      }
+    }
+  },
+  {
+    "seedKey": "flaw.lost",
+    "data": {
+      "name": "Perdu",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [
+          {
+            "label": "−2 pips sur un jet de voyage ou de déplacement",
+            "gain": 3,
+            "mode": "penalty",
+            "skills": [
+              "driving",
+              "survival"
+            ],
+            "condition": ""
+          },
+          {
+            "label": "Tellement perdu que vous manquez la scène",
+            "gain": 6,
+            "mode": "absent",
+            "skills": [],
+            "condition": ""
+          }
+        ],
+        "target": "",
+        "special": "",
+        "aliases": [],
+        "description": "<p>Vous vous perdez sans arrêt. Votre sens de l’orientation est tellement catastrophique que vous êtes capable de vous égarer n’importe où en dehors des toilettes. Vous arrivez souvent en retard aux rendez-vous, car vous peinez à trouver le bâtiment ou le bureau indiqué. Si vous comptez visiter les pyramides d’Égypte ou les labyrinthes minoens, surtout, prenez un guide.</p><p><strong>Points de récit :</strong> gagnez 3 points de récit en subissant –2 pips sur un jet associé aux voyages ou aux déplacements.</p><p>Gagnez 6 points de récit quand vous êtes tellement perdu que vous ne pouvez pas participer à la scène.</p>",
+        "source": "LdB p. 77"
+      }
+    }
+  },
+  {
+    "seedKey": "flaw.phobia",
+    "data": {
+      "name": "Phobie",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [
+          {
+            "label": "−2 pips pendant une scène face à votre phobie",
+            "gain": 3,
+            "mode": "penalty",
+            "skills": [],
+            "condition": ""
+          },
+          {
+            "label": "Aucune action principale ni de mouvement de tout le combat",
+            "gain": 6,
+            "mode": "free",
+            "skills": [],
+            "condition": ""
+          },
+          {
+            "label": "Votre phobie vous empêche de participer à une scène importante",
+            "gain": 6,
+            "mode": "absent",
+            "skills": [],
+            "condition": ""
+          }
+        ],
+        "target": "",
+        "special": "",
+        "aliases": [],
+        "description": "<p>Une peur irrationnelle vous handicape et vous fige sur place. Vous avez conscience de la stupidité de la situation, mais votre inconscient n’est pas du même avis.</p><p>Choisissez la cause de votre phobie : saleté, grands espaces, chiens, araignées, serpents, etc. Notez bien qu’une phobie qui se déclenche dans des circonstances exceptionnelles entrera rarement en jeu et vous rapportera peu de points de récit.</p><p><strong>Points de récit :</strong> gagnez 3 points de récits en subissant –2 pips lors d’une scène où vous êtes confronté à votre phobie.</p><p>Gagnez 6 points de récit en annulant tous vos rounds dans une scène de combat à cause de votre phobie. Jusqu’à la fin de la scène, vous ne pouvez effectuer aucune action principale ou de mouvement.</p><p>Gagnez 6 points de récit lorsque votre phobie vous empêche de participer à une scène importante.</p>",
+        "source": "LdB p. 77"
+      }
+    }
+  },
+  {
+    "seedKey": "flaw.overconfident",
+    "data": {
+      "name": "Présomptueux",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [
+          {
+            "label": "−2 pips sur une compétence ≥ 65 % jusqu'à la fin de la scène (à annoncer avant le jet)",
+            "gain": 3,
+            "mode": "penalty",
+            "skills": [],
+            "condition": ""
+          }
+        ],
+        "target": "",
+        "special": "",
+        "aliases": [
+          "Trop confiant"
+        ],
+        "description": "<p>Vous pouvez tout faire. Et si vous échouez, c’est que vous ne teniez pas tellement à réussir de toute façon, ou alors, pour une fois, vous avez laissé quelqu’un d’autre gagner. Sur le long terme, l’échec n’est pas une option !</p><p><strong>Points de récit :</strong> gagnez 3 points de récit en subissant –2 pips sur les jets d’une de vos compétences d’une valeur de 65 % ou plus. Annoncez votre décision avant de lancer les dés. Le modificateur s’applique jusqu’à la fin de la scène.</p><p><em>Alias : « Trop confiant » dans certaines listes d’archétypes (bible D-031).</em></p>",
+        "source": "LdB p. 77"
+      }
+    }
+  },
+  {
+    "seedKey": "flaw.recognizable",
+    "data": {
+      "name": "Reconnaissable",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [
+          {
+            "label": "−2 pips en Tromperie ou Furtivité",
+            "gain": 3,
+            "mode": "penalty",
+            "skills": [
+              "deception",
+              "stealth"
+            ],
+            "condition": ""
+          },
+          {
+            "label": "Une aventure passée vous rattrape",
+            "gain": 6,
+            "mode": "free",
+            "skills": [],
+            "condition": ""
+          }
+        ],
+        "target": "",
+        "special": "",
+        "aliases": [],
+        "description": "<p>Les gens se souviennent de vous. Peut-être est-ce dû à votre apparence, au timbre de votre voix, à votre tenue vestimentaire ou à votre démarche ? En tout cas, il suffit de vous croiser une fois dans la vie pour vous garder en mémoire à jamais.</p><p><strong>Points de récit :</strong> gagnez 3 points de récit en subissant –2 pips sur vos jets de Tromperie ou de Furtivité.</p><p>Gagnez 6 points de récit lorsqu’une aventure passée vous cause des ennuis parce que vous êtes reconnaissable.</p>",
+        "source": "LdB p. 77"
+      }
+    }
+  },
+  {
+    "seedKey": "flaw.seducer",
+    "data": {
+      "name": "Séducteur",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [
+          {
+            "label": "Distrait : −2 pips sur les jets sans rapport avec vos élans du cœur",
+            "gain": 3,
+            "mode": "penalty",
+            "skills": [],
+            "condition": ""
+          },
+          {
+            "label": "Votre séduction vous attire des problèmes",
+            "gain": 3,
+            "mode": "free",
+            "skills": [],
+            "condition": ""
+          },
+          {
+            "label": "Un rendez-vous galant vous fait manquer une scène importante",
+            "gain": 6,
+            "mode": "absent",
+            "skills": [],
+            "condition": ""
+          }
+        ],
+        "target": "",
+        "special": "",
+        "aliases": [],
+        "description": "<p>L’amour vous donne des ailes, et vous êtes un séducteur invétéré ! Pas question de harceler ou de laisser libre cours à un comportement douteux. Vous aimez juste flirter !</p><p><strong>Points de récit :</strong> gagnez 3 points de récit lorsque vous êtes distrait par vos émotions et que vous obtenez –2 pips sur tous les jets de tâche qui n’ont aucun rapport avec vos élans du cœur.</p><p>Gagnez 3 points de récit quand votre tentative de séduction vous attire des problèmes.</p><p>Gagnez 6 points de récit quand un rendez-vous galant ou un épisode romantique vous empêche de participer à une scène importante.</p>",
+        "source": "LdB p. 77"
+      }
+    }
+  },
+  {
+    "seedKey": "flaw.paralyzingStupor",
+    "data": {
+      "name": "Stupeur paralysante",
+      "type": "flaw",
+      "img": "icons/svg/downgrade.svg",
+      "system": {
+        "triggers": [
+          {
+            "label": "Perdre au moins un round de combat",
+            "gain": 3,
+            "mode": "free",
+            "skills": [],
+            "condition": ""
+          },
+          {
+            "label": "Ne participer à aucun round du combat",
+            "gain": 6,
+            "mode": "free",
+            "skills": [],
+            "condition": ""
+          }
+        ],
+        "target": "",
+        "special": "",
+        "aliases": [],
+        "description": "<p>Vous n’êtes pas forcément un lâche. Le recours à la violence ou la perspective de faire du mal à un être humain vont peut-être à l’encontre de vos principes fondamentaux. Quoi qu’il en soit, vous êtes parfois incapable de passer à l’action lorsque les coups pleuvent.</p><p><strong>Points de récit :</strong> gagnez 3 points de récit en perdant au moins un round de combat. Durant le round perdu, vous ne pouvez pas effectuer d’action principale ou de mouvement.</p><p>Gagnez 6 points de récit à condition de ne participer à aucun round de combat. Vous ne pouvez pas effectuer d’action principale ou de mouvement durant la totalité de la scène.</p>",
+        "source": "LdB p. 77"
+      }
+    }
+  }
+]

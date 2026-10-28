@@ -1,0 +1,73 @@
+<div class="tts-roll-form">
+  <p class="tts-roll-summary"><strong>{{ctx.actor.name}}</strong> — {{ctx.label}} : <strong>{{ctx.value}} %</strong></p>
+
+  <div class="form-group">
+    <label>{{localize "TTS.Roll.Difficulty.Label"}}</label>
+    {{#if locked}}
+    <span class="tts-locked">{{lockedLabel}}</span>
+    {{else}}
+    <select name="difficulty">{{selectOptions difficultyChoices selected="0"}}</select>
+    {{/if}}
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "TTS.Roll.Circumstances"}}</label>
+    <input name="circumstances" type="number" value="0" min="-9" max="9" step="1">
+    <p class="hint">{{localize "TTS.Roll.CircumstancesHint"}}</p>
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "TTS.Roll.Gear"}}</label>
+    <select name="gearId">
+      <option value="">{{localize "TTS.Roll.None"}}</option>
+      {{#each ctx.gearOptions as |g|}}<option value="{{g.id}}">{{g.label}}</option>{{/each}}
+    </select>
+    {{#unless ctx.gearOptions.length}}<p class="hint">{{localize "TTS.Roll.GearHint"}}</p>{{/unless}}
+  </div>
+
+  <div class="form-group">
+    <label>{{localize "TTS.Roll.Abilities"}}</label>
+    {{#if ctx.abilityOptions.length}}
+    <select name="abilityId">
+      <option value="">{{localize "TTS.Roll.ManualAbility"}}</option>
+      {{#each ctx.abilityOptions as |a|}}<option value="{{a.id}}">{{a.label}}</option>{{/each}}
+    </select>
+    {{/if}}
+    <input name="abilities" type="number" value="0" min="-9" max="9" step="1">
+    <p class="hint">{{localize "TTS.Roll.AbilitiesHint"}}</p>
+  </div>
+
+  {{#if ctx.conditionMods.length}}
+  <div class="form-group tts-roll-conditions">
+    <label>{{localize "TTS.Roll.Conditions"}}</label>
+    <span>{{#each ctx.conditionMods as |m|}}<span class="tts-tag">{{m.label}} {{m.pips}}</span>{{/each}} = <strong>{{conditionTotal}}</strong></span>
+  </div>
+  {{/if}}
+
+  {{#if ctx.flawMods.length}}
+  <div class="form-group tts-roll-conditions">
+    <label>{{localize "TTS.Roll.Flaws"}}</label>
+    <span>{{#each ctx.flawMods as |m|}}<span class="tts-tag">{{m.label}} {{m.pips}}</span>{{/each}} = <strong>{{flawTotal}}</strong></span>
+  </div>
+  {{/if}}
+
+  {{#if opponents.length}}
+  <fieldset class="tts-roll-opposed">
+    <legend><label class="tts-check-label"><input name="opposed" type="checkbox"> {{localize "TTS.Roll.Opposed"}}</label></legend>
+    <div class="form-group">
+      <label>{{localize "TTS.Roll.Opponent"}}</label>
+      <select name="opponentUuid">{{#each opponents as |o|}}<option value="{{o.uuid}}">{{o.name}}</option>{{/each}}</select>
+    </div>
+    <div class="form-group">
+      <label>{{localize "TTS.Roll.OpponentSkill"}}</label>
+      <select name="opponentChoice">{{#each opponents as |o|}}{{#each o.choices as |label key|}}<option value="{{key}}">{{label}}</option>{{/each}}{{/each}}</select>
+    </div>
+    <p class="hint">{{localize "TTS.Roll.OpposedHint"}}</p>
+  </fieldset>
+  {{/if}}
+
+  <div class="form-group">
+    <label>{{localize "TTS.Roll.RollMode"}}</label>
+    <select name="rollMode">{{selectOptions rollModes selected=rollMode}}</select>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+{{!-- Boutons d'activation de capacités. Paramètres : abilities, side (facultatif) --}}
+{{#each abilities as |a|}}
+<button type="button" data-tts-action="ability" data-ability-id="{{a.abilityId}}" data-index="{{a.index}}" data-type="{{a.type}}" {{#if ../side}}data-side="{{../side}}"{{/if}} data-tooltip="{{a.hint}}">
+  <i class="fa-solid fa-star"></i> {{a.label}} {{#if (eq a.type "failForPoints")}}(+{{a.gain}} PR){{else}}({{a.cost}} PR){{/if}}
+</button>
+{{/each}}

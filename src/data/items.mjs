@@ -2,6 +2,7 @@
  * Modèles de données — Items (bible §6.4).
  */
 import { SKILL_KEYS } from "../domain/rules/skills.mjs";
+import { ACTIVATION_TYPE_KEYS } from "../domain/rules/activations.mjs";
 import { intField, stringField, htmlField, boolField, sourceField, descriptorField } from "./fields.mjs";
 
 const { fields } = foundry.data;
@@ -47,7 +48,17 @@ export class AbilityData extends foundry.abstract.TypeDataModel {
       crosses: intField(0, { min: 0, max: 12 }),
       acquired: boolField(true),
       specialization: stringField(),
-      activations: new fields.ArrayField(new fields.ObjectField()),
+      activations: new fields.ArrayField(new fields.SchemaField({
+        key: stringField(),
+        type: stringField("narrative", { choices: ACTIVATION_TYPE_KEYS, blank: false }),
+        cost: intField(1, { min: 0, max: 12 }),
+        skills: new fields.ArrayField(stringField("", { choices: SKILL_KEYS, blank: false })),
+        label: stringField(),
+        pips: intField(0, { min: -9, max: 9 }),
+        dice: intField(0, { min: 0, max: 10 }),
+        skill: skillKeyField(),
+        gain: intField(0, { min: 0, max: 12 })
+      })),
       description: htmlField(),
       source: sourceField()
     };
@@ -66,6 +77,8 @@ export class FlawData extends foundry.abstract.TypeDataModel {
         condition: stringField()
       })),
       target: stringField(),
+      special: stringField("", { choices: ["", "unlucky"] }),     // « unlucky » = Malchanceux (inversion par le Chef)
+      aliases: new fields.ArrayField(stringField()),             // D-031 : « Trop confiant » = Présomptueux
       description: htmlField(),
       source: sourceField()
     };

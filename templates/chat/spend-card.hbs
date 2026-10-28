@@ -1,0 +1,22 @@
+<div class="thetroubleshooters tts-card tts-spend-card">
+  <header class="tts-card-header">
+    <span class="tts-card-title">{{spend.typeLabel}}</span>
+    <span class="tts-card-value">{{spend.reserved}} PR</span>
+  </header>
+  {{#if spend.description}}<p class="tts-spend-description">{{spend.description}}</p>{{/if}}
+  {{#if (eq spend.status "pending")}}
+  <div class="tts-pending">{{localize "TTS.Spend.Pending"}}</div>
+  <div class="tts-card-buttons" data-visibility="gm">
+    <button type="button" data-tts-action="spendResolve" data-decision="accept"><i class="fa-solid fa-check"></i> {{localize "TTS.Chat.Accept"}}</button>
+    <button type="button" data-tts-action="spendResolve" data-decision="modify"><i class="fa-solid fa-pen"></i> {{localize "TTS.Spend.Modify"}}</button>
+    <button type="button" data-tts-action="spendResolve" data-decision="refuse"><i class="fa-solid fa-xmark"></i> {{localize "TTS.Chat.Refuse"}}</button>
+  </div>
+  {{else}}
+  <div class="tts-outcome">
+    {{#if (eq spend.status "accepted")}}<span class="tts-success">{{localize "TTS.Spend.Accepted"}}</span>{{/if}}
+    {{#if (eq spend.status "refused")}}<span class="tts-failure">{{localize "TTS.Spend.Refused"}}</span>{{/if}}
+    {{#if (eq spend.status "modified")}}<span class="tts-success">{{localize "TTS.Spend.Modified"}} : {{spend.finalCost}} PR</span>{{/if}}
+  </div>
+  {{#if spend.note}}<p class="tts-history">{{spend.note}}</p>{{/if}}
+  {{/if}}
+</div>

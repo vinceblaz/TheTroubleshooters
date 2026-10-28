@@ -1,0 +1,9 @@
+/* Boîtes de dialogue */
+.thetroubleshooters.tts-dialog .tts-roll-summary { margin: 0 0 0.4rem; }
+.thetroubleshooters.tts-dialog .form-group .hint { flex: 0 0 100%; font-size: 0.8em; color: #6b7280; margin: 0.1rem 0 0; }
+.thetroubleshooters.tts-dialog .tts-locked { font-style: italic; }
+.thetroubleshooters.tts-dialog .tts-tag { display: inline-block; font-size: 0.8em; padding: 0 0.35em; border: 1px solid rgba(0,0,0,0.2); border-radius: 0.6em; margin-right: 0.2em; }
+.thetroubleshooters.tts-dialog .tts-roll-opposed { border: 1px solid rgba(0,0,0,0.15); border-radius: 4px; margin: 0.4rem 0; padding: 0.2rem 0.5rem; }
+.thetroubleshooters.tts-dialog .tts-check-label { display: flex; align-items: center; gap: 0.3rem; }
+.thetroubleshooters .tts-rollable { cursor: pointer; }
+.thetroubleshooters .tts-rollable:hover { text-shadow: 0 0 6px #c8382c; }

@@ -1,0 +1,43 @@
+<div class="thetroubleshooters tts-card tts-task-card">
+  <header class="tts-card-header">
+    <span class="tts-card-title">{{card.label}}</span>
+    <span class="tts-card-value">{{card.value}} %</span>
+  </header>
+  {{#if card.mods.length}}
+  <div class="tts-mods">
+    {{#each card.mods as |m|}}<span class="tts-tag">{{m.label}} {{#if (gt m.pips 0)}}+{{/if}}{{m.pips}}</span>{{/each}}
+    <span class="tts-net">= {{#if (gt card.task.pips 0)}}+{{/if}}{{card.task.pips}} pips</span>
+  </div>
+  {{/if}}
+  {{> "systems/thetroubleshooters/templates/chat/task-result.hbs" task=card.task}}
+  {{#if card.karmaAwarded}}<div class="tts-history">★ {{localize "TTS.Chat.KarmaPoint"}}</div>{{/if}}
+
+  {{#if (eq card.task.status "pendingFailure")}}
+  <div class="tts-pending">{{localize "TTS.Chat.FailurePending"}}</div>
+  <div class="tts-card-buttons" data-visibility="gm">
+    <button type="button" data-tts-action="resolveFailure" data-accepted="true"><i class="fa-solid fa-check"></i> {{localize "TTS.Chat.Accept"}}</button>
+    <button type="button" data-tts-action="resolveFailure" data-accepted="false"><i class="fa-solid fa-xmark"></i> {{localize "TTS.Chat.Refuse"}}</button>
+  </div>
+  {{/if}}
+
+  {{#if (eq card.task.status "resolved")}}
+  <div class="tts-card-buttons" data-owner-uuid="{{card.actorUuid}}">
+    {{#if card.isCharacter}}
+    <button type="button" data-tts-action="invert"><i class="fa-solid fa-arrow-right-arrow-left"></i> {{localize "TTS.Chat.Invert"}} (2 PR)</button>
+    {{#if card.task.success}}<button type="button" data-tts-action="proposeFailure"><i class="fa-solid fa-person-falling"></i> {{localize "TTS.Chat.ProposeFailure"}} (+2 PR)</button>{{/if}}
+    {{#if canFlawFail}}<button type="button" data-tts-action="flawFail"><i class="fa-solid fa-heart-crack"></i> {{localize "TTS.Chat.FlawFail"}} (+3 PR)</button>{{/if}}
+    {{#if card.skillKey}}<button type="button" data-tts-action="tickImprovement" data-skill="{{card.skillKey}}"><i class="fa-regular fa-square-check"></i> {{localize "TTS.Chat.TickImprovement"}}</button>{{/if}}
+    {{/if}}
+  </div>
+  {{#if abilities.length}}
+  <div class="tts-card-buttons tts-ability-buttons" data-owner-uuid="{{card.actorUuid}}">
+    {{> "systems/thetroubleshooters/templates/chat/ability-buttons.hbs" abilities=abilities}}
+  </div>
+  {{/if}}
+  {{#if unlucky}}
+  <div class="tts-card-buttons" data-visibility="gm">
+    <button type="button" data-tts-action="unlucky"><i class="fa-solid fa-cloud-rain"></i> {{localize "TTS.Chat.Unlucky"}} (+3 PR)</button>
+  </div>
+  {{/if}}
+  {{/if}}
+</div>

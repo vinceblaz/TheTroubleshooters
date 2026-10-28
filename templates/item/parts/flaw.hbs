@@ -1,3 +1,7 @@
+<div class="tts-grid-2">
+  <div class="form-group"><label>{{localize "TTS.Flaw.Special"}}</label><select name="system.special">{{selectOptions flawSpecialChoices selected=system.special}}</select></div>
+  <div class="form-group"><label>{{localize "TTS.Flaw.Aliases"}}</label><textarea name="system.aliases" rows="1">{{listText.aliases}}</textarea></div>
+</div>
 <div class="form-group"><label>{{localize "TTS.Flaw.Target"}}</label><input name="system.target" type="text" value="{{system.target}}" placeholder="{{localize 'TTS.Flaw.TargetHint'}}"></div>
 <fieldset class="tts-fieldset">
   <legend>{{localize "TTS.Flaw.Triggers"}}

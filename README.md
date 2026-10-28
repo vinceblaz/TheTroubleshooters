@@ -9,9 +9,8 @@ Système Foundry VTT **v14** (vérifié sur 14.369) pour le jeu de rôle *The Tr
 
 ## État
 
-Version **0.1.0** — phase 1 (squelette) de la feuille de route : modèles de données, fiches fonctionnelles,
-socle du relais MJ, séquence d'initialisation (catalogue des accroches). Voir `CHANGELOG.md`.
-Statut : **livré, non validé** tant que la recette en Foundry réel n'est pas faite (`docs/recette-phase-1.md`).
+Version **0.3.0** — phase 3 livrée, non validée (`docs/recette-phase-3.md`). Phase 1 (squelette) validée en Foundry réel (22/22). Phase 2 (moteur de jet) validée en Foundry réel
+(30/30 avec le correctif 0.2.1). Voir `CHANGELOG.md` et `docs/`.
 
 ## Installation (manuelle, pendant le développement)
 

@@ -5,6 +5,11 @@
 import { SYSTEM_PATH, THETROUBLESHOOTERS } from "../config.mjs";
 import { SKILLS, SKILL_FAMILIES } from "../domain/rules/skills.mjs";
 import { enrich, confirmDeleteItem, itemFromEvent } from "./sheet-helpers.mjs";
+import { rollCharacterSkill } from "../services/roll-service.mjs";
+import { sheetActivations, ACTIVATION_TYPES } from "../domain/rules/activations.mjs";
+import { activateFromSheet } from "../services/ability-service.mjs";
+import { triggerFlaw, activeFlawPenalties } from "../services/flaw-service.mjs";
+import { proposeSpend } from "../apps/spend-dialog.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -21,7 +26,12 @@ export class TTSCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
       createItem: TTSCharacterSheet.#onCreateItem,
       editItem: TTSCharacterSheet.#onEditItem,
       deleteItem: TTSCharacterSheet.#onDeleteItem,
-      toggleItemFlag: TTSCharacterSheet.#onToggleItemFlag
+      toggleItemFlag: TTSCharacterSheet.#onToggleItemFlag,
+      rollSkill: TTSCharacterSheet.#onRollSkill,
+      activateAbility: TTSCharacterSheet.#onActivateAbility,
+      triggerFlaw: TTSCharacterSheet.#onTriggerFlaw,
+      proposeSpend: TTSCharacterSheet.#onProposeSpend,
+      removeEffect: TTSCharacterSheet.#onRemoveEffect
     }
   };
 
@@ -68,8 +78,25 @@ export class TTSCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
       if (items[item.type]) items[item.type].push(item);
     }
 
+    const abilityRows = items.ability.map(item => ({
+      item,
+      acts: sheetActivations(item.system).map(({ act, index }) => ({
+        index,
+        cost: act.cost,
+        label: act.label || game.i18n.localize(`TTS.ActivationType.${act.type}`),
+        combat: ACTIVATION_TYPES[act.type]?.phase === 4
+      })),
+      cardCount: (item.system.activations ?? []).filter(a => ["card", "dialog"].includes(ACTIVATION_TYPES[a.type]?.where)).length
+    }));
+    const penalties = activeFlawPenalties(actor).map(p => ({
+      ...p,
+      skillsLabel: p.skills?.length ? p.skills.map(k => game.i18n.localize(THETROUBLESHOOTERS.skills[k]?.label ?? k)).join(", ") : game.i18n.localize("TTS.Flaw.AllRolls")
+    }));
+
     return Object.assign(context, {
       actor,
+      abilityRows,
+      penalties,
       system,
       source: actor.system._source,
       config: THETROUBLESHOOTERS,
@@ -114,6 +141,31 @@ export class TTSCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
 
   static async #onDeleteItem(event, target) {
     await confirmDeleteItem(itemFromEvent(this.document, target));
+  }
+
+  /** Jet de compétence (phase 2). */
+  static async #onRollSkill(event, target) {
+    const key = target.closest("[data-skill]")?.dataset.skill;
+    if (key) await rollCharacterSkill(this.document, key);
+  }
+
+  static async #onActivateAbility(event, target) {
+    const item = itemFromEvent(this.document, target);
+    await activateFromSheet(this.document, item, Number(target.dataset.index));
+  }
+
+  static async #onTriggerFlaw(event, target) {
+    await triggerFlaw(this.document, itemFromEvent(this.document, target));
+  }
+
+  static async #onProposeSpend() {
+    await proposeSpend(this.document);
+  }
+
+  /** Retire un malus de scène (le joueur peut le lever lui-même, le Chef arbitre). */
+  static async #onRemoveEffect(event, target) {
+    const id = target.closest("[data-effect-id]")?.dataset.effectId;
+    if (id) await this.document.deleteEmbeddedDocuments("ActiveEffect", [id]);
   }
 
   /** Bascule un booléen d'un Item intégré (kit emporté, signature…). */

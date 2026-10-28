@@ -5,6 +5,7 @@
  */
 import { SYSTEM_PATH, THETROUBLESHOOTERS } from "../config.mjs";
 import { SKILL_KEYS } from "../domain/rules/skills.mjs";
+import { ACTIVATION_TYPE_KEYS } from "../domain/rules/activations.mjs";
 import { normalizeArrayPaths, normalizeListPaths } from "./form-utils.mjs";
 import { enrich, localizedRecord } from "./sheet-helpers.mjs";
 
@@ -17,13 +18,16 @@ export const ITEM_BODY_PARTIALS = Object.fromEntries(
 );
 
 /** Champs saisis en lignes de tableau (objets à clés numériques → tableaux). */
-const ARRAY_PATHS = ["system.skills.secondary", "system.skills.tertiary", "system.descriptors", "system.triggers"];
+const ARRAY_PATHS = ["system.skills.secondary", "system.skills.tertiary", "system.descriptors", "system.triggers",
+  "system.activations", "system.prerequisites.skills"];
 /** Champs saisis en texte, une entrée par ligne. */
-const LIST_PATHS = ["system.abilities", "system.flaws", "system.kits", "system.suggestedHooks", "system.prerequisites.abilities"];
+const LIST_PATHS = ["system.abilities", "system.flaws", "system.kits", "system.suggestedHooks", "system.prerequisites.abilities", "system.aliases"];
 
 const BLANK_ROWS = {
   descriptors: { key: "", pips: 0, situation: "", value: "" },
-  triggers: { label: "", gain: 3, mode: "penalty", skills: [], condition: "" }
+  triggers: { label: "", gain: 3, mode: "penalty", skills: [], condition: "" },
+  activations: { key: "", type: "invert", cost: 1, skills: [], label: "", pips: 0, dice: 0, skill: "", gain: 0 },
+  "prerequisites.skills": { key: "agility", min: 65 }
 };
 
 export class TTSItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
@@ -65,12 +69,16 @@ export class TTSItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       kitCategoryChoices: localizedRecord(THETROUBLESHOOTERS.kitCategories),
       kitOriginChoices: localizedRecord(THETROUBLESHOOTERS.kitOrigins),
       flawModeChoices: localizedRecord(THETROUBLESHOOTERS.flawTriggerModes),
+      activationTypeChoices: Object.fromEntries(ACTIVATION_TYPE_KEYS.map(k => [k, game.i18n.localize(`TTS.ActivationType.${k}`)])),
+      flawSpecialChoices: { "": game.i18n.localize("TTS.Flaw.SpecialNone"), unlucky: game.i18n.localize("TTS.Flaw.SpecialUnlucky") },
+      activationRows: (system.activations ?? []).map((a, i) => ({ ...a, i, skillsSelected: a.skills ?? [] })),
       listText: {
         abilities: lines(system.abilities),
         flaws: lines(system.flaws),
         kits: lines(system.kits),
         suggestedHooks: lines(system.suggestedHooks),
-        prerequisiteAbilities: lines(system.prerequisites?.abilities)
+        prerequisiteAbilities: lines(system.prerequisites?.abilities),
+        aliases: lines(system.aliases)
       },
       prerequisiteSkills: (system.prerequisites?.skills ?? []).map(p => ({ label: skillChoices[p.key] ?? p.key, min: p.min })),
       enrichedDescription: await enrich(system.description ?? "", item)
@@ -88,7 +96,7 @@ export class TTSItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     const path = target.dataset.path;
     const blank = BLANK_ROWS[path];
     if (!blank) return;
-    const rows = foundry.utils.deepClone(this.document.system._source[path] ?? []);
+    const rows = foundry.utils.deepClone(foundry.utils.getProperty(this.document.system._source, path) ?? []);
     rows.push(foundry.utils.deepClone(blank));
     await this.document.update({ [`system.${path}`]: rows });
   }
@@ -96,7 +104,7 @@ export class TTSItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   static async #onRemoveRow(event, target) {
     const path = target.dataset.path;
     const index = Number(target.closest("[data-index]")?.dataset.index);
-    const rows = foundry.utils.deepClone(this.document.system._source[path] ?? []);
+    const rows = foundry.utils.deepClone(foundry.utils.getProperty(this.document.system._source, path) ?? []);
     if (!Number.isInteger(index) || index < 0 || index >= rows.length) return;
     rows.splice(index, 1);
     await this.document.update({ [`system.${path}`]: rows });

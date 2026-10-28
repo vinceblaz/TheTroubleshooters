@@ -1,0 +1,36 @@
+/* Cartes de chat */
+.thetroubleshooters.tts-card { --tts-accent: #c8382c; --tts-accent-2: #1f5fa8; --tts-ok: #2e7d4f; --tts-ko: #b42318; --tts-muted: #6b7280; display: flex; flex-direction: column; gap: 0.3rem; }
+.tts-card .tts-card-header { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid var(--tts-accent); padding-bottom: 0.15rem; }
+.tts-card .tts-card-title { font-weight: bold; font-size: 1.05em; }
+.tts-card .tts-card-value { color: var(--tts-muted); }
+.tts-card .tts-mods { font-size: 0.85em; }
+.tts-card .tts-tag { display: inline-block; font-size: 0.8em; padding: 0 0.35em; border: 1px solid rgba(0,0,0,0.2); border-radius: 0.6em; margin: 0 0.2em 0.15em 0; }
+.tts-card .tts-net { font-weight: bold; }
+.tts-card .tts-dice-line { display: flex; align-items: center; gap: 0.5rem; }
+.tts-card .tts-die-result { font-size: 1.8em; font-weight: bold; min-width: 2.2em; text-align: center; border: 2px solid currentColor; border-radius: 6px; line-height: 1.2; }
+.tts-card .tts-original { text-decoration: line-through; color: var(--tts-muted); }
+.tts-card .tts-success { color: var(--tts-ok); font-weight: bold; }
+.tts-card .tts-failure { color: var(--tts-ko); font-weight: bold; }
+.tts-card .tts-auto, .tts-card .tts-gm-note { font-size: 0.85em; color: var(--tts-muted); margin-left: 0.3em; }
+.tts-card .tts-karma { font-weight: bold; padding: 0.05em 0.45em; border-radius: 0.6em; color: #fff; }
+.tts-card .tts-karma-good { background: var(--tts-ok); }
+.tts-card .tts-karma-bad { background: var(--tts-ko); }
+.tts-card .tts-history { font-size: 0.85em; color: var(--tts-muted); }
+.tts-card .tts-pending { font-style: italic; color: #b45309; }
+.tts-card .tts-card-buttons { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.tts-card .tts-card-buttons button { flex: 1 1 auto; font-size: 0.85em; line-height: 1.6; }
+.tts-card .tts-opposed-sides { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; }
+.tts-card .tts-side { border: 1px solid rgba(0,0,0,0.15); border-radius: 4px; padding: 0.25rem; }
+.tts-card .tts-side h4 { margin: 0; font-size: 1em; }
+.tts-card .tts-side-skill { font-size: 0.85em; color: var(--tts-muted); }
+.tts-card .tts-side.tts-winner { border-color: var(--tts-ok); box-shadow: 0 0 0 1px var(--tts-ok) inset; }
+.tts-card .tts-side .tts-die-result { font-size: 1.4em; }
+.tts-card .tts-opposed-outcome { font-weight: bold; text-align: center; }
+.tts-card .tts-request-rows { list-style: none; margin: 0; padding: 0; }
+.tts-card .tts-request-rows li { display: flex; align-items: center; justify-content: space-between; gap: 0.3rem; padding: 0.1rem 0; }
+.tts-card .tts-request-rows button { flex: 0 0 auto; width: auto; }
+.tts-card .tts-pool-faces { display: flex; flex-wrap: wrap; gap: 0.2rem; }
+.tts-card .tts-face { display: inline-block; width: 1.6em; text-align: center; border: 1px solid rgba(0,0,0,0.3); border-radius: 4px; }
+.tts-card .tts-face.tts-hit { border-color: var(--tts-ok); color: var(--tts-ok); font-weight: bold; }
+.tts-card .tts-face.tts-exploded { box-shadow: 0 0 0 2px var(--tts-accent) inset; }
+.tts-card .tts-pool-total { font-size: 1.1em; }

@@ -1,0 +1,10 @@
+<div class="thetroubleshooters tts-card tts-log-card">
+  <header class="tts-card-header"><span class="tts-card-title">{{title}}</span></header>
+  {{#if reason}}<p class="tts-history">{{reason}}</p>{{/if}}
+  <ul class="tts-log-lines">
+    {{#each lines as |l|}}
+    <li>{{#if l.name}}<strong>{{l.name}}</strong>{{/if}}
+      {{#if l.text}} {{l.text}}{{else}} : {{l.from}} → {{l.to}} PR <span class="tts-tag">{{#if (gt l.delta 0)}}+{{/if}}{{l.delta}}</span>{{/if}}</li>
+    {{/each}}
+  </ul>
+</div>

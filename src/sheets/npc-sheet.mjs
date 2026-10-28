@@ -4,6 +4,7 @@
 import { SYSTEM_PATH, THETROUBLESHOOTERS } from "../config.mjs";
 import { normalizeArrayPaths } from "./form-utils.mjs";
 import { enrich, localizedRecord } from "./sheet-helpers.mjs";
+import { rollNpcSkill } from "../services/roll-service.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -18,7 +19,8 @@ export class TTSNpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     form: { submitOnChange: true },
     actions: {
       addRow: TTSNpcSheet.#onAddRow,
-      removeRow: TTSNpcSheet.#onRemoveRow
+      removeRow: TTSNpcSheet.#onRemoveRow,
+      rollNpc: TTSNpcSheet.#onRollNpc
     }
   };
 
@@ -47,6 +49,13 @@ export class TTSNpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   _processFormData(event, form, formData) {
     const data = super._processFormData(event, form, formData);
     return normalizeArrayPaths(data, ARRAY_PATHS);
+  }
+
+  /** Jet de PNJ : compétence de base, spécialité ou ligne de compétence (phase 2). */
+  static async #onRollNpc(event, target) {
+    const source = target.dataset.source;
+    const index = Number(target.closest("[data-index]")?.dataset.index);
+    await rollNpcSkill(this.document, { source, index: Number.isInteger(index) ? index : undefined });
   }
 
   static async #onAddRow(event, target) {

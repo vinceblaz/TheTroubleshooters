@@ -1,0 +1,26 @@
+<div class="thetroubleshooters tts-card tts-opposed-card">
+  <header class="tts-card-header"><span class="tts-card-title">{{localize "TTS.Chat.OpposedTitle"}}</span></header>
+  <div class="tts-opposed-sides">
+    {{#each sides as |side|}}
+    <section class="tts-side {{#if side.winner}}tts-winner{{/if}}">
+      <h4>{{side.name}}</h4>
+      <div class="tts-side-skill">{{side.skillLabel}}{{#if side.task}} — {{side.task.value}} %{{/if}}</div>
+      {{#if side.task}}
+      {{> "systems/thetroubleshooters/templates/chat/task-result.hbs" task=side.task}}
+      {{#if side.canInvert}}
+      <div class="tts-card-buttons" data-owner-uuid="{{side.actorUuid}}">
+        <button type="button" data-tts-action="opposedInvert" data-side="{{side.key}}"><i class="fa-solid fa-arrow-right-arrow-left"></i> {{localize "TTS.Chat.Invert"}} (2 PR)</button>
+        {{> "systems/thetroubleshooters/templates/chat/ability-buttons.hbs" abilities=side.abilities side=side.key}}
+      </div>
+      {{/if}}
+      {{else}}
+      <p class="tts-pending">{{localize "TTS.Chat.Waiting"}}</p>
+      <div class="tts-card-buttons" data-owner-uuid="{{side.actorUuid}}">
+        <button type="button" data-tts-action="opposedRoll" data-side="{{side.key}}"><i class="fa-solid fa-dice-d10"></i> {{localize "TTS.Roll.Roll"}}</button>
+      </div>
+      {{/if}}
+    </section>
+    {{/each}}
+  </div>
+  {{#if outcomeLabel}}<div class="tts-opposed-outcome">{{outcomeLabel}}</div>{{/if}}
+</div>

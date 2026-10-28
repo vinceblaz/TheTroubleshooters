@@ -170,7 +170,24 @@
       "LearnWith": "Compétences d'apprentissage",
       "Prerequisites": "Prérequis",
       "PrerequisiteAbilities": "Capacités requises (une par ligne)",
-      "PhaseHint": "Les prérequis de compétence et les activations en points de récit seront éditables en phase 3."
+      "PhaseHint": "Les activations sont structurées ci-dessous.",
+      "Activations": "Activations",
+      "ActType": "Type",
+      "ActCost": "Coût (PR)",
+      "ActLabel": "Circonstance (texte, non vérifiée)",
+      "ActSkills": "Compétences concernées (aucune = situationnelle)",
+      "ActSkill": "Compétence de remplacement (Concentré)",
+      "ActNumbers": "Pips / dés / gain",
+      "ActPips": "Pips (bonus ou malus)",
+      "ActDice": "Dés (dX ou dR)",
+      "ActGain": "Points de récit gagnés (rater pour des PR)",
+      "ActivationsHint": "Inverser, relancer, transformer en réussite, rejouer autrement et rater pour des PR apparaissent sur les cartes de jet ; les bonus en pips dans la boîte de jet ; les autres se déclenchent depuis la fiche. La circonstance n'est jamais vérifiée : le joueur juge, le Chef arbitre.",
+      "OnRolls": "sur les jets",
+      "OnRollsHint": "Activations proposées automatiquement sur les cartes de jet et dans la boîte de jet",
+      "CombatLater": "Effet de combat : annoncé et payé ici ; automatisation en phase 4",
+      "ConfirmSpend": "Dépenser {cost} PR : {label} ?",
+      "NoCost": "sans coût",
+      "Activated": "{actor} active {ability}"
     },
     "Flaw": {
       "Target": "Cible (préjugé, phobie…)",
@@ -179,7 +196,23 @@
       "TriggerLabel": "Situation",
       "Mode": "Mode",
       "Condition": "Condition liée",
-      "Hint": "Le déclenchement reste à l'initiative du joueur (LdB p. 75) ; le bouton « Déclencher » arrive en phase 3."
+      "Hint": "Déclenchez le désavantage depuis la fiche du personnage (bouton « Déclencher ») ; « rater un jet réussi » se fait depuis la carte du jet.",
+      "Trigger": "Déclencher",
+      "TriggerTitle": "Déclencher : {name}",
+      "TriggerHint": "Le déclenchement vous appartient (LdB p. 75) : il doit avoir des conséquences pour votre personnage. « Rater un jet réussi » se fait depuis la carte du jet.",
+      "PenaltySkills": "Compétences touchées par le malus",
+      "PenaltySkillsHint": "Aucune sélection : compétences du déclencheur, ou tous les jets.",
+      "PenaltyOn": "−2 pips en {skills} jusqu'à la fin de la scène",
+      "PenaltyAll": "−2 pips sur tous les jets jusqu'à la fin de la scène",
+      "AbsentNote": "absent de la scène",
+      "Triggered": "{actor} déclenche {flaw}",
+      "ActivePenalties": "Malus de scène actifs",
+      "AllRolls": "tous les jets",
+      "RemovePenalty": "Retirer ce malus",
+      "Special": "Règle spéciale",
+      "SpecialNone": "Aucune",
+      "SpecialUnlucky": "Malchanceux (le Chef peut inverser vos jets)",
+      "Aliases": "Autres noms (un par ligne)"
     },
     "Hook": {
       "Hint": "Une accroche n'a aucun effet mécanique : c'est un fait de contexte que le Chef utilise pour lancer l'aventure (règle d'or)."
@@ -266,15 +299,20 @@
       "GoodKarmaKnocksOut": "Hors de combat sur Bon Karma"
     },
     "Notify": {
-      "StoryPointsCapped": "{name} : points de récit plafonnés à {max}."
+      "StoryPointsCapped": "{name} : points de récit plafonnés à {max}.",
+      "NotEnoughStoryPoints": "{name} n'a pas assez de points de récit ({cost} requis).",
+      "ActivationNotApplicable": "Cette activation ne s'applique pas à ce jet."
     },
     "Relay": {
-      "NoGM": "Aucun MJ connecté : l'action ne peut pas être relayée."
+      "NoGM": "Aucun MJ connecté : l'action ne peut pas être relayée.",
+      "Refused": "Action refusée ({reason})."
     },
     "Init": {
       "GmOnly": "Seul le MJ peut initialiser le système.",
       "Pack": {
-        "Hooks": "Accroches scénaristiques"
+        "Hooks": "Accroches scénaristiques",
+        "Abilities": "Capacités",
+        "Flaws": "Désavantages"
       },
       "StepReport": "{label} : {created} créée(s), {updated} mise(s) à jour, {unchanged} inchangée(s)",
       "Orphans": "absentes du catalogue (conservées) : {list}",
@@ -321,6 +359,148 @@
         "Public": "Visibles de tous",
         "Gm": "Réservés au MJ"
       }
+    },
+    "Roll": {
+      "Roll": "Lancer",
+      "RollSkill": "Lancer un jet",
+      "DialogTitle": "Jet : {label} ({value} %)",
+      "Difficulty": {
+        "Label": "Difficulté",
+        "VeryEasy": "Très facile",
+        "Easy": "Facile",
+        "Average": "Moyen",
+        "Hard": "Difficile",
+        "VeryHard": "Très difficile"
+      },
+      "DifficultySecret": "Fixée par le Chef",
+      "Circumstances": "Circonstances (pips)",
+      "CircumstancesHint": "Un seul modificateur de circonstances : météo, ligne de vue encombrée (−2 par zone), Karma précédent (±2)…",
+      "Gear": "Matériel",
+      "GearHint": "Aucun kit emporté ne porte de descripteur à pips.",
+      "Abilities": "Capacité (pips)",
+      "AbilitiesHint": "Choisissez un bonus de capacité ou saisissez une valeur libre (le joueur juge la circonstance, le Chef arbitre).",
+      "Conditions": "Conditions",
+      "None": "Aucun",
+      "Opposed": "Jet en opposition",
+      "Opponent": "Adversaire (cible)",
+      "OpponentSkill": "Compétence adverse",
+      "OpposedHint": "Vous choisissez la compétence adverse (LdB p. 82). L'adversaire lance depuis la carte de chat.",
+      "RollMode": "Visibilité du jet",
+      "ManualAbility": "Saisie libre",
+      "Flaws": "Désavantages (malus de scène)"
+    },
+    "Chat": {
+      "Success": "Réussite",
+      "Failure": "Échec",
+      "Auto": {
+        "success": "réussite automatique par les pips",
+        "failure": "échec automatique par les pips"
+      },
+      "GoodKarma": "Bon Karma",
+      "BadKarma": "Mauvais Karma",
+      "KarmaPoint": "Karma : +1 point de récit",
+      "OriginalResult": "Résultat d'origine",
+      "Inverted": "Inversé",
+      "SecretModifier": "Modificateur secret :",
+      "Invert": "Inverser",
+      "ProposeFailure": "Rater volontairement",
+      "TickImprovement": "Cocher l'amélioration",
+      "FailurePending": "Échec volontaire proposé : en attente de la décision du Chef.",
+      "Accept": "Valider",
+      "Refuse": "Refuser",
+      "VoluntaryFailure": "échec volontaire",
+      "VoluntaryFailureAccepted": "Échec volontaire validé",
+      "OpposedTitle": "Jet en opposition",
+      "Waiting": "En attente du jet…",
+      "OpposedTie": "Match nul : aucun camp ne l'emporte.",
+      "OpposedWinner": "{name} l'emporte.",
+      "FlawFail": "Rater (désavantage)",
+      "Unlucky": "Malchanceux : inverser",
+      "Rerolled": "relancé",
+      "ForcedSuccess": "transformé en réussite",
+      "FailedForPoints": "jet raté volontairement"
+    },
+    "Request": {
+      "Title": "Demande de jet",
+      "Send": "Envoyer",
+      "Speaker": "Le Chef des Opérations",
+      "Actors": "Risque-tout concernés",
+      "NoCharacters": "Aucun Risque-tout possédé par un joueur.",
+      "NoActor": "Aucun Risque-tout sélectionné.",
+      "Skill": "Compétence",
+      "Hidden": "Difficulté secrète",
+      "HiddenHint": "La difficulté est appliquée sans être montrée au joueur ; seul le MJ voit l'issue réelle (LdB p. 18).",
+      "HiddenFromPlayers": "cachée aux joueurs",
+      "Rolled": "Lancé"
+    },
+    "Pool": {
+      "Damage": "Jet de dégâts",
+      "Soak": "Encaissement / récupération",
+      "Sum": "Somme de d6",
+      "Hits": "point(s)"
+    },
+    "ActivationType": {
+      "invert": "inverser",
+      "reroll": "relancer",
+      "forceSuccess": "transformer en réussite",
+      "rerollWith": "rejouer autrement",
+      "failForPoints": "rater pour des PR",
+      "bonusPips": "bonus en pips",
+      "narrative": "effet narratif",
+      "bonusDamage": "dégâts supplémentaires",
+      "rerollDamage": "relancer les dégâts",
+      "recovery": "récupération",
+      "knockoutMinion": "sbire hors de combat",
+      "initiative": "agir en premier",
+      "bonusAction": "action bonus"
+    },
+    "Spend": {
+      "Button": "Dépenser",
+      "Title": "Dépenser des points de récit",
+      "Propose": "Proposer au Chef",
+      "Hint": "Les points sont réservés maintenant et rendus si le Chef refuse",
+      "TypeLabel": "Dépense",
+      "Cost": "Coût (PR)",
+      "CostDefault": "coût standard",
+      "Description": "Ce que vous proposez",
+      "DescriptionHint": "Ex. : « Ce gros bouton rouge est l'alarme incendie. »",
+      "Type": {
+        "Clue": "Obtenir un indice",
+        "Minor": "Ajouter un élément mineur",
+        "Major": "Ajouter un élément majeur",
+        "Kit": "Obtenir un kit (scène du plan)",
+        "Other": "Autre"
+      },
+      "Pending": "En attente de la décision du Chef.",
+      "Modify": "Modifier",
+      "Accepted": "Validé",
+      "Refused": "Refusé : points rendus",
+      "Modified": "Modifié",
+      "NewCost": "Nouveau coût (PR)",
+      "Note": "Note du Chef"
+    },
+    "SP": {
+      "AppTitle": "Points de récit et scène",
+      "Character": "Risque-tout",
+      "PendingBonus": "Bonus de session",
+      "ForSelection": "Pour les Risque-tout cochés",
+      "Captured": "Capturés !",
+      "Amuse": "Amuser la table",
+      "Signature": "Matériel signature indisponible",
+      "Wipe": "Meurtre de sang-froid : tout retirer",
+      "WipeConfirm": "Retirer tous les points de récit de : {names} ?",
+      "NewSession": "Nouvelle session",
+      "NewSessionPrompt": "Remettre les réserves au niveau de début de session (4 + bonus d'intersession), ou les conserver (fin sur un cliffhanger, LdB p. 104) ?",
+      "NewSessionReset": "Remettre à 4 (+ bonus)",
+      "NewSessionKeep": "Conserver les réserves",
+      "ManualAdjust": "Ajustement du Chef",
+      "NoSelection": "Aucun Risque-tout coché.",
+      "NoCharacters": "Aucun Risque-tout dans ce monde."
+    },
+    "Scene": {
+      "New": "Nouvelle scène",
+      "Removed": "{count} effet(s) de scène retiré(s)",
+      "NothingToRemove": "aucun effet de scène à retirer"
     }
   }
 }

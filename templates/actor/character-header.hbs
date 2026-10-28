@@ -21,6 +21,7 @@
           <input name="system.storyPoints.value" type="number" value="{{system.storyPoints.value}}" min="0" max="{{maxStoryPoints}}" step="1">
           <span>/ {{maxStoryPoints}}</span>
         </div>
+        {{#if editable}}<button type="button" class="tts-small-button" data-action="proposeSpend"><i class="fa-solid fa-coins"></i> {{localize "TTS.Spend.Button"}}</button>{{/if}}
       </div>
       <div class="tts-stat tts-stat-toggle">
         <label>

@@ -1,0 +1,33 @@
+{{!-- Affiche un état de jet de tâche. Paramètres : task, hidden (bool) --}}
+<div class="tts-task-result">
+  <div class="tts-dice-line">
+    <span class="tts-die-result {{#if task.success}}tts-success{{else}}tts-failure{{/if}}">{{task.result}}</span>
+    {{#if task.history.length}}<span class="tts-original" data-tooltip="TTS.Chat.OriginalResult">{{task.originalResult}}</span>{{/if}}
+    {{#if task.karma}}<span class="tts-karma tts-karma-{{task.karma}}">{{#if (eq task.karma "good")}}{{localize "TTS.Chat.GoodKarma"}}{{else}}{{localize "TTS.Chat.BadKarma"}}{{/if}}</span>{{/if}}
+  </div>
+  {{#if task.apparent}}
+  <div class="tts-outcome" data-visibility="players">
+    {{#if task.apparent.success}}<span class="tts-success">{{localize "TTS.Chat.Success"}}</span>{{else}}<span class="tts-failure">{{localize "TTS.Chat.Failure"}}</span>{{/if}}
+    {{#if task.apparent.auto}}<span class="tts-auto">({{localize (concat "TTS.Chat.Auto." task.apparent.auto)}})</span>{{/if}}
+  </div>
+  <div class="tts-outcome" data-visibility="gm">
+    {{#if task.success}}<span class="tts-success">{{localize "TTS.Chat.Success"}}</span>{{else}}<span class="tts-failure">{{localize "TTS.Chat.Failure"}}</span>{{/if}}
+    {{#if task.auto}}<span class="tts-auto">({{localize (concat "TTS.Chat.Auto." task.auto)}})</span>{{/if}}
+    <span class="tts-gm-note">{{localize "TTS.Chat.SecretModifier"}} {{task.hiddenPips}}</span>
+  </div>
+  {{else}}
+  <div class="tts-outcome">
+    {{#if task.success}}<span class="tts-success">{{localize "TTS.Chat.Success"}}</span>{{else}}<span class="tts-failure">{{localize "TTS.Chat.Failure"}}</span>{{/if}}
+    {{#if task.auto}}<span class="tts-auto">({{localize (concat "TTS.Chat.Auto." task.auto)}})</span>{{/if}}
+    {{#if (eq task.status "failedVoluntarily")}}<span class="tts-auto">({{localize "TTS.Chat.VoluntaryFailure"}})</span>{{/if}}
+  </div>
+  {{/if}}
+  {{#each task.history as |h|}}
+  {{#if (eq h.type "invert")}}<div class="tts-history">↺ {{#if h.label}}{{h.label}} : {{/if}}{{localize "TTS.Chat.Inverted"}} {{h.from}} → {{h.to}} ({{h.cost}} PR)</div>{{/if}}
+  {{#if (eq h.type "voluntaryFailure")}}<div class="tts-history">✔ {{localize "TTS.Chat.VoluntaryFailureAccepted"}} (+{{h.gain}} PR)</div>{{/if}}
+  {{#if (eq h.type "reroll")}}<div class="tts-history">⟳ {{h.label}} : {{localize "TTS.Chat.Rerolled"}} {{h.from}} → {{h.to}} ({{h.cost}} PR)</div>{{/if}}
+  {{#if (eq h.type "rerollWith")}}<div class="tts-history">⟳ {{h.label}} : {{h.from}} → {{h.to}} ({{h.cost}} PR)</div>{{/if}}
+  {{#if (eq h.type "forceSuccess")}}<div class="tts-history">★ {{h.label}} : {{localize "TTS.Chat.ForcedSuccess"}} ({{h.cost}} PR)</div>{{/if}}
+  {{#if (eq h.type "failForPoints")}}<div class="tts-history">✖ {{h.label}} : {{localize "TTS.Chat.FailedForPoints"}} (+{{h.gain}} PR)</div>{{/if}}
+  {{/each}}
+</div>

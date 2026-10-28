@@ -24,8 +24,8 @@
   <fieldset class="tts-fieldset">
     <legend>{{localize "TTS.Npc.CoreSkills"}}</legend>
     <div class="tts-grid-3">
-      <div class="form-group"><label>{{localize "TTS.Npc.BaseSkill"}}</label><input name="system.baseSkill" type="number" value="{{system.baseSkill}}" min="0" max="106"></div>
-      <div class="form-group"><label>{{localize "TTS.Npc.Specialty"}}</label><input name="system.specialty.value" type="number" value="{{system.specialty.value}}" min="0" max="106"></div>
+      <div class="form-group"><label><a class="tts-rollable" data-action="rollNpc" data-source="base"><i class="fa-solid fa-dice-d10"></i> {{localize "TTS.Npc.BaseSkill"}}</a></label><input name="system.baseSkill" type="number" value="{{system.baseSkill}}" min="0" max="106"></div>
+      <div class="form-group"><label><a class="tts-rollable" data-action="rollNpc" data-source="specialty"><i class="fa-solid fa-dice-d10"></i> {{localize "TTS.Npc.Specialty"}}</a></label><input name="system.specialty.value" type="number" value="{{system.specialty.value}}" min="0" max="106"></div>
       <div class="form-group"><label>{{localize "TTS.Npc.Defense"}}</label><input name="system.defense" type="number" value="{{system.defense}}" min="0" max="106" placeholder="—"></div>
       <div class="form-group tts-span-3"><label>{{localize "TTS.Npc.SpecialtyDomain"}}</label><input name="system.specialty.domain" type="text" value="{{system.specialty.domain}}"></div>
     </div>
@@ -39,6 +39,7 @@
       <tbody>
         {{#each system.skills as |row i|}}
         <tr data-index="{{i}}">
+          <td class="tts-roll-cell"><a class="tts-rollable" data-action="rollNpc" data-source="skill" data-tooltip="TTS.Roll.RollSkill"><i class="fa-solid fa-dice-d10"></i></a></td>
           <td><input name="system.skills.{{i}}.name" type="text" value="{{row.name}}"></td>
           <td class="tts-num"><input name="system.skills.{{i}}.value" type="number" value="{{row.value}}" min="0" max="106"></td>
           <td><select name="system.skills.{{i}}.kind">{{selectOptions @root.kindChoices selected=row.kind}}</select></td>

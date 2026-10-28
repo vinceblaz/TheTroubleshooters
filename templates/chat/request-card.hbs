@@ -1,0 +1,22 @@
+<div class="thetroubleshooters tts-card tts-request-card">
+  <header class="tts-card-header">
+    <span class="tts-card-title">{{localize "TTS.Request.Title"}} : {{skillLabel}}</span>
+  </header>
+  <div class="tts-request-difficulty">
+    {{#if card.hidden}}
+    <span data-visibility="players">{{localize "TTS.Roll.DifficultySecret"}}</span>
+    <span data-visibility="gm">{{difficultyLabel}} ({{localize "TTS.Request.HiddenFromPlayers"}})</span>
+    {{else}}
+    {{difficultyLabel}}
+    {{/if}}
+  </div>
+  <ul class="tts-request-rows">
+    {{#each card.rows as |row|}}
+    <li>
+      <span class="tts-request-name">{{row.name}}</span>
+      {{#if row.rolled}}<span class="tts-tag">{{localize "TTS.Request.Rolled"}}</span>
+      {{else}}<button type="button" data-owner-uuid="{{row.actorUuid}}" data-tts-action="requestRoll" data-actor-uuid="{{row.actorUuid}}"><i class="fa-solid fa-dice-d10"></i> {{localize "TTS.Roll.Roll"}}</button>{{/if}}
+    </li>
+    {{/each}}
+  </ul>
+</div>

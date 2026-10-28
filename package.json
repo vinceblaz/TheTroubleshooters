@@ -1,6 +1,6 @@
 {
   "name": "thetroubleshooters",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "private": true,
   "description": "Système Foundry VTT (non officiel) pour The Troubleshooters : les Risque-tout — outillage de développement",
   "type": "module",

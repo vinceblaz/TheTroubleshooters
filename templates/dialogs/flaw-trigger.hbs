@@ -1,0 +1,21 @@
+<div class="tts-flaw-trigger">
+  <p class="hint">{{localize "TTS.Flaw.TriggerHint"}}</p>
+  <fieldset>
+    <legend>{{localize "TTS.Flaw.Triggers"}}</legend>
+    {{#each triggers as |t|}}
+    <label class="tts-check-label"><input type="radio" name="choice" value="t:{{t.index}}" {{#if @first}}checked{{/if}}> {{t.label}} <span class="tts-tag">+{{t.gain}} PR</span></label>
+    {{/each}}
+    {{#each modes as |label key|}}
+    <label class="tts-check-label"><input type="radio" name="choice" value="m:{{key}}" {{#unless ../triggers.length}}{{#if @first}}checked{{/if}}{{/unless}}> {{label}}</label>
+    {{/each}}
+  </fieldset>
+  <div class="form-group">
+    <label>{{localize "TTS.Flaw.PenaltySkills"}}</label>
+    <select name="skills" multiple size="6">{{selectOptions skills}}</select>
+    <p class="hint">{{localize "TTS.Flaw.PenaltySkillsHint"}}</p>
+  </div>
+  <div class="form-group">
+    <label>{{localize "TTS.Flaw.Condition"}}</label>
+    <select name="condition"><option value=""></option>{{selectOptions conditions}}</select>
+  </div>
+</div>

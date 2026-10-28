@@ -5,6 +5,7 @@
  *  3. Clés i18n utilisées (gabarits, code, CONFIG) présentes dans lang/fr.json
  *  4. Gabarits référencés par le code présents sur le disque
  *  5. Aucun attribut name dupliqué dans un même document HTML (règle Metro 2033 §259)
+ *  6. Blocs Handlebars équilibrés ({{#x}} … {{/x}}, {{else}} dans un bloc) et helpers connus
  */
 import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
@@ -56,6 +57,31 @@ for (const p of [...system.esmodules, ...system.styles, ...system.languages.map(
 }
 ok("system.json : fichiers référencés présents");
 
+/* 2 bis. Cohérence des catalogues avec le domaine */
+const { SKILL_KEYS } = await import(join(ROOT, "src/domain/rules/skills.mjs"));
+const { ACTIVATION_TYPE_KEYS } = await import(join(ROOT, "src/domain/rules/activations.mjs"));
+const { THETROUBLESHOOTERS: CFG } = await import(join(ROOT, "src/config.mjs"));
+const badSkills = (list, where) => (list ?? []).filter(k => !SKILL_KEYS.includes(k)).forEach(k => fail(`${where} : compétence inconnue « ${k} »`));
+for (const e of readJSON("data/catalogs/abilities.json")) {
+  const sys = e.data.system, w = `abilities.json ${e.seedKey}`;
+  badSkills(sys.learnWith, w);
+  badSkills(sys.prerequisites.skills.map(p => p.key), w);
+  for (const a of sys.activations) {
+    if (!ACTIVATION_TYPE_KEYS.includes(a.type)) fail(`${w} : type d'activation inconnu « ${a.type} »`);
+    badSkills(a.skills, w);
+    if (a.skill) badSkills([a.skill], w);
+  }
+}
+for (const e of readJSON("data/catalogs/flaws.json")) {
+  const w = `flaws.json ${e.seedKey}`;
+  for (const t of e.data.system.triggers) {
+    if (!Object.keys(CFG.flawTriggerModes).includes(t.mode)) fail(`${w} : mode inconnu « ${t.mode} »`);
+    badSkills(t.skills, w);
+    if (t.condition && !CFG.conditions[t.condition]) fail(`${w} : condition inconnue « ${t.condition} »`);
+  }
+}
+ok("catalogues cohérents avec le domaine (compétences, activations, modes, conditions)");
+
 /* 3. i18n */
 const hasKey = key => key.split(".").reduce((n, k) => (n && typeof n === "object" ? n[k] : undefined), fr) !== undefined;
 const used = new Set();
@@ -74,6 +100,7 @@ const collect = node => {
 };
 collect(THETROUBLESHOOTERS);
 for (const t of itemTypes) used.add(`TYPES.Item.${t}`);
+for (const t of ACTIVATION_TYPE_KEYS) used.add(`TTS.ActivationType.${t}`);
 for (const t of Object.keys(system.documentTypes.Actor)) used.add(`TYPES.Actor.${t}`);
 const missing = [...used].filter(k => !hasKey(k)).sort();
 missing.forEach(k => fail(`clé i18n absente de fr.json : ${k}`));
@@ -108,6 +135,31 @@ for (const [label, files] of Object.entries(documents)) {
   }
 }
 ok("attributs name uniques par document");
+
+/* 6. Structure Handlebars */
+const KNOWN_BLOCKS = new Set(["if", "unless", "each", "with"]);
+const KNOWN_HELPERS = new Set(["localize", "eq", "ne", "gt", "lt", "gte", "lte", "and", "or", "not", "concat",
+  "checked", "selectOptions", "formInput", "formGroup", "lookup", "numberFormat"]);
+for (const f of templates) {
+  const src = readFileSync(f, "utf8").replace(/{{!--[\s\S]*?--}}/g, "");
+  const stack = [];
+  for (const m of src.matchAll(/{{([#/^]?)(>?)\s*([^\s}]+)([^}]*)}}/g)) {
+    const [, sigil, partial, word] = m;
+    if (partial) continue;
+    if (sigil === "#") {
+      if (!KNOWN_BLOCKS.has(word)) fail(`${rel(f)} : bloc inconnu {{#${word}}}`);
+      stack.push(word);
+    } else if (sigil === "/") {
+      const open = stack.pop();
+      if (open !== word) fail(`${rel(f)} : {{/${word}}} ferme {{#${open ?? "rien"}}}`);
+    } else if (word === "else" && !stack.length) fail(`${rel(f)} : {{else}} hors bloc`);
+  }
+  if (stack.length) fail(`${rel(f)} : bloc(s) non fermé(s) : ${stack.join(", ")}`);
+  for (const m of src.matchAll(/\(\s*([a-zA-Z]+)\s/g)) {
+    if (!KNOWN_HELPERS.has(m[1])) fail(`${rel(f)} : helper inconnu dans une sous-expression : ${m[1]}`);
+  }
+}
+ok(`${templates.length} gabarits : blocs Handlebars équilibrés`);
 
 if (errors.length) {
   console.error(`\n✘ ${errors.length} problème(s) :\n - ${errors.join("\n - ")}`);

@@ -8,12 +8,51 @@
 <div class="form-group"><label>{{localize "TTS.Ability.LearnWith"}}</label>
   {{formInput systemFields.learnWith name="system.learnWith" value=learnWithValues options=skillOptions}}
 </div>
+
 <fieldset class="tts-fieldset">
-  <legend>{{localize "TTS.Ability.Prerequisites"}}</legend>
-  {{#if prerequisiteSkills.length}}
-  <p>{{#each prerequisiteSkills as |p|}}<span class="tts-tag">{{p.label}} {{p.min}} %</span>{{/each}}</p>
-  {{/if}}
+  <legend>{{localize "TTS.Ability.Prerequisites"}}
+    {{#if editable}}<a class="tts-icon-button" data-action="addRow" data-path="prerequisites.skills" data-tooltip="TTS.Sheet.Add"><i class="fa-solid fa-plus"></i></a>{{/if}}</legend>
+  <table class="tts-row-table">
+    <tbody>
+      {{#each system.prerequisites.skills as |row i|}}
+      <tr data-index="{{i}}">
+        <td><select name="system.prerequisites.skills.{{i}}.key">{{selectOptions @root.skillChoices selected=row.key}}</select></td>
+        <td class="tts-num"><input name="system.prerequisites.skills.{{i}}.min" type="number" value="{{row.min}}" min="0" max="106"> %</td>
+        <td class="tts-row-controls">{{#if @root.editable}}<a data-action="removeRow" data-path="prerequisites.skills"><i class="fa-solid fa-trash"></i></a>{{/if}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
   <div class="form-group"><label>{{localize "TTS.Ability.PrerequisiteAbilities"}}</label>
     <textarea name="system.prerequisites.abilities" rows="2">{{listText.prerequisiteAbilities}}</textarea></div>
-  <p class="tts-hint">{{localize "TTS.Ability.PhaseHint"}}</p>
+</fieldset>
+
+<fieldset class="tts-fieldset tts-activations">
+  <legend>{{localize "TTS.Ability.Activations"}}
+    {{#if editable}}<a class="tts-icon-button" data-action="addRow" data-path="activations" data-tooltip="TTS.Sheet.Add"><i class="fa-solid fa-plus"></i></a>{{/if}}</legend>
+  {{#each activationRows as |a|}}
+  <div class="tts-activation-row" data-index="{{a.i}}">
+    <div class="tts-grid-3">
+      <div class="form-group"><label>{{localize "TTS.Ability.ActType"}}</label>
+        <select name="system.activations.{{a.i}}.type">{{selectOptions @root.activationTypeChoices selected=a.type}}</select></div>
+      <div class="form-group"><label>{{localize "TTS.Ability.ActCost"}}</label>
+        <input name="system.activations.{{a.i}}.cost" type="number" value="{{a.cost}}" min="0" max="12"></div>
+      <div class="form-group"><label>{{localize "TTS.Ability.ActNumbers"}}</label>
+        <div class="tts-inline">
+          <input name="system.activations.{{a.i}}.pips" type="number" value="{{a.pips}}" min="-9" max="9" data-tooltip="TTS.Ability.ActPips">
+          <input name="system.activations.{{a.i}}.dice" type="number" value="{{a.dice}}" min="0" max="10" data-tooltip="TTS.Ability.ActDice">
+          <input name="system.activations.{{a.i}}.gain" type="number" value="{{a.gain}}" min="0" max="12" data-tooltip="TTS.Ability.ActGain">
+        </div></div>
+      <div class="form-group tts-span-3"><label>{{localize "TTS.Ability.ActLabel"}}</label>
+        <input name="system.activations.{{a.i}}.label" type="text" value="{{a.label}}"></div>
+      <div class="form-group tts-span-2"><label>{{localize "TTS.Ability.ActSkills"}}</label>
+        <select name="system.activations.{{a.i}}.skills" multiple size="4">{{selectOptions @root.skillChoices selected=a.skillsSelected}}</select></div>
+      <div class="form-group"><label>{{localize "TTS.Ability.ActSkill"}}</label>
+        <select name="system.activations.{{a.i}}.skill">{{selectOptions @root.skillChoicesWithBlank selected=a.skill}}</select>
+        <input type="hidden" name="system.activations.{{a.i}}.key" value="{{a.key}}"></div>
+    </div>
+    {{#if @root.editable}}<a class="tts-remove-activation" data-action="removeRow" data-path="activations"><i class="fa-solid fa-trash"></i> {{localize "TTS.Sheet.Delete"}}</a>{{/if}}
+  </div>
+  {{/each}}
+  <p class="tts-hint">{{localize "TTS.Ability.ActivationsHint"}}</p>
 </fieldset>

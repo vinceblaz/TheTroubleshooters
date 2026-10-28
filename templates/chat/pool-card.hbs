@@ -1,0 +1,10 @@
+<div class="thetroubleshooters tts-card tts-pool-card">
+  <header class="tts-card-header">
+    <span class="tts-card-title">{{title}}</span>
+    <span class="tts-card-value">{{formula}}</span>
+  </header>
+  <div class="tts-pool-faces">
+    {{#each faces as |f|}}<span class="tts-face {{#if f.hit}}tts-hit{{/if}} {{#if f.exploded}}tts-exploded{{/if}}">{{f.value}}</span>{{/each}}
+  </div>
+  <div class="tts-pool-total"><strong>{{hits}}</strong> {{localize "TTS.Pool.Hits"}}</div>
+</div>

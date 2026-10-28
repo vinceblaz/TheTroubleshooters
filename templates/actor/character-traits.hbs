@@ -1,7 +1,70 @@
 <section class="tab tts-tab-body {{tab.cssClass}}" data-group="primary" data-tab="traits">
   {{> "systems/thetroubleshooters/templates/shared/item-list.hbs" items=items.archetype type="archetype" title="TTS.Item.Archetypes"}}
-  {{> "systems/thetroubleshooters/templates/shared/item-list.hbs" items=items.ability type="ability" title="TTS.Item.Abilities"}}
-  {{> "systems/thetroubleshooters/templates/shared/item-list.hbs" items=items.flaw type="flaw" title="TTS.Item.Flaws"}}
+  <section class="tts-item-list" data-type="ability">
+    <header class="tts-list-header">
+      <h3>{{localize "TTS.Item.Abilities"}}</h3>
+      {{#if editable}}<button type="button" class="tts-icon-button" data-action="createItem" data-type="ability" data-tooltip="TTS.Sheet.Add" aria-label="{{localize 'TTS.Sheet.Add'}}"><i class="fa-solid fa-plus"></i></button>{{/if}}
+    </header>
+    {{#if abilityRows.length}}
+    <ul class="tts-items">
+      {{#each abilityRows as |row|}}
+      <li class="tts-item-row tts-ability-row" data-item-id="{{row.item.id}}">
+        <div class="tts-item-main">
+          <img src="{{row.item.img}}" alt="" width="24" height="24">
+          <a class="tts-item-name" data-action="editItem">{{row.item.name}}</a>
+          <span class="tts-tag">{{localize "TTS.Ability.LevelShort"}} {{row.item.system.level}}</span>
+          {{#unless row.item.system.acquired}}<span class="tts-tag tts-warn">{{row.item.system.crosses}}/{{row.item.system.cost}}</span>{{/unless}}
+          {{#if row.cardCount}}<span class="tts-tag" data-tooltip="TTS.Ability.OnRollsHint">{{localize "TTS.Ability.OnRolls"}} : {{row.cardCount}}</span>{{/if}}
+          {{#if @root.editable}}<span class="tts-row-controls">
+            <a data-action="editItem" data-tooltip="TTS.Sheet.Edit"><i class="fa-solid fa-pen"></i></a>
+            <a data-action="deleteItem" data-tooltip="TTS.Sheet.Delete"><i class="fa-solid fa-trash"></i></a>
+          </span>{{/if}}
+        </div>
+        {{#if row.acts.length}}
+        <div class="tts-act-buttons">
+          {{#each row.acts as |a|}}
+          <button type="button" data-action="activateAbility" data-index="{{a.index}}" {{#if a.combat}}data-tooltip="TTS.Ability.CombatLater"{{/if}}>{{a.label}} {{#if a.cost}}({{a.cost}} PR){{/if}}</button>
+          {{/each}}
+        </div>
+        {{/if}}
+      </li>
+      {{/each}}
+    </ul>
+    {{else}}<p class="tts-empty">{{localize "TTS.Sheet.Empty"}}</p>{{/if}}
+  </section>
+
+  <section class="tts-item-list" data-type="flaw">
+    <header class="tts-list-header">
+      <h3>{{localize "TTS.Item.Flaws"}}</h3>
+      {{#if editable}}<button type="button" class="tts-icon-button" data-action="createItem" data-type="flaw" data-tooltip="TTS.Sheet.Add" aria-label="{{localize 'TTS.Sheet.Add'}}"><i class="fa-solid fa-plus"></i></button>{{/if}}
+    </header>
+    {{#if items.flaw.length}}
+    <ul class="tts-items">
+      {{#each items.flaw as |flaw|}}
+      <li class="tts-item-row" data-item-id="{{flaw.id}}">
+        <img src="{{flaw.img}}" alt="" width="24" height="24">
+        <a class="tts-item-name" data-action="editItem">{{flaw.name}}</a>
+        {{#if @root.editable}}
+        <button type="button" class="tts-trigger-button" data-action="triggerFlaw"><i class="fa-solid fa-bolt"></i> {{localize "TTS.Flaw.Trigger"}}</button>
+        <span class="tts-row-controls">
+          <a data-action="editItem" data-tooltip="TTS.Sheet.Edit"><i class="fa-solid fa-pen"></i></a>
+          <a data-action="deleteItem" data-tooltip="TTS.Sheet.Delete"><i class="fa-solid fa-trash"></i></a>
+        </span>
+        {{/if}}
+      </li>
+      {{/each}}
+    </ul>
+    {{else}}<p class="tts-empty">{{localize "TTS.Sheet.Empty"}}</p>{{/if}}
+    {{#if penalties.length}}
+    <div class="tts-penalties">
+      <h4>{{localize "TTS.Flaw.ActivePenalties"}}</h4>
+      {{#each penalties as |p|}}
+      <div class="tts-penalty" data-effect-id="{{p.effectId}}"><span class="tts-tag tts-warn">{{p.label}} {{p.pips}}</span> {{p.skillsLabel}}
+        {{#if @root.editable}}<a data-action="removeEffect" data-tooltip="TTS.Flaw.RemovePenalty"><i class="fa-solid fa-xmark"></i></a>{{/if}}</div>
+      {{/each}}
+    </div>
+    {{/if}}
+  </section>
   {{> "systems/thetroubleshooters/templates/shared/item-list.hbs" items=items.hook type="hook" title="TTS.Item.Hooks"}}
   {{> "systems/thetroubleshooters/templates/shared/item-list.hbs" items=items.language type="language" title="TTS.Item.Languages"}}
   <p class="tts-hint">{{localize "TTS.Language.ExtraAllowed" count=extraLanguagesAllowed}}</p>

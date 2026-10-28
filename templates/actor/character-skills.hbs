@@ -8,7 +8,7 @@
         <tbody>
           {{#each fam.skills as |skill|}}
           <tr class="tts-skill-row" data-skill="{{skill.key}}">
-            <td class="tts-skill-label">{{localize skill.label}}</td>
+            <td class="tts-skill-label"><a class="tts-rollable" data-action="rollSkill" data-tooltip="TTS.Roll.RollSkill"><i class="fa-solid fa-dice-d10"></i> {{localize skill.label}}</a></td>
             <td class="tts-skill-value"><input name="system.skills.{{skill.key}}.value" type="number" value="{{skill.value}}" min="15" max="106" step="1"><span>%</span></td>
             <td class="tts-skill-tick">
               <input name="system.skills.{{skill.key}}.improvement" type="checkbox" {{checked skill.improvement}} data-tooltip="TTS.Skill.Improvement" aria-label="{{localize 'TTS.Skill.Improvement'}}">

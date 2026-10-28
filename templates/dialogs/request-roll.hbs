@@ -1,0 +1,20 @@
+<div class="tts-request-form">
+  <fieldset>
+    <legend>{{localize "TTS.Request.Actors"}}</legend>
+    {{#each actors as |a|}}
+    <label class="tts-check-label"><input type="checkbox" name="actor_{{a.id}}" checked> {{a.name}}</label>
+    {{else}}
+    <p class="hint">{{localize "TTS.Request.NoCharacters"}}</p>
+    {{/each}}
+  </fieldset>
+  <div class="form-group">
+    <label>{{localize "TTS.Request.Skill"}}</label>
+    <select name="skill">{{selectOptions skills selected="vigilance"}}</select>
+  </div>
+  <div class="form-group">
+    <label>{{localize "TTS.Roll.Difficulty.Label"}}</label>
+    <select name="difficulty">{{selectOptions difficulties selected="0"}}</select>
+  </div>
+  <label class="tts-check-label"><input type="checkbox" name="hidden"> {{localize "TTS.Request.Hidden"}}</label>
+  <p class="hint">{{localize "TTS.Request.HiddenHint"}}</p>
+</div>

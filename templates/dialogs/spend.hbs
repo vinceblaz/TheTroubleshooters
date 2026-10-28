@@ -1,0 +1,15 @@
+<div class="tts-spend-form">
+  <p class="hint">{{localize "TTS.Spend.Hint"}} — {{localize "TTS.StoryPoints.Label"}} : <strong>{{current}}</strong></p>
+  <div class="form-group">
+    <label>{{localize "TTS.Spend.TypeLabel"}}</label>
+    <select name="type">{{selectOptions types selected="clue"}}</select>
+  </div>
+  <div class="form-group">
+    <label>{{localize "TTS.Spend.Cost"}}</label>
+    <input name="cost" type="number" min="0" max="12" step="1" placeholder="{{localize 'TTS.Spend.CostDefault'}}">
+  </div>
+  <div class="form-group stacked">
+    <label>{{localize "TTS.Spend.Description"}}</label>
+    <textarea name="description" rows="3" placeholder="{{localize 'TTS.Spend.DescriptionHint'}}"></textarea>
+  </div>
+</div>

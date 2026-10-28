@@ -9,10 +9,14 @@ import { SYSTEM_ID, SYSTEM_PATH } from "../config.mjs";
 import { planSeed, needsInitialization } from "../domain/init/seed-plan.mjs";
 
 export const MACRO_NAME = "The Troubleshooters — Initialiser le système";
+export const REQUEST_MACRO_NAME = "The Troubleshooters — Demander un jet";
+export const SP_MACRO_NAME = "The Troubleshooters — Points de récit et scène";
 
 /** Étapes ordonnées. Chaque nouvelle phase ajoute ses catalogues ici. */
 export const INIT_STEPS = [
-  { key: "hooks", catalog: "hooks.json", pack: "tts-hooks", label: "TTS.Init.Pack.Hooks", type: "Item" }
+  { key: "hooks", catalog: "hooks.json", pack: "tts-hooks", label: "TTS.Init.Pack.Hooks", type: "Item" },
+  { key: "abilities", catalog: "abilities.json", pack: "tts-abilities", label: "TTS.Init.Pack.Abilities", type: "Item" },
+  { key: "flaws", catalog: "flaws.json", pack: "tts-flaws", label: "TTS.Init.Pack.Flaws", type: "Item" }
 ];
 
 async function loadCatalog(file) {
@@ -93,16 +97,19 @@ export async function initializeSystem() {
   ui.notifications[failures ? "warn" : "info"](game.i18n.localize(failures ? "TTS.Init.DoneWithErrors" : "TTS.Init.Done"));
 }
 
-/** Crée la macro MJ si elle n'existe pas encore dans le monde. */
+/** Macros MJ du système, créées si elles n'existent pas encore dans le monde. */
+const GM_MACROS = [
+  { name: MACRO_NAME, img: "icons/svg/book.svg", command: "game.thetroubleshooters.initializeSystem();" },
+  { name: REQUEST_MACRO_NAME, img: "icons/svg/d20-grey.svg", command: "game.thetroubleshooters.requestRoll();" },
+  { name: SP_MACRO_NAME, img: "icons/svg/aura.svg", command: "game.thetroubleshooters.storyPoints();" }
+];
+
 export async function ensureInitMacro() {
   if (!game.user.isGM) return;
-  if (game.macros.find(m => m.name === MACRO_NAME)) return;
-  await Macro.create({
-    name: MACRO_NAME,
-    type: "script",
-    img: "icons/svg/book.svg",
-    command: "game.thetroubleshooters.initializeSystem();"
-  });
+  for (const m of GM_MACROS) {
+    if (game.macros.find(x => x.name === m.name)) continue;
+    await Macro.create({ name: m.name, type: "script", img: m.img, command: m.command });
+  }
 }
 
 /** Au chargement : propose l'initialisation à la première installation et après chaque mise à jour. */

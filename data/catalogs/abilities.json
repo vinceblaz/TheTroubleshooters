@@ -1,0 +1,3128 @@
+[
+  {
+    "seedKey": "ability.acrobate",
+    "data": {
+      "name": "Acrobate",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "agility",
+              "min": 65
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "agility"
+        ],
+        "cost": 7,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "bonusPips",
+            "cost": 0,
+            "skills": [
+              "agility"
+            ],
+            "label": "Jets de mouvement",
+            "pips": 2,
+            "dice": 0,
+            "skill": "",
+            "key": "bonusPips1"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "agility"
+            ],
+            "label": "Agilité ou défense",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert2"
+          },
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Stopper une chute en se raccrochant à une prise plausible",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative3"
+          }
+        ],
+        "description": "<p>Vous êtes un gymnaste ou un acrobate accompli, capable de réaliser les numéros de voltige les plus incroyables.</p><p><strong>Jets de tâche :</strong> vous avez +2 pips sur vos jets de tâche de mouvement. Quand vous décrivez votre déplacement vers la zone adjacente, vous pouvez mettre l’accent sur l’aspect acrobatique de votre mouvement.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet d’Agilité ou de défense.</p><p>Dépensez 2 points de récit pour stopper une chute en vous raccrochant à une prise dont l’existence doit être plausible. Vous vous retrouvez suspendu à l’endroit où vous avez réussi à vous agripper.</p>",
+        "source": "LdB p. 62"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.amiDesBetes",
+    "data": {
+      "name": "Ami des bêtes",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "charm"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Calmer ou éviter l'attaque d'un animal domestique",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative1"
+          },
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Calmer ou éviter l'attaque d'un mammifère ou oiseau sauvage",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          },
+          {
+            "type": "narrative",
+            "cost": 4,
+            "skills": [],
+            "label": "Un grand animal sauvage vous emmène loin de la scène",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative3"
+          }
+        ],
+        "description": "<p>Sans y prendre garde, vous vous retrouvez avec deux chats dans les bras, un chien qui pose sa tête sur vos genoux, et une perruche sur le crâne. C’est ainsi : les animaux vous adorent. Et cette affection ne se limite pas aux animaux domestiques, car même les loups vous considèrent comme un membre de la meute.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour éviter qu’un animal domestique vous attaque ou pour calmer un animal domestique affolé, par exemple un chien de garde, un cheval ou un taureau, à condition de ne pas vous en prendre à lui.</p><p>Dépensez 2 points de récit pour éviter qu’un mammifère ou un oiseau sauvage vous attaque ou pour apaiser un mammifère ou un oiseau sauvage affolé.</p><p>Dépensez 4 points de récit pour qu’un animal sauvage suffisamment grand vous emmène loin de la scène, sain et sauf. Si jamais aucun animal sauvage de taille suffisante n’est présent, il en apparaît un. Si l’apparition est illogique, l’effet est annulé et le Chef des Opérations vous rend vos points de récit.</p>",
+        "source": "LdB p. 62"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.animalDeCompagnie",
+    "data": {
+      "name": "Animal de compagnie",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "resources",
+          "charm"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Le compagnon s'échappe quand vous êtes capturé",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative1"
+          },
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Le compagnon vous réveille (Hors de combat)",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          },
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Le compagnon apporte un objet important",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative3"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "charm",
+              "deception"
+            ],
+            "label": "Quand l'animal attendrit ou distrait",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert4"
+          }
+        ],
+        "description": "<p>Vous avez un animal de compagnie unique qui est un personnage secondaire à part entière. Il n’est pas unique dans le sens où vous vous promenez avec un tigre ou un loup, non, il s’agit plus vraisemblablement d’un chat, d’un chien ou d’un perroquet. Votre compagnon vous adore et vous cause souvent des tracas.</p><p><strong>Va chercher :</strong> votre animal de compagnie peut vous rapporter des objets qui n’ont pas une importance vitale. Qu’as-tu trouvé ? Quand vous dépensez des points de récit pour trouver un indice, votre animal de compagnie peut le chercher à votre place. Si le Chef des Opérations est d’accord, réduisez de 1 le coût de cet indice.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour que votre compagnon s’échappe lorsque vous êtes capturé. Si le Chef des Opérations est d’accord, vous pouvez incarner votre animal de compagnie pendant que votre personnage est prisonnier.</p><p>Quand vous êtes Hors de combat, dépensez 1 point de récit pour que votre animal de compagnie vous réveille durant la scène suivante en vous léchant le visage ou en vous mordillant les orteils.</p><p>Dépensez 2 points de récit pour que votre compagnon vous apporte un objet important, par exemple les clés de votre cellule ou un indice.</p><p>Dépensez 1 point de récit pour inverser un jet de Charme ou de Tromperie lorsque votre animal de compagnie a l’occasion d’attendrir ou de distraire les gens.</p>",
+        "source": "LdB p. 62"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.archer",
+    "data": {
+      "name": "Archer",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "shooting",
+              "min": 45
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "shooting"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "shooting"
+            ],
+            "label": "Attaque à l'arc",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "reroll",
+            "cost": 2,
+            "skills": [
+              "shooting"
+            ],
+            "label": "Attaque à l'arc",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "reroll2"
+          }
+        ],
+        "description": "<p>Vous vous entraînez à cette pratique immémoriale qu’est l’archerie.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet d’attaque quand vous tirez à l’arc.</p><p>Dépensez 2 points de récit pour relancer un jet d’attaque quand vous tirez à l’arc. Conservez le nouveau résultat.</p>",
+        "source": "LdB p. 63"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.artisan",
+    "data": {
+      "name": "Artisan",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "sleightOfHand",
+          "endurance",
+          "willpower"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [],
+            "label": "En pratiquant votre artisanat",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          }
+        ],
+        "description": "<p>Tout le monde ne se repose pas sur la science pour donner vie à des créations. Elles prennent forme entre vos mains dans une tradition transmise de génération en génération, de maître à élève. La fabrication à proprement parler nécessite en général un défi incluant Vigilance, Endurance, Passe-passe ou Volonté, tandis que la recherche des matériaux idéaux dépend plutôt de Contacts, Ressources ou Bureaucratie.</p><p><strong>Savoir ancien :</strong> vous pouvez fabriquer des artefacts qui relèvent du savoir ancien pendant les intersessions.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour échanger un jet de tâche quand vous pratiquez votre artisanat.</p>",
+        "source": "LdB p. 63"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.artiste",
+    "data": {
+      "name": "Artiste",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "charm"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "bonusPips",
+            "cost": 0,
+            "skills": [
+              "charm",
+              "contacts",
+              "languages",
+              "performance",
+              "status",
+              "deception"
+            ],
+            "label": "Jets sociaux devant un public de votre représentation",
+            "pips": 2,
+            "dice": 0,
+            "skill": "",
+            "key": "bonusPips1"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "charm",
+              "status"
+            ],
+            "label": "Grâce à vos talents artistiques",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert2"
+          },
+          {
+            "type": "reroll",
+            "cost": 2,
+            "skills": [
+              "charm",
+              "status"
+            ],
+            "label": "Lié à votre pratique artistique",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "reroll3"
+          }
+        ],
+        "description": "<p>Votre personnalité s’exprime à travers vos œuvres d’art.</p><p><strong>Vie d’artiste :</strong> choisissez une discipline artistique dans laquelle vous excellez, par exemple la musique, la peinture, la photographie, la poésie, le chant, la littérature…</p><p><strong>Création artistique :</strong> durant une scène, vous donnez une représentation artistique en public. Lors d’une scène future qui réunit le même public, vous bénéficiez de +2 pips sur vos jets de tâche sociaux.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Charme ou de Statut grâce à vos talents artistiques.</p><p>Dépensez 2 points de récit pour relancer un jet de Charme ou de Statut lié à votre pratique artistique. Conservez le nouveau résultat.</p>",
+        "source": "LdB p. 63"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.asDeLaGachette",
+    "data": {
+      "name": "As de la gâchette",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 2,
+        "prerequisites": {
+          "skills": [],
+          "abilities": [
+            "Pistolero"
+          ]
+        },
+        "learnWith": [
+          "agility",
+          "status",
+          "shooting"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "narrative",
+            "cost": 0,
+            "skills": [
+              "shooting"
+            ],
+            "label": "Tir spectaculaire (action principale + jet de Tir)",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative1"
+          },
+          {
+            "type": "initiative",
+            "cost": 1,
+            "skills": [],
+            "label": "Accomplir votre tour avant tout le monde",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "initiative2"
+          },
+          {
+            "type": "bonusAction",
+            "cost": 1,
+            "skills": [],
+            "label": "Attaque supplémentaire contre une autre cible de la même zone",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "bonusAction3"
+          }
+        ],
+        "description": "<p>Vous êtes un pistolero légendaire. Aucune personne saine d’esprit n’ose vous chercher des poux.</p><p><strong>Tir spectaculaire :</strong> utilisez une action principale et réussissez un jet de Tir pour réaliser une des prouesses suivantes : Couper un câble ou une corde Boucher le canon d’une arme avec votre balle pour la rendre inutilisable Appuyer sur un interrupteur Désarmer un adversaire en lui faisant sauter l’arme des mains</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour accomplir votre tour avant tout le monde.</p><p>Dépensez 1 point de récit pour effectuer une attaque supplémentaire en guise d’action bonus contre une autre cible située dans la même zone que la première.</p>",
+        "source": "LdB p. 63"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.athlete",
+    "data": {
+      "name": "Athlète",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "endurance",
+              "min": 65
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "endurance"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [],
+            "label": "Compétence principale de votre sport",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Sport à la place de Contacts : rencontrer un fan",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          },
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Attroupement d'admirateurs lors d'un événement sportif",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative3"
+          }
+        ],
+        "description": "<p>Vous êtes un athlète professionnel.</p><p><strong>Sport :</strong> sélectionnez un sport d’équipe ou individuel tel que le football, le rugby, l’équitation, le polo, la course de vitesse, le biathlon, etc. Choisissez la compétence principale pour la pratique de ce sport. Agilité et Endurance reviennent le plus souvent, mais le Chef des Opérations peut sélectionner le Corps-à-corps pour l’escrime, le kendo, la boxe, le judo ou le karaté. Évitez au maximum le Tir, même pour l’archerie et les autres disciplines du genre.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de la compétence principale du sport choisi.</p><p>Dépensez 1 point de récit pour utiliser la compétence principale du sport à la place de Contacts afin de rencontrer un fan susceptible de vous donner un coup de main en échange d’un autographe.</p><p>Lors d’un événement sportif, dépensez 1 point de récit pour être au centre d’un attroupement d’admirateurs.</p>",
+        "source": "LdB p. 63"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.avocat",
+    "data": {
+      "name": "Avocat",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "bureaucracy",
+              "min": 65
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "humanities",
+          "bureaucracy",
+          "investigation"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "bonusPips",
+            "cost": 0,
+            "skills": [
+              "status"
+            ],
+            "label": "Quand vos connaissances juridiques impressionnent",
+            "pips": 2,
+            "dice": 0,
+            "skill": "",
+            "key": "bonusPips1"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "bureaucracy"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert2"
+          },
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Trouver un témoin",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative3"
+          }
+        ],
+        "description": "<p>En tant qu’avocat diplômé, vous pouvez plaider dans les tribunaux pour défendre vos clients.</p><p><strong>Mes chers collègues :</strong> utilisez Bureaucratie à la place de Contacts pour joindre des collègues du monde juridique, par exemple des avocats, des porte-parole, des notaires, des juges ou des juristes.</p><p><strong>Voici ma carte :</strong> vous avez +2 pips sur vos jets de Statut lors des situations où vos connaissances juridiques sont susceptibles d’impressionner vos interlocuteurs.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Bureaucratie.</p><p>Dépensez 2 points de récit pour trouver un témoin.</p>",
+        "source": "LdB p. 63"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.bonneDescente",
+    "data": {
+      "name": "Bonne descente",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "endurance"
+        ],
+        "cost": 4,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Diminuer d'un cran la condition Saoul (action bonus)",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative1"
+          },
+          {
+            "type": "narrative",
+            "cost": 4,
+            "skills": [],
+            "label": "Annuler la condition Saoul (action bonus)",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          }
+        ],
+        "description": "<p>Vous tenez mieux l’alcool que la plupart des gens. Vous finissez ivre, comme tout le monde, mais redevenez frais comme un gardon plus rapidement, et puis vos gueules de bois sont moins carabinées. Le reste de la population vous envie.</p><p><strong>Points de récit :</strong> dépensez 2 points de récit pour diminuer d’un cran le niveau de votre condition Saoul lors d’une action bonus.</p><p>Dépensez 4 points de récit pour annuler la condition Saoul lors d’une action bonus.</p>",
+        "source": "LdB p. 64"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.bonneReputation",
+    "data": {
+      "name": "Bonne réputation",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "charm",
+          "status"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Être introduit en termes élogieux",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative1"
+          },
+          {
+            "type": "bonusPips",
+            "cost": 2,
+            "skills": [
+              "charm",
+              "contacts",
+              "languages",
+              "performance",
+              "status",
+              "deception"
+            ],
+            "label": "Éloges d'un interlocuteur lors d'une interaction sociale",
+            "pips": 2,
+            "dice": 0,
+            "skill": "",
+            "key": "bonusPips2"
+          },
+          {
+            "type": "narrative",
+            "cost": 4,
+            "skills": [],
+            "label": "Quelqu'un se porte garant de vous",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative3"
+          }
+        ],
+        "description": "<p>Votre réputation vous précède, et c’est tout à votre avantage.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour qu’on vous introduise auprès de quelqu’un en vous présentant en des termes élogieux.</p><p>Dépensez 2 points de récit pour que les éloges d’un interlocuteur vous procurent +2 pips lors d’une interaction sociale.</p><p>Dépensez 4 points de récit pour qu’on se porte garant de vous et qu’on vous sauve la mise, au moins temporairement, à condition qu’on ne vous accuse pas d’un crime grave. Si le Chef des Opérations s’oppose à cette utilisation, vous récupérez vos points de récit.</p>",
+        "source": "LdB p. 64"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.boxeur",
+    "data": {
+      "name": "Boxeur",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "melee",
+              "min": 65
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "melee"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "melee"
+            ],
+            "label": "Attaque à mains nues",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "recovery",
+            "cost": 1,
+            "skills": [],
+            "label": "Récupération 1dR en action bonus",
+            "pips": 0,
+            "dice": 1,
+            "skill": "",
+            "key": "recovery2"
+          },
+          {
+            "type": "knockoutMinion",
+            "cost": 1,
+            "skills": [],
+            "label": "Sbire touché : Hors de combat sans jet de dégâts",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "knockoutMinion3"
+          },
+          {
+            "type": "reroll",
+            "cost": 2,
+            "skills": [
+              "melee"
+            ],
+            "label": "Attaque à mains nues",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "reroll4"
+          }
+        ],
+        "description": "<p>Vous vous entraînez à boxer en rêvant peut-être du jour où vous monterez sur le ring pour de bon et disputerez un championnat.</p><p><strong>Ténacité :</strong> quand vous obtenez un Bon Karma sur un jet de défense à mains nues, faites un jet à 2dR au lieu de 1dR.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet d’attaque lorsque vous vous battez à mains nues.</p><p>Dépensez 1 point de récit pour vous concentrer et faire un jet de récupération à 1dR en guise d’action bonus.</p><p>Lorsque vous réussissez un jet d’attaque contre un sbire, dépensez 1 point de récit pour lui asséner un coup brutal et le mettre Hors de combat, sans effectuer de jet de dégâts.</p><p>Dépensez 2 points de récit pour relancer un jet d’attaque lorsque vous vous battez à mains nues.</p>",
+        "source": "LdB p. 64"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.broussard",
+    "data": {
+      "name": "Broussard",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "survival",
+              "min": 65
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "endurance",
+          "survival"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "bonusPips",
+            "cost": 0,
+            "skills": [],
+            "label": "Défi en randonnée ou dans la brousse",
+            "pips": 2,
+            "dice": 0,
+            "skill": "",
+            "key": "bonusPips1"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "survival",
+              "endurance"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert2"
+          }
+        ],
+        "description": "<p>Vous connaissez les techniques secrètes pour sillonner la brousse à pied et survivre grâce aux bienfaits de la nature.</p><p><strong>J’ai marché 500 bornes :</strong> lorsque vous réalisez un défi pendant que vous randonnez ou que vous arpentez la brousse, vous avez +2 pips sur votre jet.</p><p><strong>Et 500 bornes de plus :</strong> si vous avez le temps, vous pouvez fabriquer un abri primitif et démarrer un feu à partir de trois fois rien.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Survie ou d’Endurance.</p>",
+        "source": "LdB p. 64"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.carteDePresse",
+    "data": {
+      "name": "Carte de presse",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "investigation",
+          "willpower"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "bonusPips",
+            "cost": 0,
+            "skills": [
+              "charm",
+              "contacts",
+              "languages",
+              "performance",
+              "status",
+              "deception"
+            ],
+            "label": "Approcher une personne quand la carte de presse aide",
+            "pips": 2,
+            "dice": 0,
+            "skill": "",
+            "key": "bonusPips1"
+          },
+          {
+            "type": "bonusPips",
+            "cost": 0,
+            "skills": [
+              "charm",
+              "contacts",
+              "languages",
+              "performance",
+              "status",
+              "deception"
+            ],
+            "label": "Aborder une personne hostile à la presse",
+            "pips": -2,
+            "dice": 0,
+            "skill": "",
+            "key": "bonusPips2"
+          },
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Assister à une conférence de presse",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative3"
+          },
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Contacter un autre journal ou reporter",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative4"
+          }
+        ],
+        "description": "<p>Vous êtes un journaliste affilié à un service d’information. Votre statut ne vous confère pas de droits spécifiques, mais est susceptible de vous ouvrir des portes (et en fermer d’autres). Vous avez également accès à des nouvelles du monde entier. Puis-je vous citer ? Lorsque votre carte de presse représente un avantage, vous avez +2 pips pour approcher une personne qui vous intéresse.</p><p><strong>Rangez tout de suite ce micro :</strong> de même, vous avez –2 pips quand vous abordez une personne qui entretient des relations tendues avec la presse.</p><p><strong>Points de récit :</strong> dépensez 2 points de récit pour assister à une conférence de presse (à condition qu’il y en ait une) donnée par un personnage secondaire important pour l’intrigue, par exemple le commissaire de police, la mairesse, le porte-parole d’une entreprise, une personnalité politique, etc. La conférence constitue alors une scène à part entière où vous pouvez récolter les indices détenus par ce personnage secondaire.</p><p>Dépensez 2 points de récit pour entrer en contact avec un journal où vous n’êtes pas employé ou un autre reporter, dans le but d’échanger des informations et des indices.</p>",
+        "source": "LdB p. 64"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.ceintureNoireDeJudo",
+    "data": {
+      "name": "Ceinture noire de judo",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "melee",
+              "min": 45
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "melee"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "melee"
+            ],
+            "label": "Vlan ! (prise ou projection) — criez le nom de la technique",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "knockoutMinion",
+            "cost": 1,
+            "skills": [],
+            "label": "Sbire touché : retiré du combat",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "knockoutMinion2"
+          }
+        ],
+        "description": "<p>Vous excellez dans un art martial, le judo ou l’aïkido par exemple.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit et criez le nom d’une technique de judo ou d’aïkido pour inverser un jet de Vlan ! (prise ou attaque de projection).</p><p>Lorsque vous réussissez un jet d’attaque contre un sbire, dépensez 1 point de récit et criez le nom d’une technique d’aïkido ou de judo pour le retirer du combat. Faites-le passer par la fenêtre, envoyez-le dans un placard, dans une trappe à linge… imaginez une issue plausible.</p>",
+        "source": "LdB p. 65"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.celebre",
+    "data": {
+      "name": "Célèbre",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "status"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Attroupement de journalistes et d'admirateurs",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative1"
+          },
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Quitter incognito un rassemblement de fans",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "contacts",
+              "resources"
+            ],
+            "label": "Contacter votre plus grand fan",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert3"
+          }
+        ],
+        "description": "<p>Vous êtes célèbre. Tout le monde a entendu parler de vous ! Votre visage apparaît sur les couvertures des magazines, les posters de film ou dans les émissions télévisées.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour qu’une petite bande de journalistes et d’admirateurs s’attroupe autour de vous.</p><p>Dépensez 2 points de récit pour délaisser incognito un rassemblement de fans ou persuader ces derniers que vous n’êtes pas la bonne personne.</p><p>Dépensez 1 point de récit pour inverser un jet de Contacts ou de Ressources pour contacter votre plus grand fan.</p>",
+        "source": "LdB p. 65"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.championDeBoxe",
+    "data": {
+      "name": "Champion de boxe",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 2,
+        "prerequisites": {
+          "skills": [],
+          "abilities": [
+            "Boxeur"
+          ]
+        },
+        "learnWith": [
+          "melee"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "status"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Lieutenant à 0 : Hors de combat sans pouvoir prendre Blessé",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          },
+          {
+            "type": "rerollDamage",
+            "cost": 2,
+            "skills": [],
+            "label": "Relancer un jet de dégâts",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "rerollDamage3"
+          }
+        ],
+        "description": "<p>Vous êtes un sportif médaillé. Le ring est votre royaume, vous y payez l’adoration du public en monnaie de sang, de sueur et de douleur.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Statut.</p><p>Dépensez 2 points de récit quand la Vitalité d’un personnage lieutenant tombe à 0 pour le mettre Hors de combat, sans qu’il puisse utiliser sa règle spéciale lui permettant d’être Blessé au lieu de perdre de la Vitalité.</p><p>Dépensez 2 points de récit pour relancer un jet de dégâts. Conservez le nouveau résultat.</p>",
+        "source": "LdB p. 65"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.chefNe",
+    "data": {
+      "name": "Chef né",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "willpower",
+          "charm",
+          "status"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "bonusPips",
+            "cost": 0,
+            "skills": [
+              "charm"
+            ],
+            "label": "Écoutez-moi : persuader un groupe qui vous écoute",
+            "pips": 2,
+            "dice": 0,
+            "skill": "",
+            "key": "bonusPips1"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "charm",
+              "status"
+            ],
+            "label": "En donnant des ordres à une foule",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert2"
+          },
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Calmer une foule",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative3"
+          }
+        ],
+        "description": "<p>Les gens sont prêts à vous emboîter le pas, car vous avez l’étoffe d’un chef. Vous vous sentez responsable du groupe, vous n’êtes pas une figure d’autorité vague et lointaine. C’est pourquoi ils vous suivraient n’importe où.</p><p><strong>Écoutez-moi :</strong> vous pouvez user de votre charisme pour qu’un groupe de personnages secondaires neutres ou amicaux interrompent leurs activités afin de vous écouter. Tant qu’on ne les provoque pas ou qu’on ne les attaque pas, vous avez toute leur attention, car ils font fi de l’agitation environnante. Faites un jet de Charme à +2 pips pour user de vos talents de persuasion si nécessaire.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Charme ou de Statut lorsque vous donnez des ordres à une foule.</p><p>Dépensez 2 points de récit pour calmer une foule.</p>",
+        "source": "LdB p. 65"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.comedien",
+    "data": {
+      "name": "Comédien",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "performance",
+              "min": 65
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "performance",
+          "deception"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "deception"
+            ],
+            "label": "En vous faisant passer pour quelqu'un d'autre",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "reroll",
+            "cost": 2,
+            "skills": [
+              "performance",
+              "charm"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "reroll2"
+          }
+        ],
+        "description": "<p>Vous êtes naturellement doué pour jouer la comédie. À dire vrai, vous éprouvez presque plus de facilité à vous mettre dans la peau des autres qu’à mener votre propre existence.</p><p><strong>Jouer un rôle :</strong> vous pouvez vous faire passer pour quelqu’un d’autre, à condition de préparer un script, un costume et du maquillage. Une analyse minutieuse de la vie d’autrui et l’accès à des fichiers détaillés peuvent compter comme un script, mais cette approche nécessite de réussir un défi de Charme, de Spectacle, d’Enquête, de Tromperie et de Volonté.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Tromperie quand vous vous faites passer pour quelqu’un d’autre.</p><p>Dépensez 2 points de récit pour relancer un jet de Spectacle ou de Charme. Conservez le nouveau résultat.</p>",
+        "source": "LdB p. 65"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.concentre",
+    "data": {
+      "name": "Concentré",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "willpower"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "rerollWith",
+            "cost": 1,
+            "skills": [],
+            "label": "Jet raté : rejouer en Volonté à +2 pips",
+            "pips": 2,
+            "dice": 0,
+            "skill": "willpower",
+            "key": "rerollWith1"
+          },
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Aider quelqu'un : il rejoue un jet raté en Volonté à +2 pips",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          }
+        ],
+        "description": "<p>Vous avez le don rare de vous affranchir des distractions et de rester concentré sur votre mission.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour relancer un jet de tâche raté, en effectuant à la place un jet de Volonté à +2 pips. Si vous réussissez, vous atteignez votre objectif par la seule force de votre discipline et de votre détermination.</p><p>Dépensez 2 points de récit pour aider quelqu’un à se concentrer et relancer un jet de tâche raté, en effectuant à la place un jet de Volonté à +2 pips. Si cette personne réussit, elle parvient à s’en sortir.</p>",
+        "source": "LdB p. 65"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.criminalistique",
+    "data": {
+      "name": "Criminalistique",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "medicine",
+          "investigation",
+          "science"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "bonusPips",
+            "cost": 0,
+            "skills": [
+              "bureaucracy"
+            ],
+            "label": "Prouver la culpabilité grâce à vos preuves",
+            "pips": 2,
+            "dice": 0,
+            "skill": "",
+            "key": "bonusPips1"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "investigation",
+              "search"
+            ],
+            "label": "Analyse d'une scène de crime",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert2"
+          },
+          {
+            "type": "reroll",
+            "cost": 2,
+            "skills": [
+              "investigation",
+              "search"
+            ],
+            "label": "Avec du matériel de détective",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "reroll3"
+          }
+        ],
+        "description": "<p>Formé aux techniques de la police scientifique, vous pouvez utiliser du matériel de détective afin de relever des empreintes, prélever du sang, des fibres, des cheveux et autres indices matériels que vous confiez à un laboratoire pour des analyses puis présentez comme preuves devant un tribunal.</p><p><strong>Convergence des preuves :</strong> votre analyse des preuves est irréprochable. Quand des personnages effectuent des jets de Bureaucratie pour prouver la culpabilité d’un criminel grâce à vos preuves, ils ont +2 pips. Cette règle fonctionne même si vous n’effectuez pas le jet de Bureaucratie en personne. La seule condition est que les éléments établissent un lien entre l’accusé et la scène de crime.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet d’Enquête ou de Fouille quand vous participez à l’analyse d’une scène de crime.</p><p>Dépensez 2 points de récit quand vous disposez de matériel de détective pour relancer un jet d’Enquête ou de Fouille. Conservez le nouveau résultat.</p>",
+        "source": "LdB p. 66"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.crochetage",
+    "data": {
+      "name": "Crochetage",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "sleightOfHand",
+              "min": 45
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "sleightOfHand"
+        ],
+        "cost": 3,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "sleightOfHand",
+              "engineering"
+            ],
+            "label": "Crocheter une serrure, déverrouiller un coffre",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          }
+        ],
+        "description": "<p>Tous les crocheteurs ne sont pas des voleurs. Certains exercent ce talent dans le cadre de leur profession. D’autres en ont fait un passe-temps. En tout cas, il s’agit d’une capacité indispensable pour forcer les serrures en un clin d’œil.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Passe-passe ou d’Ingénierie lorsque vous crochetez une serrure ou déverrouillez un coffre.</p>",
+        "source": "LdB p. 66"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.curieux",
+    "data": {
+      "name": "Curieux",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "vigilance",
+          "investigation",
+          "search"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "failForPoints",
+            "cost": 0,
+            "skills": [
+              "stealth",
+              "security",
+              "investigation"
+            ],
+            "label": "La curiosité est un vilain défaut : vous attirez l'attention",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "gain": 3,
+            "key": "failForPoints1"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "vigilance",
+              "investigation",
+              "search"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert2"
+          },
+          {
+            "type": "reroll",
+            "cost": 2,
+            "skills": [
+              "vigilance",
+              "investigation",
+              "search"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "reroll3"
+          }
+        ],
+        "description": "<p>La vie est un mystère. Vous ne pensez pas aux énigmes policières ou aux secrets du passé, mais plutôt aux mystères du quotidien ordinaire. Que contient cette boîte ? Où mène cette porte ? Combien de puces électroniques de la série 7400 faut-il pour fabriquer une unité arithmétique et logique ? Est-ce vraiment une arme à feu ?</p><p><strong>La curiosité est un vilain défaut :</strong> votre curiosité vous cause des ennuis. Changez un jet réussi de Furtivité, Sécurité ou Enquête en échec pour attirer involontairement l’attention du personnel de sécurité. Les problèmes vous rattrapent et vous obtenez 3 points de récit.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Vigilance, Enquête ou Fouille.</p><p>Dépensez 2 points de récit pour relancer un jet de Vigilance, Enquête ou Fouille. Conservez le nouveau résultat.</p>",
+        "source": "LdB p. 66"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.doubleNationalite",
+    "data": {
+      "name": "Double nationalité",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "bureaucracy",
+          "investigation"
+        ],
+        "cost": 4,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "charm",
+              "status"
+            ],
+            "label": "Grâce à l'exotisme de votre deuxième nationalité",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "contacts",
+              "resources"
+            ],
+            "label": "Des gens de votre autre nationalité",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert2"
+          }
+        ],
+        "description": "<p>Vos parents sont issus de deux cultures différentes. Vous parlez leurs langues et possédez la citoyenneté des pays dont ils sont originaires (ainsi qu’un passeport).</p><p><strong>Langues :</strong> quand vous créez le personnage, choisissez une langue maternelle supplémentaire.</p><p><strong>Deux patries :</strong> lorsque votre nationalité vous cause des soucis avec la douane ou les services d’immigration, vous pouvez utiliser votre deuxième nationalité pour vous sortir du pétrin (sauf si votre deuxième origine n’arrange rien).</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Charme ou de Statut grâce à l’exotisme de votre deuxième nationalité.</p><p>Dépensez 1 point de récit pour inverser un jet de Contacts ou de Ressources, car vous connaissez des gens de votre autre nationalité.</p>",
+        "source": "LdB p. 66"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.duelliste",
+    "data": {
+      "name": "Duelliste",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 2,
+        "prerequisites": {
+          "skills": [],
+          "abilities": [
+            "Escrimeur"
+          ]
+        },
+        "learnWith": [
+          "melee",
+          "status"
+        ],
+        "cost": 4,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "narrative",
+            "cost": 0,
+            "skills": [],
+            "label": "En garde ! Défier une cible en duel (combat)",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative1"
+          }
+        ],
+        "description": "<p>Dans le monde moderne, la tradition honorable du duel s’est perdue jusqu’à disparaître et ce constat vous attriste. Vous êtes l’un de ses derniers gardiens. En garde ! Durant une scène de combat, lancez un défi à une cible. Si elle le relève, vous engagez un duel avec elle. Aucun de vous ne peut attaquer d’autre combattant que le duelliste auquel il s’oppose. Vous pouvez toutefois délivrer une contre-attaque quand on s’immisce dans votre affaire. Les attaques de tir visant des combattants engagés dans un duel touchent au hasard l’un des participants (lancez 1d6 : sur 1-3, vous êtes touché, sur 4-6, votre adversaire est touché). Lorsqu’un autre combattant effectue une attaque de corps-à-corps contre un duelliste, ce dernier peut gratuitement inverser son jet de défense. S’il obtient un Bon Karma sur son jet de défense pour contrer l’assaut d’un intervenant extérieur, le duelliste peut immédiatement réaliser une contre-attaque (il s’agit du seul cas où un duelliste a le droit de prendre un autre adversaire pour cible) au lieu d’effectuer un jet de récupération. Le duel s’arrête lorsqu’un des participants abandonne ou est mis Hors de combat ou encore sur décision des duellistes. Quand un duelliste est Blessé, son adversaire doit lui donner l’occasion de capituler.</p>",
+        "source": "LdB p. 66"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.empathie",
+    "data": {
+      "name": "Empathie",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "charm"
+        ],
+        "cost": 4,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "charm",
+              "deception"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "reroll",
+            "cost": 2,
+            "skills": [
+              "charm",
+              "deception"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "reroll2"
+          },
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Un personnage secondaire vous confie ses problèmes",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative3"
+          }
+        ],
+        "description": "<p>Vous comprenez les gens et devinez ce qui les tracasse.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Charme ou de Tromperie.</p><p>Dépensez 2 points de récit pour relancer un jet de Charme ou de Tromperie.</p><p>Dépensez 2 points de récit pour qu’un personnage secondaire ayant des raisons de vous faire confiance vous raconte ses problèmes. Quand ce n’est pas le cas, le Chef des Opérations peut mettre son veto et vous rendre vos points de récit.</p>",
+        "source": "LdB p. 67"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.escrimeur",
+    "data": {
+      "name": "Escrimeur",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "melee",
+              "min": 45
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "melee"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "melee"
+            ],
+            "label": "Attaque avec une épée ou une arme similaire",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Désarmer au lieu d'infliger des dégâts",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          }
+        ],
+        "description": "<p>Les pratiques martiales ancestrales ont encore des défenseurs. Même dans le monde moderne, l’épée occupe une place spéciale dans la société. Bien qu’elle ait disparu des champs de bataille, elle reste présente dans les cérémonies et les traditions de certaines cultures ainsi que dans des disciplines sportives.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet d’attaque lorsque vous combattez avec une épée ou une arme similaire.</p><p>Dépensez 1 point de récit pour désarmer votre adversaire au lieu de lui infliger des dégâts après un jet d’attaque réussi.</p>",
+        "source": "LdB p. 67"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.finLimier",
+    "data": {
+      "name": "Fin limier",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "bureaucracy",
+          "vigilance",
+          "investigation",
+          "science",
+          "willpower"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "search",
+              "investigation"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "forceSuccess",
+            "cost": 2,
+            "skills": [
+              "search",
+              "investigation"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "forceSuccess2"
+          }
+        ],
+        "description": "<p>Vous avez l’œil pour déceler les détails infimes et saisir instinctivement leur signification.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Fouille ou d’Enquête.</p><p>Dépensez 2 points de récit pour transformer un jet de Fouille ou d’Enquête raté en réussite.</p>",
+        "source": "LdB p. 67"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.fusilier",
+    "data": {
+      "name": "Fusilier",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "shooting",
+              "min": 45
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "shooting"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "shooting"
+            ],
+            "label": "Fusil, mitraillette ou fusil d'assaut",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Recharger en action gratuite",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          }
+        ],
+        "description": "<p>Vous vous êtes entraîné au maniement des fusils, des mitraillettes et des fusils d’assaut.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet d’attaque lorsque vous tirez avec un fusil, une mitraillette ou un fusil d’assaut.</p><p>Dépensez 1 point de récit pour recharger un fusil, une mitraillette ou un fusil d’assaut avec une action gratuite plutôt qu’avec une action principale.</p>",
+        "source": "LdB p. 67"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.gadgetSupplementaire",
+    "data": {
+      "name": "Gadget supplémentaire",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "resources",
+          "contacts",
+          "willpower",
+          "status"
+        ],
+        "cost": 3,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [],
+        "description": "<p>Un kit de matériel est tellement indissociable de vous qu’il est devenu une extension de votre personne. Vous voir sans lui paraît impensable. il y en a beaucoup d’autre comme lui, mais celui-là c’est le mien : un kit de matériel supplémentaire devient un matériel signature (voir page 113). Décrivez cet équipement et la raison de votre attachement.</p><p><strong>Collectionneur compulsif :</strong> vous pouvez acquérir cette capacité plusieurs fois pour transformer d’autres kits en matériel signature.</p><p><strong>Points de récit :</strong> gagnez 3 points de récit quand vous perdez votre matériel signature, qu’il est détruit ou indisponible pendant la majeure partie de l’aventure. Vous le retrouvez au plus tard au début de la prochaine session.</p>",
+        "source": "LdB p. 67"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.genie",
+    "data": {
+      "name": "Génie",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "engineering",
+              "min": 65
+            },
+            {
+              "key": "electronics",
+              "min": 65
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "electronics",
+          "engineering"
+        ],
+        "cost": 3,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "electronics",
+              "engineering",
+              "mechanics"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "reroll",
+            "cost": 2,
+            "skills": [
+              "electronics",
+              "engineering",
+              "mechanics"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "reroll2"
+          }
+        ],
+        "description": "<p>Si vous croyez qu’un ordinateur est un appareil très complexe que seules une armée d’ingénieurs et une usine de pointe sont capables de produire, nous vous conseillons de réviser votre point de vue. Une cave, un tas de circuits TTL, un fer à souder, un génie et de la patience suffisent amplement. Soit dit en passant, vos super pouvoirs technologiques ne se limitent pas aux ordinateurs. Vous pourriez très bien pirater une ligne téléphonique avec les sifflets qu’on trouve dans les boîtes de céréales ; bidouiller une arme incendiaire à partir d’une pomme de pin, de résine, de chiffons et d’un briquet ; ou court-circuiter une caméra de surveillance avec un trombone. Vous êtes le genre de gamin qui bricole pour s’amuser, et parfois pour gagner de l’argent.</p><p><strong>MacGyver en herbe :</strong> bricolez un gadget pendant une scène d’action autre que la scène du plan. Vous devez être en mesure de plausiblement fabriquer l’appareil avec les outils et le matériel dont vous disposez. Le Chef des Opérations peut vous demander de dépenser des points de récit pour obtenir le matériel et les outils en question.</p><p><strong>Avant-gardiste :</strong> vous pouvez inventer des gadgets d’espion et des machines excentriques durant les intersessions, ou bricoler un appareil pendant la scène du plan.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet d’Électronique, d’Ingénierie ou de Mécanique.</p><p>Dépensez 2 points de récit pour relancer un jet d’Électronique, d’Ingénierie ou de Mécanique. Conservez le nouveau résultat.</p>",
+        "source": "LdB p. 67"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.globeTrotter",
+    "data": {
+      "name": "Globe-trotter",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "humanities",
+          "resources",
+          "contacts",
+          "survival"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Connaître quelqu'un sur place",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative1"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "contacts",
+              "bureaucracy"
+            ],
+            "label": "En pays étranger",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert2"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "languages"
+            ],
+            "label": "Langues contemporaines",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert3"
+          }
+        ],
+        "description": "<p>Le Taj Mahal ? La Grande Muraille de Chine ? Machu Picchu ? Quelle monotonie, ces lieux clichés ! Vous y êtes déjà allé. En fait, vous avez déjà tout vu, tout fait, et vous avez le t-shirt pour le prouver.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour connaître quelqu’un sur place.</p><p>Dépensez 1 point de récit pour inverser un jet de Contacts ou de Bureaucratie lorsque vous êtes en pays étranger.</p><p>Dépensez 1 point de récit pour inverser un jet de Langues (ne s’applique qu’aux langues contemporaines).</p>",
+        "source": "LdB p. 68"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.gradeMilitaire",
+    "data": {
+      "name": "Grade militaire",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "status"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Un soldat de votre uniforme obéit à vos ordres",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative1"
+          },
+          {
+            "type": "narrative",
+            "cost": 4,
+            "skills": [],
+            "label": "Un officier de votre uniforme obéit à vos ordres",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          }
+        ],
+        "description": "<p>Vous êtes officier ou sous-officier dans les forces armées.</p><p><strong>Grade :</strong> choisissez votre grade. Plus il est élevé, moins vous avez de chance de partir en opération sur le terrain. Les grades qui poseront le moins de problèmes sont ceux des militaires du rang (caporal, brigadier) et des sous-officiers (sergent, adjudant, major), mais il est envisageable d’incarner un pilote de chasse ou un officier des renseignements disposant d’un grade d’officier supérieur (commandant, lieutenant-colonel, colonel). Évitez les officiers généraux (amiraux et généraux), ou alors jouez un personnage qui a pris sa retraite.</p><p><strong>Sens du devoir :</strong> si vous êtes encore en activité, vous êtes susceptible de partir en mission à tout moment. Vos supérieurs peuvent faire office de mécènes.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour qu’un soldat des forces armées correspondant à l’uniforme que vous portez obéisse à vos ordres, même s’il ne fait pas partie de votre unité.</p><p>Dépensez 4 points de récit pour qu’un officier des forces armées correspondant à l’uniforme que vous portez obéisse à vos ordres, même s’il ne fait pas partie de votre unité. Vous pouvez vous servir de cette capacité pour influencer les soldats ennemis si vous portez le bon uniforme et parlez leur langue. Toutefois, le Chef des Opérations peut exiger que vous réussissiez un jet de Tromperie.</p>",
+        "source": "LdB p. 68"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.hommeGrenouille",
+    "data": {
+      "name": "Homme-grenouille",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 2,
+        "prerequisites": {
+          "skills": [],
+          "abilities": [
+            "Plongeur"
+          ]
+        },
+        "learnWith": [
+          "endurance",
+          "mechanics",
+          "vigilance"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Un plongeur sous votre supervision relance un jet",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative1"
+          }
+        ],
+        "description": "<p>Vous êtes un plongeur suffisamment expérimenté pour entraîner ou superviser des débutants. Vous bénéficiez des compétences techniques pour effectuer des plongées au-delà de trente mètres. Vous savez entre autres préparer des mélanges respiratoires et vous servir de plusieurs bouteilles d’oxygène.</p><p><strong>Moniteur :</strong> quand un plongeur placé sous votre supervision rencontre des difficultés au cours d’une plongée, le Chef des Opérations devrait vous en informer le premier.</p><p><strong>Points de récit :</strong> lorsque vous plongez, dépensez 1 point de récit pour qu’un plongeur placé sous votre supervision relance un jet de tâche et conserve le nouveau résultat.</p>",
+        "source": "LdB p. 68"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.immuniteDiplomatique",
+    "data": {
+      "name": "Immunité diplomatique",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "bureaucracy",
+          "contacts",
+          "status"
+        ],
+        "cost": 8,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Empêcher la fouille de vos effets en détention",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative1"
+          },
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Être relâché immédiatement",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          }
+        ],
+        "description": "<p>La convention de Vienne, qui codifie les relations diplomatiques, coutume remontant à plusieurs siècles, est assez récente. Vous êtes titulaire d’un passeport diplomatique. Vous n’avez pas carte blanche pour agir comme bon vous semble et tout le monde ne respecte pas le principe d’immunité diplomatique. Vous bénéficiez toutefois de garanties : vous êtes libre de circuler en toute sécurité, et l’État qui vous accueille n’a pas le droit de vous intenter de procès. En revanche, on peut vous placer en détention, fouiller votre maison, vous expulser et vous déclarer persona non grata.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour empêcher que les forces de l’ordre fouillent vos effets personnels lorsque vous êtes en détention.</p><p>Dépensez 1 point de récit pour être relâché immédiatement lorsque les forces de l’ordre vous placent en détention.</p>",
+        "source": "LdB p. 68"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.insigneDePolice",
+    "data": {
+      "name": "Insigne de police",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "bureaucracy",
+          "security",
+          "investigation"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "bonusPips",
+            "cost": 0,
+            "skills": [
+              "charm",
+              "contacts",
+              "languages",
+              "performance",
+              "status",
+              "deception"
+            ],
+            "label": "En montrant votre insigne dans votre juridiction",
+            "pips": 2,
+            "dice": 0,
+            "skill": "",
+            "key": "bonusPips1"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "bureaucracy",
+              "investigation"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert2"
+          },
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Réquisitionner un véhicule",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative3"
+          }
+        ],
+        "description": "<p>Vous êtes officier dans les forces de police de la ville, comme le prouve votre insigne.</p><p><strong>Mes chers collègues :</strong> utilisez Bureaucratie au lieu de Contacts pour joindre des collègues policiers. Police ! Vous avez +2 pips sur vos jets d’interaction sociale quand vous montrez votre insigne dans votre juridiction.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Bureaucratie ou d’Enquête.</p><p>Dépensez 1 point de récit pour réquisitionner un véhicule et partir à la poursuite d’un méchant.</p>",
+        "source": "LdB p. 68"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.inventeurFou",
+    "data": {
+      "name": "Inventeur fou",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "science",
+              "min": 65
+            },
+            {
+              "key": "engineering",
+              "min": 65
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "engineering",
+          "science"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "narrative",
+            "cost": 0,
+            "skills": [],
+            "label": "Mouahahah ! (1 fois par session) : 1d6 sbires fuient",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative1"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "electronics",
+              "engineering",
+              "science"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert2"
+          }
+        ],
+        "description": "<p>Vous avez l’étincelle de génie, le gène qui transforme les rêves les plus fous de la science en réalité. Vous vous intéressez à tous les domaines, des collecteurs spatio-temporels de Zvyerdlov à la projection encéphalographique inversée en passant par le séquençage génétique intégral des champignons. Muni de ce savoir encyclopédique, vous allez bientôt fabriquer une machine qui va faire de vous le maître du monde ! … ou préparer des glaces. L’un ou l’autre vous convient. Mouahahah ! Une fois par session, si vous possédez un appareil à l’aspect inquiétant qui produit des effets spéciaux spectaculaires, vous pouvez l’activer ou le brandir en éclatant d’un rire maléfique pour provoquer la fuite de 1d6 sbires.</p><p><strong>Frénésie créatrice :</strong> une période d’intersession compte pour deux lorsque vous concevez de nouvelles inventions.</p><p><strong>Avant-gardiste :</strong> vous pouvez inventer des gadgets d’espion et des machines excentriques durant les intersessions, et bricoler un appareil pendant la scène du plan.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet d’Électronique, d’Ingénierie ou de Science.</p>",
+        "source": "LdB p. 69"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.jeune",
+    "data": {
+      "name": "Jeune",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "bureaucracy",
+          "contacts"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Les adultes vous ignorent pendant la scène",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative1"
+          },
+          {
+            "type": "narrative",
+            "cost": 4,
+            "skills": [],
+            "label": "Un méchant vous gronde au lieu de vous blesser",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          }
+        ],
+        "description": "<p>Ne pas appartenir au monde des adultes est à la fois une bénédiction et une malédiction. D’un côté, la société vous pardonne plus facilement vos transgressions. De l’autre, votre jeunesse et votre manque d’expérience font de vous la cible de préjugés.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour que les adultes vous ignorent pendant la scène, sauf si vous commettez un acte violent ou suspect.</p><p>Dépensez 4 points de récit lorsque vous allez être Blessé pour qu’un méchant vous gronde à la place. Cela a exactement le même effet que la condition Blessé, si ce n’est qu’elle disparaît après la scène de combat. La seule chose qui est blessée chez vous est votre amour-propre.</p>",
+        "source": "LdB p. 69"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.maitreDarmes",
+    "data": {
+      "name": "Maître d’armes",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 2,
+        "prerequisites": {
+          "skills": [],
+          "abilities": [
+            "Escrimeur"
+          ]
+        },
+        "learnWith": [
+          "melee",
+          "status"
+        ],
+        "cost": 6,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "initiative",
+            "cost": 1,
+            "skills": [],
+            "label": "Agir avant la prochaine action ou à la fin du tour",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "initiative1"
+          }
+        ],
+        "description": "<p>De même qu’une bonne épée est une œuvre d’art dont les secrets de fabrication appartiennent presque au passé, la maîtrise de l’escrime est un art dont le nombre d’adeptes a été réduit à peau de chagrin. Vous gardez les anciennes traditions vivaces et vous efforcez de les perfectionner.</p><p><strong>Prêt à dégainer :</strong> quand vous avez votre arme au côté, vous n’êtes pas obligé de dépenser une action bonus pour la dégainer. Vous pouvez dégainer votre épée durant un jet de défense ou au cours de votre action principale.</p><p><strong>Trancher les balles :</strong> vous pouvez utiliser votre épée pour vous défendre contre les attaques d’armes à distance, même si vous vous trouvez dans une zone différente de celle du tireur.</p><p><strong>Points de récit :</strong> à tout moment du round, si vous n’avez pas encore accompli votre tour, vous pouvez dépenser 1 point de récit pour agir avant la première action du personnage suivant ou à la fin du tour actuel.</p>",
+        "source": "LdB p. 69"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.maitreJudoka",
+    "data": {
+      "name": "Maître judoka",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 2,
+        "prerequisites": {
+          "skills": [],
+          "abilities": [
+            "Ceinture noire de judo"
+          ]
+        },
+        "learnWith": [
+          "melee",
+          "status"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "bonusPips",
+            "cost": 0,
+            "skills": [
+              "willpower"
+            ],
+            "label": "Résister à la peur et à la terreur",
+            "pips": 2,
+            "dice": 0,
+            "skill": "",
+            "key": "bonusPips1"
+          },
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Terrifié → Effrayé, ou annuler Effrayé (action bonus)",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          },
+          {
+            "type": "forceSuccess",
+            "cost": 2,
+            "skills": [
+              "melee"
+            ],
+            "label": "Jet d'attaque",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "forceSuccess3"
+          }
+        ],
+        "description": "<p>Vous êtes passé maître dans un art martial tel que le judo ou l’aïkido.</p><p><strong>Rapide comme le vent :</strong> vous pouvez utiliser Corps-àcorps pour effectuer des jets de défense contre les attaques à distance d’un assaillant situé dans une autre zone aussi longtemps que vous avez conscience de sa présence.</p><p><strong>Zen :</strong> vous avez +2 pips sur vos jets pour résister à la terreur et à la peur, pour passer de l’état Terrifié à Effrayé, et pour annuler l’état Effrayé. Dépensez 2 points de récit pour passer de l’état Terrifié à Effrayé ou pour annuler l’état Effrayé en tant qu’action bonus.</p><p><strong>Points de récit :</strong> dépensez 2 points de récit pour transformer un jet d’attaque en réussite, quel que soit le résultat obtenu. S’il s’agit d’un jet en opposition, comparez le résultat adverse à celui de votre jet.</p>",
+        "source": "LdB p. 69"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.menacant",
+    "data": {
+      "name": "Menaçant",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "deception",
+          "willpower",
+          "status",
+          "strength"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "charm",
+              "status",
+              "deception"
+            ],
+            "label": "Jet de persuasion : la cible est terrifiée et obéit",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Avant le combat : 1d6 sbires prennent la fuite (jet contre leur Volonté)",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          }
+        ],
+        "description": "<p>Vous n’avez pas l’air commode, vous êtes le genre de personne qu’on préfère laisser en paix quand on la croise dans la rue. Vous ne ressemblez pas forcément à une brute sans cervelle, vous avez peut-être un regard froid et impassible, ou bien un rictus qui en dit long sur vos intentions.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de persuasion. Si vous réussissez, la cible est terrifiée et vous obéit.</p><p>Quand le combat n’a pas encore commencé, dépensez 2 points de récit et faites un jet de Statut, Force, Tromperie ou Volonté contre la Volonté des sbires (un seul jet pour ces derniers). Si vous réussissez, 1d6 sbires prennent la fuite.</p>",
+        "source": "LdB p. 69"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.neDerriereUnVolant",
+    "data": {
+      "name": "Né derrière un volant",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "driving",
+              "min": 65
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "driving"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "driving"
+            ],
+            "label": "En pilotant un véhicule",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "reroll",
+            "cost": 2,
+            "skills": [
+              "driving"
+            ],
+            "label": "En pilotant un véhicule",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "reroll2"
+          },
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Réaliser une cascade possible dans la scène",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative3"
+          }
+        ],
+        "description": "<p>Vous ne faites qu’un avec la route et votre véhicule.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de tâche quand vous pilotez un véhicule.</p><p>Dépensez 2 points de récit pour relancer un jet de tâche quand vous pilotez un véhicule.</p><p>Dépensez 2 points de récit pour réaliser une cascade possible dans la scène : rouler sur deux roues, sauter par-dessus un obstacle, etc.</p>",
+        "source": "LdB p. 71"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.nouveauRiche",
+    "data": {
+      "name": "Nouveau riche",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "resources",
+              "min": 65
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "resources"
+        ],
+        "cost": 6,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "resources",
+              "contacts"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "reroll",
+            "cost": 2,
+            "skills": [
+              "resources",
+              "contacts"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "reroll2"
+          }
+        ],
+        "description": "<p>Vous possédez une fortune indécente que vous avez accumulée seul et sans aide, qui vous a permis d’acheter un appartement de luxe au centre-ville. Malgré l’admiration qu’on vous porte, de nombreuses personnes (tout aussi aisées) vous méprisent, car vous n’êtes pas né avec une cuillère en argent dans la bouche.</p><p><strong>Quartier chic :</strong> vous possédez un logement luxueux en ville, un grand appartement ou une maison à deux pas du centre, ou bien un étage au sommet d’un gratte-ciel. Vous avez accès à des services à domicile et des domestiques (garage, concierge, blanchisserie, etc.) Le personnel ne vous suit jamais dans vos aventures.</p><p><strong>Riche :</strong> vous êtes plein aux as, ce que ne reflète pas forcément votre valeur de Ressources. Dans ce cas, la compétence représente les liquidités que vous détenez, et non les actifs tels que les actions, les obligations, les œuvres d’art, les biens immobiliers et autres investissements qu’on ne liquide pas du jour au lendemain. Le Chef des Opérations devrait toutefois se montrer assez coulant avec les jets de Ressources et vous donner droit à des réussites automatiques.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Ressources ou de Contacts.</p><p>Dépensez 2 points de récit pour relancer un jet de Ressources ou de Contacts. Conservez le nouveau résultat.</p>",
+        "source": "LdB p. 71"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.optimiste",
+    "data": {
+      "name": "Optimiste",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "charm"
+        ],
+        "cost": 3,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "charm",
+              "willpower"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Remonter le moral : quelqu'un relance un jet (hors combat)",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          }
+        ],
+        "description": "<p>Il n’y a pas de quoi s’inquiéter. Le soleil brille, et si le ciel est couvert, il dispense sa chaleur ailleurs dans le monde. Non pas que l’absence du soleil influe sur votre moral : vous chantez à tue-tête même sous la pluie.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Charme ou de Volonté.</p><p>Dépensez 2 points de récit pour remonter le moral à quelqu’un et lui permettre de relancer un jet de tâche, hors situation de combat.</p>",
+        "source": "LdB p. 71"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.pairDuRoyaume",
+    "data": {
+      "name": "Pair du royaume",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "status",
+              "min": 65
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "investigation",
+          "status"
+        ],
+        "cost": 6,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "charm",
+              "deception"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          }
+        ],
+        "description": "<p>Vous avez hérité d’un titre aristocratique remontant à vos lointains ancêtres.</p><p><strong>Titre nobiliaire :</strong> choisissez le titre de noblesse de votre personnage. Par exemple : prince/princesse, marquis/ marquise, margrave/margravine, comte/comtesse, vicomte/ vicomtesse, baron/baronne, chevalier/dame, écuyer. Vous pouvez gagner cette capacité en cours de partie en étant anobli par un souverain, mais, du point de vue des règles, tous les titres sont accessibles. Vous devez simplement trouver une explication plausible. Peut-être êtes vous le descendant d’une ancienne branche de l’aristocratie qui a tenu son identité secrète jusqu’aujourd’hui, à moins que vous n’ayez épousé un membre de la noblesse.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Charme ou de Tromperie.</p>",
+        "source": "LdB p. 71"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.pilote",
+    "data": {
+      "name": "Pilote",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "engineering",
+          "driving"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "status"
+            ],
+            "label": "Quand votre condition de pilote vous avantage",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [],
+            "label": "Interaction sociale avec des professionnels de l'aviation",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert2"
+          }
+        ],
+        "description": "<p>Elle est terminée l’époque où n’importe qui pouvait sauter dans un avion et s’envoler vers le ciel. De nos jours, il faut un brevet pour piloter un avion en toute légalité.</p><p><strong>On s’envole :</strong> vous savez piloter un avion et connaissez les procédures règlementaires : préparer et déposer un plan de vol, communiquer avec les contrôleurs aériens, etc.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Statut quand vous pouvez tirer avantage de votre condition de pilote.</p><p>Dépensez 1 point de récit pour inverser un jet de tâche lors d’interactions sociales avec des pilotes, des contrôleurs aériens et autres professionnels du domaine de l’aviation.</p>",
+        "source": "LdB p. 71"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.piloteDeChasse",
+    "data": {
+      "name": "Pilote de chasse",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 2,
+        "prerequisites": {
+          "skills": [],
+          "abilities": [
+            "Pilote",
+            "Grade militaire"
+          ]
+        },
+        "learnWith": [
+          "engineering",
+          "driving",
+          "shooting"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "shooting"
+            ],
+            "label": "Combat aérien, armement du chasseur",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "initiative",
+            "cost": 2,
+            "skills": [],
+            "label": "Accomplir immédiatement votre tour (combat aérien)",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "initiative2"
+          }
+        ],
+        "description": "<p>Les avions de chasse sont une espèce à part entière, bien différente des jets privés. Ce sont des appareils maniables et d’une puissance redoutable, armés de missiles, de bombes, de roquettes et de canons. Ces machines complexes sont équipées de radars, de brouilleurs et de leurres. Il existe également des appareils à décollage et atterrissage vertical. Enfin, l’accès à ces avions est strictement contrôlé : on ne confie pas des aéronefs hors de prix et dangereux au premier venu.</p><p><strong>Points de récit :</strong> pendant un combat aérien, dépensez 1 point de récit pour inverser un jet d’attaque effectué avec l’armement du chasseur.</p><p>Dépensez 2 points de récit pour accomplir immédiatement votre tour d’action durant un combat aérien.</p>",
+        "source": "LdB p. 72"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.pistolero",
+    "data": {
+      "name": "Pistolero",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "shooting",
+              "min": 45
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "agility",
+          "shooting"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "shooting"
+            ],
+            "label": "Arme de poing",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Recharger une arme de poing en action gratuite",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          }
+        ],
+        "description": "<p>Vous êtes redoutable avec un pistolet entre les mains.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet d’attaque lorsque vous tirez avec une arme de poing.</p><p>Dépensez 1 point de récit pour recharger une arme de poing avec une action gratuite à la place d’une action principale.</p>",
+        "source": "LdB p. 72"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.plongeur",
+    "data": {
+      "name": "Plongeur",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "endurance",
+          "mechanics",
+          "vigilance"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "endurance",
+              "agility"
+            ],
+            "label": "En plongée",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "reroll",
+            "cost": 2,
+            "skills": [
+              "endurance",
+              "agility"
+            ],
+            "label": "En plongée",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "reroll2"
+          }
+        ],
+        "description": "<p>Titulaire d’une licence de plongée sous-marine, vous avez acquis l’entraînement nécessaire pour plonger en toute autonomie. Vous préparez vos bouteilles d’oxygène et planifiez les paliers de décompression, le temps de plongée en eau profonde, le temps de remontée, etc. Vous avez aussi une licence que vous pouvez montrer pour louer du matériel de plongée et ainsi prouver que vous savez vous en servir.</p><p><strong>Signes de communication :</strong> vous communiquez des informations et des instructions simples aux autres personnages dotés de la capacité Plongeur avec des signes de main, ce qui vous permet en tant que joueur de parler librement de ce que votre personnage souhaite communiquer.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet d’Endurance ou d’Agilité quand vous plongez.</p><p>Dépensez 2 points de récit pour relancer un jet d’Endurance ou d’Agilité quand vous plongez. Conservez le nouveau résultat.</p>",
+        "source": "LdB p. 72"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.polyglotte",
+    "data": {
+      "name": "Polyglotte",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "humanities",
+          "languages"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "languages",
+              "investigation",
+              "humanities"
+            ],
+            "label": "Parler ou comprendre une langue étrangère",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          }
+        ],
+        "description": "<p>Vous êtes doué pour les langues.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Langues, d’Enquête ou de Sciences humaines qui nécessite de parler ou comprendre une langue étrangère.</p><p><strong>Langues :</strong> choisissez une langue supplémentaire quand vous créez votre personnage. En outre, vous avez besoin de quatre coches au lieu de cinq pour apprendre une nouvelle langue.</p>",
+        "source": "LdB p. 72"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.prestance",
+    "data": {
+      "name": "Prestance",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "charm",
+              "min": 65
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "charm"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Attirer l'attention d'une personne (−2 pour remarquer, +2 pour lui échapper)",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative1"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "charm"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert2"
+          },
+          {
+            "type": "narrative",
+            "cost": 4,
+            "skills": [],
+            "label": "Un personnage secondaire devient un ancien amant",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative3"
+          }
+        ],
+        "description": "<p>Vous avez cette petite étincelle, un charme indéfinissable qui vous rend séduisant. Il ne s’agit pas d’une question de beauté, mais plutôt de l’aura qui émane de votre personne.</p><p><strong>Amours passées :</strong> des histoires d’amour passées ressurgissent. Vous pouvez évoquer vos anciens amants si vous en avez envie, et le Chef des Opérations est libre d’utiliser ces personnages pour complexifier l’intrigue.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour attirer l’attention d’une personne présente durant la scène et la rendre moins attentive au reste du monde. Cette dernière subit un malus de –2 pips sur ses jets de tâche pour remarquer quelque chose, tandis que les jets de tâche pour échapper à son attention bénéficient de +2 pips.</p><p>Dépensez 1 point de récit pour inverser un jet de Charme.</p><p>Dépensez 4 points de récit pour transformer un personnage secondaire en ancien amant qui a toujours des sentiments à votre égard. Si le Chef décide d’apposer son veto, vous récupérez vos points de récit.</p>",
+        "source": "LdB p. 72"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.professeur",
+    "data": {
+      "name": "Professeur",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "willpower",
+          "status"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [],
+            "label": "Jet lié au savoir universitaire",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "status"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert2"
+          }
+        ],
+        "description": "<p>Vous n’avez pas pour but d’alimenter votre propre puits de connaissance. C’est la prochaine génération qui vous importe. Elle a besoin d’un guide pour acquérir le savoir qui lui permettra de bâtir son avenir. Vous vous dévouez corps et âme à cette mission.</p><p><strong>Au programme du prochain devoir :</strong> quand vous obtenez un Bon Karma sur un jet de tâche, vous pouvez prodiguer une leçon à un autre personnage présent. Ce dernier coche la case d’expérience de la compétence que vous venez d’utiliser. Si vous employez le système de points d’expérience, vous pouvez offrir un point de récompense dans la compétence avec laquelle vous avez obtenu un Bon Karma. Vous pouvez utiliser cette règle une fois par personnage et par session.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de tâche lié au savoir universitaire.</p><p>Dépensez 1 point de récit pour inverser un jet de Statut.</p>",
+        "source": "LdB p. 72"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.professionnelDiplome",
+    "data": {
+      "name": "Professionnel diplômé",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "willpower",
+          "status"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "bonusPips",
+            "cost": 0,
+            "skills": [
+              "status"
+            ],
+            "label": "Quand votre domaine d'expertise impressionne",
+            "pips": 2,
+            "dice": 0,
+            "skill": "",
+            "key": "bonusPips1"
+          },
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Laissez-moi faire, je suis un professionnel !",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [],
+            "label": "Compétence principale de votre domaine",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert3"
+          }
+        ],
+        "description": "<p>La pratique de certaines professions nécessite un diplôme. La liste des métiers concernés varie d’un pays à l’autre, mais il s’agit en général d’activités susceptibles de causer du tort à la population en cas de fraude (professions juridiques, agents de police, médecins…). Cette règlementation s’applique aussi entre autres aux professeurs, aux plombiers, aux électriciens et aux chauffeurs de taxi. Cette capacité est conçue pour les professions qui ne sont pas déjà couvertes par Avocat, Pilote, Grade militaire et Insigne de police</p><p><strong>Domaine d’expertise :</strong> choisissez une profession dans laquelle vous êtes diplômé : docteur (Médecine), électricien (Électronique ou Ingénierie), Plombier (Ingénierie), chauffeur de taxi (Pilotage). Vous avez le droit d’exercer ce métier. La compétence indiquée entre parenthèses est la compétence principale du domaine d’expertise concerné.</p><p><strong>Mes chers collègues :</strong> utilisez votre compétence principale à la place de Contacts pour joindre des collègues de votre domaine d’exercice.</p><p><strong>Faites appel à un professionnel :</strong> vous avez +2 pips sur vos jets de Statut lors des situations où votre domaine d’expertise est susceptible d’impressionner vos interlocuteurs.</p><p><strong>Laissez-moi faire :</strong> dans une situation d’urgence, dépensez 1 point de récit et hurlez « Laissez-moi faire, je suis un professionnel ! » pour que la foule s’écarte et vous laisse faire votre travail. Vous pouvez aussi donner des ordres simples aux badauds, comme passer un appel ou vous apporter du matériel.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet dans la compétence principale de votre domaine d’expertise.</p>",
+        "source": "LdB p. 73"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.sixiemeSens",
+    "data": {
+      "name": "Sixième sens",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 0,
+        "prerequisites": {
+          "skills": [],
+          "abilities": []
+        },
+        "learnWith": [
+          "vigilance"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "narrative",
+            "cost": 1,
+            "skills": [],
+            "label": "Annuler la condition Surpris",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative1"
+          },
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "investigation"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert2"
+          },
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Remarquer un élément important de la scène",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative3"
+          }
+        ],
+        "description": "<p>Intuition, sixième sens, des yeux derrière la tête… quel que soit le nom que vous donnez à ce comportement instinctif, vous l’avez.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour annuler la condition Surpris et agir normalement.</p><p>Dépensez 1 point de récit pour inverser un jet d’Enquête.</p><p>Dépensez 2 points de récit pour remarquer un élément important durant une scène. Le Chef des Opérations vous communique alors une information vitale ou vous rend vos points de récit.</p>",
+        "source": "LdB p. 73"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.uppercutFracassant",
+    "data": {
+      "name": "Uppercut fracassant",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "melee",
+              "min": 65
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "melee",
+          "strength"
+        ],
+        "cost": 5,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "bonusDamage",
+            "cost": 0,
+            "skills": [],
+            "label": "Poings d'acier : +1dX à mains nues",
+            "pips": 0,
+            "dice": 1,
+            "skill": "",
+            "key": "bonusDamage1"
+          },
+          {
+            "type": "bonusDamage",
+            "cost": 1,
+            "skills": [],
+            "label": "+2dX à mains nues (après le jet de dégâts)",
+            "pips": 0,
+            "dice": 2,
+            "skill": "",
+            "key": "bonusDamage2"
+          }
+        ],
+        "description": "<p>Vos poings sont des armes de destruction massive ! Vous pouvez réduire un adulte en bouillie avec vos seules mains.</p><p><strong>Poings d’acier :</strong> vous infligez +1dX dégâts supplémentaires quand vous vous battez à mains nues.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour infliger +2dX supplémentaires à votre coup quand vous vous battez à mains nues. Vous pouvez activer cette capacité et défausser les points de récit après avoir effectué le jet de dégâts initial.</p>",
+        "source": "LdB p. 73"
+      }
+    }
+  },
+  {
+    "seedKey": "ability.vieilleFortune",
+    "data": {
+      "name": "Vieille fortune",
+      "type": "ability",
+      "img": "icons/svg/upgrade.svg",
+      "system": {
+        "level": 1,
+        "prerequisites": {
+          "skills": [
+            {
+              "key": "resources",
+              "min": 65
+            },
+            {
+              "key": "status",
+              "min": 65
+            }
+          ],
+          "abilities": []
+        },
+        "learnWith": [
+          "investigation",
+          "status"
+        ],
+        "cost": 8,
+        "crosses": 0,
+        "acquired": true,
+        "specialization": "",
+        "activations": [
+          {
+            "type": "invert",
+            "cost": 1,
+            "skills": [
+              "resources",
+              "status"
+            ],
+            "label": "",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "invert1"
+          },
+          {
+            "type": "narrative",
+            "cost": 2,
+            "skills": [],
+            "label": "Le majordome prend un coup à votre place (4dR, puis Hors de combat)",
+            "pips": 0,
+            "dice": 0,
+            "skill": "",
+            "key": "narrative2"
+          }
+        ],
+        "description": "<p>Vous avez hérité d’une immense fortune, laquelle comprend un manoir ou un château situé à l’extérieur de la ville.</p><p><strong>Propriétaire terrien :</strong> vous possédez un manoir ou un château implanté au cœur d’une vaste propriété. Vous avez du personnel à votre service : intendant, cuisinier, gouvernant et jardinier. Ces derniers ne vous suivent jamais dans vos aventures.</p><p><strong>Majordome :</strong> vous employez un majordome qui peut vous accompagner dans vos péripéties et s’occuper des corvées pour que vous partiez à l’aventure avec classe et élégance.</p><p><strong>Riche :</strong> vous êtes plein aux as, ce que ne reflète pas forcément votre valeur de Ressources. Dans ce cas, la compétence ne représente pas la totalité de votre fortune, qui se compose d’actions, d’obligations, d’œuvres d’art, de biens immobiliers et des autres richesses dont vous avez hérité. En effet, Ressources donne une idée de vos liquidités – l’argent disponible – et la vitesse à laquelle vous pouvez liquider vos actifs.</p><p><strong>Points de récit :</strong> dépensez 1 point de récit pour inverser un jet de Ressources ou de Statut.</p><p>Dépensez 2 points de récit pour que votre majordome prenne un coup à votre place s’il est présent durant la scène. Ce dernier fonctionne en quelque sorte comme un bouclier humain doté de 4dR protection chaque fois que vous l’utilisez. Cependant, il est automatiquement mis Hors de combat jusqu’à la fin de l’aventure.</p>",
+        "source": "LdB p. 73"
+      }
+    }
+  }
+]

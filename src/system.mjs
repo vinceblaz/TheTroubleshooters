@@ -14,12 +14,32 @@ import { TTSNpcSheet } from "./sheets/npc-sheet.mjs";
 import { TTSItemSheet, ITEM_BODY_PARTIALS } from "./sheets/item-sheet.mjs";
 import { RelayService } from "./relay/relay-service.mjs";
 import { initializeSystem, ensureInitMacro, promptInitializationIfNeeded } from "./init/initialize.mjs";
+import { registerCardHandlers } from "./chat/card-handlers.mjs";
+import { onRenderChatMessage } from "./chat/chat-hooks.mjs";
+import { CHAT_PARTIALS } from "./chat/cards.mjs";
+import { rollCharacterSkill, rollNpcSkill } from "./services/roll-service.mjs";
+import { rollPool } from "./services/pool-service.mjs";
+import { openRollRequest } from "./apps/request-roll.mjs";
+import { StoryPointsApp } from "./apps/story-points-app.mjs";
+import { startNewScene } from "./services/scene-service.mjs";
+import { startNewSession } from "./services/story-point-service.mjs";
 
 Hooks.once("init", async () => {
   console.log(`${SYSTEM_ID} | Initialisation du système The Troubleshooters`);
 
   CONFIG.THETROUBLESHOOTERS = THETROUBLESHOOTERS;
-  game.thetroubleshooters = { config: THETROUBLESHOOTERS, initializeSystem, relay: RelayService };
+  game.thetroubleshooters = {
+    config: THETROUBLESHOOTERS,
+    initializeSystem,
+    relay: RelayService,
+    rollSkill: rollCharacterSkill,
+    rollNpcSkill,
+    rollPool,
+    requestRoll: openRollRequest,
+    storyPoints: () => StoryPointsApp.open(),
+    newScene: startNewScene,
+    newSession: (opts) => startNewSession(StoryPointsApp.characters(), opts)
+  };
 
   registerSettings();
 
@@ -50,8 +70,13 @@ Hooks.once("init", async () => {
   // Gabarits partiels (corps des fiches d'Items, listes partagées)
   await foundry.applications.handlebars.loadTemplates([
     ...Object.values(ITEM_BODY_PARTIALS),
-    `${SYSTEM_PATH}/templates/shared/item-list.hbs`
+    `${SYSTEM_PATH}/templates/shared/item-list.hbs`,
+    ...CHAT_PARTIALS
   ]);
+
+  // Cartes de chat et relais MJ
+  registerCardHandlers();
+  Hooks.on("renderChatMessageHTML", onRenderChatMessage);
 });
 
 Hooks.once("ready", async () => {

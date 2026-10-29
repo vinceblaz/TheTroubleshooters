@@ -2,7 +2,8 @@
  * Lecture des acteurs pour le combat (armes, protection, défense, rang) — aucune écriture.
  * Ne dépend que de la configuration et du domaine (importable depuis le rendu des cartes).
  */
-import { THETROUBLESHOOTERS } from "../config.mjs";
+import { SYSTEM_ID, THETROUBLESHOOTERS } from "../config.mjs";
+import { conditionLevel, preventsDefense } from "../domain/rules/conditions.mjs";
 import { parseWeaponDescriptors, UNARMED } from "../domain/combat/weapon.mjs";
 import { soakDice } from "../domain/combat/attack.mjs";
 import { characterCapabilities } from "../domain/rules/npc.mjs";
@@ -74,9 +75,9 @@ export function hasReach(actor) {
   return weaponsOf(actor).some(w => w.flags.reach);
 }
 
-/** Niveaux de Saoul (cumul en phase 5 ; 1 si le statut est posé). */
+/** Niveaux de Saoul (cumulatif ×3, phase 5). */
 export function drunkLevelsOf(actor) {
-  return statusesOf(actor).includes("drunk") ? 1 : 0;
+  return conditionLevel("drunk", statusesOf(actor), actor?.flags?.[SYSTEM_ID]?.conditionLevels ?? {});
 }
 
 /** Dés d'encaissement contre une arme donnée. */
@@ -96,7 +97,7 @@ export function capsOf(actor) {
 export function defenseChoicesOf(actor) {
   if (!actor) return [];
   const st = statusesOf(actor);
-  if (["drunk", "paralyzed", "outOfAction"].some(s => st.includes(s))) return [];
+  if (preventsDefense(st) || ["paralyzed", "outOfAction"].some(s => st.includes(s))) return [];
   if (actor.type === "character") {
     const out = [{ key: "melee", label: skillLabel("melee"), value: actor.system.skills.melee.value }];
     if (actor.system.combat?.inCover) out.push({ key: "agility", label: `${skillLabel("agility")} (${game.i18n.localize("TTS.Combat.InCover")})`, value: actor.system.skills.agility.value });

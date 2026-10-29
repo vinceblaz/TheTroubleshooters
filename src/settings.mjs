@@ -54,6 +54,13 @@ export function registerSettings() {
     choices: { public: "TTS.Settings.NpcRollVisibility.Public", gm: "TTS.Settings.NpcRollVisibility.Gm" }
   });
 
+  reg("duelRepeatScope", {
+    name: "TTS.Settings.DuelRepeatScope.Name",
+    hint: "TTS.Settings.DuelRepeatScope.Hint",
+    scope: "world", config: true, type: String, default: "duel",
+    choices: { duel: "TTS.Settings.DuelRepeatScope.Duel", side: "TTS.Settings.DuelRepeatScope.Side" }
+  });
+
   reg("initializedVersion", {
     scope: "world", config: false, type: String, default: ""
   });

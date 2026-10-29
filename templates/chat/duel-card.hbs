@@ -1,0 +1,47 @@
+<div class="thetroubleshooters tts-card tts-duel-card">
+  <header class="tts-card-header">
+    <span class="tts-card-title"><i class="fa-solid fa-people-arrows"></i> {{localize "TTS.Duel.Title"}}</span>
+    <span class="tts-card-value">{{localize "TTS.Duel.Target"}} {{d.target}}</span>
+  </header>
+  <div class="tts-duel-score">
+    {{#each sides as |s|}}
+    <section class="tts-side {{#if s.winner}}tts-winner{{/if}}">
+      <h4>{{s.name}} <span class="tts-duel-points">{{s.score}}</span></h4>
+      <div class="tts-muted">{{s.names}}</div>
+      {{#if s.goal}}<div class="tts-history">{{localize "TTS.Duel.Goal"}} : {{s.goal}}</div>{{/if}}
+    </section>
+    {{/each}}
+  </div>
+  {{#if exchanges.length}}
+  <ol class="tts-duel-exchanges">
+    {{#each exchanges as |ex|}}
+    <li class="{{#if ex.pending}}tts-pending-row{{/if}}">
+      <div><strong>{{ex.byName}}</strong> : {{ex.skillLabel}}{{#if ex.oppLabel}} / {{ex.oppLabel}}{{/if}}{{#if ex.pips}} <span class="tts-tag">{{ex.pips}}</span>{{/if}}</div>
+      <div class="tts-duel-rolls">
+        {{#each ex.sides as |sd|}}
+        <span>{{sd.name}}{{#if sd.who}} ({{sd.who}}){{/if}} : {{#if sd.result}}<span class="tts-die-result {{#if sd.success}}tts-success{{else}}tts-failure{{/if}}">{{sd.result}}</span>{{else}}<span class="tts-muted">…</span>{{/if}}</span>
+        {{/each}}
+      </div>
+      {{#if ex.winnerName}}<div class="tts-history">★ {{ex.winnerName}} {{localize "TTS.Duel.WinsExchange"}} — {{localize "TTS.Duel.Describes"}}</div>{{/if}}
+      {{#if ex.tie}}<div class="tts-history">= {{localize "TTS.Duel.NoChange"}} — {{ex.describerName}} {{localize "TTS.Duel.DescribesShort"}}</div>{{/if}}
+    </li>
+    {{/each}}
+  </ol>
+  {{/if}}
+
+  {{#if winnerSide}}
+  <div class="tts-challenge-result"><strong>{{winnerSide.name}}</strong> {{localize "TTS.Duel.WinsDuel"}}{{#if winnerSide.goal}} : {{winnerSide.goal}}{{/if}}</div>
+  {{else}}
+  {{#each rollSides as |s|}}
+  <div class="tts-card-buttons" data-owner-any="{{s.owners}}">
+    <button type="button" data-tts-action="duRoll" data-side="{{s.key}}"><i class="fa-solid fa-dice-d10"></i> {{s.name}} : {{localize "TTS.Roll.Roll"}}</button>
+  </div>
+  {{/each}}
+  {{#if turnSide}}
+  <p class="tts-pending">{{localize "TTS.Duel.TurnOf"}} {{turnSide.name}}</p>
+  <div class="tts-card-buttons" data-owner-any="{{turnSide.owners}}">
+    <button type="button" data-tts-action="duRequest" data-side="{{turnSide.key}}"><i class="fa-solid fa-hand-point-right"></i> {{localize "TTS.Duel.Request"}}</button>
+  </div>
+  {{/if}}
+  {{/if}}
+</div>

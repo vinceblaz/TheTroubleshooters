@@ -14,6 +14,7 @@ import { characterSkillContext, npcSkillContext } from "./roll-context.mjs";
 import { defaultRollModeFor } from "./roll-mode.mjs";
 import { hasReach, initiativePenaltyOf, statusesOf, combatantOf } from "./combat-actors.mjs";
 import { adjustMany } from "./story-point-service.mjs";
+import { onTurnChange, applyFearDescriptors } from "./hazard-service.mjs";
 
 const t = key => game.i18n.localize(key);
 const ACTIONS = ["move", "free", "main", "bonus"];
@@ -146,6 +147,7 @@ export async function onCombatStart(combat) {
     const a = c.actor;
     if (a?.type === "npc") await a.update({ "system.counters.reversesLeft": npcReverses(a.system.descriptors) });
   }
+  await applyFearDescriptors(combat);
 }
 
 /** Nouveau tour : pastilles, marqueurs et action retardée du combattant actif remis à zéro. */
@@ -154,6 +156,8 @@ export async function onUpdateCombat(combat, changed) {
   if (!("turn" in changed) && !("round" in changed)) return;
   const c = combat.combatant;
   if (c) await c.update({ [`flags.${SYSTEM_ID}`]: FRESH_TURN });
+  // Conditions de début et de fin de tour (phase 5)
+  await onTurnChange(combat, combat.previous?.combatantId ?? null);
 }
 
 /** Fin du combat : Vitalité au maximum, Danger de mort retiré, carte de bilan (LdB p. 99). */
@@ -178,7 +182,7 @@ export async function onDeleteCombat(combat) {
 /*  Carte de fin de combat                                          */
 /* ---------------------------------------------------------------- */
 
-async function pickHealer(excludeUuid) {
+export async function pickHealer(excludeUuid) {
   const candidates = game.actors.filter(a => a.type === "character" && a.isOwner && a.uuid !== excludeUuid && !statusesOf(a).includes("outOfAction"));
   if (!candidates.length) { ui.notifications.warn(t("TTS.Combat.NoHealer")); return null; }
   const preferred = game.user.character && candidates.find(a => a.id === game.user.character.id);

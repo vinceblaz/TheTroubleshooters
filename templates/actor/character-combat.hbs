@@ -57,15 +57,5 @@
     <p class="tts-hint">{{localize "TTS.Combat.CoverHint"}}</p>
   </section>
 
-  <section class="tts-item-list">
-    <header class="tts-list-header"><h3>{{localize "TTS.Combat.Conditions"}}</h3></header>
-    <div class="tts-status-toggles">
-      {{#each combat.statuses as |st|}}
-      <a class="tts-status-toggle {{#if st.active}}tts-active{{/if}}" {{#if @root.editable}}data-action="toggleStatus"{{/if}} data-status="{{st.id}}">
-        <img src="{{st.img}}" alt="" width="20" height="20"> {{localize st.label}}
-      </a>
-      {{/each}}
-    </div>
-    <p class="tts-hint">{{localize "TTS.Combat.ConditionsHint"}}</p>
-  </section>
+  {{> "systems/thetroubleshooters/templates/shared/conditions-panel.hbs" conditions=combat.conditions editable=editable}}
 </section>

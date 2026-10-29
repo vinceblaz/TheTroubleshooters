@@ -19,7 +19,10 @@ const TEMPLATES = {
   spend: `${SYSTEM_PATH}/templates/chat/spend-card.hbs`,
   log: `${SYSTEM_PATH}/templates/chat/log-card.hbs`,
   attack: `${SYSTEM_PATH}/templates/chat/attack-card.hbs`,
-  combatEnd: `${SYSTEM_PATH}/templates/chat/combat-end-card.hbs`
+  combatEnd: `${SYSTEM_PATH}/templates/chat/combat-end-card.hbs`,
+  hazardCheck: `${SYSTEM_PATH}/templates/chat/hazard-check-card.hbs`,
+  challenge: `${SYSTEM_PATH}/templates/chat/challenge-card.hbs`,
+  duel: `${SYSTEM_PATH}/templates/chat/duel-card.hbs`
 };
 
 export const CHAT_PARTIALS = [
@@ -60,8 +63,16 @@ function taskContext(card) {
     canFlawFail: card.isCharacter && resolved && card.task.success && canFailForFlaw(flaws),
     unlucky: card.isCharacter && resolved && hasUnluckyFlaw(flaws),
     npcReverses: npcReversesLeft(actor, resolved),
-    initiativeValue: card.initiative ? adjustInitiative(initiativeFromTask(card.task), card.initiative.bonus) : null
+    initiativeValue: card.initiative ? adjustInitiative(initiativeFromTask(card.task), card.initiative.bonus) : null,
+    exitLabel: card.exit ? exitText(card.exit) : ""
   };
+}
+
+/** Libellé d'un jet de sortie de condition (phase 5). */
+function exitText(exit) {
+  const cond = game.i18n.localize(CONFIG.THETROUBLESHOOTERS?.conditions?.[exit.condition]?.label ?? exit.condition);
+  const key = exit.mode === "patchUp" ? "TTS.Condition.PatchUpFor" : (exit.condition === "terrified" ? "TTS.Condition.ExitToFrightened" : "TTS.Condition.ExitFor");
+  return game.i18n.format(key, { condition: cond, name: exit.targetName });
 }
 
 /** « Inverser (X) » d'un PNJ : jets restants pendant le combat (0 hors combat ou sans descripteur). */
@@ -117,10 +128,48 @@ function attackCardContext(card) {
     absorb,
     absorbLabel: s.absorb ? tl(`TTS.Attack.Absorb.${s.absorb.choice}`) : "",
     canRecover: Boolean(s.karma?.defenderRecovery && !s.recovery && ["miss", "done"].includes(s.stage)),
-    canCounter: Boolean(!card.counterDone && target?.type === "npc" && npcCanCounter(target.system) && !tStatuses.includes("outOfAction") && ["miss", "done"].includes(s.stage)),
+    canCounter: Boolean(!s.hazard && !card.counterDone && target?.type === "npc" && npcCanCounter(target.system) && !tStatuses.includes("outOfAction") && ["miss", "done"].includes(s.stage)),
     canIgnite: Boolean(s.attacker.flags.incendiary && s.hit),
     ammoNote,
     damageParts: (s.damage?.parts ?? []).map(p => ({ ...p, label: p.label || tl(`TTS.Attack.Part.${p.key}`) }))
+  };
+}
+
+const skillName = key => tl(CONFIG.THETROUBLESHOOTERS?.skills?.[key]?.label ?? key);
+
+/** Carte de défi (phase 6). */
+function challengeContext(card) {
+  const c = card.challenge;
+  return {
+    card, c,
+    rows: c.rows.map(r => ({ ...r, skillLabel: skillName(r.skill), result: r.task?.result ?? null, oppResult: r.oppositionTask?.result ?? null })),
+    rolled: c.rows.filter(r => r.task).length,
+    resultLabel: c.result ? tl(`TTS.Challenge.Result.${c.result}`) : "",
+    outcomeText: c.result ? c.outcomes?.[c.result] ?? "" : ""
+  };
+}
+
+/** Carte de duel (phase 6). */
+function duelContext(card) {
+  const d = card.duel;
+  const nameOf = uuid => fromUuidSync(uuid)?.name ?? "?";
+  const sides = ["a", "b"].map(key => ({
+    key, ...d.sides[key], score: d.score[key], owners: d.sides[key].participants.join(","),
+    names: d.sides[key].participants.map(nameOf).join(", "), winner: d.winner === key
+  }));
+  const exchanges = d.exchanges.map((ex, i) => ({
+    n: i + 1, byName: d.sides[ex.by].name, skillLabel: skillName(ex.skill), oppLabel: ex.oppSkill !== ex.skill ? skillName(ex.oppSkill) : "",
+    pips: ex.pips,
+    sides: ["a", "b"].map(k => ({ key: k, name: d.sides[k].name, who: ex[k].actorUuid ? nameOf(ex[k].actorUuid) : "", result: ex[k].task?.result ?? null, success: ex[k].task?.success, skill: skillName(k === ex.by ? ex.skill : ex.oppSkill) })),
+    winnerName: ex.winner ? d.sides[ex.winner].name : "", tie: ex.winner === null, describerName: ex.describer ? d.sides[ex.describer].name : "",
+    pending: i === d.pending
+  }));
+  const pending = d.pending !== null ? d.exchanges[d.pending] : null;
+  return {
+    card, d, sides, exchanges,
+    turnSide: d.turn ? sides.find(s => s.key === d.turn) : null,
+    rollSides: pending ? sides.filter(s => !pending[s.key].rollMessageId) : [],
+    winnerSide: d.winner ? sides.find(s => s.key === d.winner) : null
   };
 }
 
@@ -160,6 +209,9 @@ export async function renderCard(card) {
     case "log": return render(TEMPLATES.log, card);
     case "attack": return render(TEMPLATES.attack, attackCardContext(card));
     case "combatEnd": return render(TEMPLATES.combatEnd, combatEndContext(card));
+    case "hazardCheck": return render(TEMPLATES.hazardCheck, { card, hazard: card.hazard, rows: card.rows });
+    case "challenge": return render(TEMPLATES.challenge, challengeContext(card));
+    case "duel": return render(TEMPLATES.duel, duelContext(card));
     default: return "";
   }
 }

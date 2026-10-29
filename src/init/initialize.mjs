@@ -11,6 +11,9 @@ import { planSeed, needsInitialization } from "../domain/init/seed-plan.mjs";
 export const MACRO_NAME = "The Troubleshooters — Initialiser le système";
 export const REQUEST_MACRO_NAME = "The Troubleshooters — Demander un jet";
 export const SP_MACRO_NAME = "The Troubleshooters — Points de récit et scène";
+export const HAZARD_MACRO_NAME = "The Troubleshooters — Dangers";
+export const CHALLENGE_MACRO_NAME = "The Troubleshooters — Défi";
+export const DUEL_MACRO_NAME = "The Troubleshooters — Duel";
 
 /** Étapes ordonnées. Chaque nouvelle phase ajoute ses catalogues ici. */
 export const INIT_STEPS = [
@@ -101,7 +104,10 @@ export async function initializeSystem() {
 const GM_MACROS = [
   { name: MACRO_NAME, img: "icons/svg/book.svg", command: "game.thetroubleshooters.initializeSystem();" },
   { name: REQUEST_MACRO_NAME, img: "icons/svg/d20-grey.svg", command: "game.thetroubleshooters.requestRoll();" },
-  { name: SP_MACRO_NAME, img: "icons/svg/aura.svg", command: "game.thetroubleshooters.storyPoints();" }
+  { name: SP_MACRO_NAME, img: "icons/svg/aura.svg", command: "game.thetroubleshooters.storyPoints();" },
+  { name: HAZARD_MACRO_NAME, img: "icons/svg/hazard.svg", command: "game.thetroubleshooters.hazards();" },
+  { name: CHALLENGE_MACRO_NAME, img: "icons/svg/book.svg", command: "game.thetroubleshooters.challenge();" },
+  { name: DUEL_MACRO_NAME, img: "icons/svg/combat.svg", command: "game.thetroubleshooters.duel();" }
 ];
 
 export async function ensureInitMacro() {

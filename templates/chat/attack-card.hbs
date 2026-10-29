@@ -1,4 +1,11 @@
 <div class="thetroubleshooters tts-card tts-attack-card tts-stage-{{s.stage}}">
+  {{#if s.hazard}}
+  <header class="tts-card-header">
+    <span class="tts-card-title"><i class="fa-solid fa-triangle-exclamation"></i> {{s.hazard.label}}</span>
+    <span class="tts-card-value">{{s.target.name}}</span>
+  </header>
+  {{#if card.grouped}}<p class="tts-history">{{localize "TTS.Hazard.Grouped"}}</p>{{/if}}
+  {{else}}
   <header class="tts-card-header">
     <span class="tts-card-title"><i class="fa-solid fa-hand-fist"></i> {{s.attacker.weapon.name}}</span>
     <span class="tts-card-value">{{optionLabel}}</span>
@@ -61,11 +68,13 @@
   </section>
   {{/if}}
 
+  {{/if}}
+
   {{!-- Issue --}}
   <div class="tts-attack-outcome">
     {{#if (eq s.stage "miss")}}<span class="tts-failure">{{localize "TTS.Attack.Miss"}}</span>{{/if}}
     {{#if s.knockout}}<span class="tts-success">{{localize "TTS.Attack.Knockout"}}{{#if s.knockout.label}} — {{s.knockout.label}} ({{s.knockout.cost}} PR){{/if}}</span>{{/if}}
-    {{#if (and s.hit (not s.knockout))}}<span class="tts-success">{{localize "TTS.Attack.Hit"}}</span>{{/if}}
+    {{#unless s.hazard}}{{#if (and s.hit (not s.knockout))}}<span class="tts-success">{{localize "TTS.Attack.Hit"}}</span>{{/if}}{{/unless}}
   </div>
   {{#if s.karma.attackerPenalty}}<div class="tts-history">⚠ {{localize "TTS.Attack.KarmaAttackerPenalty"}}</div>{{/if}}
   {{#if s.karma.defenderVulnerable}}<div class="tts-history">⚠ {{localize "TTS.Attack.KarmaDefenderVulnerable"}}</div>{{/if}}

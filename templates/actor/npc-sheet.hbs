@@ -94,6 +94,8 @@
     <div class="tts-inline"><label>{{localize "TTS.Npc.ReversesLeft"}}</label><input name="system.counters.reversesLeft" type="number" value="{{system.counters.reversesLeft}}" min="0"></div>
   </fieldset>
 
+  {{> "systems/thetroubleshooters/templates/shared/conditions-panel.hbs" conditions=conditions editable=editable}}
+
   <h3>{{localize "TTS.Sheet.Description"}}</h3>
   {{formInput systemFields.description name="system.description" value=system.description enriched=enrichedDescription toggled=true}}
 </div>

@@ -28,6 +28,7 @@
   {{#if (eq h.type "reroll")}}<div class="tts-history">⟳ {{h.label}} : {{localize "TTS.Chat.Rerolled"}} {{h.from}} → {{h.to}} ({{h.cost}} PR)</div>{{/if}}
   {{#if (eq h.type "rerollWith")}}<div class="tts-history">⟳ {{h.label}} : {{h.from}} → {{h.to}} ({{h.cost}} PR)</div>{{/if}}
   {{#if (eq h.type "forceSuccess")}}<div class="tts-history">★ {{h.label}} : {{localize "TTS.Chat.ForcedSuccess"}} ({{h.cost}} PR)</div>{{/if}}
+  {{#if (eq h.type "autoFail")}}<div class="tts-history">✖ {{h.label}} : {{localize "TTS.Chat.AutoFailed"}}</div>{{/if}}
   {{#if (eq h.type "failForPoints")}}<div class="tts-history">✖ {{h.label}} : {{localize "TTS.Chat.FailedForPoints"}} (+{{h.gain}} PR)</div>{{/if}}
   {{/each}}
 </div>

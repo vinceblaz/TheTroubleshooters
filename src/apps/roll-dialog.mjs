@@ -41,7 +41,11 @@ export async function promptTaskRoll(ctx, opts = {}) {
     rollModes,
     rollMode: opts.defaultRollMode ?? coreRollMode(),
     opponents: opts.allowOpposition === false ? [] : (opts.opponents ?? []),
-    attack: opts.attack ?? null
+    attack: opts.attack ?? null,
+    rollKinds: opts.rollKinds && !opts.attack
+      ? Object.fromEntries(["skill", "movement", "sight", "hearing"].map(k => [k, game.i18n.localize(`TTS.Roll.Kind.${k}`)])) : null,
+    defaultKind: opts.defaultKind ?? "skill",
+    extraTotal: (ctx.extraMods ?? []).reduce((a, m) => a + m.pips, 0)
   });
 
   return foundry.applications.api.DialogV2.prompt({
@@ -70,7 +74,8 @@ export async function promptTaskRoll(ctx, opts = {}) {
           opponentUuid: data.opponentUuid || "",
           opponentChoice: data.opponentChoice || "",
           option: data.option || "base",
-          rakatakataMode: data.rakatakataMode || "single"
+          rakatakataMode: data.rakatakataMode || "single",
+          rollKind: data.rollKind || "skill"
         };
       }
     },

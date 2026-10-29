@@ -122,6 +122,26 @@ for (const t of Object.keys(system.documentTypes.Actor)) used.add(`TYPES.Actor.$
   fam("TTS.Combat.ActionShort", ["move", "free", "main", "bonus"]);
   fam("TTS.Attack.InvertMode", ["generic", "mortal", "npc"]);
   fam("TTS.Ability.Marked", ["initiative", "bonusAction"]);
+  // Phase 5
+  const { CONDITION_DEFS, ROLL_KINDS } = await import(join(ROOT, "src/domain/rules/conditions.mjs"));
+  const hz = await import(join(ROOT, "src/domain/combat/hazards.mjs"));
+  fam("TTS.Roll.Kind", ROLL_KINDS);
+  fam("TTS.Condition.Effect", Object.keys(CONDITION_DEFS));
+  fam("TTS.Condition.Ends", [...new Set(Object.values(CONDITION_DEFS).map(d => d.ends))]);
+  fam("TTS.Hazard.Explosive", Object.keys(hz.EXPLOSIVES));
+  fam("TTS.Hazard.Poison", Object.keys(hz.POISONS));
+  fam("TTS.Hazard.PoisonProlonged", Object.keys(hz.POISONS));
+  fam("TTS.Hazard.Duration", [...new Set(Object.values(hz.POISONS).map(p => p.duration))]);
+  fam("TTS.Hazard.DrowningPrep", Object.keys(hz.DROWNING_PIPS));
+  fam("TTS.Hazard.PoisonOutcome", ["none", "initial", "prolonged", "doubled"]);
+  fam("TTS.Hazard.Ambush", ["outOfAction", "surprisedExtra", "normal", "defend"]);
+  fam("TTS.Hazard.Sniper", ["alerted", "normal", "bonus", "takedown"]);
+  // Phase 6
+  const ch = await import(join(ROOT, "src/domain/rules/challenge.mjs"));
+  fam("TTS.Challenge.Preset", Object.keys(ch.CHALLENGE_PRESETS));
+  fam("TTS.Challenge.Result", ch.CHALLENGE_RESULTS);
+  const refusals = ["challenge.mjs", "duel.mjs"].flatMap(f => [...readFileSync(join(ROOT, "src/domain/rules", f), "utf8").matchAll(/reason: "([a-z-]+)"/g)].map(m => m[1]));
+  fam("TTS.Challenge.Refused", [...new Set(refusals)]);
 }
 const missing = [...used].filter(k => !hasKey(k)).sort();
 missing.forEach(k => fail(`clé i18n absente de fr.json : ${k}`));

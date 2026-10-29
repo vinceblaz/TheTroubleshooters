@@ -133,3 +133,8 @@ export function failForPointsTask(state, { gain = 3, source = "flaw", label = ""
   };
 }
 
+
+/** Jet raté d'office (Aveuglé : remarquer par la vue ; Sourd : par l'ouïe — LdB p. 100-101). */
+export function autoFailTask(state, { label = "" } = {}) {
+  return { ...state, success: false, auto: "failure", karma: state.karma ? "bad" : null, apparent: null, history: [...state.history, { type: "autoFail", label }] };
+}

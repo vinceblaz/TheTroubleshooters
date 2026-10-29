@@ -1,0 +1,32 @@
+<div class="thetroubleshooters tts-card tts-challenge-card">
+  <header class="tts-card-header">
+    <span class="tts-card-title"><i class="fa-solid fa-list-check"></i> {{#if c.title}}{{c.title}}{{else}}{{localize "TTS.Challenge.Title"}}{{/if}}</span>
+    <span class="tts-card-value">{{rolled}} / {{c.rows.length}}</span>
+  </header>
+  <ul class="tts-log-lines tts-challenge-rows">
+    {{#each rows as |r|}}
+    <li>
+      <span class="tts-challenge-skill"><strong>{{r.skillLabel}}</strong>{{#if r.pips}} <span class="tts-tag">{{#if (gt r.pips 0)}}+{{/if}}{{r.pips}}</span>{{/if}}{{#if r.opposition}} <span class="tts-tag">{{localize "TTS.Challenge.Versus"}} {{r.opposition.label}} {{r.opposition.value}} %</span>{{/if}}</span>
+      <span class="tts-muted">{{#if r.name}}{{r.name}}{{else}}{{localize "TTS.Challenge.AnyCharacter"}}{{/if}}</span>
+      {{#if r.task}}
+      <span class="tts-die-result {{#if r.success}}tts-success{{else}}tts-failure{{/if}}">{{r.result}}{{#if r.opposition}} / {{r.oppResult}}{{/if}}</span>
+      <span class="{{#if r.success}}tts-success{{else}}tts-failure{{/if}}">{{#if r.success}}✔{{else}}✖{{/if}}</span>
+      {{else}}
+      {{#if r.actorUuid}}
+      <button type="button" class="tts-small-button" data-owner-uuid="{{r.actorUuid}}" data-tts-action="chRoll" data-row="{{r.index}}"><i class="fa-solid fa-dice-d10"></i> {{localize "TTS.Roll.Roll"}}</button>
+      {{else}}
+      <button type="button" class="tts-small-button" data-any-character="1" data-tts-action="chRoll" data-row="{{r.index}}"><i class="fa-solid fa-dice-d10"></i> {{localize "TTS.Roll.Roll"}}</button>
+      {{/if}}
+      {{/if}}
+    </li>
+    {{/each}}
+  </ul>
+  {{#if c.done}}
+  <div class="tts-challenge-result tts-result-{{c.result}}">
+    <strong>{{resultLabel}}</strong> ({{c.successes}} / {{c.rows.length}})
+    {{#if outcomeText}}<p>{{outcomeText}}</p>{{/if}}
+  </div>
+  {{else}}
+  <p class="tts-hint">{{localize "TTS.Challenge.Hint"}}</p>
+  {{/if}}
+</div>

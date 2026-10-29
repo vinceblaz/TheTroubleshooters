@@ -40,3 +40,18 @@
 .tts-tracker-actions .tts-pip.tts-delay.tts-used { text-decoration: none; opacity: 1; color: #60a5fa; border-color: #60a5fa; }
 .tts-delay-note { font-size: 0.7rem; font-style: italic; opacity: 0.85; }
 .tts-tracker-actions .tts-pip.tts-marker { cursor: default; opacity: 1; gap: 0.1rem; }
+.thetroubleshooters .tts-condition-table tr:not(.tts-active) { opacity: 0.6; }
+.thetroubleshooters .tts-condition-table .tts-level { display: inline-flex; gap: 0.35rem; align-items: center; }
+.tts-card.tts-hazard-card .tts-log-lines li { display: flex; flex-wrap: wrap; gap: 0.3rem; align-items: center; }
+.tts-hazards-app .tts-inline { flex-wrap: wrap; }
+.tts-hazards-app .tts-inline select { width: auto; }
+
+/* Panneau des conditions sur deux colonnes (recette 5, point 1) */
+.thetroubleshooters .tts-condition-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem 0.75rem; }
+.thetroubleshooters .tts-condition-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem; padding: 0.15rem 0.3rem; border: 1px solid var(--tts-line); border-radius: 4px; }
+.thetroubleshooters .tts-condition-row:not(.tts-active) { opacity: 0.6; }
+.thetroubleshooters .tts-condition-row.tts-active { border-color: var(--tts-accent); }
+.thetroubleshooters .tts-condition-name { flex: 1 1 auto; min-width: 0; }
+.thetroubleshooters .tts-condition-level, .thetroubleshooters .tts-condition-controls { display: inline-flex; gap: 0.25rem; align-items: center; flex-wrap: wrap; }
+.thetroubleshooters .tts-condition-end { flex-basis: 100%; margin: 0; }
+.thetroubleshooters .tts-condition-end:empty, .thetroubleshooters .tts-condition-level:empty { display: none; }

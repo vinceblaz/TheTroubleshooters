@@ -15,10 +15,21 @@ import { getCard, updateCardMessage } from "./cards.mjs";
 import { initiativeFromTask, adjustInitiative } from "../domain/combat/initiative.mjs";
 
 /**
+ * Jet de défi ou de duel modifié (inversion, capacité) : la carte de défi ou de duel est resynchronisée
+ * par le MJ (phase 6).
+ */
+async function syncLinkedCards(card) {
+  const link = card?.challenge ?? card?.duel;
+  if (!link?.messageId || !game.users.activeGM) return;
+  await RelayService.dispatch(card.challenge ? "challengeSync" : "duelSync", { messageId: link.messageId, actorUuid: card.actorUuid }, { gmOnly: true });
+}
+
+/**
  * Carte d'initiative modifiée (inversion, capacité) : l'initiative du combattant suit le jet (LdB p. 90).
  * Exécuté par l'auteur de la carte (propriétaire du combattant) ou par le MJ.
  */
 export async function syncInitiative(card) {
+  await syncLinkedCards(card);
   if (!card?.initiative) return;
   const combatant = game.combats.get(card.initiative.combatId)?.combatants.get(card.initiative.combatantId);
   if (!combatant?.isOwner) return;

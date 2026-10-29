@@ -1,0 +1,29 @@
+{{!-- Panneau des conditions (fiches Risque-tout et PNJ). Paramètres : conditions, editable --}}
+  <section class="tts-item-list tts-conditions-panel">
+    <header class="tts-list-header"><h3>{{localize "TTS.Combat.Conditions"}}</h3></header>
+    <div class="tts-condition-grid">
+        {{#each conditions as |c|}}
+        <div class="tts-condition-row {{#if c.active}}tts-active{{/if}}" data-status="{{c.id}}">
+          <div class="tts-condition-name"><a class="tts-status-toggle {{#if c.active}}tts-active{{/if}}" {{#if ../editable}}data-action="toggleStatus"{{/if}} data-status="{{c.id}}" data-tooltip="{{c.effect}}"><img src="{{c.img}}" alt="" width="20" height="20"> {{c.label}}</a></div>
+          <div class="tts-condition-level">
+            {{#if c.cumulative}}{{#if c.active}}
+            <span class="tts-level">
+              {{#if ../editable}}<a data-action="levelDown" data-status="{{c.id}}"><i class="fa-solid fa-minus"></i></a>{{/if}}
+              <strong>{{c.level}}</strong>{{#if c.maxLabel}} / {{c.maxLabel}}{{/if}}
+              {{#if ../editable}}<a data-action="levelUp" data-status="{{c.id}}"><i class="fa-solid fa-plus"></i></a>{{/if}}
+            </span>
+            {{/if}}{{/if}}
+          </div>
+          <div class="tts-condition-controls">
+            {{#if ../editable}}
+            {{#each c.exits as |x|}}<button type="button" class="tts-small-button" data-action="exitRoll" data-status="{{c.id}}" data-skill="{{x.skill}}" data-tooltip="TTS.Condition.ExitHint"><i class="fa-solid fa-dice-d10"></i> {{x.label}}</button>{{/each}}
+            {{#if c.patchUp}}<button type="button" class="tts-small-button" data-action="patchUp" data-tooltip="TTS.Condition.PatchUpHint"><i class="fa-solid fa-kit-medical"></i> {{localize "TTS.Condition.PatchUp"}}</button>{{/if}}
+            {{/if}}
+            {{#if c.patched}}<span class="tts-tag">{{localize "TTS.Condition.PatchedUp"}}</span>{{/if}}
+          </div>
+          {{#if c.active}}<div class="tts-hint tts-condition-end">{{localize c.ends}}</div>{{/if}}
+        </div>
+        {{/each}}
+    </div>
+    <p class="tts-hint">{{localize "TTS.Combat.ConditionsHint"}}</p>
+  </section>

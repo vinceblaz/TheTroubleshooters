@@ -6,6 +6,8 @@ import { normalizeArrayPaths } from "./form-utils.mjs";
 import { enrich, localizedRecord } from "./sheet-helpers.mjs";
 import { rollNpcSkill } from "../services/roll-service.mjs";
 import { startAttack } from "../services/attack-service.mjs";
+import { conditionRows, conditionPanelActions, patchUpWounded } from "../services/condition-service.mjs";
+import { pickHealer } from "../services/combat-service.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -22,7 +24,12 @@ export class TTSNpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       addRow: TTSNpcSheet.#onAddRow,
       removeRow: TTSNpcSheet.#onRemoveRow,
       rollNpc: TTSNpcSheet.#onRollNpc,
-      attack: TTSNpcSheet.#onAttack
+      attack: TTSNpcSheet.#onAttack,
+      toggleStatus: TTSNpcSheet.#onToggleStatus,
+      levelUp: TTSNpcSheet.#onLevelUp,
+      levelDown: TTSNpcSheet.#onLevelDown,
+      exitRoll: TTSNpcSheet.#onExitRoll,
+      patchUp: TTSNpcSheet.#onPatchUp
     }
   };
 
@@ -44,6 +51,7 @@ export class TTSNpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       attackSkillChoices: { melee: game.i18n.localize("TTS.Skill.Melee"), shooting: game.i18n.localize("TTS.Skill.Shooting") },
       kindChoices: { important: game.i18n.localize("TTS.Npc.SkillImportant"), flavor: game.i18n.localize("TTS.Npc.SkillFlavor") },
       capabilities: actor.system.capabilities,
+      conditions: conditionRows(actor),
       enrichedDescription: await enrich(actor.system.description, actor)
     });
   }
@@ -65,6 +73,16 @@ export class TTSNpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onAttack(event, target) {
     const ref = target.closest("[data-weapon-ref]")?.dataset.weaponRef;
     if (ref) await startAttack(this.document, ref);
+  }
+
+  /* Panneau des conditions (D-057 amendée : fiches PJ et PNJ) */
+  static async #onToggleStatus(event, target) { await conditionPanelActions.toggleStatus(this.document, target.dataset.status); }
+  static async #onLevelUp(event, target) { await conditionPanelActions.levelUp(this.document, target.dataset.status); }
+  static async #onLevelDown(event, target) { await conditionPanelActions.levelDown(this.document, target.dataset.status); }
+  static async #onExitRoll(event, target) { await conditionPanelActions.exitRoll(this.document, target.dataset.status, target.dataset.skill); }
+  static async #onPatchUp() {
+    const healer = await pickHealer(this.document.uuid);
+    if (healer) await patchUpWounded(healer, this.document);
   }
 
   static async #onAddRow(event, target) {

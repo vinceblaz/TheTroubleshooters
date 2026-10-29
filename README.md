@@ -9,7 +9,7 @@ Système Foundry VTT **v14** (vérifié sur 14.369) pour le jeu de rôle *The Tr
 
 ## État
 
-Version **0.4.0** — phase 4 (combat) livrée, non validée (`docs/recette-phase-4.md`). Phase 3 validée en Foundry réel (35/35). Phase 1 (squelette) validée en Foundry réel (22/22). Phase 2 (moteur de jet) validée en Foundry réel
+Version **0.6.0** — phase 6 (défis et duels) livrée, non validée (`docs/recette-phase-6.md`). Phase 5 (conditions et dangers) validée en Foundry réel (40/40). Phase 4 (combat) validée en Foundry réel (53/53). Phase 3 validée en Foundry réel (35/35). Phase 1 (squelette) validée en Foundry réel (22/22). Phase 2 (moteur de jet) validée en Foundry réel
 (30/30 avec le correctif 0.2.1). Voir `CHANGELOG.md` et `docs/`.
 
 ## Installation (manuelle, pendant le développement)

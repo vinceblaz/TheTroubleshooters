@@ -19,3 +19,20 @@
 .tts-card .tts-log-lines { list-style: none; margin: 0; padding: 0; }
 .tts-card .tts-log-lines li { padding: 0.05rem 0; }
 .tts-card .tts-spend-description { font-style: italic; margin: 0.2rem 0; }
+
+/* Défis et duels (phase 6) */
+.tts-card .tts-challenge-rows li { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+.tts-card .tts-challenge-skill { flex: 1 1 auto; }
+.tts-card .tts-challenge-result { margin-top: 0.4rem; padding: 0.3rem 0.4rem; border: 1px solid rgba(0,0,0,0.25); border-radius: 4px; }
+.tts-card .tts-challenge-result.tts-result-excellent, .tts-card .tts-challenge-result.tts-result-good { border-color: #15803d; }
+.tts-card .tts-challenge-result.tts-result-bad, .tts-card .tts-challenge-result.tts-result-disastrous { border-color: #b91c1c; }
+.tts-card .tts-duel-score { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; }
+.tts-card .tts-duel-score h4 { display: flex; justify-content: space-between; margin: 0; }
+.tts-card .tts-duel-points { font-size: 1.4em; font-weight: bold; }
+.tts-card .tts-duel-exchanges { margin: 0.3rem 0; padding-left: 1.2rem; }
+.tts-card .tts-duel-exchanges li { margin-bottom: 0.25rem; }
+.tts-card .tts-duel-rolls { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.tts-card .tts-pending-row { font-style: italic; }
+.thetroubleshooters .tts-challenge-form .tts-inline, .thetroubleshooters .tts-duel-form .tts-inline { flex-wrap: wrap; margin: 0.3rem 0; }
+.thetroubleshooters .tts-challenge-form .tts-small-button.tts-active { font-weight: bold; border-color: var(--tts-accent, #c8382c); }
+.thetroubleshooters .tts-duel-form select[multiple] { width: 100%; }

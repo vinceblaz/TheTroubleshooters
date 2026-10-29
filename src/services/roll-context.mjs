@@ -2,7 +2,7 @@
  * Contexte d'un jet : valeur, libellé, modificateurs proposés (matériel, conditions).
  * Lecture seule des documents ; aucune écriture.
  */
-import { THETROUBLESHOOTERS } from "../config.mjs";
+import { SYSTEM_ID, THETROUBLESHOOTERS } from "../config.mjs";
 import { conditionModifiers } from "../domain/rules/conditions.mjs";
 import { resolveNpcSkill } from "../domain/rules/npc.mjs";
 import { flawPenaltyMods } from "../domain/rules/flaws.mjs";
@@ -17,10 +17,20 @@ export function isInCombat(actor) {
   return combat.combatants.some(c => c.actor?.id === actor.id);
 }
 
+/** Niveaux des conditions cumulatives (Saoul, Épuisé) portés par l'acteur. */
+export function conditionLevelsOf(actor) {
+  return { ...(actor?.flags?.[SYSTEM_ID]?.conditionLevels ?? {}) };
+}
+
+/** Conditions dont les effets sont ignorés pour la scène (Blessé rafistolé par un jet de Médecine). */
+export function ignoredConditionsOf(actor) {
+  return (actor?.effects ?? []).filter(e => !e.disabled && e.getFlag?.(SYSTEM_ID, "ignoreCondition")).map(e => e.getFlag(SYSTEM_ID, "ignoreCondition"));
+}
+
 /** Malus de conditions applicables (bloc cumulé, D-006). */
 export function conditionModsFor(actor, { skill = "", kind = "skill" } = {}) {
   const statuses = [...(actor.statuses ?? [])];
-  return conditionModifiers(statuses, { skill, kind, inCombat: isInCombat(actor) }).map(m => ({
+  return conditionModifiers(statuses, { skill, kind, inCombat: isInCombat(actor), levels: conditionLevelsOf(actor), ignore: ignoredConditionsOf(actor) }).map(m => ({
     ...m,
     label: game.i18n.localize(THETROUBLESHOOTERS.conditions[m.condition]?.label ?? m.condition)
   }));

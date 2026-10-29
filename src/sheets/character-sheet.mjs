@@ -11,7 +11,8 @@ import { activateFromSheet } from "../services/ability-service.mjs";
 import { triggerFlaw, activeFlawPenalties } from "../services/flaw-service.mjs";
 import { proposeSpend } from "../apps/spend-dialog.mjs";
 import { startAttack, reloadWeapon, catchBreath, setProne } from "../services/attack-service.mjs";
-import { reassessInitiative } from "../services/combat-service.mjs";
+import { reassessInitiative, pickHealer } from "../services/combat-service.mjs";
+import { conditionRows, conditionPanelActions, patchUpWounded } from "../services/condition-service.mjs";
 import { weaponsOf, protectionOf, drunkLevelsOf, statusesOf, combatantOf, defenseChoicesOf } from "../services/combat-actors.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -40,7 +41,11 @@ export class TTSCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
       catchBreath: TTSCharacterSheet.#onCatchBreath,
       prone: TTSCharacterSheet.#onProne,
       reassess: TTSCharacterSheet.#onReassess,
-      toggleStatus: TTSCharacterSheet.#onToggleStatus
+      toggleStatus: TTSCharacterSheet.#onToggleStatus,
+      levelUp: TTSCharacterSheet.#onLevelUp,
+      levelDown: TTSCharacterSheet.#onLevelDown,
+      exitRoll: TTSCharacterSheet.#onExitRoll,
+      patchUp: TTSCharacterSheet.#onPatchUp
     }
   };
 
@@ -116,9 +121,7 @@ export class TTSCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
       protection: protectionOf(actor),
       drunk: drunkLevelsOf(actor),
       defenses: defenseChoicesOf(actor),
-      statuses: ["wounded", "mortalDanger", "outOfAction", "vulnerable"].map(id => ({
-        id, active: statuses.includes(id), label: THETROUBLESHOOTERS.conditions[id].label, img: THETROUBLESHOOTERS.conditions[id].img
-      })),
+      conditions: conditionRows(actor),
       inCombat: Boolean(combatant),
       initiative: combatant?.initiative ?? null,
       prone: statuses.includes("vulnerable")
@@ -223,10 +226,28 @@ export class TTSCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
     await reassessInitiative(this.document);
   }
 
-  /** Blessé, Danger de mort, Hors de combat, Vulnérable : bascule rapide (le Chef arbitre). */
+  /** Bascule d'une condition (le Chef arbitre) ; une condition cumulative démarre au niveau 1. */
   static async #onToggleStatus(event, target) {
-    const id = target.dataset.status;
-    if (id && THETROUBLESHOOTERS.conditions[id]) await this.document.toggleStatusEffect(id);
+    await conditionPanelActions.toggleStatus(this.document, target.dataset.status);
+  }
+
+  static async #onLevelUp(event, target) {
+    await conditionPanelActions.levelUp(this.document, target.dataset.status);
+  }
+
+  static async #onLevelDown(event, target) {
+    await conditionPanelActions.levelDown(this.document, target.dataset.status);
+  }
+
+  /** Jet pour se débarrasser d'une condition (Volonté, Agilité…). */
+  static async #onExitRoll(event, target) {
+    await conditionPanelActions.exitRoll(this.document, target.dataset.status, target.dataset.skill);
+  }
+
+  /** Blessé : un allié tente un jet de Médecine pour ignorer le malus pendant la scène. */
+  static async #onPatchUp() {
+    const healer = await pickHealer(this.document.uuid);
+    if (healer) await patchUpWounded(healer, this.document);
   }
 
   /** Bascule un booléen d'un Item intégré (kit emporté, signature…). */

@@ -19,6 +19,11 @@ import { registerCardHandlers } from "./chat/card-handlers.mjs";
 import { registerAttackHandlers } from "./chat/attack-handlers.mjs";
 import { startAttack, catchBreath } from "./services/attack-service.mjs";
 import { registerCombatHandlers, onRenderCombatTracker, onCombatStart, onUpdateCombat, onDeleteCombat } from "./services/combat-service.mjs";
+import { registerConditionHandlers, onDeleteActiveEffect, addLevel, removeLevel } from "./services/condition-service.mjs";
+import { registerHazardHandlers, inflictHazard } from "./services/hazard-service.mjs";
+import { HazardsApp } from "./apps/hazards-app.mjs";
+import { ChallengeApp, DuelApp } from "./apps/challenge-app.mjs";
+import { registerChallengeHandlers } from "./services/challenge-service.mjs";
 import { onRenderChatMessage } from "./chat/chat-hooks.mjs";
 import { CHAT_PARTIALS } from "./chat/cards.mjs";
 import { rollCharacterSkill, rollNpcSkill } from "./services/roll-service.mjs";
@@ -44,7 +49,13 @@ Hooks.once("init", async () => {
     newScene: startNewScene,
     newSession: (opts) => startNewSession(StoryPointsApp.characters(), opts),
     attack: startAttack,
-    catchBreath
+    catchBreath,
+    hazards: () => HazardsApp.open(),
+    challenge: () => ChallengeApp.open(),
+    duel: () => DuelApp.open(),
+    inflictHazard,
+    addConditionLevel: addLevel,
+    removeConditionLevel: removeLevel
   };
 
   registerSettings();
@@ -78,6 +89,7 @@ Hooks.once("init", async () => {
   await foundry.applications.handlebars.loadTemplates([
     ...Object.values(ITEM_BODY_PARTIALS),
     `${SYSTEM_PATH}/templates/shared/item-list.hbs`,
+    `${SYSTEM_PATH}/templates/shared/conditions-panel.hbs`,
     ...CHAT_PARTIALS
   ]);
 
@@ -85,6 +97,9 @@ Hooks.once("init", async () => {
   registerCardHandlers();
   registerAttackHandlers();
   registerCombatHandlers();
+  registerConditionHandlers();
+  registerHazardHandlers();
+  registerChallengeHandlers();
   Hooks.on("renderChatMessageHTML", onRenderChatMessage);
 
   // Combat (phase 4)
@@ -92,6 +107,9 @@ Hooks.once("init", async () => {
   Hooks.on("combatStart", onCombatStart);
   Hooks.on("updateCombat", onUpdateCombat);
   Hooks.on("deleteCombat", onDeleteCombat);
+
+  // Conditions (phase 5)
+  Hooks.on("deleteActiveEffect", onDeleteActiveEffect);
 });
 
 Hooks.once("ready", async () => {

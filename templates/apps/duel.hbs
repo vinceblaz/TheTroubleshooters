@@ -1,0 +1,23 @@
+<div class="tts-duel-form">
+  <div class="tts-inline">
+    <label>{{localize "TTS.Duel.Target"}}</label><input name="target" type="number" value="{{target}}" min="1" max="9">
+    <label>{{localize "TTS.Duel.First"}}</label>
+    <select name="first"><option value="a">{{localize "TTS.Duel.SideA"}}</option><option value="b">{{localize "TTS.Duel.SideB"}}</option></select>
+  </div>
+  <div class="tts-grid-2">
+    <fieldset class="tts-fieldset">
+      <legend>{{localize "TTS.Duel.SideA"}}</legend>
+      <input name="nameA" type="text" placeholder="{{localize 'TTS.Duel.SideName'}}">
+      <input name="goalA" type="text" placeholder="{{localize 'TTS.Duel.Goal'}}">
+      <select name="participantsA" multiple size="8">{{#each actorsA as |a|}}<option value="{{a.uuid}}" {{#if a.selected}}selected{{/if}}>{{a.name}}</option>{{/each}}</select>
+    </fieldset>
+    <fieldset class="tts-fieldset">
+      <legend>{{localize "TTS.Duel.SideB"}}</legend>
+      <input name="nameB" type="text" placeholder="{{localize 'TTS.Duel.SideName'}}">
+      <input name="goalB" type="text" placeholder="{{localize 'TTS.Duel.Goal'}}">
+      <select name="participantsB" multiple size="8">{{#each actorsB as |a|}}<option value="{{a.uuid}}" {{#if a.selected}}selected{{/if}}>{{a.name}}</option>{{/each}}</select>
+    </fieldset>
+  </div>
+  <p class="tts-hint">{{localize "TTS.Duel.FormHint"}}</p>
+  <button type="button" data-action="publish"><i class="fa-solid fa-paper-plane"></i> {{localize "TTS.Duel.Publish"}}</button>
+</div>

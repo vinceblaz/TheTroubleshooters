@@ -1,0 +1,23 @@
+<div class="thetroubleshooters tts-card tts-hazard-card">
+  <header class="tts-card-header">
+    <span class="tts-card-title"><i class="fa-solid fa-triangle-exclamation"></i> {{hazard.label}}</span>
+    <span class="tts-card-value">{{hazard.skillLabel}}{{#if hazard.pips}} ({{#if (gt hazard.pips 0)}}+{{/if}}{{hazard.pips}}){{/if}}</span>
+  </header>
+  {{#if hazard.note}}<p class="tts-history">{{hazard.note}}</p>{{/if}}
+  <ul class="tts-log-lines">
+    {{#each rows as |r|}}
+    <li>
+      <strong>{{r.name}}</strong>
+      {{#if r.applied}}
+      <span class="{{#if r.success}}tts-success{{else}}tts-failure{{/if}}">{{r.result}}</span>
+      {{else if r.rollMessageId}}
+      <span class="tts-tag">{{localize "TTS.Request.Rolled"}}</span>
+      <button type="button" class="tts-small-button" data-owner-uuid="{{r.actorUuid}}" data-tts-action="hzApply" data-actor-uuid="{{r.actorUuid}}"><i class="fa-solid fa-check"></i> {{localize "TTS.Hazard.Apply"}}</button>
+      {{else}}
+      <button type="button" class="tts-small-button" data-owner-uuid="{{r.actorUuid}}" data-tts-action="hzRoll" data-actor-uuid="{{r.actorUuid}}"><i class="fa-solid fa-dice-d10"></i> {{localize "TTS.Roll.Roll"}}</button>
+      {{/if}}
+    </li>
+    {{/each}}
+  </ul>
+  <p class="tts-hint">{{localize "TTS.Hazard.ApplyHint"}}</p>
+</div>

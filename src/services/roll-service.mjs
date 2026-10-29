@@ -9,7 +9,9 @@ import { gainStoryPoints, spendStoryPoints } from "../domain/rules/story-points.
 import { promptTaskRoll } from "../apps/roll-dialog.mjs";
 import { createCardMessage } from "../chat/cards.mjs";
 import { defaultRollModeFor } from "./roll-mode.mjs";
-import { characterSkillContext, npcSkillContext, opponentSkillChoices, contextFromChoice } from "./roll-context.mjs";
+import { characterSkillContext, npcSkillContext, opponentSkillChoices, contextFromChoice, conditionModsFor } from "./roll-context.mjs";
+import { autoFailFor } from "../domain/rules/conditions.mjs";
+import { autoFailTask } from "../domain/dice/task-state.mjs";
 
 
 /** Cibles possibles d'une opposition : jetons ciblés par l'utilisateur. */
@@ -82,13 +84,19 @@ export async function awardKarmaPoint(actor, task) {
  */
 export async function rollTask(ctx, opts = {}) {
   const actor = ctx.actor;
+  if (opts.extraMods?.length) ctx = { ...ctx, extraMods: [...(ctx.extraMods ?? []), ...opts.extraMods] };
   const choices = await promptTaskRoll(ctx, {
     lockedDifficulty: opts.lockedDifficulty,
     hiddenDifficulty: opts.hidden,
     opponents: opts.allowOpposition === false ? [] : targetOpponents(actor),
-    defaultRollMode: defaultRollModeFor(actor)
+    defaultRollMode: defaultRollModeFor(actor),
+    rollKinds: opts.rollKinds !== false,
+    defaultKind: opts.rollKind ?? "skill"
   });
   if (!choices) return null;
+  // Nature du jet (mouvement, vue, ouïe) : malus de conditions recalculés (phase 5).
+  const kind = choices.rollKind || "skill";
+  if (kind !== "skill") ctx = { ...ctx, conditionMods: conditionModsFor(actor, { skill: ctx.skillKey ?? "", kind }) };
 
   // Bonus de capacité payant (ex. Bonne réputation, 2 PR) : contrôlé avant le jet, débité après.
   if (choices.abilityCost && actor.type === "character") {
@@ -100,7 +108,11 @@ export async function rollTask(ctx, opts = {}) {
   }
 
   const hiddenPips = opts.hidden ? (Number(opts.lockedDifficulty) || 0) : 0;
-  const { roll, task, mods } = await evaluateTaskRoll(ctx, choices, { hiddenPips });
+  const evaluated = await evaluateTaskRoll(ctx, choices, { hiddenPips });
+  const { roll, mods } = evaluated;
+  let task = evaluated.task;
+  const blocker = autoFailFor([...(actor.statuses ?? [])], kind);
+  if (blocker) task = autoFailTask(task, { label: game.i18n.localize(`TTS.Condition.${blocker.charAt(0).toUpperCase()}${blocker.slice(1)}`) });
   if (choices.abilityCost && actor.type === "character") {
     await actor.update({ "system.storyPoints.value": spendStoryPoints(actor.system.storyPoints.value, choices.abilityCost).value });
   }
@@ -140,7 +152,8 @@ export async function rollTask(ctx, opts = {}) {
     mods,
     task,
     karmaAwarded,
-    requestMessageId: opts.requestMessageId ?? ""
+    requestMessageId: opts.requestMessageId ?? "",
+    ...(opts.cardExtra ?? {})
   };
   return createCardMessage(card, { speaker, rolls: [roll], rollMode: choices.rollMode });
 }

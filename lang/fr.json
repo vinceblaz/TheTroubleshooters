@@ -103,7 +103,48 @@
       "Encumbered": "Surchargé",
       "Surprised": "Surpris",
       "Terrified": "Terrifié",
-      "Vulnerable": "Vulnérable"
+      "Vulnerable": "Vulnérable",
+      "ApplyExit": "Appliquer la sortie",
+      "ExitApplied": "appliquée",
+      "ExitFailed": "Le jet n'est pas réussi.",
+      "ExitFor": "Jet pour se débarrasser de {condition} ({name})",
+      "ExitToFrightened": "Jet pour passer de {condition} à Effrayé ({name})",
+      "ExitHint": "Action principale en général : réussite = la condition disparaît.",
+      "PatchUp": "Rafistoler",
+      "PatchUpFor": "Médecine : {name} ignore {condition} pendant la scène",
+      "PatchUpHint": "Un allié réussit un jet de Médecine : le malus de Blessé est ignoré pendant une scène.",
+      "PatchedUp": "Rafistolé (scène)",
+      "Effect": {
+        "blinded": "−5 Fouille, Enquête, attaque et défense ; remarquer par la vue : raté d'office.",
+        "wounded": "−2 sur tous les jets après le combat ; ne peut pas être pris deux fois.",
+        "mortalDanger": "Inversion libre des jets d'attaque ; 0 Vitalité = mort.",
+        "frightened": "−2 en attaque ; ne peut pas entrer dans la zone de la source.",
+        "onFire": "1dX au début du tour ; Hors de combat et En feu → Blessé.",
+        "exhausted": "Vitalité maximale divisée par deux par niveau.",
+        "outOfAction": "Ne participe plus à la scène.",
+        "paralyzed": "Aucune action ; Endurance en fin de tour pour débloquer un type d'action.",
+        "restrained": "Ni mouvement ni sprint.",
+        "drunk": "−2 par niveau sur tous les jets, pas de défense, +1d6 protection par niveau ; 4e niveau → Hors de combat.",
+        "stunned": "−5 attaque et mouvement ; −2 autres jets ; mouvement ordinaire à jet.",
+        "deafened": "Remarquer par l'ouïe : raté d'office ; −2/−5 sociaux au choix du Chef.",
+        "encumbered": "−2 mouvement et attaque.",
+        "surprised": "Une seule action bonus à son tour ; disparaît en fin de tour.",
+        "terrified": "−2 tous jets, −5 en attaque contre la source ; Volonté en début de tour dans la zone de la source.",
+        "vulnerable": "Pas de mouvement ; défense −2 ; tirs depuis une autre zone contre lui −2."
+      },
+      "Ends": {
+        "scene": "Fin de la scène / cause disparue",
+        "healing": "Soins (2 jours) ou intersession",
+        "combatEnd": "Fin du combat",
+        "roll": "Jet de sortie (action principale)",
+        "rest": "Repas et nuit : un niveau",
+        "medicine": "Médecine d'un allié, ou deux scènes plus tard",
+        "source": "Selon la source",
+        "time": "Un niveau le matin, puis toutes les 6 h",
+        "drop": "Lâcher ou poser les objets",
+        "turnEnd": "Fin du tour (automatique)",
+        "standUp": "Se relever (action bonus, fin de tour)"
+      }
     },
     "Tab": {
       "Skills": "Compétences",
@@ -444,6 +485,12 @@
         "Hint": "Visibilité par défaut des jets des personnages secondaires ; modifiable à chaque jet.",
         "Public": "Visibles de tous",
         "Gm": "Réservés au MJ"
+      },
+      "DuelRepeatScope": {
+        "Name": "Duels : malus de répétition",
+        "Hint": "−2 pips au demandeur par demande antérieure de la même compétence : comptée dans tout le duel (lecture littérale du livre) ou seulement pour son camp.",
+        "Duel": "Toutes les demandes du duel",
+        "Side": "Les demandes du même camp"
       }
     },
     "Roll": {
@@ -473,7 +520,16 @@
       "OpposedHint": "Vous choisissez la compétence adverse (LdB p. 82). L'adversaire lance depuis la carte de chat.",
       "RollMode": "Visibilité du jet",
       "ManualAbility": "Saisie libre",
-      "Flaws": "Désavantages (malus de scène)"
+      "Flaws": "Désavantages (malus de scène)",
+      "Situation": "Situation",
+      "Kind": {
+        "Label": "Nature du jet",
+        "Hint": "Mouvement, ou remarquer quelque chose par la vue ou l'ouïe : certaines conditions changent de malus ou font rater d'office.",
+        "skill": "Ordinaire",
+        "movement": "Mouvement (sprint, zone restreinte)",
+        "sight": "Remarquer par la vue",
+        "hearing": "Remarquer par l'ouïe"
+      }
     },
     "Chat": {
       "Success": "Réussite",
@@ -504,7 +560,8 @@
       "Unlucky": "Malchanceux : inverser",
       "Rerolled": "relancé",
       "ForcedSuccess": "transformé en réussite",
-      "FailedForPoints": "jet raté volontairement"
+      "FailedForPoints": "jet raté volontairement",
+      "AutoFailed": "raté d'office"
     },
     "Request": {
       "Title": "Demande de jet",
@@ -700,6 +757,183 @@
         "noReverse": "Plus aucune inversion de PNJ disponible.",
         "notMortal": "Réservé à un attaquant en Danger de mort."
       }
+    },
+    "Hazard": {
+      "AppTitle": "Dangers",
+      "Selection": "Personnages concernés : jetons sélectionnés. Explosion : jetons ciblés = zones adjacentes (moitié des dégâts). Les zones restent narratives.",
+      "Go": "Lancer",
+      "NoActors": "Sélectionnez au moins un jeton.",
+      "NoEffect": "sans effet",
+      "Apply": "Appliquer",
+      "ApplyHint": "Lancez votre jet (inversions possibles sur la carte du jet), puis « Appliquer » : l'issue est appliquée sur le jet final.",
+      "AlreadyRolled": "Ce personnage a déjà lancé.",
+      "NothingToApply": "Rien à appliquer.",
+      "DamageDice": "{dice}dX de dégâts",
+      "Grouped": "Sbires et sous-fifres : jet de dégâts commun.",
+      "Fall": "Chute",
+      "Height": "Hauteur",
+      "Voluntary": "saut volontaire",
+      "FallNoRoll": "Pas de jet : jusqu'à 1 m (2 m pour un saut volontaire).",
+      "FallNote": "Agilité, −1 pip par mètre au-delà de 1 m (2 m en saut volontaire). Échec : Blessé ; déjà Blessé : Hors de combat.",
+      "Explosion": "Explosion",
+      "OrDice": "ou",
+      "ExplosionHint": "Jet séparé pour chaque Risque-tout, lieutenant et chef ; jet commun pour les sbires et sous-fifres. La zone peut prendre feu.",
+      "Adjacent": "zones adjacentes",
+      "Rings": "Souffle : {rings}",
+      "FurtherRings": "Au-delà : appliquez les anneaux suivants avec « Dégâts » si des personnages s'y trouvent.",
+      "Explosive": {
+        "grenade": "Grenade",
+        "dynamite": "Bâton de dynamite",
+        "trap": "Bombe piège",
+        "launcher": "Grenade au lance-grenades",
+        "timeBomb": "Bombe à retardement"
+      },
+      "FireZone": "Zone en feu",
+      "FireZoneHint": "1dX au début du tour, puis jet d'Agilité (échec : En feu).",
+      "FireNote": "Vêtements épais ou mouillés : +{pips} (circonstances). Échec : En feu.",
+      "Drowning": "Noyade",
+      "DrowningNote": "Endurance au début du tour. Échec : 1dX de dégâts.",
+      "DrowningPrep": {
+        "surprised": "Surpris",
+        "normal": "Normal",
+        "prepared": "Préparé"
+      },
+      "PoisonTitle": "Poison",
+      "OrStrength": "ou force",
+      "PoisonCustom": "Poison",
+      "PoisonNote": "Endurance en opposition à la force du poison ({strength}).",
+      "Poison": {
+        "sleeping": "Gaz soporifique",
+        "paralytic": "Poison paralysant",
+        "deadly": "Poison mortel",
+        "hallucinogenic": "Poison hallucinogène"
+      },
+      "PoisonRoll": "Poison : {result} contre {strength}",
+      "PoisonOutcome": {
+        "none": "le poison est sans effet",
+        "initial": "effet initial seulement",
+        "prolonged": "effet initial et effet prolongé",
+        "doubled": "effet initial et effet prolongé, durée doublée"
+      },
+      "PoisonProlonged": {
+        "sleeping": "endormi, impossible à réveiller",
+        "paralytic": "Paralysé",
+        "deadly": "1dX à la fin de chaque tour (outil « Dégâts »)",
+        "hallucinogenic": "Sonné et Saoul, hallucinations"
+      },
+      "PoisonDuration": "{effect} pendant {duration} {factor}",
+      "Duration": {
+        "1d6h": "1d6 heures",
+        "1d6r": "1d6 rounds"
+      },
+      "AmbushTitle": "Attaque par-derrière / sniper (cible PJ)",
+      "AmbushButton": "Vigilance des PJ sélectionnés",
+      "AmbushNote": "Jet de Vigilance de la cible avant l'attaque (LdB p. 103).",
+      "Ambush": {
+        "outOfAction": "Mauvais Karma : Hors de combat (et Blessé si le Chef le décide).",
+        "surprisedExtra": "Échec : Surpris ; l'attaque inflige +{dice}dX (ajustement au jet de dégâts).",
+        "normal": "Réussite : dégâts normaux, pas Surpris.",
+        "defend": "Bon Karma : la cible peut se défendre normalement."
+      },
+      "SniperTitle": "Sniper des PJ",
+      "SniperButton": "Furtivité des PJ sélectionnés (cible : jeton ciblé)",
+      "SniperNote": "Furtivité du tireur avant l'attaque contre {target} (LdB p. 103).",
+      "Sniper": {
+        "alerted": "Mauvais Karma : la cible est alertée et peut se défendre.",
+        "normal": "Échec : attaque normale, cible non Surprise.",
+        "bonus": "Réussite : attaque +{pips} pips (circonstances), +{dice}dX aux dégâts ; {target} est Surpris.",
+        "takedown": "Bon Karma : {target} est Hors de combat (le joueur peut ajouter Blessé)."
+      },
+      "AmbushHint": "Sélectionnez les jetons des PJ concernés ; pour le sniper, ciblez le PNJ visé.",
+      "ParalyzedNote": "Fin du tour : réussite = un type d'action débloqué pour la scène (gratuite, mouvement, principale ou bonus).",
+      "TerrifiedNote": "Début du tour, seulement dans la zone de la source : échec = quitter la zone avant toute autre chose.",
+      "Generic": "Dégâts",
+      "GenericLabel": "Libellé (poison mortel, éboulement…)",
+      "WithProtection": "protection applicable"
+    },
+    "Challenge": {
+      "AppTitle": "Défi",
+      "Title": "Défi",
+      "TitleLabel": "Titre",
+      "LoadPreset": "Charger le modèle",
+      "Count": "Nombre de jets",
+      "Participant": "Participant",
+      "Opposition": "Opposition",
+      "Versus": "contre",
+      "AnyCharacter": "au choix des joueurs",
+      "FormHint": "Opposition : libellé et valeur du camp adverse (ex. « Garde 45 ») ; le MJ lance son jet automatiquement. Les joueurs répartissent les jets aussi équitablement que possible (LdB p. 84).",
+      "Outcomes": "Résultats (facultatifs)",
+      "Publish": "Publier le défi",
+      "Modifier": "Défi",
+      "Hint": "Chaque jet est une carte ordinaire : une inversion met le défi à jour.",
+      "NoActor": "Aucun personnage disponible pour ce jet.",
+      "WhoRolls": "Qui lance ?",
+      "NotAssigned": "Ce jet est attribué à un autre personnage.",
+      "NpcSkill": "Compétence du PNJ",
+      "NpcSkillHint": "Compétence listée si elle existe ; sinon spécialité si la tâche est dans son domaine, sinon compétence de base (LdB p. 85).",
+      "Result": {
+        "disastrous": "Résultat désastreux",
+        "bad": "Mauvais résultat",
+        "limited": "Résultat limité",
+        "good": "Bon résultat",
+        "excellent": "Excellent résultat"
+      },
+      "Refused": {
+        "row-count": "Un défi compte 3 à 5 jets.",
+        "bad-row": "Ligne introuvable.",
+        "already-rolled": "Ce jet a déjà été fait.",
+        "finished": "Le duel est terminé.",
+        "not-your-turn": "Ce n'est pas au tour de ce camp de demander un jet.",
+        "no-skill": "Choisissez une compétence.",
+        "bad-exchange": "Échange introuvable.",
+        "not-current": "Seul l'échange en cours peut recevoir un jet."
+      },
+      "Preset": {
+        "crimeScene": "Analyser une scène de crime",
+        "schematics": "Comprendre les plans d'une machine",
+        "gadget": "Construire un gadget",
+        "bypassSecurity": "Contourner un système de sécurité",
+        "archives": "Recherches dans des archives",
+        "history": "Recherches historiques",
+        "cryptanalysis": "Cryptanalyse",
+        "makeContact": "Entrer en contact avec quelqu'un",
+        "climb": "Escalader une falaise",
+        "mountaineering": "Faire de l'alpinisme",
+        "diving": "Faire de la plongée",
+        "interrogate": "Interroger des gens pour obtenir des indices",
+        "contraband": "Obtenir des objets de contrebande",
+        "rolePlay": "Jouer un rôle",
+        "roughWater": "Nager dans des eaux turbulentes",
+        "groupSneak": "Se déplacer furtivement en groupe",
+        "hike": "Randonner",
+        "artSearch": "Rechercher une œuvre d'art"
+      }
+    },
+    "Duel": {
+      "AppTitle": "Duel",
+      "Title": "Duel",
+      "Target": "Nombre cible",
+      "First": "Commence",
+      "SideA": "Camp A",
+      "SideB": "Camp B",
+      "SideName": "Nom du camp",
+      "Goal": "Objectif",
+      "FormHint": "Jetons sélectionnés présélectionnés dans le camp A, jetons ciblés dans le camp B (sélection multiple : Ctrl / Cmd).",
+      "Publish": "Lancer le duel",
+      "NeedSides": "Chaque camp doit compter au moins un participant.",
+      "Request": "Demander un jet",
+      "Skill": "Compétence",
+      "OppSkill": "Compétence de l'adversaire",
+      "SameSkill": "— la même —",
+      "RequestHint": "Décrivez l'action et le raisonnement. Le malus de répétition (−2 par demande antérieure de la compétence) est indiqué entre parenthèses.",
+      "RepeatPenalty": "Répétition",
+      "TurnOf": "Au tour de",
+      "WinsExchange": "remporte l'échange",
+      "Describes": "le gagnant décrit le résultat",
+      "NoChange": "score inchangé",
+      "DescribesShort": "décrit le résultat",
+      "WinsDuel": "remporte le duel",
+      "NotYourSide": "Ce personnage n'appartient pas à ce camp."
     }
   }
 }

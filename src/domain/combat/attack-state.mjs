@@ -166,3 +166,21 @@ export function markRecovery(state, { hits = 0, dice = 1 }) {
   if (!["miss", "done"].includes(state.stage)) return fail("not-resolved");
   return { ok: true, state: { ...state, recovery: { dice, hits: Number(hits) || 0 } } };
 }
+
+/**
+ * Danger (feu, explosion, noyade, poison…) : même suite que l'attaque à partir des dégâts —
+ * encaissement (si la protection s'applique), puis choix de la cible.
+ * @param {{kind:string, label:string, target:object, parts:Array, faces:number[], hits:number, soak?:boolean}} p
+ */
+export function createHazardState({ kind, label, target, parts = [], faces = [], hits = 0, soak = true }) {
+  const damage = { parts, dice: sumDice(parts), faces, hits: Number(hits) || 0, rerolls: [], bonus: [], karmaRerollUsed: true };
+  const base = {
+    hazard: { kind, label }, locked: true, option: "base", rakatakataMode: "single",
+    attacker: { actorUuid: "", name: label, isCharacter: false, skillKey: "", label, task: null, mods: [], flags: {}, weapon: { name: label } },
+    target: { defenseTask: null, defenseKey: "", defenseLabel: "", declined: true, canDefend: false, ...target },
+    hit: true, karma: null, vlanEffects: [], damage, soak: null, loss: null, absorb: null, recovery: null, knockout: null
+  };
+  if (soak) return { ...base, stage: "soak" };
+  const loss = damage.hits;
+  return { ...base, soak: { dice: 0, faces: [], hits: 0 }, loss, stage: loss > 0 ? "absorb" : "done" };
+}

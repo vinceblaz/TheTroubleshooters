@@ -1,0 +1,31 @@
+<div class="tts-challenge-form">
+  <div class="form-group"><label>{{localize "TTS.Challenge.TitleLabel"}}</label><input name="title" type="text" value="{{draft.title}}"></div>
+  <div class="tts-inline">
+    <select name="preset">{{selectOptions presets}}</select>
+    <button type="button" class="tts-small-button" data-action="loadPreset"><i class="fa-solid fa-file-import"></i> {{localize "TTS.Challenge.LoadPreset"}}</button>
+    <span class="tts-hint">{{localize "TTS.Challenge.Count"}} :</span>
+    {{#each counts as |label n|}}<button type="button" class="tts-small-button {{#if (eq n (concat ../draft.count))}}tts-active{{/if}}" data-action="setCount" data-count="{{n}}">{{label}}</button>{{/each}}
+  </div>
+  <table class="tts-row-table">
+    <thead><tr><th>{{localize "TTS.Duel.Skill"}}</th><th>±</th><th>{{localize "TTS.Challenge.Participant"}}</th><th>{{localize "TTS.Challenge.Opposition"}}</th><th>%</th></tr></thead>
+    <tbody>
+      {{#each rows as |r|}}
+      <tr>
+        <td><select name="skill{{r.i}}">{{selectOptions ../skills selected=r.skill}}</select></td>
+        <td class="tts-num"><input name="pips{{r.i}}" type="number" value="{{r.pips}}" min="-9" max="9"></td>
+        <td><select name="actor{{r.i}}">{{selectOptions ../participants selected=r.actorUuid}}</select></td>
+        <td><input name="oppLabel{{r.i}}" type="text" value="{{r.oppLabel}}" placeholder="—"></td>
+        <td class="tts-num"><input name="oppValue{{r.i}}" type="number" value="{{r.oppValue}}" min="0" max="106" placeholder="—"></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <p class="tts-hint">{{localize "TTS.Challenge.FormHint"}}</p>
+  <fieldset class="tts-fieldset">
+    <legend>{{localize "TTS.Challenge.Outcomes"}}</legend>
+    {{#each results as |r|}}
+    <div class="form-group"><label>{{r.label}}</label><input name="outcome_{{r.key}}" type="text" value="{{r.text}}"></div>
+    {{/each}}
+  </fieldset>
+  <button type="button" data-action="publish"><i class="fa-solid fa-paper-plane"></i> {{localize "TTS.Challenge.Publish"}}</button>
+</div>

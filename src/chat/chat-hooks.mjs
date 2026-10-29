@@ -15,6 +15,8 @@ import { spendStoryPoints } from "../domain/rules/story-points.mjs";
 import { GENERIC_INVERT_COST } from "../domain/dice/task-state.mjs";
 import { onAttackAction } from "../services/attack-service.mjs";
 import { onCombatEndAction } from "../services/combat-service.mjs";
+import { onHazardAction } from "../services/hazard-service.mjs";
+import { onChallengeDuelAction } from "../services/challenge-service.mjs";
 
 /**
  * Contrôle préalable côté client : le joueur est prévenu tout de suite s'il ne peut pas payer
@@ -42,6 +44,14 @@ export function onRenderChatMessage(message, html) {
   root.querySelectorAll('[data-visibility="gm"]').forEach(el => { if (!game.user.isGM) el.remove(); });
   root.querySelectorAll('[data-visibility="players"]').forEach(el => { if (game.user.isGM) el.remove(); });
   root.querySelectorAll("[data-owner-uuid]").forEach(el => { if (!isOwnerOf(el.dataset.ownerUuid)) el.remove(); });
+  // data-owner-any="uuid1,uuid2" : réservé au MJ et aux propriétaires d'au moins un des acteurs (camps de duel)
+  root.querySelectorAll("[data-owner-any]").forEach(el => {
+    if (!game.user.isGM && !el.dataset.ownerAny.split(",").filter(Boolean).some(isOwnerOf)) el.remove();
+  });
+  // data-any-character : visible de tout utilisateur possédant au moins un Risque-tout (jet de défi « au choix »)
+  root.querySelectorAll("[data-any-character]").forEach(el => {
+    if (!game.user.isGM && !game.actors.some(a => a.type === "character" && a.isOwner)) el.remove();
+  });
 
   // Case d'amélioration déjà cochée : bouton inutile.
   root.querySelectorAll('[data-tts-action="tickImprovement"]').forEach(el => {
@@ -65,6 +75,8 @@ async function onCardAction(message, el) {
   try {
     if (action.startsWith("atk")) return await onAttackAction(message, card, el);
     if (action.startsWith("end")) return await onCombatEndAction(message, card, el);
+    if (action.startsWith("hz")) return await onHazardAction(message, card, el);
+    if (action.startsWith("ch") || action.startsWith("du")) return await onChallengeDuelAction(message, card, el);
     switch (action) {
       case "invert":
         if (!(await canAfford(card.actorUuid, GENERIC_INVERT_COST))) return;
@@ -93,6 +105,8 @@ async function onCardAction(message, el) {
         return flawFail(message, card);
       case "unlucky":
         return RelayService.dispatch("taskUnlucky", { messageId: message.id, actorUuid: card.actorUuid });
+      case "conditionExit":
+        return RelayService.dispatch("conditionExit", { messageId: message.id, actorUuid: card.actorUuid }, { gmOnly: true });
       case "npcReverse":
         return RelayService.dispatch("taskNpcReverse", { messageId: message.id, actorUuid: card.actorUuid });
       case "spendResolve":

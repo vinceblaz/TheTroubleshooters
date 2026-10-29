@@ -1,6 +1,32 @@
 # Journal des modifications
 
-## 0.4.0 — phase 4 : combat (livré, non validé)
+## 0.6.0 — phase 6 : défis et duels (livré, non validé)
+
+- Application du Chef « Défi » (macro) : titre, 3 à 5 jets (compétence, modificateur, participant attribué ou au choix des joueurs,
+  opposition libellé + valeur), textes des cinq résultats, 18 modèles tirés de « Comment résoudre les situations ».
+- Carte de défi : chaque jet est une carte ordinaire (inversions, capacités) ; réussites et résultat recalculés automatiquement ;
+  jet adverse lancé par le MJ pour les lignes en opposition.
+- Application du Chef « Duel » (macro) : nombre cible, camp qui commence, deux camps (nom, objectif, participants ;
+  jetons sélectionnés et ciblés présélectionnés).
+- Carte de duel : demandes à tour de rôle, paire de compétences, malus de répétition (−2 par demande antérieure, portée réglable),
+  choix compétence listée / spécialité / base pour les PNJ, score recalculé après inversion, rappel du descripteur, fin au nombre cible.
+
+## 0.5.1 — retour de recette
+
+- Panneau des conditions affiché sur deux colonnes (recette 5, point 1).
+
+## 0.5.0 — phase 5 : conditions et dangers (validé en Foundry réel, 40/40)
+
+- Panneau des 16 conditions dans l'onglet Combat du Risque-tout et sur la fiche PNJ (D-057 amendée) : bascule, niveaux (Saoul ×3 puis Hors de combat, Épuisé cumulatif),
+  jets de sortie (Volonté, Agilité, Corps-à-corps / Force / Agilité), Terrifié → Effrayé, Blessé « rafistolé » pour la scène.
+- Nature du jet dans la boîte de jet : ordinaire, mouvement, vue, ouïe (Sonné, Surchargé ; Aveuglé et Sourd ratent d'office).
+- Épuisé réduit la Vitalité maximale des Risque-tout ; Saoul cumule malus et protection.
+- Tracker : Surpris retiré en fin de tour ; En feu (1dX, Blessé si Hors de combat), Paralysé et Terrifié traités au début ou à la fin du tour.
+- Adversaires Effrayant / Terrifiant : condition posée aux Risque-tout au début du combat.
+- Outil du Chef « Dangers » (macro) : chute, explosion (zone, zones adjacentes, sbires groupés), zone en feu, noyade, poison (4 poisons ou force libre),
+  embuscade, sniper des PJ, dégâts génériques ; cartes de vérification en deux temps (jet, puis « Appliquer ») et cartes de dégâts avec encaissement.
+
+## 0.4.0 — phase 4 : combat (validé en Foundry réel, 53/53)
 
 - Initiative : jet de Vigilance automatique (carte inversable qui met à jour le tracker), valeur fixe des PNJ,
   Allonge +2, malus de protection, Risque-tout avant PNJ à égalité, « Évaluer la situation ».

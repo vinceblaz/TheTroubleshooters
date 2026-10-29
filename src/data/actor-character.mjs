@@ -2,6 +2,7 @@
  * Modèle de données — Actor « character » (bible §6.2).
  */
 import { SKILLS } from "../domain/rules/skills.mjs";
+import { conditionLevel } from "../domain/rules/conditions.mjs";
 import { effectiveMaxVitality, clampVitality } from "../domain/rules/vitality.mjs";
 import { extraLanguagesAllowed, carriedKitStatus, DEFAULT_SESSION_STORY_POINTS } from "../domain/rules/character.mjs";
 import { intField, skillValueField, stringField, htmlField, boolField } from "./fields.mjs";
@@ -64,8 +65,9 @@ export class CharacterData extends foundry.abstract.TypeDataModel {
 
   prepareDerivedData() {
     const s = this.skills;
-    // Épuisé (cumulatif) sera lu depuis les conditions en phase 5.
-    const exhaustedLevels = 0;
+    // Épuisé (cumulatif) : Vitalité max ÷ 2 par niveau (LdB p. 100, phase 5).
+    const actor = this.parent;
+    const exhaustedLevels = conditionLevel("exhausted", [...(actor?.statuses ?? [])], actor?.flags?.thetroubleshooters?.conditionLevels ?? {});
     this.vitality.max = effectiveMaxVitality(
       { agility: s.agility.value, melee: s.melee.value, shooting: s.shooting.value },
       this.vitality.bonus,

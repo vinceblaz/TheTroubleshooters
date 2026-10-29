@@ -1,0 +1,66 @@
+<div class="tts-hazards-app">
+  <p class="tts-hint">{{localize "TTS.Hazard.Selection"}}</p>
+
+  <fieldset class="tts-fieldset">
+    <legend>{{localize "TTS.Hazard.Fall"}}</legend>
+    <div class="tts-inline">
+      <label>{{localize "TTS.Hazard.Height"}}</label><input name="height" type="number" value="3" min="0" max="100" step="1"> m
+      <label class="tts-check-label"><input name="voluntary" type="checkbox"> {{localize "TTS.Hazard.Voluntary"}}</label>
+      <button type="button" class="tts-small-button" data-action="fall"><i class="fa-solid fa-person-falling"></i> {{localize "TTS.Hazard.Go"}}</button>
+    </div>
+  </fieldset>
+
+  <fieldset class="tts-fieldset">
+    <legend>{{localize "TTS.Hazard.Explosion"}}</legend>
+    <div class="tts-inline">
+      <select name="explosive">{{selectOptions explosives}}</select>
+      <label>{{localize "TTS.Hazard.OrDice"}}</label><input name="explosionDice" type="number" value="" min="0" max="20" placeholder="—"> dX
+      <button type="button" class="tts-small-button" data-action="explosion"><i class="fa-solid fa-bomb"></i> {{localize "TTS.Hazard.Go"}}</button>
+    </div>
+    <p class="tts-hint">{{localize "TTS.Hazard.ExplosionHint"}}</p>
+  </fieldset>
+
+  <fieldset class="tts-fieldset">
+    <legend>{{localize "TTS.Hazard.FireZone"}}</legend>
+    <div class="tts-inline">
+      <span class="tts-hint">{{localize "TTS.Hazard.FireZoneHint"}}</span>
+      <button type="button" class="tts-small-button" data-action="fireZone"><i class="fa-solid fa-fire"></i> {{localize "TTS.Hazard.Go"}}</button>
+    </div>
+  </fieldset>
+
+  <fieldset class="tts-fieldset">
+    <legend>{{localize "TTS.Hazard.Drowning"}}</legend>
+    <div class="tts-inline">
+      <select name="drowningPrep">{{selectOptions drowningPreps selected="normal"}}</select>
+      <button type="button" class="tts-small-button" data-action="drowning"><i class="fa-solid fa-water"></i> {{localize "TTS.Hazard.Go"}}</button>
+    </div>
+  </fieldset>
+
+  <fieldset class="tts-fieldset">
+    <legend>{{localize "TTS.Hazard.PoisonTitle"}}</legend>
+    <div class="tts-inline">
+      <select name="poison">{{selectOptions poisons}}</select>
+      <label>{{localize "TTS.Hazard.OrStrength"}}</label><input name="poisonStrength" type="number" value="" min="0" max="106" placeholder="—">
+      <button type="button" class="tts-small-button" data-action="poison"><i class="fa-solid fa-flask"></i> {{localize "TTS.Hazard.Go"}}</button>
+    </div>
+  </fieldset>
+
+  <fieldset class="tts-fieldset">
+    <legend>{{localize "TTS.Hazard.AmbushTitle"}} / {{localize "TTS.Hazard.SniperTitle"}}</legend>
+    <div class="tts-inline">
+      <button type="button" class="tts-small-button" data-action="ambush"><i class="fa-solid fa-user-ninja"></i> {{localize "TTS.Hazard.AmbushButton"}}</button>
+      <button type="button" class="tts-small-button" data-action="sniper"><i class="fa-solid fa-crosshairs"></i> {{localize "TTS.Hazard.SniperButton"}}</button>
+    </div>
+    <p class="tts-hint">{{localize "TTS.Hazard.AmbushHint"}}</p>
+  </fieldset>
+
+  <fieldset class="tts-fieldset">
+    <legend>{{localize "TTS.Hazard.Generic"}}</legend>
+    <div class="tts-inline">
+      <input name="damageLabel" type="text" placeholder="{{localize 'TTS.Hazard.GenericLabel'}}">
+      <input name="damageDice" type="number" value="1" min="1" max="20"> dX
+      <label class="tts-check-label"><input name="damageSoak" type="checkbox"> {{localize "TTS.Hazard.WithProtection"}}</label>
+      <button type="button" class="tts-small-button" data-action="damage"><i class="fa-solid fa-burst"></i> {{localize "TTS.Hazard.Go"}}</button>
+    </div>
+  </fieldset>
+</div>

@@ -58,6 +58,21 @@
     <p class="hint">{{localize "TTS.Roll.AbilitiesHint"}}</p>
   </div>
 
+  {{#if ctx.extraMods.length}}
+  <div class="form-group tts-roll-conditions">
+    <label>{{localize "TTS.Roll.Situation"}}</label>
+    <span>{{#each ctx.extraMods as |m|}}<span class="tts-tag">{{m.label}} {{m.pips}}</span>{{/each}} = <strong>{{extraTotal}}</strong></span>
+  </div>
+  {{/if}}
+
+  {{#if rollKinds}}
+  <div class="form-group">
+    <label>{{localize "TTS.Roll.Kind.Label"}}</label>
+    <select name="rollKind">{{selectOptions rollKinds selected=defaultKind}}</select>
+    <p class="hint">{{localize "TTS.Roll.Kind.Hint"}}</p>
+  </div>
+  {{/if}}
+
   {{#if ctx.conditionMods.length}}
   <div class="form-group tts-roll-conditions">
     <label>{{localize "TTS.Roll.Conditions"}}</label>

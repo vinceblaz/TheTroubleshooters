@@ -31,6 +31,7 @@ export async function evaluateTaskRoll(ctx, choices, { hiddenPips = 0 } = {}) {
   if (choices.circumstances) mods.push({ label: game.i18n.localize("TTS.Roll.Circumstances"), pips: choices.circumstances });
   if (choices.gearPips) mods.push({ label: choices.gearLabel || game.i18n.localize("TTS.Roll.Gear"), pips: choices.gearPips });
   if (choices.abilities) mods.push({ label: choices.abilityLabel || game.i18n.localize("TTS.Roll.Abilities"), pips: choices.abilities });
+  for (const m of ctx.extraMods ?? []) mods.push({ label: m.label, pips: m.pips });
   for (const m of ctx.conditionMods) mods.push({ label: m.label, pips: m.pips });
   for (const m of ctx.flawMods ?? []) mods.push({ label: m.label, pips: m.pips });
 
@@ -39,7 +40,7 @@ export async function evaluateTaskRoll(ctx, choices, { hiddenPips = 0 } = {}) {
     circumstances: choices.circumstances,
     gear: choices.gearPips,
     abilities: choices.abilities,
-    conditions: ctx.conditionMods,
+    conditions: [...ctx.conditionMods, ...(ctx.extraMods ?? [])],
     flaws: ctx.flawMods ?? []
   });
 
@@ -51,7 +52,16 @@ export async function evaluateTaskRoll(ctx, choices, { hiddenPips = 0 } = {}) {
     mode: game.settings.get(SYSTEM_ID, "modifierMode"),
     result: roll.total
   });
+  await consumeNextRollPenalties(ctx);
   return { roll, task, mods };
+}
+
+/** Malus « prochain jet » (Mauvais Karma en attaque, LdB p. 95) : retirés dès qu'ils ont servi. */
+async function consumeNextRollPenalties(ctx) {
+  const actor = ctx.actor;
+  if (!actor?.isOwner) return;
+  const ids = (ctx.flawMods ?? []).filter(m => m.nextRoll && m.effectId && actor.effects.has(m.effectId)).map(m => m.effectId);
+  if (ids.length) await actor.deleteEmbeddedDocuments("ActiveEffect", ids);
 }
 
 /** Crédite +1 PR sur Karma (réglage), pour un Risque-tout uniquement. */

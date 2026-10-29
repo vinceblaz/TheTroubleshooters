@@ -10,6 +10,9 @@ import { sheetActivations, ACTIVATION_TYPES } from "../domain/rules/activations.
 import { activateFromSheet } from "../services/ability-service.mjs";
 import { triggerFlaw, activeFlawPenalties } from "../services/flaw-service.mjs";
 import { proposeSpend } from "../apps/spend-dialog.mjs";
+import { startAttack, reloadWeapon, catchBreath, setProne } from "../services/attack-service.mjs";
+import { reassessInitiative } from "../services/combat-service.mjs";
+import { weaponsOf, protectionOf, drunkLevelsOf, statusesOf, combatantOf, defenseChoicesOf } from "../services/combat-actors.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -31,7 +34,13 @@ export class TTSCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
       activateAbility: TTSCharacterSheet.#onActivateAbility,
       triggerFlaw: TTSCharacterSheet.#onTriggerFlaw,
       proposeSpend: TTSCharacterSheet.#onProposeSpend,
-      removeEffect: TTSCharacterSheet.#onRemoveEffect
+      removeEffect: TTSCharacterSheet.#onRemoveEffect,
+      attack: TTSCharacterSheet.#onAttack,
+      reload: TTSCharacterSheet.#onReload,
+      catchBreath: TTSCharacterSheet.#onCatchBreath,
+      prone: TTSCharacterSheet.#onProne,
+      reassess: TTSCharacterSheet.#onReassess,
+      toggleStatus: TTSCharacterSheet.#onToggleStatus
     }
   };
 
@@ -40,6 +49,7 @@ export class TTSCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
     tabs: { template: `${SYSTEM_PATH}/templates/shared/tabs.hbs` },
     skills: { template: `${SYSTEM_PATH}/templates/actor/character-skills.hbs`, scrollable: [""] },
     traits: { template: `${SYSTEM_PATH}/templates/actor/character-traits.hbs`, scrollable: [""] },
+    combat: { template: `${SYSTEM_PATH}/templates/actor/character-combat.hbs`, scrollable: [""] },
     gear: { template: `${SYSTEM_PATH}/templates/actor/character-gear.hbs`, scrollable: [""] },
     bio: { template: `${SYSTEM_PATH}/templates/actor/character-bio.hbs`, scrollable: [""] }
   };
@@ -49,6 +59,7 @@ export class TTSCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
       tabs: [
         { id: "skills", label: "TTS.Tab.Skills" },
         { id: "traits", label: "TTS.Tab.Traits" },
+        { id: "combat", label: "TTS.Tab.Combat" },
         { id: "gear", label: "TTS.Tab.Gear" },
         { id: "bio", label: "TTS.Tab.Bio" }
       ],
@@ -83,18 +94,39 @@ export class TTSCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
       acts: sheetActivations(item.system).map(({ act, index }) => ({
         index,
         cost: act.cost,
-        label: act.label || game.i18n.localize(`TTS.ActivationType.${act.type}`),
-        combat: ACTIVATION_TYPES[act.type]?.phase === 4
+        label: act.label || game.i18n.localize(`TTS.ActivationType.${act.type}`)
       })),
-      cardCount: (item.system.activations ?? []).filter(a => ["card", "dialog"].includes(ACTIVATION_TYPES[a.type]?.where)).length
+      cardCount: (item.system.activations ?? []).filter(a => ["card", "dialog", "attack"].includes(ACTIVATION_TYPES[a.type]?.where)).length
     }));
     const penalties = activeFlawPenalties(actor).map(p => ({
       ...p,
       skillsLabel: p.skills?.length ? p.skills.map(k => game.i18n.localize(THETROUBLESHOOTERS.skills[k]?.label ?? k)).join(", ") : game.i18n.localize("TTS.Flaw.AllRolls")
     }));
 
+    const statuses = statusesOf(actor);
+    const combatant = combatantOf(actor);
+    const combat = {
+      weapons: weaponsOf(actor).map(w => ({
+        ...w,
+        skillLabel: game.i18n.localize(THETROUBLESHOOTERS.skills[w.skill]?.label ?? w.skill),
+        tags: [w.flags.ammo ? `${game.i18n.localize("TTS.Weapon.Ammo")} ${w.flags.ammo}` : "", ...w.flags.others].filter(Boolean),
+        flagTags: Object.entries(w.flags).filter(([k, v]) => v === true).map(([k]) => game.i18n.localize(`TTS.Weapon.Flag.${k}`)),
+        usable: !w.empty && !w.jammed && !w.broken
+      })),
+      protection: protectionOf(actor),
+      drunk: drunkLevelsOf(actor),
+      defenses: defenseChoicesOf(actor),
+      statuses: ["wounded", "mortalDanger", "outOfAction", "vulnerable"].map(id => ({
+        id, active: statuses.includes(id), label: THETROUBLESHOOTERS.conditions[id].label, img: THETROUBLESHOOTERS.conditions[id].img
+      })),
+      inCombat: Boolean(combatant),
+      initiative: combatant?.initiative ?? null,
+      prone: statuses.includes("vulnerable")
+    };
+
     return Object.assign(context, {
       actor,
+      combat,
       abilityRows,
       penalties,
       system,
@@ -166,6 +198,35 @@ export class TTSCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
   static async #onRemoveEffect(event, target) {
     const id = target.closest("[data-effect-id]")?.dataset.effectId;
     if (id) await this.document.deleteEmbeddedDocuments("ActiveEffect", [id]);
+  }
+
+  /* Combat (phase 4) */
+  static async #onAttack(event, target) {
+    const ref = target.closest("[data-weapon-ref]")?.dataset.weaponRef;
+    if (ref) await startAttack(this.document, ref);
+  }
+
+  static async #onReload(event, target) {
+    const ref = target.closest("[data-weapon-ref]")?.dataset.weaponRef;
+    if (ref) await reloadWeapon(this.document, ref);
+  }
+
+  static async #onCatchBreath() {
+    await catchBreath(this.document);
+  }
+
+  static async #onProne(event, target) {
+    await setProne(this.document, target.dataset.prone === "true");
+  }
+
+  static async #onReassess() {
+    await reassessInitiative(this.document);
+  }
+
+  /** Blessé, Danger de mort, Hors de combat, Vulnérable : bascule rapide (le Chef arbitre). */
+  static async #onToggleStatus(event, target) {
+    const id = target.dataset.status;
+    if (id && THETROUBLESHOOTERS.conditions[id]) await this.document.toggleStatusEffect(id);
   }
 
   /** Bascule un booléen d'un Item intégré (kit emporté, signature…). */

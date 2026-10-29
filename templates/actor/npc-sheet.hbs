@@ -27,6 +27,7 @@
       <div class="form-group"><label><a class="tts-rollable" data-action="rollNpc" data-source="base"><i class="fa-solid fa-dice-d10"></i> {{localize "TTS.Npc.BaseSkill"}}</a></label><input name="system.baseSkill" type="number" value="{{system.baseSkill}}" min="0" max="106"></div>
       <div class="form-group"><label><a class="tts-rollable" data-action="rollNpc" data-source="specialty"><i class="fa-solid fa-dice-d10"></i> {{localize "TTS.Npc.Specialty"}}</a></label><input name="system.specialty.value" type="number" value="{{system.specialty.value}}" min="0" max="106"></div>
       <div class="form-group"><label>{{localize "TTS.Npc.Defense"}}</label><input name="system.defense" type="number" value="{{system.defense}}" min="0" max="106" placeholder="—"></div>
+      <div class="form-group"><label>{{localize "TTS.Combat.Protection"}}</label><div class="tts-inline"><input name="system.protection" type="number" value="{{system.protection}}" min="0" max="10"> dR</div></div>
       <div class="form-group tts-span-3"><label>{{localize "TTS.Npc.SpecialtyDomain"}}</label><input name="system.specialty.domain" type="text" value="{{system.specialty.domain}}"></div>
     </div>
     <p class="tts-hint">{{localize "TTS.Npc.DefenseHint"}}</p>
@@ -54,17 +55,20 @@
     <legend>{{localize "TTS.Npc.Attacks"}}
       {{#if editable}}<a class="tts-icon-button" data-action="addRow" data-path="attacks" data-tooltip="TTS.Sheet.Add"><i class="fa-solid fa-plus"></i></a>{{/if}}</legend>
     <table class="tts-row-table">
-      <thead><tr><th>{{localize "TTS.Npc.AttackName"}}</th><th>%</th><th>dX</th><th>{{localize "TTS.Npc.Uses"}}</th><th>{{localize "TTS.Npc.Range"}}</th><th>{{localize "TTS.Npc.Counter"}}</th><th>{{localize "TTS.Npc.Descriptors"}}</th><th></th></tr></thead>
+      <thead><tr><th></th><th>{{localize "TTS.Npc.AttackName"}}</th><th>%</th><th>{{localize "TTS.Weapon.Skill"}}</th><th>dX</th><th>{{localize "TTS.Npc.Uses"}}</th><th>{{localize "TTS.Npc.Range"}}</th><th>{{localize "TTS.Npc.Counter"}}</th><th>{{localize "TTS.Npc.Descriptors"}}</th><th>{{localize "TTS.Weapon.Empty"}}</th><th></th></tr></thead>
       <tbody>
         {{#each system.attacks as |row i|}}
-        <tr data-index="{{i}}">
+        <tr data-index="{{i}}" data-weapon-ref="npc:{{i}}">
+          <td class="tts-roll-cell"><a class="tts-rollable" data-action="attack" data-tooltip="TTS.Attack.Attack"><i class="fa-solid fa-hand-fist"></i></a></td>
           <td><input name="system.attacks.{{i}}.name" type="text" value="{{row.name}}"></td>
           <td class="tts-num"><input name="system.attacks.{{i}}.value" type="number" value="{{row.value}}" min="0" max="106"></td>
+          <td><select name="system.attacks.{{i}}.skill">{{selectOptions @root.attackSkillChoices selected=row.skill}}</select></td>
           <td class="tts-num"><input name="system.attacks.{{i}}.damage" type="number" value="{{row.damage}}" min="0" max="20"></td>
           <td class="tts-num"><input name="system.attacks.{{i}}.uses" type="number" value="{{row.uses}}" min="1" max="9"></td>
           <td class="tts-num"><input name="system.attacks.{{i}}.range" type="number" value="{{row.range}}" min="0" max="20" placeholder="—"></td>
           <td class="tts-check"><input name="system.attacks.{{i}}.counter" type="checkbox" {{checked row.counter}}></td>
-          <td><input name="system.attacks.{{i}}.descriptors" type="text" value="{{row.descriptors}}"></td>
+          <td><input name="system.attacks.{{i}}.descriptors" type="text" value="{{row.descriptors}}" placeholder="{{localize 'TTS.Npc.DescriptorsPlaceholder'}}"></td>
+          <td class="tts-check"><input name="system.attacks.{{i}}.empty" type="checkbox" {{checked row.empty}}></td>
           <td class="tts-row-controls">{{#if @root.editable}}<a data-action="removeRow" data-path="attacks"><i class="fa-solid fa-trash"></i></a>{{/if}}</td>
         </tr>
         {{/each}}

@@ -11,6 +11,9 @@
   {{/if}}
   {{> "systems/thetroubleshooters/templates/chat/task-result.hbs" task=card.task}}
   {{#if card.karmaAwarded}}<div class="tts-history">★ {{localize "TTS.Chat.KarmaPoint"}}</div>{{/if}}
+  {{#if card.initiative}}
+  <div class="tts-initiative-line">{{localize "TTS.Initiative.Label"}} : <strong>{{initiativeValue}}</strong>{{#if card.initiative.bonus}} <span class="tts-tag">{{localize "TTS.Initiative.GearBonus"}} {{#if (gt card.initiative.bonus 0)}}+{{/if}}{{card.initiative.bonus}}</span>{{/if}}</div>
+  {{/if}}
 
   {{#if (eq card.task.status "pendingFailure")}}
   <div class="tts-pending">{{localize "TTS.Chat.FailurePending"}}</div>
@@ -32,6 +35,11 @@
   {{#if abilities.length}}
   <div class="tts-card-buttons tts-ability-buttons" data-owner-uuid="{{card.actorUuid}}">
     {{> "systems/thetroubleshooters/templates/chat/ability-buttons.hbs" abilities=abilities}}
+  </div>
+  {{/if}}
+  {{#if npcReverses}}
+  <div class="tts-card-buttons" data-visibility="gm">
+    <button type="button" data-tts-action="npcReverse"><i class="fa-solid fa-arrow-right-arrow-left"></i> {{localize "TTS.Attack.InvertMode.npc"}} ({{npcReverses}})</button>
   </div>
   {{/if}}
   {{#if unlucky}}

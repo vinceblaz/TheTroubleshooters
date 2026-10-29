@@ -111,7 +111,8 @@ export class KitData extends foundry.abstract.TypeDataModel {
         descriptors: stringField(),
         ammo: stringField(),                          // plage munitions (X), ex. « 9-0 »
         empty: boolField(false),
-        jammed: boolField(false)
+        jammed: boolField(false),
+        broken: boolField(false)                      // Fragile : cassée après un jet avec Karma
       }),
       hasProtection: boolField(false),
       protection: new fields.SchemaField({

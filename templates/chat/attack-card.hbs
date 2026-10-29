@@ -1,0 +1,154 @@
+<div class="thetroubleshooters tts-card tts-attack-card tts-stage-{{s.stage}}">
+  <header class="tts-card-header">
+    <span class="tts-card-title"><i class="fa-solid fa-hand-fist"></i> {{s.attacker.weapon.name}}</span>
+    <span class="tts-card-value">{{optionLabel}}</span>
+  </header>
+  <div class="tts-attack-line">
+    <strong>{{s.attacker.name}}</strong>
+    {{#if s.target}}<i class="fa-solid fa-arrow-right"></i> <strong>{{s.target.name}}</strong>{{else}}<span class="tts-muted">{{localize "TTS.Attack.NoTarget"}}</span>{{/if}}
+  </div>
+
+  {{!-- Attaque --}}
+  <section class="tts-attack-side">
+    <div class="tts-side-skill">{{s.attacker.label}} — {{s.attacker.task.value}} %</div>
+    {{#if s.attacker.mods.length}}
+    <div class="tts-mods">{{#each s.attacker.mods as |m|}}<span class="tts-tag">{{m.label}} {{#if (gt m.pips 0)}}+{{/if}}{{m.pips}}</span>{{/each}}</div>
+    {{/if}}
+    {{> "systems/thetroubleshooters/templates/chat/task-result.hbs" task=s.attacker.task}}
+    {{#if card.karmaAwarded}}<div class="tts-history">★ {{localize "TTS.Chat.KarmaPoint"}}</div>{{/if}}
+    {{#if open}}
+    <div class="tts-card-buttons" data-owner-uuid="{{s.attacker.actorUuid}}">
+      {{#if attackerInvert}}<button type="button" data-tts-action="atkInvert" data-side="attacker" data-mode="generic"><i class="fa-solid fa-arrow-right-arrow-left"></i> {{localize "TTS.Chat.Invert"}} (2 PR)</button>{{/if}}
+      {{#if attackerMortal}}<button type="button" data-tts-action="atkInvert" data-side="attacker" data-mode="mortal"><i class="fa-solid fa-skull"></i> {{localize "TTS.Attack.InvertMode.mortal"}}</button>{{/if}}
+      {{> "systems/thetroubleshooters/templates/chat/ability-buttons.hbs" abilities=attackerAbilities side="attacker" action="atkAbility"}}
+    </div>
+    {{#if attackerNpcReverses}}
+    <div class="tts-card-buttons" data-visibility="gm">
+      <button type="button" data-tts-action="atkInvert" data-side="attacker" data-mode="npc"><i class="fa-solid fa-arrow-right-arrow-left"></i> {{localize "TTS.Attack.InvertMode.npc"}} ({{attackerNpcReverses}})</button>
+    </div>
+    {{/if}}
+    {{/if}}
+  </section>
+
+  {{!-- Défense --}}
+  {{#if s.target}}
+  <section class="tts-attack-side tts-defense-side">
+    {{#if (eq s.stage "defense")}}
+    <p class="tts-pending">{{localize "TTS.Attack.WaitingDefense"}}</p>
+    <div class="tts-card-buttons" data-owner-uuid="{{s.target.actorUuid}}">
+      {{#each defenseChoices as |c|}}<button type="button" data-tts-action="atkDefend" data-key="{{c.key}}"><i class="fa-solid fa-shield-halved"></i> {{localize "TTS.Attack.Defend"}} : {{c.label}} ({{c.value}} %)</button>{{/each}}
+      <button type="button" data-tts-action="atkDecline"><i class="fa-solid fa-ban"></i> {{localize "TTS.Attack.NoDefense"}}</button>
+    </div>
+    {{else if s.target.defenseTask}}
+    <div class="tts-side-skill">{{localize "TTS.Attack.Defense"}} — {{s.target.defenseLabel}} — {{s.target.defenseTask.value}} %</div>
+    {{> "systems/thetroubleshooters/templates/chat/task-result.hbs" task=s.target.defenseTask}}
+    {{#if open}}
+    <div class="tts-card-buttons" data-owner-uuid="{{s.target.actorUuid}}">
+      {{#if targetInvert}}<button type="button" data-tts-action="atkInvert" data-side="target" data-mode="generic"><i class="fa-solid fa-arrow-right-arrow-left"></i> {{localize "TTS.Chat.Invert"}} (2 PR)</button>{{/if}}
+      {{> "systems/thetroubleshooters/templates/chat/ability-buttons.hbs" abilities=targetAbilities side="target" action="atkAbility"}}
+    </div>
+    {{#if targetNpcReverses}}
+    <div class="tts-card-buttons" data-visibility="gm">
+      <button type="button" data-tts-action="atkInvert" data-side="target" data-mode="npc"><i class="fa-solid fa-arrow-right-arrow-left"></i> {{localize "TTS.Attack.InvertMode.npc"}} ({{targetNpcReverses}})</button>
+    </div>
+    {{/if}}
+    {{/if}}
+    {{else if s.target.declined}}
+    <div class="tts-history">{{localize "TTS.Attack.Declined"}}</div>
+    {{else if (ne s.stage "miss")}}
+    <div class="tts-history">{{localize "TTS.Attack.CannotDefend"}}</div>
+    {{/if}}
+  </section>
+  {{/if}}
+
+  {{!-- Issue --}}
+  <div class="tts-attack-outcome">
+    {{#if (eq s.stage "miss")}}<span class="tts-failure">{{localize "TTS.Attack.Miss"}}</span>{{/if}}
+    {{#if s.knockout}}<span class="tts-success">{{localize "TTS.Attack.Knockout"}}{{#if s.knockout.label}} — {{s.knockout.label}} ({{s.knockout.cost}} PR){{/if}}</span>{{/if}}
+    {{#if (and s.hit (not s.knockout))}}<span class="tts-success">{{localize "TTS.Attack.Hit"}}</span>{{/if}}
+  </div>
+  {{#if s.karma.attackerPenalty}}<div class="tts-history">⚠ {{localize "TTS.Attack.KarmaAttackerPenalty"}}</div>{{/if}}
+  {{#if s.karma.defenderVulnerable}}<div class="tts-history">⚠ {{localize "TTS.Attack.KarmaDefenderVulnerable"}}</div>{{/if}}
+  {{#if ammoNote}}<div class="tts-history">⚠ {{ammoNote}}</div>{{/if}}
+  {{#if card.effects.fragile}}<div class="tts-history">⚠ {{localize "TTS.Weapon.BrokenNow"}}</div>{{/if}}
+  {{#if s.vlanEffects.length}}<div class="tts-history">{{#each s.vlanEffects as |e|}}<span class="tts-tag">{{localize (concat "TTS.Attack.Vlan." e)}}</span>{{/each}}</div>{{/if}}
+
+  {{#if (eq s.stage "vlan")}}
+  <div class="tts-card-buttons" data-owner-uuid="{{s.attacker.actorUuid}}">
+    <button type="button" data-tts-action="atkVlan"><i class="fa-solid fa-person-falling"></i> {{localize "TTS.Attack.VlanChoose"}}</button>
+  </div>
+  {{/if}}
+
+  {{!-- Dégâts --}}
+  {{#if (eq s.stage "damage")}}
+  <div class="tts-card-buttons" data-owner-uuid="{{s.attacker.actorUuid}}">
+    <button type="button" data-tts-action="atkDamage"><i class="fa-solid fa-burst"></i> {{localize "TTS.Attack.DamageRoll"}} ({{expectedDice}}dX)</button>
+    {{> "systems/thetroubleshooters/templates/chat/ability-buttons.hbs" abilities=attackAbilities side="attacker" action="atkAbility"}}
+  </div>
+  {{/if}}
+  {{#if s.damage}}
+  <section class="tts-attack-pool">
+    <div class="tts-side-skill">{{localize "TTS.Attack.Damage"}} — {{s.damage.dice}}dX {{#each damageParts as |p|}}<span class="tts-tag">{{p.label}} {{p.dice}}</span>{{/each}}</div>
+    <div class="tts-pool-faces">{{#each s.damage.faces as |f|}}<span class="tts-face {{#if (gte f 4)}}tts-hit{{/if}}">{{f}}</span>{{/each}}</div>
+    {{#each s.damage.rerolls as |r|}}<div class="tts-history">⟳ {{#if r.label}}{{r.label}}{{else}}{{localize "TTS.Attack.KarmaReroll"}}{{/if}} : {{r.from}} → {{r.to}}{{#if r.cost}} ({{r.cost}} PR){{/if}}</div>{{/each}}
+    {{#each s.damage.bonus as |b|}}<div class="tts-history">+ {{b.label}} : {{b.dice}}dX → {{b.hits}} ({{b.cost}} PR)</div>{{/each}}
+    <div class="tts-pool-total"><strong>{{damageTotal}}</strong> {{localize "TTS.Pool.Hits"}}</div>
+    {{#if (or karmaReroll attackAbilities.length)}}
+    {{#unless (eq s.stage "damage")}}
+    <div class="tts-card-buttons" data-owner-uuid="{{s.attacker.actorUuid}}">
+      {{#if karmaReroll}}<button type="button" data-tts-action="atkRerollDamage"><i class="fa-solid fa-rotate"></i> {{localize "TTS.Attack.KarmaReroll"}}</button>{{/if}}
+      {{> "systems/thetroubleshooters/templates/chat/ability-buttons.hbs" abilities=attackAbilities side="attacker" action="atkAbility"}}
+    </div>
+    {{/unless}}
+    {{/if}}
+  </section>
+  {{/if}}
+
+  {{!-- Encaissement --}}
+  {{#if (eq s.stage "soak")}}
+  <div class="tts-card-buttons" data-owner-uuid="{{s.target.actorUuid}}">
+    <button type="button" data-tts-action="atkSoak"><i class="fa-solid fa-shield"></i> {{localize "TTS.Attack.Soak"}} ({{soakDice}}dR)</button>
+  </div>
+  {{/if}}
+  {{#if s.soak}}
+  <section class="tts-attack-pool">
+    <div class="tts-side-skill">{{localize "TTS.Attack.Soak"}} — {{s.soak.dice}}dR</div>
+    {{#if s.soak.faces.length}}<div class="tts-pool-faces">{{#each s.soak.faces as |f|}}<span class="tts-face {{#if (gte f 4)}}tts-hit{{/if}}">{{f}}</span>{{/each}}</div>{{/if}}
+    <div class="tts-pool-total">{{localize "TTS.Attack.Loss"}} : <strong>{{s.loss}}</strong></div>
+  </section>
+  {{/if}}
+
+  {{#if (eq s.stage "absorb")}}
+  <p class="tts-pending">{{localize "TTS.Attack.AbsorbPrompt"}}</p>
+  <div class="tts-card-buttons" data-owner-uuid="{{s.target.actorUuid}}">
+    {{#each absorb as |o|}}
+    <button type="button" data-tts-action="atkAbsorb" data-choice="{{o.key}}" class="{{#if o.death}}tts-danger{{/if}}">
+      {{o.label}}{{#if (eq o.key "vitality")}} (→ {{o.left}}){{/if}}{{#if o.out}} — {{localize "TTS.Attack.WillBeOut"}}{{/if}}{{#if o.death}} — {{localize "TTS.Attack.WillDie"}}{{/if}}
+    </button>
+    {{/each}}
+  </div>
+  {{/if}}
+  {{#if s.absorb}}
+  <div class="tts-attack-outcome">
+    <span class="tts-tag">{{absorbLabel}}</span>
+    {{#if s.absorb.death}}<span class="tts-failure">{{localize "TTS.Attack.Dead"}}</span>{{else if s.absorb.outOfAction}}<span class="tts-failure">{{localize "TTS.Condition.OutOfAction"}}</span>{{/if}}
+  </div>
+  {{/if}}
+
+  {{#if s.recovery}}<div class="tts-history">✚ {{localize "TTS.Attack.Recovery"}} : +{{s.recovery.hits}}</div>{{/if}}
+  {{#if canRecover}}
+  <div class="tts-card-buttons" data-owner-uuid="{{s.target.actorUuid}}">
+    <button type="button" data-tts-action="atkRecovery"><i class="fa-solid fa-heart-pulse"></i> {{localize "TTS.Attack.Recovery"}} (1dR)</button>
+  </div>
+  {{/if}}
+  {{#if canIgnite}}
+  <div class="tts-card-buttons" data-owner-uuid="{{s.attacker.actorUuid}}">
+    <button type="button" data-tts-action="atkIgnite"><i class="fa-solid fa-fire"></i> {{localize "TTS.Attack.Ignite"}}</button>
+  </div>
+  {{/if}}
+  {{#if canCounter}}
+  <div class="tts-card-buttons" data-visibility="gm">
+    <button type="button" data-tts-action="atkCounter"><i class="fa-solid fa-reply"></i> {{localize "TTS.Attack.Counter"}}</button>
+  </div>
+  {{/if}}
+</div>

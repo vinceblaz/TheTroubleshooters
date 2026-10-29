@@ -15,12 +15,12 @@ export const ACTIVATION_TYPES = Object.freeze({
   failForPoints:  { where: "card",   phase: 3 },   // rater un jet réussi pour gagner des PR (Curieux)
   bonusPips:      { where: "dialog", phase: 3 },   // modificateur de la catégorie Capacités
   narrative:      { where: "sheet",  phase: 3 },   // effet narratif : dépense + annonce
-  bonusDamage:    { where: "sheet",  phase: 4 },
-  rerollDamage:   { where: "sheet",  phase: 4 },
-  recovery:       { where: "sheet",  phase: 4 },
-  knockoutMinion: { where: "sheet",  phase: 4 },
-  initiative:     { where: "sheet",  phase: 4 },
-  bonusAction:    { where: "sheet",  phase: 4 }
+  bonusDamage:    { where: "attack", phase: 4 },   // dés de dégâts en plus (coût 0 : proposé au jet de dégâts)
+  rerollDamage:   { where: "attack", phase: 4 },   // relancer les dégâts, conserver le nouveau résultat
+  knockoutMinion: { where: "attack", phase: 4 },   // sbire touché : Hors de combat sans jet de dégâts
+  recovery:       { where: "sheet",  phase: 4 },   // jet de récupération NdR (action bonus)
+  initiative:     { where: "sheet",  phase: 4 },   // agir maintenant : marqueur dans le tracker
+  bonusAction:    { where: "sheet",  phase: 4 }    // action bonus accordée : pastille dans le tracker
 });
 
 export const ACTIVATION_TYPE_KEYS = Object.freeze(Object.keys(ACTIVATION_TYPES));
@@ -68,7 +68,42 @@ export function dialogActivations(abilities = [], skillKey = "") {
   return out;
 }
 
-/** Activations à déclencher depuis la fiche (narratives, et combat en attendant la phase 4). */
+/**
+ * Activations de combat proposées sur une carte d'attaque, selon l'étape (bible §10.3).
+ *  - knockoutMinion : attaque réussie contre un sbire, avant le jet de dégâts ;
+ *  - bonusDamage payant et rerollDamage : après le jet de dégâts, avant l'encaissement.
+ * @param {Array} abilities
+ * @param {{stage:string, hit:boolean, targetRank?:string, damageRolled:boolean, soaked:boolean}} ctx
+ */
+export function attackActivations(abilities = [], { stage, hit, targetRank = "", damageRolled = false, soaked = false } = {}) {
+  const out = [];
+  for (const ab of abilities) {
+    if (ab.acquired === false) continue;
+    (ab.activations ?? []).forEach((act, index) => {
+      if (ACTIVATION_TYPES[act.type]?.where !== "attack") return;
+      const afterDamage = damageRolled && !soaked && ["soak", "done"].includes(stage);
+      if (act.type === "knockoutMinion" && !(stage === "damage" && hit && targetRank === "minion" && !damageRolled)) return;
+      if (act.type === "rerollDamage" && !afterDamage) return;
+      if (act.type === "bonusDamage" && (!(act.cost > 0) || !afterDamage)) return;
+      out.push({ abilityId: ab.id, abilityName: ab.name, index, act });
+    });
+  }
+  return out;
+}
+
+/** Bonus de dégâts gratuits (Poings d'acier) proposés au jet de dégâts — circonstance laissée au joueur. */
+export function passiveDamageBonuses(abilities = []) {
+  const out = [];
+  for (const ab of abilities) {
+    if (ab.acquired === false) continue;
+    (ab.activations ?? []).forEach((act, index) => {
+      if (act.type === "bonusDamage" && !(act.cost > 0) && act.dice > 0) out.push({ abilityId: ab.id, abilityName: ab.name, index, act });
+    });
+  }
+  return out;
+}
+
+/** Activations à déclencher depuis la fiche (narratives, récupération, initiative, action bonus). */
 export function sheetActivations(ability) {
   return (ability?.activations ?? [])
     .map((act, index) => ({ act, index }))

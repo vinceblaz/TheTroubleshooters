@@ -1,6 +1,25 @@
 # Journal des modifications
 
-## 0.3.0 — phase 3 : points de récit, désavantages, capacités (livré, non validé)
+## 0.4.0 — phase 4 : combat (livré, non validé)
+
+- Initiative : jet de Vigilance automatique (carte inversable qui met à jour le tracker), valeur fixe des PNJ,
+  Allonge +2, malus de protection, Risque-tout avant PNJ à égalité, « Évaluer la situation ».
+- Tracker : pastilles d'actions M / G / P / B (rappel sans verrou), action retardée, marqueurs « agit maintenant »,
+  action bonus, commandant et contre-attaque ; remise à zéro au début du tour.
+- Carte d'attaque : options (base, Vlan !, Pan !, Rakatakata !), défense en opposition (Corps-à-corps, Agilité à couvert,
+  score des PNJ), inversions (2 PR, Danger de mort gratuite, « inverser (X) » des PNJ), capacités sur les jets,
+  dégâts explosifs détaillés, relance du Bon Karma, encaissement, choix Vitalité / Blessé / Danger de mort selon le rang,
+  Hors de combat et mort confirmée.
+- Descripteurs d'arme lus dans le texte : munitions (X), un coup, lancé, précis, aiguisé, tranchant, non létal, paralysant,
+  collet, fragile, incendiaire, croche-patte, allonge, rechargement rapide / difficile.
+- Karma en combat : sbires et sous-fifres Hors de combat, malus « prochain jet », récupération et Vulnérable en défense.
+- Fiche : onglet Combat (armes, recharger, protection, défenses, reprendre son souffle, tomber à terre / se relever,
+  conditions de combat). Fiche PNJ : bouton d'attaque, compétence et état « vide » des attaques, protection.
+- Capacités de combat automatisées : sbire Hors de combat, relance et bonus de dégâts, récupération, marqueurs d'initiative et d'action bonus.
+- Fin de combat : Vitalité au maximum, Danger de mort retiré, carte de bilan avec jet de Médecine et « Capturés ! ».
+- Relais : option « MJ uniquement » pour les effets sur les acteurs d'autres joueurs.
+
+## 0.3.0 — phase 3 : points de récit, désavantages, capacités (validé en Foundry réel, 35/35)
 
 - Compendiums « Capacités » (56, textes du livre et 129 activations structurées) et « Désavantages » (18 ; « Trop confiant » = Présomptueux, D-031).
 - Outil du Chef « Points de récit et scène » (macro) : ajustements, Capturés ! (+9), Amuser la table (+1),

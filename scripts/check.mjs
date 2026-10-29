@@ -102,6 +102,27 @@ collect(THETROUBLESHOOTERS);
 for (const t of itemTypes) used.add(`TYPES.Item.${t}`);
 for (const t of ACTIVATION_TYPE_KEYS) used.add(`TTS.ActivationType.${t}`);
 for (const t of Object.keys(system.documentTypes.Actor)) used.add(`TYPES.Actor.${t}`);
+// Familles de clés construites dynamiquement (combat, phase 4)
+{
+  const { ATTACK_OPTIONS, VLAN_EFFECTS } = await import(join(ROOT, "src/domain/combat/attack.mjs"));
+  const { parseWeaponDescriptors } = await import(join(ROOT, "src/domain/combat/weapon.mjs"));
+  const fam = (prefix, keys) => keys.forEach(k => used.add(`${prefix}.${k}`));
+  fam("TTS.Attack.Options", ATTACK_OPTIONS);
+  fam("TTS.Attack.OptionHint", ATTACK_OPTIONS);
+  fam("TTS.Attack.Vlan", VLAN_EFFECTS);
+  const attackSrc = readFileSync(join(ROOT, "src/domain/combat/attack.mjs"), "utf8");
+  fam("TTS.Attack.Unavailable", [...new Set([...attackSrc.matchAll(/ok: false, reason: "([A-Za-z]+)"/g)].map(m => m[1]))]);
+  fam("TTS.Attack.Part", [...new Set([...attackSrc.matchAll(/\{ key: "([A-Za-z]+)", dice:/g)].map(m => m[1])), "ability", "manual"]);
+  fam("TTS.Attack.Absorb", [...new Set([...attackSrc.matchAll(/\{ key: "([A-Za-z]+)", status:/g)].map(m => m[1]))]);
+  fam("TTS.Weapon.EmptyReason", [...new Set([...attackSrc.matchAll(/empty: true, jammed: [^,]+, reason: "([A-Za-z]+)"/g)].map(m => m[1]))]);
+  const stateSrc = readFileSync(join(ROOT, "src/domain/combat/attack-state.mjs"), "utf8");
+  fam("TTS.Attack.Refused", [...new Set([...stateSrc.matchAll(/fail\("([a-z-]+)"\)/g)].map(m => m[1]))]);
+  fam("TTS.Weapon.Flag", Object.entries(parseWeaponDescriptors("")).filter(([, v]) => typeof v === "boolean").map(([k]) => k));
+  fam("TTS.Combat.Action", ["move", "free", "main", "bonus"]);
+  fam("TTS.Combat.ActionShort", ["move", "free", "main", "bonus"]);
+  fam("TTS.Attack.InvertMode", ["generic", "mortal", "npc"]);
+  fam("TTS.Ability.Marked", ["initiative", "bonusAction"]);
+}
 const missing = [...used].filter(k => !hasKey(k)).sort();
 missing.forEach(k => fail(`clé i18n absente de fr.json : ${k}`));
 ok(`${used.size} clés i18n vérifiées`);

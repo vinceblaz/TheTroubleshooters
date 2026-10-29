@@ -1,6 +1,27 @@
 <div class="tts-roll-form">
   <p class="tts-roll-summary"><strong>{{ctx.actor.name}}</strong> — {{ctx.label}} : <strong>{{ctx.value}} %</strong></p>
 
+  {{#if attack}}
+  <fieldset class="tts-roll-attack">
+    <legend>{{localize "TTS.Attack.Option"}}</legend>
+    {{#each attack.options as |o|}}
+    <label class="tts-check-label {{#unless o.ok}}tts-off{{/unless}}" data-tooltip="{{o.hint}}">
+      <input type="radio" name="option" value="{{o.key}}" {{#if (eq o.key "base")}}checked{{/if}} {{#unless o.ok}}disabled{{/unless}}> {{o.label}}
+    </label>
+    {{/each}}
+    {{#if attack.canZone}}
+    <div class="form-group">
+      <label>{{localize "TTS.Attack.RakatakataMode"}}</label>
+      <select name="rakatakataMode">
+        <option value="single">{{localize "TTS.Attack.RakatakataSingle"}}</option>
+        <option value="zone">{{localize "TTS.Attack.RakatakataZone"}}</option>
+      </select>
+    </div>
+    {{/if}}
+    <p class="hint">{{localize "TTS.Attack.Targets"}} : {{#if attack.targets.length}}{{#each attack.targets as |t|}}<span class="tts-tag">{{t}}</span>{{/each}}{{else}}{{localize "TTS.Attack.NoTarget"}}{{/if}}</p>
+  </fieldset>
+  {{/if}}
+
   <div class="form-group">
     <label>{{localize "TTS.Roll.Difficulty.Label"}}</label>
     {{#if locked}}

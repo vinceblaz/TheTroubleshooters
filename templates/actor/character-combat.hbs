@@ -1,0 +1,71 @@
+<section class="tab tts-tab-body {{tab.cssClass}}" data-group="primary" data-tab="combat">
+  <div class="tts-combat-summary">
+    <div class="tts-stat"><label>{{localize "TTS.Vitality.Label"}}</label><span class="tts-big">{{system.vitality.value}} / {{system.vitality.max}}</span></div>
+    <div class="tts-stat"><label>{{localize "TTS.Combat.Protection"}}</label><span class="tts-big">{{combat.protection}}dR</span>{{#if combat.drunk}}<span class="tts-tag">+{{combat.drunk}}d6 ({{localize "TTS.Condition.Drunk"}})</span>{{/if}}</div>
+    <div class="tts-stat"><label>{{localize "TTS.Initiative.Label"}}</label>
+      <span class="tts-big">{{#if combat.inCombat}}{{#if (eq combat.initiative null)}}—{{else}}{{combat.initiative}}{{/if}}{{else}}—{{/if}}</span>
+      {{#if combat.inCombat}}<button type="button" class="tts-small-button" data-action="reassess" data-tooltip="TTS.Combat.ReassessHint"><i class="fa-solid fa-eye"></i> {{localize "TTS.Combat.Reassess"}}</button>{{/if}}
+    </div>
+    <div class="tts-stat"><label>{{localize "TTS.Attack.Defense"}}</label>
+      <span>{{#each combat.defenses as |d|}}<span class="tts-tag">{{d.label}} {{d.value}} %</span>{{else}}<span class="tts-tag tts-warn">{{localize "TTS.Attack.CannotDefend"}}</span>{{/each}}</span>
+    </div>
+  </div>
+
+  <section class="tts-item-list">
+    <header class="tts-list-header"><h3>{{localize "TTS.Combat.Weapons"}}</h3></header>
+    <p class="tts-hint">{{localize "TTS.Combat.WeaponsHint"}}</p>
+    <table class="tts-kit-table tts-weapon-table">
+      <thead><tr><th></th><th>{{localize "TTS.Kit.Name"}}</th><th>{{localize "TTS.Weapon.Skill"}}</th><th>{{localize "TTS.Weapon.Damage"}}</th><th>{{localize "TTS.Weapon.Descriptors"}}</th><th></th></tr></thead>
+      <tbody>
+        {{#each combat.weapons as |w|}}
+        <tr data-weapon-ref="{{w.ref}}" {{#if w.kitId}}data-item-id="{{w.kitId}}"{{/if}}>
+          <td><img src="{{w.img}}" alt="" width="24" height="24"></td>
+          <td>{{#if w.kitId}}<a class="tts-item-name" data-action="editItem">{{w.name}}</a>{{else}}{{w.name}}{{/if}}</td>
+          <td>{{w.skillLabel}} ({{w.value}} %)</td>
+          <td><span class="tts-tag">{{w.damage}}dX</span></td>
+          <td>
+            {{#each w.flagTags as |f|}}<span class="tts-tag">{{f}}</span>{{/each}}
+            {{#each w.tags as |f|}}<span class="tts-tag">{{f}}</span>{{/each}}
+            {{#if w.empty}}<span class="tts-tag tts-warn">{{localize "TTS.Weapon.Empty"}}</span>{{/if}}
+            {{#if w.jammed}}<span class="tts-tag tts-warn">{{localize "TTS.Weapon.Jammed"}}</span>{{/if}}
+            {{#if w.broken}}<span class="tts-tag tts-warn">{{localize "TTS.Weapon.Broken"}}</span>{{/if}}
+          </td>
+          <td class="tts-row-controls">
+            {{#if @root.editable}}
+            <button type="button" class="tts-small-button" data-action="attack" {{#unless w.usable}}disabled{{/unless}}><i class="fa-solid fa-hand-fist"></i> {{localize "TTS.Attack.Attack"}}</button>
+            {{#if w.empty}}<button type="button" class="tts-small-button" data-action="reload"><i class="fa-solid fa-rotate"></i> {{localize "TTS.Weapon.Reload"}}</button>{{/if}}
+            {{/if}}
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="tts-item-list">
+    <header class="tts-list-header"><h3>{{localize "TTS.Combat.Actions"}}</h3></header>
+    {{#if editable}}
+    <div class="tts-act-buttons">
+      <button type="button" data-action="catchBreath" data-tooltip="TTS.Combat.CatchBreathHint"><i class="fa-solid fa-lungs"></i> {{localize "TTS.Combat.CatchBreath"}} (2dR)</button>
+      {{#if combat.prone}}
+      <button type="button" data-action="prone" data-prone="false" data-tooltip="TTS.Combat.StandUpHint"><i class="fa-solid fa-person"></i> {{localize "TTS.Combat.StandUp"}}</button>
+      {{else}}
+      <button type="button" data-action="prone" data-prone="true" data-tooltip="TTS.Combat.DropProneHint"><i class="fa-solid fa-person-falling"></i> {{localize "TTS.Combat.DropProne"}}</button>
+      {{/if}}
+    </div>
+    {{/if}}
+    <p class="tts-hint">{{localize "TTS.Combat.CoverHint"}}</p>
+  </section>
+
+  <section class="tts-item-list">
+    <header class="tts-list-header"><h3>{{localize "TTS.Combat.Conditions"}}</h3></header>
+    <div class="tts-status-toggles">
+      {{#each combat.statuses as |st|}}
+      <a class="tts-status-toggle {{#if st.active}}tts-active{{/if}}" {{#if @root.editable}}data-action="toggleStatus"{{/if}} data-status="{{st.id}}">
+        <img src="{{st.img}}" alt="" width="20" height="20"> {{localize st.label}}
+      </a>
+      {{/each}}
+    </div>
+    <p class="tts-hint">{{localize "TTS.Combat.ConditionsHint"}}</p>
+  </section>
+</section>

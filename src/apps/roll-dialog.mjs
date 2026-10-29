@@ -17,7 +17,8 @@ const DIFFICULTY_LABELS = {
 
 /**
  * @param {object} ctx  contexte (roll-context.mjs)
- * @param {{lockedDifficulty?:number|null, hiddenDifficulty?:boolean, opponents?:Array<{uuid:string,name:string,choices:object}>, defaultRollMode?:string, allowOpposition?:boolean}} opts
+ * @param {{lockedDifficulty?:number|null, hiddenDifficulty?:boolean, opponents?:Array<{uuid:string,name:string,choices:object}>, defaultRollMode?:string, allowOpposition?:boolean,
+ *          attack?:{options:Array<{key:string,label:string,ok:boolean,hint:string}>, targets:string[], canZone:boolean}}} opts
  * @returns {Promise<null|{difficulty:number, circumstances:number, gearId:string, gearPips:number, abilities:number, rollMode:string, opposed:boolean, opponentUuid?:string, opponentChoice?:string}>}
  */
 export async function promptTaskRoll(ctx, opts = {}) {
@@ -39,7 +40,8 @@ export async function promptTaskRoll(ctx, opts = {}) {
     flawTotal,
     rollModes,
     rollMode: opts.defaultRollMode ?? coreRollMode(),
-    opponents: opts.allowOpposition === false ? [] : (opts.opponents ?? [])
+    opponents: opts.allowOpposition === false ? [] : (opts.opponents ?? []),
+    attack: opts.attack ?? null
   });
 
   return foundry.applications.api.DialogV2.prompt({
@@ -66,7 +68,9 @@ export async function promptTaskRoll(ctx, opts = {}) {
           rollMode: data.rollMode || opts.defaultRollMode,
           opposed: Boolean(data.opposed),
           opponentUuid: data.opponentUuid || "",
-          opponentChoice: data.opponentChoice || ""
+          opponentChoice: data.opponentChoice || "",
+          option: data.option || "base",
+          rakatakataMode: data.rakatakataMode || "single"
         };
       }
     },

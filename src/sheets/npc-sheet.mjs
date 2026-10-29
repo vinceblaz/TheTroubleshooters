@@ -5,6 +5,7 @@ import { SYSTEM_PATH, THETROUBLESHOOTERS } from "../config.mjs";
 import { normalizeArrayPaths } from "./form-utils.mjs";
 import { enrich, localizedRecord } from "./sheet-helpers.mjs";
 import { rollNpcSkill } from "../services/roll-service.mjs";
+import { startAttack } from "../services/attack-service.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -20,7 +21,8 @@ export class TTSNpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     actions: {
       addRow: TTSNpcSheet.#onAddRow,
       removeRow: TTSNpcSheet.#onRemoveRow,
-      rollNpc: TTSNpcSheet.#onRollNpc
+      rollNpc: TTSNpcSheet.#onRollNpc,
+      attack: TTSNpcSheet.#onAttack
     }
   };
 
@@ -39,6 +41,7 @@ export class TTSNpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       config: THETROUBLESHOOTERS,
       rankChoices: localizedRecord(THETROUBLESHOOTERS.npcRanks),
       initiativeChoices: localizedRecord(THETROUBLESHOOTERS.initiativeModes),
+      attackSkillChoices: { melee: game.i18n.localize("TTS.Skill.Melee"), shooting: game.i18n.localize("TTS.Skill.Shooting") },
       kindChoices: { important: game.i18n.localize("TTS.Npc.SkillImportant"), flavor: game.i18n.localize("TTS.Npc.SkillFlavor") },
       capabilities: actor.system.capabilities,
       enrichedDescription: await enrich(actor.system.description, actor)
@@ -58,12 +61,18 @@ export class TTSNpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await rollNpcSkill(this.document, { source, index: Number.isInteger(index) ? index : undefined });
   }
 
+  /** Attaque (phase 4) : la cible est le jeton ciblé. */
+  static async #onAttack(event, target) {
+    const ref = target.closest("[data-weapon-ref]")?.dataset.weaponRef;
+    if (ref) await startAttack(this.document, ref);
+  }
+
   static async #onAddRow(event, target) {
     const path = target.dataset.path;             // "skills" | "attacks" | "descriptors"
     const rows = foundry.utils.deepClone(this.document.system._source[path] ?? []);
     const blank = {
       skills: { name: game.i18n.localize("TTS.Npc.NewSkill"), value: 45, kind: "important" },
-      attacks: { name: game.i18n.localize("TTS.Npc.NewAttack"), value: 45, damage: 2, descriptors: "", uses: 1, range: null, counter: false },
+      attacks: { name: game.i18n.localize("TTS.Npc.NewAttack"), value: 45, skill: "melee", damage: 2, descriptors: "", empty: false, uses: 1, range: null, counter: false },
       descriptors: { key: "", pips: 0, situation: "", value: "" }
     }[path];
     if (!blank) return;

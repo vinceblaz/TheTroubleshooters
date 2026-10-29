@@ -13,6 +13,8 @@ import { defaultRollModeFor } from "../services/roll-mode.mjs";
 import { promptTaskRoll } from "../apps/roll-dialog.mjs";
 import { spendStoryPoints } from "../domain/rules/story-points.mjs";
 import { GENERIC_INVERT_COST } from "../domain/dice/task-state.mjs";
+import { onAttackAction } from "../services/attack-service.mjs";
+import { onCombatEndAction } from "../services/combat-service.mjs";
 
 /**
  * Contrôle préalable côté client : le joueur est prévenu tout de suite s'il ne peut pas payer
@@ -61,6 +63,8 @@ async function onCardAction(message, el) {
   const card = getCard(message);
   const action = el.dataset.ttsAction;
   try {
+    if (action.startsWith("atk")) return await onAttackAction(message, card, el);
+    if (action.startsWith("end")) return await onCombatEndAction(message, card, el);
     switch (action) {
       case "invert":
         if (!(await canAfford(card.actorUuid, GENERIC_INVERT_COST))) return;
@@ -89,6 +93,8 @@ async function onCardAction(message, el) {
         return flawFail(message, card);
       case "unlucky":
         return RelayService.dispatch("taskUnlucky", { messageId: message.id, actorUuid: card.actorUuid });
+      case "npcReverse":
+        return RelayService.dispatch("taskNpcReverse", { messageId: message.id, actorUuid: card.actorUuid });
       case "spendResolve":
         return resolveSpendFromCard(message, card, el.dataset.decision);
     }

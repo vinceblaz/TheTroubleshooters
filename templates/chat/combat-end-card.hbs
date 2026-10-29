@@ -1,0 +1,24 @@
+<div class="thetroubleshooters tts-card tts-combat-end-card">
+  <header class="tts-card-header"><span class="tts-card-title"><i class="fa-solid fa-flag-checkered"></i> {{localize "TTS.Combat.EndTitle"}}</span></header>
+  <p class="tts-history">{{localize "TTS.Combat.EndSummary"}}</p>
+  <ul class="tts-log-lines">
+    {{#each rows as |r|}}
+    <li>
+      <strong>{{r.name}}</strong>
+      {{#if r.outOfAction}}<span class="tts-tag tts-warn">{{localize "TTS.Condition.OutOfAction"}}</span>{{/if}}
+      {{#if r.result}}<span class="tts-history">{{r.result}}</span>{{/if}}
+      {{#if (and r.outOfAction (not r.treated))}}
+      <button type="button" class="tts-small-button" data-tts-action="endMedicine" data-actor-uuid="{{r.actorUuid}}"><i class="fa-solid fa-kit-medical"></i> {{localize "TTS.Combat.Medicine"}}</button>
+      {{/if}}
+    </li>
+    {{/each}}
+  </ul>
+  <p class="tts-hint">{{localize "TTS.Combat.OutOfActionHint"}}</p>
+  {{#if (and card.allDown (not card.captured))}}
+  <div class="tts-card-buttons" data-visibility="gm">
+    <p class="tts-pending">{{localize "TTS.Combat.AllDown"}}</p>
+    <button type="button" data-tts-action="endCaptured"><i class="fa-solid fa-handcuffs"></i> {{localize "TTS.SP.Captured"}} (+9 PR)</button>
+  </div>
+  {{/if}}
+  {{#if card.captured}}<div class="tts-history">✔ {{localize "TTS.SP.Captured"}}</div>{{/if}}
+</div>

@@ -24,13 +24,16 @@ export class NpcData extends foundry.abstract.TypeDataModel {
       attacks: new fields.ArrayField(new fields.SchemaField({
         name: stringField(),
         value: percentField(45),
+        skill: stringField("melee", { choices: ["melee", "shooting"], blank: false }),   // phase 4 : corps-à-corps ou distance
         damage: intField(2, { min: 0, max: 20 }),
-        descriptors: stringField(),                    // texte libre en phase 1, structuré en phase 4
+        descriptors: stringField(),                    // texte libre lu par parseWeaponDescriptors (phase 4)
+        empty: boolField(false),                       // arme vide (munitions, un coup, lancé)
         uses: intField(1, { min: 1, max: 9, nullable: true }),
         range: intField(null, { min: 0, max: 20, nullable: true }),
         counter: boolField(false)
       })),
       defense: intField(null, { min: 0, max: 106, nullable: true }),
+      protection: intField(0, { min: 0, max: 10 }),    // dés d'encaissement (dR), ex. « armure 3dR »
       vitality: new fields.SchemaField({
         value: intField(5, { min: 0 }),
         max: intField(5, { min: 0 })

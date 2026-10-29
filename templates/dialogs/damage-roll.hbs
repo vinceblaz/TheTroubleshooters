@@ -1,0 +1,20 @@
+<div class="tts-roll-form tts-damage-form">
+  <ul class="tts-damage-parts">
+    {{#each parts as |p|}}<li><span>{{p.label}}</span> <strong>{{p.dice}}dX</strong></li>{{/each}}
+  </ul>
+  {{#if passives.length}}
+  <fieldset>
+    <legend>{{localize "TTS.Attack.PassiveBonuses"}}</legend>
+    {{#each passives as |p|}}
+    <label class="tts-check-label"><input type="checkbox" name="passive" data-ability-id="{{p.abilityId}}" data-index="{{p.index}}" {{#if p.checked}}checked{{/if}}> {{p.label}} (+{{p.dice}}dX)</label>
+    {{/each}}
+    <p class="hint">{{localize "TTS.Attack.PassiveHint"}}</p>
+  </fieldset>
+  {{/if}}
+  <div class="form-group">
+    <label>{{localize "TTS.Attack.ManualDice"}}</label>
+    <input name="manual" type="number" value="0" min="-9" max="9" step="1">
+    <p class="hint">{{localize "TTS.Attack.ManualDiceHint"}}</p>
+  </div>
+  <p class="tts-roll-summary">{{localize "TTS.Attack.BaseDice"}} : <strong>{{total}}dX</strong></p>
+</div>

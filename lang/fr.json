@@ -84,7 +84,8 @@
     "Initiative": {
       "Label": "Initiative",
       "Fixed": "Fixe",
-      "Roll": "Jet de Vigilance"
+      "Roll": "Jet de Vigilance",
+      "GearBonus": "Équipement"
     },
     "Condition": {
       "Blinded": "Aveuglé",
@@ -108,7 +109,8 @@
       "Skills": "Compétences",
       "Traits": "Capacités & accroches",
       "Gear": "Matériel",
-      "Bio": "Identité & notes"
+      "Bio": "Identité & notes",
+      "Combat": "Combat"
     },
     "Sheet": {
       "Character": "Fiche de Risque-tout",
@@ -150,7 +152,50 @@
       "Label": "Points de récit"
     },
     "Combat": {
-      "InCover": "À couvert"
+      "InCover": "À couvert",
+      "Protection": "Protection",
+      "Weapons": "Armes",
+      "WeaponsHint": "Kits emportés avec un profil d'arme, et les mains nues. Ciblez un jeton avant d'attaquer.",
+      "Actions": "Actions de combat",
+      "CatchBreath": "Reprendre son souffle",
+      "CatchBreathHint": "Action principale : jet de récupération 2dR.",
+      "DropProne": "Tomber à terre",
+      "DropProneHint": "Action gratuite : vous êtes Vulnérable.",
+      "StandUp": "Se relever",
+      "StandUpHint": "Action bonus en fin de tour : retire Vulnérable.",
+      "CoverHint": "« À couvert » (en-tête de la fiche) autorise la défense par Agilité contre les tirs venant d'une autre zone.",
+      "Conditions": "Conditions de combat",
+      "ConditionsHint": "Bascules rapides ; la carte d'attaque les pose aussi automatiquement.",
+      "Reassess": "Évaluer la situation",
+      "ReassessHint": "Action gratuite : nouveau jet d'initiative.",
+      "NotInCombat": "Pas dans un combat en cours.",
+      "Action": {
+        "move": "Action de mouvement",
+        "free": "Action gratuite",
+        "main": "Action principale",
+        "bonus": "Action bonus"
+      },
+      "ActionShort": {
+        "move": "M",
+        "free": "G",
+        "main": "P",
+        "bonus": "B"
+      },
+      "ActNow": "Agit maintenant (capacité) — cliquer pour effacer",
+      "Delay": "Action retardée",
+      "DelayPrompt": "Condition et réaction (« si x, alors y »)",
+      "DelayPlaceholder": "S'il bouge, alors je tire",
+      "EndTitle": "Fin du combat",
+      "EndSummary": "Vitalité remise au maximum ; Danger de mort retiré. Hors de combat et Blessé persistent.",
+      "Medicine": "Jet de Médecine",
+      "Healer": "Soigneur",
+      "NoHealer": "Aucun Risque-tout disponible pour soigner.",
+      "MedicineSuccess": "{healer} réussit : réveil immédiat.",
+      "MedicineFailure": "{healer} échoue : Hors de combat jusqu'à la scène suivante.",
+      "AlreadyTreated": "Une tentative a déjà été faite pour ce personnage.",
+      "OutOfActionHint": "Sans jet de Médecine réussi, Hors de combat disparaît au début de la scène qui suit la suivante.",
+      "AllDown": "Tous les Risque-tout sont Hors de combat : ils sont à la merci du Chef.",
+      "CommanderHint": "Commandant (X) : au lieu de son action principale, ordonne une action principale à X sbires (sous-fifre = 2, lieutenant = 4)."
     },
     "Item": {
       "Archetypes": "Archétype",
@@ -187,7 +232,11 @@
       "CombatLater": "Effet de combat : annoncé et payé ici ; automatisation en phase 4",
       "ConfirmSpend": "Dépenser {cost} PR : {label} ?",
       "NoCost": "sans coût",
-      "Activated": "{actor} active {ability}"
+      "Activated": "{actor} active {ability}",
+      "Marked": {
+        "initiative": "marqueur « agit maintenant » dans le tracker",
+        "bonusAction": "action bonus accordée (pastille B)"
+      }
     },
     "Flaw": {
       "Target": "Cible (préjugé, phobie…)",
@@ -254,7 +303,43 @@
       "Ammo": "Munitions (X)",
       "Descriptors": "Descripteurs d'arme",
       "Empty": "Vide",
-      "Jammed": "Enrayée"
+      "Jammed": "Enrayée",
+      "Unarmed": "Mains nues",
+      "Broken": "Cassée",
+      "Reload": "Recharger",
+      "IsEmpty": "Arme vide : rechargez-la d'abord.",
+      "IsJammed": "Arme enrayée : réparation lors d'une scène ultérieure (décochez « Enrayée » sur le kit).",
+      "IsBroken": "Arme cassée (Fragile).",
+      "Reloaded": "{name} est rechargée (une action).",
+      "ReloadedQuick": "{name} est rechargée (action gratuite, rechargement rapide).",
+      "JammedNow": "Arme enrayée (Mauvais Karma).",
+      "BrokenNow": "Arme Fragile cassée (Karma).",
+      "EmptyReason": {
+        "ammo": "Munitions : l'arme est vide.",
+        "rakatakata": "Rakatakata ! : l'arme est vide.",
+        "oneShot": "Un coup : l'arme doit être rechargée.",
+        "thrown": "Lancée : l'arme n'est plus en main."
+      },
+      "Flag": {
+        "oneShot": "Un coup",
+        "thrown": "Lancé",
+        "precise": "Précis",
+        "sharp": "Aiguisé",
+        "cutting": "Tranchant",
+        "reach": "Allonge",
+        "trip": "Croche-patte",
+        "nonLethal": "Non létal",
+        "paralyzing": "Paralysant",
+        "snare": "Collet",
+        "fragile": "Fragile",
+        "shortRange": "Portée courte",
+        "quickReload": "Rechargement rapide",
+        "hardReload": "Rechargement difficile",
+        "counter": "Contre",
+        "noisy": "Bruyant",
+        "silent": "Silencieux",
+        "encumbering": "Encombrant"
+      }
     },
     "Protection": {
       "Dice": "Protection",
@@ -296,7 +381,8 @@
       "ReversesLeft": "Inversions restantes (ce combat)",
       "CanTakeWounded": "Peut prendre Blessé",
       "CanTakeMortalDanger": "Peut prendre Danger de mort",
-      "GoodKarmaKnocksOut": "Hors de combat sur Bon Karma"
+      "GoodKarmaKnocksOut": "Hors de combat sur Bon Karma",
+      "DescriptorsPlaceholder": "munitions (9-0), non létal…"
     },
     "Notify": {
       "StoryPointsCapped": "{name} : points de récit plafonnés à {max}.",
@@ -501,6 +587,119 @@
       "New": "Nouvelle scène",
       "Removed": "{count} effet(s) de scène retiré(s)",
       "NothingToRemove": "aucun effet de scène à retirer"
+    },
+    "Attack": {
+      "Attack": "Attaquer",
+      "Option": "Option d'attaque",
+      "Targets": "Cible(s)",
+      "NoTarget": "aucune cible (ciblez un jeton)",
+      "Options": {
+        "base": "Attaque de base",
+        "vlan": "Vlan ! (projection ou prise)",
+        "pan": "Pan ! (tir précis)",
+        "rakatakata": "Rakatakata ! (vider l'arme)"
+      },
+      "OptionHint": {
+        "base": "Plusieurs coups ou une salve représentés par un seul jet.",
+        "vlan": "Réussite : choisir deux effets parmi 1dX dégâts, Prisonnier, Vulnérable.",
+        "pan": "+2 pips, +1dX dégâts, initiative −2 ; ignore munitions (X).",
+        "rakatakata": "+2dX sur une cible, ou un jet contre chaque cible ciblée de la zone ; l'arme est vide."
+      },
+      "Unavailable": {
+        "thrownAimedOnly": "Arme lancée : seule l'option Pan ! est possible.",
+        "meleeOnly": "Réservé au corps-à-corps.",
+        "rangedOnly": "Réservé aux armes à distance ou de jet.",
+        "initiativeZero": "Initiative à 0 : impossible de la réduire.",
+        "needsAmmo": "Requiert munitions (X) et interdit avec un coup ou lancé.",
+        "unknown": "Option inconnue."
+      },
+      "RakatakataMode": "Rakatakata !",
+      "RakatakataSingle": "une cible, +2dX",
+      "RakatakataZone": "toute la zone (un jet par cible)",
+      "WaitingDefense": "En attente de la défense…",
+      "Defend": "Se défendre",
+      "NoDefense": "Ne pas se défendre",
+      "Defense": "Défense",
+      "Declined": "La cible ne se défend pas.",
+      "CannotDefend": "Pas de jet de défense possible",
+      "Miss": "Raté",
+      "Hit": "Touché !",
+      "Knockout": "Hors de combat sans dégâts",
+      "KarmaAttackerPenalty": "Mauvais Karma : −2 pips au prochain jet de l'attaquant.",
+      "KarmaDefenderVulnerable": "Mauvais Karma en défense : la cible est renversée (Vulnérable).",
+      "KarmaReroll": "Bon Karma : relancer les dégâts",
+      "NextRollPenalty": "Mauvais Karma (prochain jet)",
+      "VlanChoose": "Choisir deux effets",
+      "VlanPrompt": "Choisissez exactement deux effets.",
+      "Vlan": {
+        "damage": "1dX dégâts",
+        "restrained": "Prisonnier",
+        "vulnerable": "Vulnérable"
+      },
+      "DamageRoll": "Jet de dégâts",
+      "Damage": "Dégâts",
+      "BaseDice": "Dés calculés",
+      "Part": {
+        "weapon": "Arme",
+        "pan": "Pan !",
+        "rakatakata": "Rakatakata !",
+        "sharp": "Aiguisé (défense ratée ou absente)",
+        "precise": "Précis (Bon Karma)",
+        "vlan": "Vlan !",
+        "ability": "Capacité",
+        "manual": "Ajustement"
+      },
+      "PassiveBonuses": "Bonus de capacités",
+      "PassiveHint": "Cochez si la circonstance s'applique (ex. à mains nues) — le Chef arbitre.",
+      "ManualDice": "Dés en plus ou en moins",
+      "ManualDiceHint": "Descripteurs ou circonstances non automatisés (±dX).",
+      "Soak": "Encaissement",
+      "Loss": "Perte de Vitalité",
+      "AbsorbPrompt": "La cible choisit comment encaisser :",
+      "Absorb": {
+        "vitality": "Perdre la Vitalité",
+        "wounded": "Prendre Blessé",
+        "mortalDanger": "Prendre Danger de mort",
+        "stunned": "Prendre Sonné (paralysant)",
+        "paralyzed": "Prendre Paralysé (paralysant)",
+        "restrained": "Prendre Prisonnier (collet)"
+      },
+      "WillBeOut": "Hors de combat",
+      "WillDie": "MORT",
+      "Dead": "Mort",
+      "DeathTitle": "Danger de mort",
+      "DeathConfirm": "{name} est en Danger de mort : tomber à 0 Vitalité signifie la mort du personnage. Confirmer ?",
+      "Recovery": "Récupération (Bon Karma en défense)",
+      "InvertMode": {
+        "generic": "Inversion",
+        "mortal": "Inverser (Danger de mort, gratuit)",
+        "npc": "Inverser (PNJ)"
+      },
+      "Counter": "Contre-attaque",
+      "Ignite": "Tester l'inflammation",
+      "IgniteYes": "ça s'enflamme !",
+      "IgniteNo": "rien ne s'enflamme",
+      "NoWeapon": "Ce PNJ n'a aucune attaque.",
+      "NotYourTurn": "Cette action revient à l'autre camp.",
+      "Refused": {
+        "locked": "Les dégâts sont lancés : les jets ne peuvent plus être modifiés.",
+        "not-waiting-defense": "La défense n'est plus attendue.",
+        "no-knockout": "Pas de mise Hors de combat possible.",
+        "not-minion": "Réservé à un sbire touché, avant le jet de dégâts.",
+        "not-vlan": "Le choix Vlan ! n'est pas attendu.",
+        "two-effects": "Choisissez exactement deux effets.",
+        "not-damage": "Le jet de dégâts n'est pas attendu.",
+        "not-rerollable": "Les dégâts ne peuvent plus être relancés.",
+        "no-karma-reroll": "Relance du Bon Karma indisponible ou déjà utilisée.",
+        "not-bonusable": "Trop tard pour ajouter des dés.",
+        "not-soak": "L'encaissement n'est pas attendu.",
+        "not-absorb": "Le choix d'encaissement n'est pas attendu.",
+        "no-recovery": "Pas de récupération disponible.",
+        "not-resolved": "L'attaque n'est pas résolue.",
+        "badChoice": "Choix d'encaissement impossible.",
+        "noReverse": "Plus aucune inversion de PNJ disponible.",
+        "notMortal": "Réservé à un attaquant en Danger de mort."
+      }
     }
   }
 }

@@ -4,8 +4,12 @@
  * Les boutons dépendant de l'acteur (capacités, désavantages) sont calculés au rendu.
  */
 import { SYSTEM_ID, SYSTEM_PATH } from "../config.mjs";
-import { cardActivations } from "../domain/rules/activations.mjs";
+import { cardActivations, attackActivations } from "../domain/rules/activations.mjs";
 import { canFailForFlaw, hasUnluckyFlaw } from "../domain/rules/flaws.mjs";
+import { initiativeFromTask, adjustInitiative } from "../domain/combat/initiative.mjs";
+import { absorbOptions, applyAbsorb, npcCanCounter, sumDice } from "../domain/combat/attack.mjs";
+import { damageTotal, expectedDamageParts } from "../domain/combat/attack-state.mjs";
+import { statusesOf, capsOf, defenseChoicesOf, soakDiceFor, abilityList } from "../services/combat-actors.mjs";
 
 const TEMPLATES = {
   task: `${SYSTEM_PATH}/templates/chat/task-card.hbs`,
@@ -13,7 +17,9 @@ const TEMPLATES = {
   request: `${SYSTEM_PATH}/templates/chat/request-card.hbs`,
   pool: `${SYSTEM_PATH}/templates/chat/pool-card.hbs`,
   spend: `${SYSTEM_PATH}/templates/chat/spend-card.hbs`,
-  log: `${SYSTEM_PATH}/templates/chat/log-card.hbs`
+  log: `${SYSTEM_PATH}/templates/chat/log-card.hbs`,
+  attack: `${SYSTEM_PATH}/templates/chat/attack-card.hbs`,
+  combatEnd: `${SYSTEM_PATH}/templates/chat/combat-end-card.hbs`
 };
 
 export const CHAT_PARTIALS = [
@@ -52,8 +58,74 @@ function taskContext(card) {
     card,
     abilities: abilityButtons(actor, card.skillKey, card.task),
     canFlawFail: card.isCharacter && resolved && card.task.success && canFailForFlaw(flaws),
-    unlucky: card.isCharacter && resolved && hasUnluckyFlaw(flaws)
+    unlucky: card.isCharacter && resolved && hasUnluckyFlaw(flaws),
+    npcReverses: npcReversesLeft(actor, resolved),
+    initiativeValue: card.initiative ? adjustInitiative(initiativeFromTask(card.task), card.initiative.bonus) : null
   };
+}
+
+/** « Inverser (X) » d'un PNJ : jets restants pendant le combat (0 hors combat ou sans descripteur). */
+function npcReversesLeft(actor, open = true) {
+  if (!open || actor?.type !== "npc") return 0;
+  return Number(actor.system.counters?.reversesLeft) || 0;
+}
+
+const CARD_TYPES = ["invert", "reroll", "forceSuccess", "rerollWith"];
+const tl = key => game.i18n.localize(key);
+
+/** Contexte de rendu de la carte d'attaque : boutons calculés selon l'étape et les acteurs. */
+function attackCardContext(card) {
+  const s = card.attack;
+  const attacker = fromUuidSync(s.attacker.actorUuid);
+  const target = s.target ? fromUuidSync(s.target.actorUuid) : null;
+  const open = !s.locked;
+  const taskButtons = (actor, task, skillKey, side) => {
+    if (!open || !task || actor?.type !== "character") return [];
+    return abilityButtons(actor, skillKey, task).filter(b => CARD_TYPES.includes(b.type)).map(b => ({ ...b, side }));
+  };
+  const tStatuses = statusesOf(target);
+  const absorb = s.stage === "absorb" && target
+    ? absorbOptions({ caps: capsOf(target), statuses: tStatuses, flags: s.attacker.flags }).map(o => {
+      const preview = o.key === "vitality" ? applyAbsorb({ choice: "vitality", vitality: target.system.vitality.value, loss: s.loss, statuses: tStatuses }) : null;
+      return { key: o.key, label: tl(`TTS.Attack.Absorb.${o.key}`), death: preview?.death, out: preview?.outOfAction && !preview?.death, left: preview?.vitality };
+    })
+    : [];
+  const attackAbilities = attacker?.type === "character"
+    ? attackActivations(abilityList(attacker), { stage: s.stage, hit: s.hit, targetRank: s.target?.rank ?? "", damageRolled: Boolean(s.damage), soaked: Boolean(s.soak) })
+      .map(a => ({ abilityId: a.abilityId, index: a.index, type: a.act.type, cost: a.act.cost, label: `${a.abilityName} : ${tl(`TTS.ActivationType.${a.act.type}`)}`, hint: a.act.label }))
+    : [];
+  const ammoNote = card.effects?.ammo?.empty
+    ? tl(card.effects.ammo.jammed ? "TTS.Weapon.JammedNow" : `TTS.Weapon.EmptyReason.${card.effects.ammo.reason}`) : "";
+  return {
+    card,
+    s,
+    optionLabel: tl(`TTS.Attack.Options.${s.option}`) + (s.option === "rakatakata" ? ` (${tl(s.rakatakataMode === "zone" ? "TTS.Attack.RakatakataZone" : "TTS.Attack.RakatakataSingle")})` : ""),
+    open,
+    attackerInvert: open && s.attacker.isCharacter,
+    attackerMortal: open && statusesOf(attacker).includes("mortalDanger"),
+    attackerNpcReverses: open ? npcReversesLeft(attacker) : 0,
+    attackerAbilities: taskButtons(attacker, s.attacker.task, s.attacker.skillKey, "attacker"),
+    defenseChoices: s.stage === "defense" && target ? defenseChoicesOf(target) : [],
+    targetInvert: open && Boolean(s.target?.defenseTask) && s.target?.isCharacter,
+    targetNpcReverses: open && s.target?.defenseTask ? npcReversesLeft(target) : 0,
+    targetAbilities: taskButtons(target, s.target?.defenseTask, s.target?.isCharacter ? s.target.defenseKey : "", "target"),
+    expectedDice: s.stage === "damage" ? sumDice(expectedDamageParts(s)) : 0,
+    damageTotal: damageTotal(s),
+    karmaReroll: Boolean(s.damage && s.karma?.damageReroll && !s.damage.karmaRerollUsed && !s.soak),
+    attackAbilities,
+    soakDice: s.stage === "soak" && target ? soakDiceFor(target, s.attacker.flags) : 0,
+    absorb,
+    absorbLabel: s.absorb ? tl(`TTS.Attack.Absorb.${s.absorb.choice}`) : "",
+    canRecover: Boolean(s.karma?.defenderRecovery && !s.recovery && ["miss", "done"].includes(s.stage)),
+    canCounter: Boolean(!card.counterDone && target?.type === "npc" && npcCanCounter(target.system) && !tStatuses.includes("outOfAction") && ["miss", "done"].includes(s.stage)),
+    canIgnite: Boolean(s.attacker.flags.incendiary && s.hit),
+    ammoNote,
+    damageParts: (s.damage?.parts ?? []).map(p => ({ ...p, label: p.label || tl(`TTS.Attack.Part.${p.key}`) }))
+  };
+}
+
+function combatEndContext(card) {
+  return { card, rows: card.rows.map(r => ({ ...r })) };
 }
 
 function opposedContext(card) {
@@ -86,6 +158,8 @@ export async function renderCard(card) {
     case "pool": return render(TEMPLATES.pool, card.view);
     case "spend": return render(TEMPLATES.spend, { card, spend: card.spend });
     case "log": return render(TEMPLATES.log, card);
+    case "attack": return render(TEMPLATES.attack, attackCardContext(card));
+    case "combatEnd": return render(TEMPLATES.combatEnd, combatEndContext(card));
     default: return "";
   }
 }

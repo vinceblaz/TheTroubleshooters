@@ -9,12 +9,16 @@ import { NpcData } from "./data/actor-npc.mjs";
 import { ArchetypeData, AbilityData, FlawData, HookData, KitData, LanguageData } from "./data/items.mjs";
 import { TTSActor } from "./documents/actor.mjs";
 import { TTSItem } from "./documents/item.mjs";
+import { TTSCombat } from "./documents/combat.mjs";
 import { TTSCharacterSheet } from "./sheets/character-sheet.mjs";
 import { TTSNpcSheet } from "./sheets/npc-sheet.mjs";
 import { TTSItemSheet, ITEM_BODY_PARTIALS } from "./sheets/item-sheet.mjs";
 import { RelayService } from "./relay/relay-service.mjs";
 import { initializeSystem, ensureInitMacro, promptInitializationIfNeeded } from "./init/initialize.mjs";
 import { registerCardHandlers } from "./chat/card-handlers.mjs";
+import { registerAttackHandlers } from "./chat/attack-handlers.mjs";
+import { startAttack, catchBreath } from "./services/attack-service.mjs";
+import { registerCombatHandlers, onRenderCombatTracker, onCombatStart, onUpdateCombat, onDeleteCombat } from "./services/combat-service.mjs";
 import { onRenderChatMessage } from "./chat/chat-hooks.mjs";
 import { CHAT_PARTIALS } from "./chat/cards.mjs";
 import { rollCharacterSkill, rollNpcSkill } from "./services/roll-service.mjs";
@@ -38,7 +42,9 @@ Hooks.once("init", async () => {
     requestRoll: openRollRequest,
     storyPoints: () => StoryPointsApp.open(),
     newScene: startNewScene,
-    newSession: (opts) => startNewSession(StoryPointsApp.characters(), opts)
+    newSession: (opts) => startNewSession(StoryPointsApp.characters(), opts),
+    attack: startAttack,
+    catchBreath
   };
 
   registerSettings();
@@ -46,6 +52,7 @@ Hooks.once("init", async () => {
   // Documents et modèles de données
   CONFIG.Actor.documentClass = TTSActor;
   CONFIG.Item.documentClass = TTSItem;
+  CONFIG.Combat.documentClass = TTSCombat;
   Object.assign(CONFIG.Actor.dataModels, { character: CharacterData, npc: NpcData });
   Object.assign(CONFIG.Item.dataModels, {
     archetype: ArchetypeData, ability: AbilityData, flaw: FlawData,
@@ -56,7 +63,7 @@ Hooks.once("init", async () => {
     npc: { bar: ["vitality"], value: [] }
   };
 
-  // Conditions (effets mécaniques en phase 5)
+  // Conditions (familles attaque / défense lues par le combat en phase 4, effets complets en phase 5)
   CONFIG.statusEffects = Object.entries(THETROUBLESHOOTERS.conditions).map(([id, c]) => ({ id, name: c.label, img: c.img }));
   CONFIG.specialStatusEffects.DEFEATED = "outOfAction";
   CONFIG.specialStatusEffects.BLIND = "blinded";
@@ -76,7 +83,15 @@ Hooks.once("init", async () => {
 
   // Cartes de chat et relais MJ
   registerCardHandlers();
+  registerAttackHandlers();
+  registerCombatHandlers();
   Hooks.on("renderChatMessageHTML", onRenderChatMessage);
+
+  // Combat (phase 4)
+  Hooks.on("renderCombatTracker", onRenderCombatTracker);
+  Hooks.on("combatStart", onCombatStart);
+  Hooks.on("updateCombat", onUpdateCombat);
+  Hooks.on("deleteCombat", onDeleteCombat);
 });
 
 Hooks.once("ready", async () => {

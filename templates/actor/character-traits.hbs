@@ -23,7 +23,7 @@
         {{#if row.acts.length}}
         <div class="tts-act-buttons">
           {{#each row.acts as |a|}}
-          <button type="button" data-action="activateAbility" data-index="{{a.index}}" {{#if a.combat}}data-tooltip="TTS.Ability.CombatLater"{{/if}}>{{a.label}} {{#if a.cost}}({{a.cost}} PR){{/if}}</button>
+          <button type="button" data-action="activateAbility" data-index="{{a.index}}">{{a.label}} {{#if a.cost}}({{a.cost}} PR){{/if}}</button>
           {{/each}}
         </div>
         {{/if}}

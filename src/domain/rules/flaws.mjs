@@ -21,7 +21,11 @@ export function triggerGain(trigger) {
 export function flawPenaltyMods(penalties = [], skillKey = "") {
   return penalties
     .filter(p => !(p.skills?.length) || (skillKey && p.skills.includes(skillKey)))
-    .map(p => ({ label: p.label, pips: Number(p.pips) || 0 }));
+    .map(p => {
+      const mod = { label: p.label, pips: Number(p.pips) || 0 };
+      if (p.nextRoll) Object.assign(mod, { nextRoll: true, effectId: p.effectId ?? "" });   // malus « prochain jet » (Mauvais Karma en attaque)
+      return mod;
+    });
 }
 
 /** Un acteur peut-il rater un jet au titre d'un désavantage ? (au moins un désavantage) */

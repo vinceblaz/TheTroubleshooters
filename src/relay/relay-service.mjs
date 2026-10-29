@@ -43,12 +43,13 @@ export class RelayService {
    * Point d'entrée unique d'une mutation de carte.
    * @param {string} type
    * @param {{messageId?:string, actorUuid?:string, changes?:object, rolls?:Array, [k:string]:any}} request
+   * @param {{gmOnly?:boolean}} [opts]  gmOnly : toujours exécuté par le MJ (effets sur des acteurs d'autres joueurs)
    */
-  static async dispatch(type, request = {}) {
+  static async dispatch(type, request = {}, { gmOnly = false } = {}) {
     const full = { ...request, userId: game.user.id };
     const message = full.messageId ? game.messages.get(full.messageId) : null;
-    const canWrite = game.user.isGM || (message && message.isAuthor);
-    if (canWrite || !message) return RelayService.#process(type, full);
+    const canWrite = game.user.isGM || (!gmOnly && message && message.isAuthor);
+    if (canWrite || (!message && !gmOnly)) return RelayService.#process(type, full);
     if (!game.users.activeGM) {
       ui.notifications.warn(game.i18n.localize("TTS.Relay.NoGM"));
       return;

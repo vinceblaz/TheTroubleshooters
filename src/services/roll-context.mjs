@@ -97,7 +97,7 @@ export function npcSkillContext(actor, { source = "base", index, skillName } = {
     value = sys.baseSkill;
     label = game.i18n.localize("TTS.Npc.BaseSkill");
   }
-  return { actor, skillKey: null, label, value, gearOptions: [], abilityOptions: [], conditionMods: conditionModsFor(actor, { skill: "" }), flawMods: [] };
+  return { actor, skillKey: null, label, value, gearOptions: [], abilityOptions: [], conditionMods: conditionModsFor(actor, { skill: "" }), flawMods: flawModsFor(actor, "") };
 }
 
 /** Choix de compétence adverse pour une opposition : clés pour un Risque-tout, lignes pour un PNJ. */

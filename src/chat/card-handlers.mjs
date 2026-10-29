@@ -12,6 +12,18 @@ import { cardActivations } from "../domain/rules/activations.mjs";
 import { resolveSpend } from "../domain/rules/spend.mjs";
 import { STORY_POINT_GAINS, gainStoryPoints, spendStoryPoints } from "../domain/rules/story-points.mjs";
 import { getCard, updateCardMessage } from "./cards.mjs";
+import { initiativeFromTask, adjustInitiative } from "../domain/combat/initiative.mjs";
+
+/**
+ * Carte d'initiative modifiée (inversion, capacité) : l'initiative du combattant suit le jet (LdB p. 90).
+ * Exécuté par l'auteur de la carte (propriétaire du combattant) ou par le MJ.
+ */
+export async function syncInitiative(card) {
+  if (!card?.initiative) return;
+  const combatant = game.combats.get(card.initiative.combatId)?.combatants.get(card.initiative.combatantId);
+  if (!combatant?.isOwner) return;
+  await combatant.update({ initiative: adjustInitiative(initiativeFromTask(card.task), card.initiative.bonus) });
+}
 
 const OWNER_RULE = { immutable: [], transitions: {}, maxRolls: 0, requireOwner: true };
 
@@ -19,13 +31,13 @@ const OWNER_RULE = { immutable: [], transitions: {}, maxRolls: 0, requireOwner: 
  * Vérifie qu'un Risque-tout peut payer, sans rien écrire. Renvoie la fonction de débit
  * à appeler APRÈS la mise à jour de la carte (ordre imposé, bible §4.5).
  */
-function prepareSpend(actor, cost) {
+export function prepareSpend(actor, cost) {
   const r = spendStoryPoints(actor.system.storyPoints.value, cost);
   if (!r.ok) throw new Error(game.i18n.format("TTS.Notify.NotEnoughStoryPoints", { name: actor.name, cost }));
   return () => actor.update({ "system.storyPoints.value": r.value });
 }
 
-async function gain(actor, amount) {
+export async function gain(actor, amount) {
   const max = game.settings.get(SYSTEM_ID, "maxStoryPoints");
   const { value } = gainStoryPoints(actor.system.storyPoints.value, amount, max);
   await actor.update({ "system.storyPoints.value": value });
@@ -47,7 +59,7 @@ function abilitiesOf(actor) {
  * Applique une activation de capacité à un état de jet (revalidée par la logique pure).
  * @returns {{state:object, cost:number, karma:boolean, gain:number}}
  */
-function applyActivation(actor, task, skillKey, request) {
+export function applyCardActivation(actor, task, skillKey, request) {
   const ability = actor.items.get(request.abilityId);
   const act = ability?.system.activations?.[request.index];
   if (!act) throw new Error("Activation introuvable");
@@ -81,9 +93,10 @@ export function registerCardHandlers() {
       if (actor?.type !== "character") throw new Error("Acteur non concerné");
       if (card?.kind === "task") {
         if (card.actorUuid !== actor.uuid) throw new Error("Acteur non concerné");
-        const res = applyActivation(actor, card.task, card.skillKey, request);
+        const res = applyCardActivation(actor, card.task, card.skillKey, request);
         const debit = res.cost ? prepareSpend(actor, res.cost) : null;
         await updateCardMessage(message, { ...card, task: res.state });
+        await syncInitiative({ ...card, task: res.state });
         if (debit) await debit();
         if (res.karma && game.settings.get(SYSTEM_ID, "autoKarmaStoryPoint")) await gain(actor, STORY_POINT_GAINS.karma);
         if (res.gain) await gain(actor, res.gain);
@@ -93,7 +106,7 @@ export function registerCardHandlers() {
         const side = request.side;
         const s = card.opposed[side];
         if (s?.actorUuid !== actor.uuid || !s.task) throw new Error("Acteur non concerné");
-        const res = applyActivation(actor, s.task, s.skillKey ?? "", request);
+        const res = applyCardActivation(actor, s.task, s.skillKey ?? "", request);
         const debit = res.cost ? prepareSpend(actor, res.cost) : null;
         const opposed = computeOutcome({ ...card.opposed, [side]: { ...s, task: res.state } });
         await updateCardMessage(message, { ...card, opposed: { ...card.opposed, ...opposed } });
@@ -116,6 +129,7 @@ export function registerCardHandlers() {
       const r = failForPointsTask(card.task, { gain: STORY_POINT_GAINS.flawMinor, source: "flaw", label: flaw.name });
       if (!r.ok) throw new Error(r.reason);
       await updateCardMessage(message, { ...card, task: r.state });
+      await syncInitiative({ ...card, task: r.state });
       await gain(actor, r.gain);
     }
   });
@@ -130,6 +144,7 @@ export function registerCardHandlers() {
       if (!r.ok) throw new Error(r.reason);
       r.state.history.at(-1).label = game.i18n.localize("TTS.Chat.Unlucky");
       await updateCardMessage(message, { ...card, task: r.state });
+      await syncInitiative({ ...card, task: r.state });
       if (actor?.type === "character") await gain(actor, STORY_POINT_GAINS.unlucky);
     }
   });
@@ -162,7 +177,26 @@ export function registerCardHandlers() {
       if (!r.ok) throw new Error(r.reason);
       const debit = prepareSpend(actor, GENERIC_INVERT_COST);
       await updateCardMessage(message, { ...card, task: r.state });
+      await syncInitiative({ ...card, task: r.state });
       await debit();
+    }
+  });
+
+  /* ---- PNJ « inverser (X) » sur un jet de tâche (MJ) ---- */
+  RelayService.register("taskNpcReverse", {
+    rule: OWNER_RULE,
+    apply: async ({ message, actor, user }) => {
+      if (!user.isGM) throw new Error(game.i18n.localize("TTS.Init.GmOnly"));
+      const card = requireCard(message, "task");
+      if (card.actorUuid !== actor?.uuid || actor.type !== "npc") throw new Error("Acteur non concerné");
+      const left = Number(actor.system.counters.reversesLeft) || 0;
+      if (left <= 0) throw new Error(game.i18n.localize("TTS.Attack.Refused.noReverse"));
+      const r = invertTask(card.task, { cost: 0, source: "npc" });
+      if (!r.ok) throw new Error(r.reason);
+      r.state.history.at(-1).label = game.i18n.localize("TTS.Attack.InvertMode.npc");
+      await updateCardMessage(message, { ...card, task: r.state });
+      await syncInitiative({ ...card, task: r.state });
+      await actor.update({ "system.counters.reversesLeft": left - 1 });
     }
   });
 
@@ -187,6 +221,7 @@ export function registerCardHandlers() {
       const r = resolveVoluntaryFailure(card.task, Boolean(request.accepted));
       if (!r.ok) throw new Error(r.reason);
       await updateCardMessage(message, { ...card, task: r.state });   // carte d'abord
+      await syncInitiative({ ...card, task: r.state });
       if (r.gain && actor?.type === "character") await gain(actor, r.gain);
     }
   });

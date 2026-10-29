@@ -1,0 +1,42 @@
+/* The Troubleshooters — combat (phase 4 : sobre ; charte graphique en phase 10). */
+
+/* Carte d'attaque */
+.tts-card.tts-attack-card .tts-attack-line { display: flex; align-items: center; gap: 0.35rem; margin: 0.2rem 0; }
+.tts-card.tts-attack-card .tts-attack-side { border-top: 1px dashed rgba(0,0,0,0.2); padding-top: 0.25rem; margin-top: 0.25rem; }
+.tts-card.tts-attack-card .tts-attack-pool { border-top: 1px dashed rgba(0,0,0,0.2); padding-top: 0.25rem; margin-top: 0.25rem; }
+.tts-card.tts-attack-card .tts-attack-outcome { margin: 0.3rem 0; font-weight: bold; display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; }
+.tts-card.tts-attack-card .tts-muted { color: #6b7280; font-style: italic; }
+.tts-card .tts-card-buttons button.tts-danger { border-color: #b91c1c; color: #b91c1c; font-weight: bold; }
+.tts-card .tts-initiative-line { margin: 0.2rem 0; }
+.thetroubleshooters .tts-roll-attack { border: 1px solid rgba(0,0,0,0.15); border-radius: 4px; padding: 0.3rem 0.5rem; margin-bottom: 0.4rem; }
+.thetroubleshooters .tts-roll-attack .tts-off { opacity: 0.45; }
+.thetroubleshooters .tts-damage-parts { list-style: none; margin: 0 0 0.4rem; padding: 0; }
+.thetroubleshooters .tts-damage-parts li { display: flex; justify-content: space-between; border-bottom: 1px dotted rgba(0,0,0,0.15); }
+.thetroubleshooters .tts-vlan-choices { display: flex; flex-direction: column; gap: 0.2rem; }
+
+/* Carte de fin de combat */
+.tts-card.tts-combat-end-card .tts-log-lines li { display: flex; flex-wrap: wrap; gap: 0.3rem; align-items: center; }
+.tts-card .tts-small-button { width: auto; flex: 0 0 auto; font-size: 0.8em; line-height: 1.4; }
+
+/* Onglet Combat de la fiche */
+.thetroubleshooters .tts-combat-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin: 0.4rem 0; }
+.thetroubleshooters .tts-combat-summary .tts-stat { display: flex; flex-direction: column; gap: 0.15rem; border: 1px solid var(--tts-line); border-radius: 4px; padding: 0.3rem 0.4rem; }
+.thetroubleshooters .tts-combat-summary label { font-size: 0.8em; color: var(--tts-muted); }
+.thetroubleshooters .tts-big { font-size: 1.3rem; font-weight: bold; }
+.thetroubleshooters .tts-weapon-table td { vertical-align: middle; }
+.thetroubleshooters .tts-weapon-table .tts-row-controls { white-space: nowrap; }
+.thetroubleshooters .tts-status-toggles { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.thetroubleshooters .tts-status-toggle { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.1rem 0.45rem; border: 1px solid var(--tts-line); border-radius: 1rem; opacity: 0.55; }
+.thetroubleshooters .tts-status-toggle.tts-active { opacity: 1; border-color: var(--tts-accent); font-weight: bold; }
+.thetroubleshooters .tts-small-button { width: auto; flex: 0 0 auto; font-size: 0.8em; line-height: 1.4; padding: 0 0.4rem; }
+
+/* Tracker de combat : pastilles d'actions (rappel, sans verrou) */
+.tts-tracker-actions { display: flex; gap: 0.2rem; margin-top: 0.1rem; flex-wrap: wrap; }
+.tts-tracker-actions .tts-pip { display: inline-flex; align-items: center; justify-content: center; min-width: 1.3rem; height: 1.2rem; font-size: 0.7rem;
+  border: 1px solid currentColor; border-radius: 0.6rem; opacity: 0.8; padding: 0 0.2rem; cursor: pointer; }
+.tts-tracker-actions .tts-pip.tts-used { opacity: 0.3; text-decoration: line-through; }
+.tts-tracker-actions .tts-pip.tts-granted { border-color: #16a34a; color: #16a34a; font-weight: bold; }
+.tts-tracker-actions .tts-pip.tts-act-now { border-color: #f59e0b; color: #f59e0b; opacity: 1; }
+.tts-tracker-actions .tts-pip.tts-delay.tts-used { text-decoration: none; opacity: 1; color: #60a5fa; border-color: #60a5fa; }
+.tts-delay-note { font-size: 0.7rem; font-style: italic; opacity: 0.85; }
+.tts-tracker-actions .tts-pip.tts-marker { cursor: default; opacity: 1; gap: 0.1rem; }

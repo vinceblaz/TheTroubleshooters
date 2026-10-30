@@ -1,0 +1,52 @@
+<div class="tts-debrief-app">
+  <p class="tts-hint">{{#if points}}{{localize "TTS.Progression.DebriefHintPoints"}}{{else}}{{localize "TTS.Progression.DebriefHintTicks"}}{{/if}}</p>
+
+  <fieldset class="tts-fieldset">
+    <legend>1. {{#if points}}{{localize "TTS.Progression.XpTitle"}}{{else}}{{localize "TTS.Progression.FreeTicksTitle"}}{{/if}}</legend>
+    <table class="tts-row-table tts-debrief-table">
+      <thead><tr><th>{{localize "TTS.SP.Character"}}</th>
+        {{#each criteria as |c|}}<th data-tooltip="{{c.label}}">{{c.label}} (+{{c.value}})</th>{{/each}}
+        <th>{{localize "TTS.Progression.Penalty"}}</th><th>=</th></tr></thead>
+      <tbody>
+        {{#each rows as |r|}}
+        <tr>
+          <td><img src="{{r.img}}" alt="" width="24" height="24"> {{r.name}}</td>
+          {{#each r.checks as |c|}}<td class="tts-check"><input type="checkbox" name="rows.{{r.id}}.criteria.{{c.key}}" {{checked c.checked}} {{#if c.disabled}}disabled{{/if}}></td>{{/each}}
+          <td class="tts-num"><input type="number" name="rows.{{r.id}}.penalty" value="{{r.penalty}}" min="0" max="9"></td>
+          <td class="tts-num"><strong>{{r.total}}</strong></td>
+        </tr>
+        {{else}}
+        <tr><td colspan="9" class="tts-empty">{{localize "TTS.SP.NoCharacters"}}</td></tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <p class="tts-hint">{{localize "TTS.Progression.CriteriaHint"}}</p>
+  </fieldset>
+
+  <fieldset class="tts-fieldset">
+    <legend>2. {{localize "TTS.Progression.EndOfAdventure"}}</legend>
+    <label class="tts-check-label"><input type="checkbox" name="endOfAdventure" {{checked endOfAdventure}}> {{localize "TTS.Progression.EndOfAdventureLabel"}}</label>
+    {{#if endOfAdventure}}
+      <div class="tts-inline"><label>{{localize "TTS.Progression.SpanLabel"}}</label><select name="span">{{selectOptions spanOpts selected=span}}</select></div>
+      <h4>{{#if points}}{{localize "TTS.Progression.RewardPointsTitle"}}{{else}}{{localize "TTS.Progression.RewardRollsTitle"}}{{/if}}
+        <a class="tts-icon-button" data-action="addReward" data-tooltip="TTS.Sheet.Add"><i class="fa-solid fa-plus"></i></a></h4>
+      <table class="tts-row-table">
+        <tbody>
+          {{#each rewards as |rw|}}
+          <tr>
+            <td><input type="text" name="rewards.{{rw.i}}.label" value="{{rw.label}}" placeholder="{{localize 'TTS.Progression.VictoryCondition'}}"></td>
+            <td><select name="rewards.{{rw.i}}.skill">{{selectOptions @root.skillOpts selected=rw.skill}}</select></td>
+            <td>{{#each rw.actors as |a|}}<label class="tts-check-label"><input type="checkbox" name="rewards.{{rw.i}}.actors.{{a.id}}" {{checked a.checked}}> {{a.name}}</label> {{/each}}</td>
+            <td class="tts-row-controls"><a data-action="removeReward" data-index="{{rw.i}}"><i class="fa-solid fa-trash"></i></a></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <p class="tts-hint">{{localize "TTS.Progression.RewardsHint"}}</p>
+    {{/if}}
+  </fieldset>
+
+  <footer class="tts-app-footer">
+    <button type="button" data-action="grant"><i class="fa-solid fa-gift"></i> {{localize "TTS.Progression.Grant"}}</button>
+  </footer>
+</div>

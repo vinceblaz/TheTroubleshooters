@@ -9,6 +9,7 @@ import { canFailForFlaw, hasUnluckyFlaw } from "../domain/rules/flaws.mjs";
 import { initiativeFromTask, adjustInitiative } from "../domain/combat/initiative.mjs";
 import { absorbOptions, applyAbsorb, npcCanCounter, sumDice } from "../domain/combat/attack.mjs";
 import { damageTotal, expectedDamageParts } from "../domain/combat/attack-state.mjs";
+import { sfxFor, injectSfx } from "./sfx.mjs";
 import { statusesOf, capsOf, defenseChoicesOf, soakDiceFor, abilityList } from "../services/combat-actors.mjs";
 
 const TEMPLATES = {
@@ -145,7 +146,8 @@ function challengeContext(card) {
     rows: c.rows.map(r => ({ ...r, skillLabel: skillName(r.skill), result: r.task?.result ?? null, oppResult: r.oppositionTask?.result ?? null })),
     rolled: c.rows.filter(r => r.task).length,
     resultLabel: c.result ? tl(`TTS.Challenge.Result.${c.result}`) : "",
-    outcomeText: c.result ? c.outcomes?.[c.result] ?? "" : ""
+    outcomeText: c.result ? c.outcomes?.[c.result] ?? "" : "",
+    gadgetBuilt: ["excellent", "good", "limited"].includes(c.result)
   };
 }
 
@@ -198,8 +200,14 @@ function opposedContext(card) {
   return { card, sides, outcomeLabel };
 }
 
-/** Contenu HTML d'une carte. */
+/** Contenu HTML d'une carte, avec son onomatopée éventuelle (charte, phase 10). */
 export async function renderCard(card) {
+  const html = await renderCardBody(card);
+  const sfx = sfxFor(card);
+  return sfx ? injectSfx(html, sfx, game.i18n.localize(`TTS.Sfx.${sfx.key}`)) : html;
+}
+
+async function renderCardBody(card) {
   switch (card.kind) {
     case "task": return render(TEMPLATES.task, taskContext(card));
     case "opposed": return render(TEMPLATES.opposed, opposedContext(card));

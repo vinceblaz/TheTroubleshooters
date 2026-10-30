@@ -4,6 +4,7 @@
  */
 import { SYSTEM_ID, THETROUBLESHOOTERS } from "../config.mjs";
 import { conditionModifiers } from "../domain/rules/conditions.mjs";
+import { parseGadgetDescriptor } from "../domain/rules/equipment.mjs";
 import { resolveNpcSkill } from "../domain/rules/npc.mjs";
 import { flawPenaltyMods } from "../domain/rules/flaws.mjs";
 import { dialogActivations } from "../domain/rules/activations.mjs";
@@ -39,13 +40,16 @@ export function conditionModsFor(actor, { skill = "", kind = "skill" } = {}) {
 /** Descripteurs à pips des kits emportés, proposés dans la catégorie Matériel (un seul retenu). */
 export function gearOptionsFor(actor) {
   const options = [];
-  for (const kit of actor.items.filter(i => i.type === "kit" && i.system.carried)) {
+  for (const kit of actor.items.filter(i => i.type === "kit" && i.system.carried && !i.system.broken)) {
     (kit.system.descriptors ?? []).forEach((d, i) => {
       const pips = Number(d.pips) || 0;
       if (!pips) return;
       const what = [d.key, d.situation].filter(Boolean).join(" — ");
       options.push({ id: `${kit.id}:${i}`, pips, label: `${kit.name}${what ? ` : ${what}` : ""} (${pips > 0 ? "+" : ""}${pips})` });
     });
+    // Gadget (descripteurs déclenchés sur les unités) ou kit bricolé : utilisable même sans bonus (phase 7)
+    const gadget = (kit.system.descriptors ?? []).some(d => parseGadgetDescriptor(d.key)) || kit.system.origin === "juryRigged";
+    if (gadget) options.push({ id: `${kit.id}:use`, pips: 0, label: `${kit.name} : ${game.i18n.localize("TTS.Kit.UseInRoll")}` });
   }
   return options;
 }

@@ -1,0 +1,8 @@
+{{!-- Pied commun des assistants de création (DraftApp) : contrôles puis boutons. --}}
+{{#if errors.length}}<ul class="tts-draft-errors">{{#each errors as |e|}}<li><i class="fa-solid fa-circle-xmark"></i> {{e}}</li>{{/each}}</ul>{{/if}}
+{{#if warnings.length}}<ul class="tts-draft-warnings">{{#each warnings as |w|}}<li><i class="fa-solid fa-triangle-exclamation"></i> {{w}}</li>{{/each}}</ul>{{/if}}
+{{#unless errors.length}}{{#unless warnings.length}}<p class="tts-draft-ok"><i class="fa-solid fa-circle-check"></i> {{localize "TTS.Draft.AllGood"}}</p>{{/unless}}{{/unless}}
+<footer class="tts-app-footer">
+  <button type="button" data-action="reset"><i class="fa-solid fa-rotate-left"></i> {{localize i18n.reset}}</button>
+  <button type="button" data-action="apply" {{#unless canApply}}disabled{{/unless}}><i class="fa-solid fa-check"></i> {{localize i18n.apply}}</button>
+</footer>

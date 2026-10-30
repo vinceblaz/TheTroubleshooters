@@ -26,6 +26,16 @@
     <strong>{{resultLabel}}</strong> ({{c.successes}} / {{c.rows.length}})
     {{#if outcomeText}}<p>{{outcomeText}}</p>{{/if}}
   </div>
+  {{#if c.gadget}}
+  {{#if c.gadget.created}}<div class="tts-history">✔ {{localize "TTS.Gadget.Created"}}</div>
+  {{else if gadgetBuilt}}
+  <div class="tts-card-buttons" data-visibility="gm">
+    <button type="button" data-tts-action="gadgetCreate"><i class="fa-solid fa-screwdriver-wrench"></i> {{#if c.gadget.kitId}}{{localize "TTS.Gadget.ApplyModification"}}{{else}}{{localize "TTS.Gadget.Create"}}{{/if}}</button>
+  </div>
+  {{#if (eq c.result "limited")}}<p class="tts-hint">{{localize "TTS.Gadget.LimitedHint"}}</p>{{/if}}
+  {{else}}<p class="tts-hint">{{localize "TTS.Gadget.FailedHint"}}</p>
+  {{/if}}
+  {{/if}}
   {{else}}
   <p class="tts-hint">{{localize "TTS.Challenge.Hint"}}</p>
   {{/if}}

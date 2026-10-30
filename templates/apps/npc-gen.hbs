@@ -1,0 +1,81 @@
+<div class="tts-npcgen-app">
+  <p class="tts-hint">{{localize "TTS.NpcGen.Intro"}}</p>
+
+  {{!-- 1. Rang et modèle --}}
+  <fieldset class="tts-fieldset">
+    <legend>1. {{localize "TTS.NpcGen.Step.Rank"}}</legend>
+    <div class="tts-chargen-grid">
+      <label>{{localize "TTS.Sheet.Name"}}</label><input type="text" name="name" value="{{d.name}}">
+      <label>{{localize "TTS.Npc.Rank"}}</label>
+      <span class="tts-inline"><select name="rank">{{selectOptions rankChoices selected=d.rank}}</select>
+        <button type="button" class="tts-small-button" data-action="loadTemplate"><i class="fa-solid fa-wand-magic-sparkles"></i> {{localize "TTS.NpcGen.LoadTemplate"}}</button></span>
+    </div>
+    <p class="tts-hint">{{rankHint}} <em>({{templateSource}})</em></p>
+  </fieldset>
+
+  {{!-- 2. Compétences de référence --}}
+  <fieldset class="tts-fieldset">
+    <legend>2. {{localize "TTS.NpcGen.Step.Core"}}</legend>
+    <div class="tts-chargen-grid">
+      <label>{{localize "TTS.Npc.BaseSkill"}}</label><input type="number" name="baseSkill" value="{{d.baseSkill}}" min="0" max="106">
+      <label>{{localize "TTS.Npc.Specialty"}}</label><input type="number" name="specialty.value" value="{{d.specialty.value}}" min="0" max="106">
+      <label>{{localize "TTS.Npc.SpecialtyDomain"}}</label><input type="text" name="specialty.domain" value="{{d.specialty.domain}}">
+      <label>{{localize "TTS.Npc.Defense"}}</label><input type="number" name="defense" value="{{d.defense}}" min="0" max="106" placeholder="—">
+      <label>{{localize "TTS.Combat.Protection"}}</label><span class="tts-inline"><input type="number" name="protection" value="{{d.protection}}" min="0" max="10"> dR</span>
+      <label>{{localize "TTS.Vitality.Label"}}</label><input type="number" name="vitality" value="{{d.vitality}}" min="0">
+      <label>{{localize "TTS.Initiative.Label"}}</label>
+      <span class="tts-inline"><select name="initiative.mode">{{selectOptions initiativeChoices selected=d.initiative.mode}}</select>
+        {{#if isFixed}}<input type="number" name="initiative.value" value="{{d.initiative.value}}" min="0" max="30">{{/if}}</span>
+    </div>
+    <p class="tts-hint">{{localize "TTS.NpcGen.CoreHint"}}</p>
+  </fieldset>
+
+  {{!-- 3. Compétences importantes et de personnalisation --}}
+  <fieldset class="tts-fieldset">
+    <legend>3. {{localize "TTS.Npc.Skills"}} <a class="tts-icon-button" data-action="addSkill" data-tooltip="TTS.Sheet.Add"><i class="fa-solid fa-plus"></i></a></legend>
+    <table class="tts-row-table">
+      <tbody>
+        {{#each skillRows as |row|}}
+        <tr>
+          <td><input name="skills.{{row.i}}.name" type="text" value="{{row.name}}" placeholder="{{localize 'TTS.Npc.NewSkill'}}"></td>
+          <td class="tts-num"><input name="skills.{{row.i}}.value" type="number" value="{{row.value}}" min="0" max="106"></td>
+          <td><select name="skills.{{row.i}}.kind">{{selectOptions @root.kindChoices selected=row.kind}}</select></td>
+          <td class="tts-row-controls"><a data-action="removeSkill" data-index="{{row.i}}"><i class="fa-solid fa-trash"></i></a></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <p class="tts-hint">{{localize "TTS.NpcGen.SkillsHint"}}</p>
+  </fieldset>
+
+  {{!-- 4. Attaques --}}
+  <fieldset class="tts-fieldset">
+    <legend>4. {{localize "TTS.Npc.Attacks"}} <a class="tts-icon-button" data-action="addAttack" data-tooltip="TTS.Sheet.Add"><i class="fa-solid fa-plus"></i></a></legend>
+    <table class="tts-row-table">
+      <thead><tr><th>{{localize "TTS.Npc.AttackName"}}</th><th>%</th><th>{{localize "TTS.Weapon.Skill"}}</th><th>dX</th><th>{{localize "TTS.Npc.Uses"}}</th><th>{{localize "TTS.Npc.Counter"}}</th><th>{{localize "TTS.Npc.Descriptors"}}</th><th></th></tr></thead>
+      <tbody>
+        {{#each attackRows as |row|}}
+        <tr>
+          <td><input name="attacks.{{row.i}}.name" type="text" value="{{row.name}}" placeholder="{{localize 'TTS.Npc.NewAttack'}}"></td>
+          <td class="tts-num"><input name="attacks.{{row.i}}.value" type="number" value="{{row.value}}" min="0" max="106"></td>
+          <td><select name="attacks.{{row.i}}.skill">{{selectOptions @root.attackSkillChoices selected=row.skill}}</select></td>
+          <td class="tts-num"><input name="attacks.{{row.i}}.damage" type="number" value="{{row.damage}}" min="0" max="20"></td>
+          <td class="tts-num"><input name="attacks.{{row.i}}.uses" type="number" value="{{row.uses}}" min="1" max="9"></td>
+          <td class="tts-check"><input name="attacks.{{row.i}}.counter" type="checkbox" {{checked row.counter}}></td>
+          <td><input name="attacks.{{row.i}}.descriptors" type="text" value="{{row.descriptors}}" placeholder="{{localize 'TTS.Npc.DescriptorsPlaceholder'}}"></td>
+          <td class="tts-row-controls"><a data-action="removeAttack" data-index="{{row.i}}"><i class="fa-solid fa-trash"></i></a></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </fieldset>
+
+  {{!-- 5. Descripteurs d'adversaire --}}
+  <fieldset class="tts-fieldset">
+    <legend>5. {{localize "TTS.Npc.AdversaryDescriptors"}}</legend>
+    <input type="text" name="descriptors" value="{{d.descriptors}}" placeholder="{{localize 'TTS.NpcGen.DescriptorsPlaceholder'}}">
+    <p class="tts-hint">{{localize "TTS.NpcGen.DescriptorsHint"}}{{#if c.reverses}} — {{localize "TTS.Npc.ReversesLeft"}} : {{c.reverses}}{{/if}}</p>
+  </fieldset>
+
+  {{> "systems/thetroubleshooters/templates/apps/parts/draft-footer.hbs"}}
+</div>

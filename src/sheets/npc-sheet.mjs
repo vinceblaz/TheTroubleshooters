@@ -7,6 +7,7 @@ import { enrich, localizedRecord } from "./sheet-helpers.mjs";
 import { rollNpcSkill } from "../services/roll-service.mjs";
 import { startAttack } from "../services/attack-service.mjs";
 import { conditionRows, conditionPanelActions, patchUpWounded } from "../services/condition-service.mjs";
+import { NpcGenApp } from "../apps/npc-gen-app.mjs";
 import { pickHealer } from "../services/combat-service.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -29,9 +30,19 @@ export class TTSNpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       levelUp: TTSNpcSheet.#onLevelUp,
       levelDown: TTSNpcSheet.#onLevelDown,
       exitRoll: TTSNpcSheet.#onExitRoll,
-      patchUp: TTSNpcSheet.#onPatchUp
+      patchUp: TTSNpcSheet.#onPatchUp,
+      npcgen: TTSNpcSheet.#onNpcGen
     }
   };
+
+  /** Bouton d'en-tête « Création » (phase 8) : même assistant que pour les Risque-tout, adapté aux PNJ. */
+  _getHeaderControls() {
+    const controls = super._getHeaderControls();
+    if (this.document.isOwner) controls.unshift({ icon: "fa-solid fa-user-secret", label: "TTS.NpcGen.Open", action: "npcgen" });
+    return controls;
+  }
+
+  static #onNpcGen() { NpcGenApp.open(this.document); }
 
   static PARTS = {
     body: { template: `${SYSTEM_PATH}/templates/actor/npc-sheet.hbs`, scrollable: [""] }
@@ -41,7 +52,9 @@ export class TTSNpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
     const actor = this.document;
+    const vmax = Number(actor.system.vitality.max) || 0;
     return Object.assign(context, {
+      vitalityPct: vmax ? Math.round(100 * Math.min(vmax, Number(actor.system.vitality.value) || 0) / vmax) : 0,
       actor,
       system: actor.system,
       systemFields: actor.system.schema.fields,

@@ -6,6 +6,7 @@ import { SYSTEM_PATH } from "../config.mjs";
 import { STORY_POINT_GAINS } from "../domain/rules/story-points.mjs";
 import { adjustStoryPoints, adjustMany, logStoryPoints, startNewSession } from "../services/story-point-service.mjs";
 import { startNewScene } from "../services/scene-service.mjs";
+import { endOfStory } from "../services/equipment-service.mjs";
 
 const { HandlebarsApplicationMixin, ApplicationV2 } = foundry.applications.api;
 
@@ -20,7 +21,9 @@ export class StoryPointsApp extends HandlebarsApplicationMixin(ApplicationV2) {
       group: StoryPointsApp.#onGroup,
       newSession: StoryPointsApp.#onNewSession,
       newScene: StoryPointsApp.#onNewScene,
-      wipe: StoryPointsApp.#onWipe
+      wipe: StoryPointsApp.#onWipe,
+      endOfStory: StoryPointsApp.#onEndOfStory,
+      debrief: () => game.thetroubleshooters.debrief()
     }
   };
 
@@ -75,7 +78,7 @@ export class StoryPointsApp extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   static async #onNewSession() {
-    const keep = await foundry.applications.api.DialogV2.wait({
+    const keep = await foundry.applications.api.DialogV2.wait({ classes: ["thetroubleshooters", "tts-dialog"],
       window: { title: game.i18n.localize("TTS.SP.NewSession") },
       content: `<p>${game.i18n.localize("TTS.SP.NewSessionPrompt")}</p>`,
       buttons: [
@@ -94,11 +97,16 @@ export class StoryPointsApp extends HandlebarsApplicationMixin(ApplicationV2) {
     this.render();
   }
 
+  /** Fin de l'histoire : kits achetés et kits de mission rendus (phase 7). */
+  static async #onEndOfStory() {
+    await endOfStory(StoryPointsApp.characters());
+  }
+
   /** Meurtre de sang-froid (LdB p. 107) : retire tous les PR des Risque-tout sélectionnés. */
   static async #onWipe() {
     const actors = this.#selected();
     if (!actors.length) return ui.notifications.warn(game.i18n.localize("TTS.SP.NoSelection"));
-    const ok = await foundry.applications.api.DialogV2.confirm({
+    const ok = await foundry.applications.api.DialogV2.confirm({ classes: ["thetroubleshooters", "tts-dialog"],
       window: { title: game.i18n.localize("TTS.SP.Wipe") },
       content: `<p>${game.i18n.format("TTS.SP.WipeConfirm", { names: actors.map(a => a.name).join(", ") })}</p>`,
       rejectClose: false

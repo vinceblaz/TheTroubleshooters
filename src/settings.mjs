@@ -7,6 +7,14 @@ import { DEFAULT_SESSION_STORY_POINTS, DEFAULT_MAX_STORY_POINTS } from "./domain
 export function registerSettings() {
   const reg = (key, data) => game.settings.register(SYSTEM_ID, key, data);
 
+  // Charte (phase 10) : effets graphiques réduits, propre à chaque joueur.
+  reg("reducedEffects", {
+    name: "TTS.Settings.ReducedFx.Name",
+    hint: "TTS.Settings.ReducedFx.Hint",
+    scope: "client", config: true, type: Boolean, default: false,
+    onChange: value => document.body.classList.toggle("tts-reduced-fx", Boolean(value))
+  });
+
   reg("modifierMode", {
     name: "TTS.Settings.ModifierMode.Name",
     hint: "TTS.Settings.ModifierMode.Hint",

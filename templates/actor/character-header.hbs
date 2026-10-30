@@ -1,34 +1,68 @@
-<header class="tts-sheet-header">
-  <img class="tts-portrait" src="{{actor.img}}" alt="{{actor.name}}" data-edit="img" data-action="editImage" width="96" height="96">
-  <div class="tts-header-main">
-    <input class="tts-name" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'TTS.Sheet.Name'}}">
-    <input class="tts-concept" name="system.identity.concept" type="text" value="{{system.identity.concept}}" placeholder="{{localize 'TTS.Identity.Concept'}}">
-    <div class="tts-header-stats">
-      <div class="tts-stat">
-        <label>{{localize "TTS.Vitality.Label"}}</label>
-        <div class="tts-stat-values">
-          <input name="system.vitality.value" type="number" value="{{system.vitality.value}}" min="0" step="1">
-          <span>/ {{system.vitality.max}}</span>
-        </div>
-        <div class="tts-stat-sub">
-          <label>{{localize "TTS.Vitality.Bonus"}}</label>
-          <input name="system.vitality.bonus" type="number" value="{{source.vitality.bonus}}" step="1">
-        </div>
-      </div>
-      <div class="tts-stat">
-        <label>{{localize "TTS.StoryPoints.Label"}}</label>
-        <div class="tts-stat-values">
-          <input name="system.storyPoints.value" type="number" value="{{system.storyPoints.value}}" min="0" max="{{maxStoryPoints}}" step="1">
-          <span>/ {{maxStoryPoints}}</span>
-        </div>
-        {{#if editable}}<button type="button" class="tts-small-button" data-action="proposeSpend"><i class="fa-solid fa-coins"></i> {{localize "TTS.Spend.Button"}}</button>{{/if}}
-      </div>
-      <div class="tts-stat tts-stat-toggle">
-        <label>
-          <input name="system.combat.inCover" type="checkbox" {{checked system.combat.inCover}}>
-          {{localize "TTS.Combat.InCover"}}
-        </label>
-      </div>
+{{!-- En-tête « Passeport » (charte, phase 10) --}}
+<header class="tts-sheet-header tts-passport-header">
+  <div class="tts-pp-top">
+    <svg class="tts-pp-emblem" width="50" height="50" viewBox="0 0 54 54" aria-hidden="true">
+      <circle cx="27" cy="27" r="24" fill="none" stroke="currentColor" stroke-width="2"></circle>
+      <ellipse cx="27" cy="27" rx="11" ry="24" fill="none" stroke="currentColor" stroke-width="1.4"></ellipse>
+      <line x1="3" y1="27" x2="51" y2="27" stroke="currentColor" stroke-width="1.4"></line>
+      <line x1="7" y1="15" x2="47" y2="15" stroke="currentColor" stroke-width="1"></line>
+      <line x1="7" y1="39" x2="47" y2="39" stroke="currentColor" stroke-width="1"></line>
+      <path class="tts-pp-star" d="M27 9 L30 21 L42 21 L32 28 L36 40 L27 32 L18 40 L22 28 L12 21 L24 21 Z"></path>
+    </svg>
+    <div class="tts-pp-titles">
+      <span class="tts-pp-bureau">{{localize "TTS.Passport.Bureau"}}</span>
+      <span class="tts-pp-title">{{localize "TTS.Passport.Title"}}</span>
+      <span class="tts-pp-sub">Passport · Pasaporte · Reisepass</span>
+    </div>
+    <div class="tts-pp-codes">
+      <span>{{localize "TTS.Passport.Type"}}</span><span>{{localize "TTS.Passport.Code"}}</span><span>{{localize "TTS.Passport.Number"}}</span>
+      <strong>P</strong><strong>RT</strong><strong class="tts-pp-number">{{passport.number}}</strong>
     </div>
   </div>
+
+  <div class="tts-pp-body">
+    <div class="tts-pp-photo">
+      <img class="tts-portrait" src="{{actor.img}}" alt="{{actor.name}}" data-edit="img" data-action="editImage" width="112" height="140">
+      <svg class="tts-pp-seal" width="70" height="70" viewBox="0 0 78 78" aria-hidden="true">
+        <circle cx="39" cy="39" r="35" fill="none" stroke="currentColor" stroke-width="2.5"></circle>
+        <circle cx="39" cy="39" r="27" fill="none" stroke="currentColor" stroke-width="1"></circle>
+        <text x="39" y="36" text-anchor="middle" font-size="8" font-weight="700" fill="currentColor" letter-spacing="1">B.I.R.T.</text>
+        <text x="39" y="47" text-anchor="middle" font-size="7" fill="currentColor">1965</text>
+      </svg>
+      {{#each passport.activeStamps as |c|}}<span class="tts-pp-mini-stamp tts-ink-{{c.ink}}">{{c.label}}</span>{{/each}}
+    </div>
+    <div class="tts-pp-fields">
+      <label class="tts-pp-field tts-pp-wide"><span>{{localize "TTS.Passport.Name"}}</span>
+        <input class="tts-name" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'TTS.Sheet.Name'}}"></label>
+      <label class="tts-pp-field tts-pp-wide"><span>{{localize "TTS.Passport.Profession"}}</span>
+        <input class="tts-concept" name="system.identity.concept" type="text" value="{{system.identity.concept}}" placeholder="{{localize 'TTS.Identity.Concept'}}"></label>
+      <div class="tts-pp-field"><span>{{localize "TTS.Passport.Archetype"}}</span><strong>{{#if system.archetype}}{{system.archetype}}{{else}}—{{/if}}</strong></div>
+      <div class="tts-pp-field"><span>{{localize "TTS.Passport.Nationality"}}</span><strong>{{#if system.identity.nationality}}{{system.identity.nationality}}{{else}}—{{/if}}</strong></div>
+    </div>
+  </div>
+
+  <div class="tts-pp-strip">
+    <div class="tts-pp-cell tts-stat">
+      <span class="tts-pp-label">{{localize "TTS.Vitality.Label"}}</span>
+      <div class="tts-pp-vitality">
+        {{#each passport.vitality as |b|}}<span class="tts-pp-box {{#if b.filled}}tts-filled{{/if}}"></span>{{/each}}
+        <input name="system.vitality.value" type="number" value="{{system.vitality.value}}" min="0" step="1" aria-label="{{localize 'TTS.Vitality.Label'}}">
+        <span>/ {{system.vitality.max}}</span>
+      </div>
+      <label class="tts-pp-sub">{{localize "TTS.Vitality.Bonus"}} <input name="system.vitality.bonus" type="number" value="{{source.vitality.bonus}}" step="1"></label>
+    </div>
+    <div class="tts-pp-cell tts-stat">
+      <span class="tts-pp-label">{{localize "TTS.StoryPoints.Label"}}</span>
+      <div class="tts-pp-sp">
+        <input name="system.storyPoints.value" type="number" value="{{system.storyPoints.value}}" min="0" max="{{maxStoryPoints}}" step="1" aria-label="{{localize 'TTS.StoryPoints.Label'}}">
+        <span>/ {{maxStoryPoints}}</span>
+      </div>
+      {{#if editable}}<button type="button" class="tts-small-button" data-action="proposeSpend"><i class="fa-solid fa-coins"></i> {{localize "TTS.Spend.Button"}}</button>{{/if}}
+    </div>
+    <div class="tts-pp-cell tts-stat-toggle">
+      <label class="tts-check-label"><input name="system.combat.inCover" type="checkbox" {{checked system.combat.inCover}}> {{localize "TTS.Combat.InCover"}}</label>
+    </div>
+  </div>
+
+  <div class="tts-pp-mrz" aria-hidden="true"><span>{{passport.mrz.[0]}}</span><span>{{passport.mrz.[1]}}</span></div>
 </header>

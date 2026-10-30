@@ -30,16 +30,15 @@ export function weaponsOf(actor) {
   if (!actor) return [];
   if (actor.type === "character") {
     const list = actor.items
-      .filter(i => i.type === "kit" && i.system.hasWeapon && i.system.carried)
-      .map(kit => {
-        const w = kit.system.weapon;
-        return {
-          ref: `kit:${kit.id}`, name: kit.name, img: kit.img, skill: w.skill, damage: w.damage,
-          value: actor.system.skills[w.skill]?.value ?? 0, descriptors: w.descriptors,
-          flags: parseWeaponDescriptors(w.descriptors, { ammo: w.ammo }),
-          empty: w.empty, jammed: w.jammed, broken: w.broken, kitId: kit.id, attackIndex: null, unarmed: false
-        };
-      });
+      .filter(i => i.type === "kit" && i.system.hasWeapon && i.system.carried && !i.system.broken)
+      .flatMap(kit => [kit.system.weapon, ...(kit.system.extraWeapons ?? [])].map((w, n) => ({
+        ref: n ? `kit:${kit.id}:${n}` : `kit:${kit.id}`,
+        name: w.name && w.name !== kit.name ? `${kit.name} — ${w.name}` : kit.name,
+        img: kit.img, skill: w.skill, damage: w.damage,
+        value: actor.system.skills[w.skill]?.value ?? 0, descriptors: w.descriptors,
+        flags: parseWeaponDescriptors(w.descriptors, { ammo: w.ammo }),
+        empty: w.empty, jammed: w.jammed, broken: w.broken, kitId: kit.id, weaponIndex: n, attackIndex: null, unarmed: false
+      })));
     list.push({
       ref: "unarmed", name: game.i18n.localize("TTS.Weapon.Unarmed"), img: "icons/svg/combat.svg", skill: UNARMED.skill,
       damage: UNARMED.damage, value: actor.system.skills.melee.value, descriptors: "",
@@ -126,4 +125,21 @@ export function targetInfo(actor) {
 export function abilityList(actor) {
   return (actor?.items ?? []).filter(i => i.type === "ability")
     .map(i => ({ id: i.id, name: i.name, acquired: i.system.acquired, activations: i.system.activations ?? [] }));
+}
+
+/**
+ * Met à jour l'état d'une arme d'un kit (0 : profil principal ; n : arme supplémentaire n).
+ * @param {Item} kit
+ * @param {number} index
+ * @param {{empty?:boolean, jammed?:boolean, broken?:boolean}} changes
+ */
+export async function updateKitWeapon(kit, index = 0, changes = {}) {
+  if (!kit) return;
+  if (!index) {
+    return kit.update(Object.fromEntries(Object.entries(changes).map(([k, v]) => [`system.weapon.${k}`, v])));
+  }
+  const list = foundry.utils.deepClone(kit.system._source.extraWeapons ?? []);
+  if (!list[index - 1]) return;
+  Object.assign(list[index - 1], changes);
+  return kit.update({ "system.extraWeapons": list });
 }

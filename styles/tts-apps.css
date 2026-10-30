@@ -36,3 +36,36 @@
 .thetroubleshooters .tts-challenge-form .tts-inline, .thetroubleshooters .tts-duel-form .tts-inline { flex-wrap: wrap; margin: 0.3rem 0; }
 .thetroubleshooters .tts-challenge-form .tts-small-button.tts-active { font-weight: bold; border-color: var(--tts-accent, #c8382c); }
 .thetroubleshooters .tts-duel-form select[multiple] { width: 100%; }
+
+/* Assistants de création (phase 8) : Risque-tout et personnages secondaires */
+.thetroubleshooters.tts-draft-app .window-content { padding: 0.5rem 0.75rem; }
+.thetroubleshooters.tts-draft-app .tts-chargen-grid { display: grid; grid-template-columns: minmax(9rem, max-content) 1fr; gap: 0.25rem 0.6rem; align-items: center; margin: 0.3rem 0; }
+.thetroubleshooters.tts-draft-app .tts-chargen-grid .tts-inline { display: flex; gap: 0.3rem; align-items: center; }
+.thetroubleshooters.tts-draft-app .tts-chargen-grid .tts-inline select, .thetroubleshooters.tts-draft-app .tts-chargen-grid .tts-inline input[type="text"] { flex: 1 1 auto; }
+.thetroubleshooters.tts-draft-app .tts-small-button { flex: 0 0 auto; width: auto; font-size: 0.8em; line-height: 1.5; padding: 0 0.45rem; }
+.thetroubleshooters.tts-draft-app .tts-chargen-description { max-height: 7rem; overflow-y: auto; font-size: 0.85em; margin: 0.3rem 0; padding: 0.2rem 0.4rem; border-left: 3px solid var(--tts-accent); }
+.thetroubleshooters.tts-draft-app .tts-chargen-skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.15rem 0.6rem; }
+.thetroubleshooters.tts-draft-app .tts-chargen-skill { display: flex; justify-content: space-between; border-bottom: 1px dotted var(--tts-line); }
+.thetroubleshooters.tts-draft-app .tts-chargen-checks { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.1rem 0.6rem; margin: 0.3rem 0; }
+.thetroubleshooters.tts-draft-app .tts-chargen-derived { margin: 0.3rem 0 0; }
+.thetroubleshooters.tts-draft-app textarea { width: 100%; }
+.thetroubleshooters.tts-draft-app .tts-row-table input[type="text"] { width: 100%; }
+.thetroubleshooters.tts-draft-app .tts-row-table .tts-num input { width: 3.4rem; }
+.thetroubleshooters.tts-draft-app .tts-draft-errors, .thetroubleshooters.tts-draft-app .tts-draft-warnings { list-style: none; margin: 0.4rem 0; padding: 0.3rem 0.5rem; border-radius: 4px; }
+.thetroubleshooters.tts-draft-app .tts-draft-errors { color: #b91c1c; border: 1px solid #b91c1c; }
+.thetroubleshooters.tts-draft-app .tts-draft-warnings { color: var(--tts-warn); border: 1px solid var(--tts-warn); }
+.thetroubleshooters.tts-draft-app .tts-draft-ok { color: #15803d; margin: 0.4rem 0; }
+.thetroubleshooters.tts-draft-app .tts-app-footer { display: flex; gap: 0.4rem; margin-top: 0.4rem; }
+.thetroubleshooters.tts-draft-app .tts-app-footer button { flex: 1 1 auto; }
+
+/* Progression et débriefing (phase 9) */
+.thetroubleshooters.tts-progression .window-content, .thetroubleshooters.tts-debrief .window-content { padding: 0.5rem 0.75rem; }
+.thetroubleshooters.tts-progression .tts-progression-row { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; margin: 0.25rem 0; }
+.thetroubleshooters.tts-progression .tts-progression-label { flex: 0 0 100%; font-weight: bold; }
+.thetroubleshooters.tts-progression .tts-progression-row select { flex: 1 1 14rem; }
+.thetroubleshooters.tts-progression .tts-progression-row input[type="text"] { flex: 0 1 10rem; }
+.thetroubleshooters.tts-progression .tts-small-button, .thetroubleshooters.tts-debrief .tts-small-button { flex: 0 0 auto; width: auto; font-size: 0.8em; line-height: 1.5; padding: 0 0.45rem; }
+.thetroubleshooters.tts-debrief .tts-debrief-table th { font-size: 0.72em; line-height: 1.1; text-align: center; }
+.thetroubleshooters.tts-debrief .tts-debrief-table .tts-num input { width: 3rem; }
+.thetroubleshooters.tts-debrief .tts-app-footer { display: flex; margin-top: 0.4rem; }
+.thetroubleshooters.tts-debrief .tts-app-footer button { flex: 1 1 auto; }

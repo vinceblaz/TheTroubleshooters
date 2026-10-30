@@ -1,19 +1,20 @@
 <div class="tts-npc-body">
-  <header class="tts-sheet-header">
-    <img class="tts-portrait" src="{{actor.img}}" alt="{{actor.name}}" data-edit="img" data-action="editImage" width="80" height="80">
+  <header class="tts-sheet-header tts-npc-banner">
+    <img class="tts-portrait" src="{{actor.img}}" alt="{{actor.name}}" data-edit="img" data-action="editImage" width="84" height="84">
     <div class="tts-header-main">
+      <span class="tts-npc-kicker">{{localize "TTS.NpcSheet.Kicker"}}</span>
       <input class="tts-name" name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'TTS.Sheet.Name'}}">
-      <div class="tts-grid-3">
-        <div class="form-group"><label>{{localize "TTS.Npc.Rank"}}</label>
-          <select name="system.rank">{{selectOptions rankChoices selected=system.rank}}</select></div>
-        <div class="form-group"><label>{{localize "TTS.Vitality.Label"}}</label>
-          <div class="tts-inline"><input name="system.vitality.value" type="number" value="{{system.vitality.value}}" min="0"> / <input name="system.vitality.max" type="number" value="{{system.vitality.max}}" min="0"></div></div>
-        <div class="form-group"><label>{{localize "TTS.Initiative.Label"}}</label>
-          <div class="tts-inline"><select name="system.initiative.mode">{{selectOptions initiativeChoices selected=system.initiative.mode}}</select>
-          {{#if (eq system.initiative.mode "fixed")}}<input name="system.initiative.value" type="number" value="{{system.initiative.value}}" min="0">{{/if}}</div></div>
-      </div>
     </div>
+    <div class="tts-npc-rank"><select name="system.rank" aria-label="{{localize 'TTS.Npc.Rank'}}">{{selectOptions rankChoices selected=system.rank}}</select></div>
   </header>
+  <div class="tts-npc-values">
+    <div class="form-group tts-npc-vitality"><label>{{localize "TTS.Vitality.Label"}}</label>
+      <div class="tts-inline"><input name="system.vitality.value" type="number" value="{{system.vitality.value}}" min="0"> / <input name="system.vitality.max" type="number" value="{{system.vitality.max}}" min="0"></div>
+      <div class="tts-npc-gauge" aria-hidden="true"><span style="width: {{vitalityPct}}%"></span></div></div>
+    <div class="form-group"><label>{{localize "TTS.Initiative.Label"}}</label>
+      <div class="tts-inline"><select name="system.initiative.mode">{{selectOptions initiativeChoices selected=system.initiative.mode}}</select>
+      {{#if (eq system.initiative.mode "fixed")}}<input name="system.initiative.value" type="number" value="{{system.initiative.value}}" min="0">{{/if}}</div></div>
+  </div>
 
   <div class="tts-rank-capabilities">
     <span class="tts-tag {{#unless capabilities.canTakeWounded}}tts-off{{/unless}}">{{localize "TTS.Npc.CanTakeWounded"}}</span>

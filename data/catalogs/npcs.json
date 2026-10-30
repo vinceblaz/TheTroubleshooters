@@ -1,0 +1,5137 @@
+[
+  {
+    "seedKey": "npc.chef-generique",
+    "folder": "Génériques",
+    "data": {
+      "name": "Chef générique",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "boss",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 75,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Aboyer des ordres",
+            "value": 85,
+            "kind": "flavor"
+          },
+          {
+            "name": "Endurance",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Force",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Intimidation",
+            "value": 65,
+            "kind": "flavor"
+          },
+          {
+            "name": "Pilotage",
+            "value": 75,
+            "kind": "important"
+          },
+          {
+            "name": "Se vanter de sa domination du monde",
+            "value": 85,
+            "kind": "flavor"
+          },
+          {
+            "name": "Vigilance",
+            "value": 65,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Katana",
+            "value": 75,
+            "damage": 5,
+            "uses": 2,
+            "descriptors": "contre",
+            "skill": "melee",
+            "counter": true,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Pistolet .357 Magnum Desert Eagle",
+            "value": 65,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (8-0), portée courte (3)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Mitraillette Uzi 9 mm",
+            "value": 65,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (9-0)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 45,
+        "protection": 0,
+        "vitality": {
+          "value": 8,
+          "max": 8
+        },
+        "initiative": {
+          "mode": "roll",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "chef",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (4)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "contre-attaque",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (3)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Les chefs sont les grands méchants de The Troubleshooters: les Risque-tout. Ils possèdent généralement plusieurs attaques et une valeur de défense. Leur Vitalité est souvent de 7, ou même plus, et ils peuvent décider de subir la condition Blessé. Les chefs peuvent aussi décider de subir la condition Danger de mort. Faites-en usage avec modération, seulement pour le combat final de la campagne. Cela signifie que les chefs qui peuvent décider de subir la condition Danger de mort sont soumis à la même règle défendant de tuer des personnages que les personnages principaux. Les chefs sont toujours des personnages nommés. Ils peuvent jouer trois rôles : Moteur de l’histoire : la plupart du temps, le chef agit en coulisses pour faire avancer l’histoire. C’est à cause de lui que l’histoire commence. Combat final: à la fin de l’aventure, vous voudrez peut-être mettre en scène un combat final pour atteindre une apothéose satisfaisante. C’est très probablement à ce moment-là que vos personnages principaux rencontreront un chef. Comme les joueurs se préparent souvent longuement pour ce combat, rendez-le plus intéressant avec au moins un lieutenant et plusieurs sous-fifres. Si vous voulez que le combat final soit épique, rajoutez aussi une horde de sbires. Exposition : si les personnages principaux sont capturés, le chef peut profiter de l’occasion pour se vanter de son plan diabolique. C’est un très bon moment d’exposition, lors duquel les personnages peuvent découvrir ce que le chef préparait réellement. Le modèle de base du chef possède les caractéristiques suivantes : • un nom ; • la compétence de base ; • environ une demidouzaine de compétences importantes ; • quelques compétences de personnalisation ; • plusieurs attaques ; • une valeur de défense ; • une Vitalité élevée (généralement de 7 ou plus) ; • peut décider de subir la condition Blessé ; • peut décider de subir la condition Danger de mort ; • peut inverser des jets de tâche.</p><p><strong>Source :</strong> LdB p. 208</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.lieutenant-generique",
+    "folder": "Génériques",
+    "data": {
+      "name": "Lieutenant générique",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "lieutenant",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Agilité",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Furtivité",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Pilotage",
+            "value": 75,
+            "kind": "important"
+          },
+          {
+            "name": "Prendre une balle à la place du chef",
+            "value": 55,
+            "kind": "flavor"
+          },
+          {
+            "name": "Vigilance",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Voler le cœur du héros",
+            "value": 55,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Poignard affûté",
+            "value": 65,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "précis",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Pistolet .357 Magnum Desert Eagle",
+            "value": 65,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (8-0), portée courte (3)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Fusil d’assaut FAMAS",
+            "value": 55,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (9-0)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 5,
+          "max": 5
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "lieutenant",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Les lieutenants sont les acolytes du chef et ressemblent à des chefs du point de vue des mécaniques de jeu. Les lieutenants disposent généralement de plusieurs attaques et d’une valeur de défense. Leur score de Vitalité est souvent de 6 ou plus et ils peuvent décider de subir la condition Blessé au lieu de perdre de la Vitalité. La différence avec les chefs est que les lieutenants ne peuvent pas décider de subir la condition Danger de mort. Quand leur Vitalité tombe à 0, ils sont Hors de combat et peuvent éventuellement ne plus être présents dans la scène. En général, les lieutenants sont des personnages nommés. Ils peuvent jouer quatre rôles : Opposition majeure : si vous avez besoin d’un mini-boss qui ne soit pas le vrai chef, mais opposera tout de même une résistance notable aux personnages, utilisez un lieutenant. Rajoutez des sous-fifres si nécessaire. Exposition : les lieutenants en savent davantage que les sous-fifres et peuvent expliquer aux personnages une partie des éléments scénaristiques de l’intrigue, soit en se vantant, soit en étant capturés et interrogés, soit en jouant double jeu (qui a dit que les lieutenants étaient toujours loyaux ?). Interaction : les lieutenants sont des personnages nommés et peuvent avoir leurs propres priorités. Ils peuvent être utilisés pour exposer l’intrigue, mais aussi pour créer des rivalités ou inspirer des relations romantiques. Sauvetage du chef: lors du combat final, vous pouvez utiliser les lieutenants pour qu’ils prennent la balle à la place du chef, ce qui prolonge le combat ou donne au chef une chance de s’échapper et de revenir lors de l’aventure suivante. Le modèle de base du lieutenant possède les caractéristiques suivantes : • un nom ; • la compétence de base ; • environ une demidouzaine de compétences importantes ; • quelques compétences de personnalisation ; • plusieurs attaques ; • une valeur de défense ; • une Vitalité élevée (généralement de 6 ou plus) ; • peut décider de subir la condition Blessé ; • peut inverser des jets de tâche.</p><p><strong>Source :</strong> LdB p. 208</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.sous-fifre-generique",
+    "folder": "Génériques",
+    "data": {
+      "name": "Sous-fifre générique",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "henchman",
+        "baseSkill": 35,
+        "specialty": {
+          "value": 55,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Agilité",
+            "value": 45,
+            "kind": "important"
+          },
+          {
+            "name": "Force",
+            "value": 55,
+            "kind": "important"
+          },
+          {
+            "name": "Obéir aux ordres",
+            "value": 55,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Crochet du gauche",
+            "value": 55,
+            "damage": 2,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Pistolet Beretta 9 mm",
+            "value": 55,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (9-0), portée courte (3)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Pistolet-mitrailleur HK MP5 9 mm",
+            "value": 45,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (9-0)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": null,
+        "protection": 0,
+        "vitality": {
+          "value": 5,
+          "max": 5
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "sous-fifre",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Les sous-fifres sont le type le plus courant de personnages secondaires. Les sous-fifres n’ont pas de valeur de défense. Ils possèdent un score de Vitalité, 5 environ en général, mais il peut être plus élevé. Ils ne peuvent pas décider de subir la condition Blessé et quand leur Vitalité tombe à 0, ils ne sont plus présents dans la scène. Par ailleurs, ils ont souvent un score d’Initiative fixe, de 7 environ. Les sous-fifres sont mis Hors de combat et ne sont plus présents dans la scène si un jet d’attaque contre eux génère du Bon Karma. Ils peuvent jouer deux rôles : Effectifs supplémentaires : vous avez un lieutenant ou un chef, mais vous devez occuper les personnages principaux. Utilisez des sous-fifres pour renforcer les effectifs pendant une scène de combat afin que les personnages ne soient pas en surnombre par rapport à l’ennemi. Obstacle quelconque: s’il vous faut des valeurs numériques pour un personnage secondaire quelconque qui va forcer les personnages principaux à réfléchir à une autre solution avant de déclencher un combat, utilisez un sous-fifre. Le modèle de base du sous-fifre possède les caractéristiques suivantes : • la compétence de base ; • quelques compétences importantes ; • éventuellement quelques comp étences de personnalisation ; • une ou plusieurs attaques ; • une Vitalité modérée (5) ; • une initiative fixe (7 environ).</p><p><strong>Source :</strong> LdB p. 209</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.sbire-generique",
+    "folder": "Génériques",
+    "data": {
+      "name": "Sbire générique",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "minion",
+        "baseSkill": 35,
+        "specialty": {
+          "value": 45,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Attaque en groupe",
+            "value": 55,
+            "kind": "flavor"
+          },
+          {
+            "name": "Fonction unique (qui ne soit pas du combat)",
+            "value": 65,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Coup de poing générique",
+            "value": 45,
+            "damage": 2,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Flingue générique",
+            "value": 45,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (9-0), portée courte (2)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": null,
+        "protection": 0,
+        "vitality": {
+          "value": 2,
+          "max": 2
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 5
+        },
+        "descriptors": [
+          {
+            "key": "sbire",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Les sbires sont un type particulier de figurant. Ils possèdent la compétence de base, éventuellement quelques compétences de personnalisation, une ou plusieurs attaques, pas de valeur de défense, un score d’initiative fixe de 5 environ et une Vitalité basse. Les sbires sont mis Hors de combat et ne sont plus présents dans la scène si un jet d’attaque contre eux génère du Bon Karma. Ils peuvent jouer deux rôles : Horde : si vous voulez faire jouer une scène de combat lors de laquelle les personnages principaux peuvent briller et les joueurs se sentir compétents et puissants, utilisez des sbires. Obstacle mineur quelconque : s’il vous faut des valeurs numériques pour un personnage quelconque du Chef des Opérations qui n’est pas un problème majeur si un combat éclate, mais qui nécessite tout de même des efforts pour être vaincu, utilisez un sbire. Le modèle de base du sbire possède les caractéristiques suivantes : • la compétence de base ; • éventuellement quelques comp étences de personnalisation ; • une ou plusieurs attaques ; • une Vitalité basse (2) ; • une initiative fixe (5 environ).</p><p><strong>Source :</strong> LdB p. 209</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.enqueteur-de-police",
+    "folder": "Police et justice",
+    "data": {
+      "name": "Enquêteur de police",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "lieutenant",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Constituer un dossier d’accusation",
+            "value": 65,
+            "kind": "flavor"
+          },
+          {
+            "name": "Droit",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Enquête",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Interrogatoire",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Intimidation",
+            "value": 65,
+            "kind": "flavor"
+          },
+          {
+            "name": "Opérations médico-légales",
+            "value": 75,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Pistolet Beretta 9 mm",
+            "value": 65,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (9-0), portée courte (3)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 5,
+          "max": 5
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "lieutenant",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Vivre des aventures est dangereux et les personnages risquent de devoir faire des choses illégales. ENQUÊTEUR DE POLICE Si un crime a été commis, le travail de l’enquêteur de police consiste à enquêter dessus, en utilisant des méthodes de base comme interroger les voisins et prendre des notes, mais aussi des outils médico-légaux complexes comme les tests sanguins, les empreintes digitales, les analyses de fibres et même les bases de données informatiques, pour monter un dossier que le procureur pourra présenter au tribunal.</p><p><strong>Source :</strong> LdB p. 210</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.policier-municipal",
+    "folder": "Police et justice",
+    "data": {
+      "name": "Policier municipal",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "henchman",
+        "baseSkill": 35,
+        "specialty": {
+          "value": 55,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Agilité",
+            "value": 45,
+            "kind": "important"
+          },
+          {
+            "name": "Force",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Poursuivre les criminels",
+            "value": 55,
+            "kind": "flavor"
+          },
+          {
+            "name": "Sceller la scène de crime",
+            "value": 65,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Matraque",
+            "value": 55,
+            "damage": 3,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Pistolet Beretta 9 mm",
+            "value": 55,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (9-0), portée courte (3)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": null,
+        "protection": 0,
+        "vitality": {
+          "value": 3,
+          "max": 3
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 4
+        },
+        "descriptors": [
+          {
+            "key": "sous-fifre",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>L’agent de police ordinaire en patrouille est souvent le premier sur site s’il se passe quelque chose. Son travail consiste à maintenir l’ordre, à sceller une scène de crime pour qu’elle ne soit pas contaminée et parfois à poursuivre et à arrêter le criminel.</p><p><strong>Source :</strong> LdB p. 210</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.garde-frontiere",
+    "folder": "Police et justice",
+    "data": {
+      "name": "Garde-frontière",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "henchman",
+        "baseSkill": 35,
+        "specialty": {
+          "value": 55,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Agilité",
+            "value": 45,
+            "kind": "important"
+          },
+          {
+            "name": "Force",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Rechercher de la contrebande",
+            "value": 55,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Matraque",
+            "value": 55,
+            "damage": 3,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Pistolet Beretta 9 mm",
+            "value": 55,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (9-0), portée courte (3)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Pistolet-mitrailleur HK MP5 9 mm",
+            "value": 45,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (9-0)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": null,
+        "protection": 0,
+        "vitality": {
+          "value": 3,
+          "max": 3
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 4
+        },
+        "descriptors": [
+          {
+            "key": "sous-fifre",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Selon l’organisation du pays concerné, le garde-frontière peut faire partie de la police, de l’armée ou d’une force totalement distincte. Le garde typique s’ennuie généralement à mourir car son travail consiste normalement à ouvrir la frontière, à la fermer et à vérifier les papiers, les passeports, les véhicules et les bagages de ceux qui la franchissent.</p><p><strong>Source :</strong> LdB p. 210</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.detective-prive",
+    "folder": "Police et justice",
+    "data": {
+      "name": "Détective privé",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "lieutenant",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Agilité",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Effraction illégale",
+            "value": 65,
+            "kind": "flavor"
+          },
+          {
+            "name": "Furtivité",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Pilotage",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Trouver des indices",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Vigilance",
+            "value": 65,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Poings d’acier",
+            "value": 65,
+            "damage": 4,
+            "uses": 2,
+            "descriptors": "précis",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Revolver Smith & Wesson",
+            "value": 65,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (8-0), portée courte (3)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 5,
+          "max": 5
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "lieutenant",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Le détective privé ne fait pas partie d’une force de police. Il travaille de manière indépendante et enquête sur les affaires seul. Il peut vérifier les antécédents des candidats à un poste au sein d’une entreprise, rechercher les enfants fugueurs ou prendre sur le fait les conjoints infidèles. En Europe, ses possibilités d’action sont très restreintes, donc leur métier est souvent loin d’être aussi excitant que ce que prétendent les romans pulp.</p><p><strong>Source :</strong> LdB p. 210</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.vigile",
+    "folder": "Police et justice",
+    "data": {
+      "name": "Vigile",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "henchman",
+        "baseSkill": 35,
+        "specialty": {
+          "value": 55,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Agilité",
+            "value": 45,
+            "kind": "important"
+          },
+          {
+            "name": "Force",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Surveiller le périmètre",
+            "value": 55,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Matraque",
+            "value": 55,
+            "damage": 3,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": null,
+        "protection": 0,
+        "vitality": {
+          "value": 3,
+          "max": 3
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 4
+        },
+        "descriptors": [
+          {
+            "key": "sous-fifre",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Les vigiles ne font pas partie de la police, ils sont simplement chargés de garder un lieu. Ils peuvent travailler pour une entreprise de sécurité ou pour le propriétaire du lieu.</p><p><strong>Source :</strong> LdB p. 211</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.chef-de-mafia-generique",
+    "folder": "Mafia",
+    "data": {
+      "name": "Chef de mafia générique",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "boss",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 75,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Déléguer le travail à quelqu’un d’autre",
+            "value": 85,
+            "kind": "flavor"
+          },
+          {
+            "name": "Intimidation",
+            "value": 85,
+            "kind": "flavor"
+          },
+          {
+            "name": "Mode",
+            "value": 55,
+            "kind": "flavor"
+          },
+          {
+            "name": "Organiser des fêtes spectaculaires",
+            "value": 85,
+            "kind": "flavor"
+          },
+          {
+            "name": "Vigilance",
+            "value": 65,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Batte de baseball",
+            "value": 75,
+            "damage": 4,
+            "uses": 2,
+            "descriptors": "contre",
+            "skill": "melee",
+            "counter": true,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Pistolet .357 Magnum Smith & Wesson",
+            "value": 75,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (8-0), portée courte (3)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 45,
+        "protection": 0,
+        "vitality": {
+          "value": 8,
+          "max": 8
+        },
+        "initiative": {
+          "mode": "roll",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "chef",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "commandant (4)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (4)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "contre-attaque",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (3)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Au sommet d’une organisation mafieuse, dissimulé dans les ombres, toujours intouchable, se trouve le capo, la tête. Il est le chef et le cerveau derrières les opérations de la mafia. Souvent, il lui suffit d’un murmure ou d’une suggestion pour détruire la vie de quelqu’un.</p><p><strong>Source :</strong> LdB p. 211</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.chien-de-garde",
+    "folder": "Police et justice",
+    "data": {
+      "name": "Chien de garde",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Aboyer",
+            "value": 65,
+            "kind": "flavor"
+          },
+          {
+            "name": "Course",
+            "value": 75,
+            "kind": "important"
+          },
+          {
+            "name": "Résister à la tentation d’un délicieux steak",
+            "value": 55,
+            "kind": "flavor"
+          },
+          {
+            "name": "Saut",
+            "value": 75,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Morsure puissante",
+            "value": 65,
+            "damage": 3,
+            "uses": 1,
+            "descriptors": "immobilisation",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 5,
+          "max": 5
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 5
+        },
+        "descriptors": [
+          {
+            "key": "bête dressée",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "effrayant",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><strong>Source :</strong> LdB p. 211</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.lieutenant-de-mafia-generique",
+    "folder": "Mafia",
+    "data": {
+      "name": "Lieutenant de mafia générique",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "lieutenant",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Détruire les preuves",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Intimidation",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Prendre une balle à la place du chef",
+            "value": 55,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Pistolet Colt .45 M1911",
+            "value": 65,
+            "damage": 6,
+            "uses": 2,
+            "descriptors": "bruyant, munitions (8-0), portée courte (3)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Mitraillette Thompson .45 dans un étui à violon",
+            "value": 45,
+            "damage": 6,
+            "uses": 2,
+            "descriptors": "bruyant, munitions (9-0)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 5,
+          "max": 5
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "lieutenant",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Un consigliere conseille le capo et s’occupe pour lui des problèmes délicats afin que le chef ne soit pas obligé de se salir les mains.</p><p><strong>Source :</strong> LdB p. 211</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.homme-de-main-de-la-mafia",
+    "folder": "Mafia",
+    "data": {
+      "name": "Homme de main de la mafia",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "henchman",
+        "baseSkill": 35,
+        "specialty": {
+          "value": 55,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Obéir aux ordres",
+            "value": 55,
+            "kind": "flavor"
+          },
+          {
+            "name": "Passage à tabac",
+            "value": 55,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Poings américains",
+            "value": 55,
+            "damage": 3,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Revolver Smith & Wesson",
+            "value": 55,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (9-0), portée courte (3)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": null,
+        "protection": 0,
+        "vitality": {
+          "value": 5,
+          "max": 5
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "sous-fifre",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Même la mafia a ses gros bras, les exécutants dont les talents principaux sont la loyauté et les muscles.</p><p><strong>Source :</strong> LdB p. 211</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.soldat-de-base",
+    "folder": "Armée",
+    "data": {
+      "name": "Soldat de base",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "henchman",
+        "baseSkill": 35,
+        "specialty": {
+          "value": 55,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Endurance",
+            "value": 45,
+            "kind": "important"
+          },
+          {
+            "name": "Force",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Obéir aux ordres",
+            "value": 55,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Fusil d’assaut 7,62 mm HK G3",
+            "value": 55,
+            "damage": 7,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (8-0)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Grenade",
+            "value": 55,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "(3dX dans les zones adjacentes), lancé",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": null,
+        "protection": 0,
+        "vitality": {
+          "value": 3,
+          "max": 3
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 4
+        },
+        "descriptors": [
+          {
+            "key": "sous-fifre",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Le soldat de base est en fait une personne ordinaire qui a reçu un fusil et a été dirigée vers l’ennemi. Il sait exactement ce qu’il a à faire.</p><p><strong>Source :</strong> LdB p. 212</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.soldat-des-forces-speciales",
+    "folder": "Armée",
+    "data": {
+      "name": "Soldat des forces spéciales",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "lieutenant",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Agilité",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Faire péter des trucs",
+            "value": 85,
+            "kind": "flavor"
+          },
+          {
+            "name": "Furtivité",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Parachutage",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Pilotage",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Plongée",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Vigilance",
+            "value": 65,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Poignard",
+            "value": 65,
+            "damage": 4,
+            "uses": 2,
+            "descriptors": "précis",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Fusil d’assaut FAMAS",
+            "value": 75,
+            "damage": 6,
+            "uses": 2,
+            "descriptors": "bruyant, munitions (9-0)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Grenade",
+            "value": 65,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "(3dX dans les zones adjacentes), lancé",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 45,
+        "protection": 0,
+        "vitality": {
+          "value": 5,
+          "max": 5
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "lieutenant",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Il existe de nombreux types différents de forces spéciales. Certaines sont spécialisées dans le parachutage derrière les lignes ennemies. D’autres s’infiltrent par bateau ou en voiture pour abattre des cibles stratégiques. Certaines plongent dans les ports ennemis. D’autres encore sont spécialisées dans la lutte antiterroriste et le sauvetage d’otages. Toutes reçoivent une formation et un équipement bien meilleurs que ceux des soldats de base.</p><p><strong>Source :</strong> LdB p. 212</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.officier-de-larmee",
+    "folder": "Armée",
+    "data": {
+      "name": "Officier de l’armée",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "boss",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Aboyer des ordres",
+            "value": 85,
+            "kind": "flavor"
+          },
+          {
+            "name": "Couvre-chef impressionnant",
+            "value": 105,
+            "kind": "flavor"
+          },
+          {
+            "name": "Instiller du patriotisme",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Stratégie",
+            "value": 65,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Matraque d’officier",
+            "value": 65,
+            "damage": 3,
+            "uses": 2,
+            "descriptors": "non létal",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Pistolet 9 mm MAC 50",
+            "value": 75,
+            "damage": 6,
+            "uses": 2,
+            "descriptors": "bruyant, munitions (8-0), portée courte (3)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 55,
+        "protection": 0,
+        "vitality": {
+          "value": 5,
+          "max": 5
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "chef",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "commandant (4)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Les soldats ont besoin de chefs et les armées ont besoin de hiérarchies. Tel est le rôle des officiers : ils sont censés avoir une vision globale de la situation et mener les hommes à la victoire. « Censés » étant le mot important. Certains officiers ne sont là que pour la gloire, d’autres aiment l’autorité que leur confère leur rang et certains sont de bons officiers, du moins à ce qu’il paraît.</p><p><em>Le livre ne donne pas de valeur de spécialité : base + 20.</em></p><p><strong>Source :</strong> LdB p. 212</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.superviseur",
+    "folder": "Agents secrets",
+    "data": {
+      "name": "Superviseur",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "boss",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 75,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Accéder aux systèmes de sécurité",
+            "value": 85,
+            "kind": "flavor"
+          },
+          {
+            "name": "Endurance",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Force",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Intimidation",
+            "value": 65,
+            "kind": "flavor"
+          },
+          {
+            "name": "Pilotage",
+            "value": 75,
+            "kind": "important"
+          },
+          {
+            "name": "Vigilance",
+            "value": 65,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Combat rapproché",
+            "value": 75,
+            "damage": 3,
+            "uses": 1,
+            "descriptors": "contre",
+            "skill": "melee",
+            "counter": true,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Pistolet Beretta 9 mm avec silencieux",
+            "value": 75,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "munitions (9-0), portée courte (3)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Mitraillette HK 9 mm",
+            "value": 65,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (9-0)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 45,
+        "protection": 0,
+        "vitality": {
+          "value": 8,
+          "max": 8
+        },
+        "initiative": {
+          "mode": "roll",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "chef",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (4)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "contre-attaque",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (3)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Le superviseur est généralement un bureaucrate, assis derrière un bureau à l’ambassade et qui gère plusieurs espions recrutés chez l’ennemi. Il les rencontre, gère les livraisons par des boîtes aux lettres mortes et transmet les renseignements collectés à un analyste. Parfois, c’est lui qui doit aider les espions lorsqu’ils se sont attiré des ennuis, par exemple en les faisant sortir du pays en secret avec leur famille. Cette tâche peut être dangereuse, aussi les superviseurs sont-ils souvent d’anciens agents.</p><p><strong>Source :</strong> LdB p. 213</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.agent",
+    "folder": "Agents secrets",
+    "data": {
+      "name": "Agent",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "lieutenant",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Agilité",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Filature",
+            "value": 55,
+            "kind": "flavor"
+          },
+          {
+            "name": "Furtivité",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Pilotage",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Séduction",
+            "value": 55,
+            "kind": "flavor"
+          },
+          {
+            "name": "Vigilance",
+            "value": 65,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Poignard affûté",
+            "value": 65,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "précis",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Walther PPK",
+            "value": 75,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (9-0), portée courte (2)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 7,
+          "max": 7
+        },
+        "initiative": {
+          "mode": "roll",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "lieutenant",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Un agent est un membre spécial qui fait le sale travail pour un service de renseignements. Il a une excellente formation dans de nombreux domaines différents et se montre très compétent. Les agents prennent souvent contact pour la première fois avec les espions et leur ordonnent de commencer une mission, puis leur attribuent un superviseur.</p><p><strong>Source :</strong> LdB p. 213</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.corbeau-ou-hirondelle",
+    "folder": "Agents secrets",
+    "data": {
+      "name": "Corbeau ou hirondelle",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "lieutenant",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Agilité",
+            "value": 75,
+            "kind": "important"
+          },
+          {
+            "name": "Furtivité",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Trouver une issue de secours",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Vigilance",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Voler le cœur du héros",
+            "value": 55,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Prise de kung-fu surprise",
+            "value": 75,
+            "damage": 3,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Poignard dissimulé",
+            "value": 65,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "précis",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Pistolet Makarov 9 mm",
+            "value": 65,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (8-0), portée courte (3)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 5,
+          "max": 5
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 9
+        },
+        "descriptors": [
+          {
+            "key": "lieutenant",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>CORBEAU/HIRONDELLE Le « corbeau » (pour un homme) ou l’« hirondelle » (pour une femme) est un type particulier d’agent. Le KGB utilise ces termes pour désigner un espion qui séduit sa cible, puis la fait chanter avec des vidéos de leur liaison et la transforme ainsi en informateur malgré elle. En dépit de l’origine soviétique de ce mot, presque toutes les agences de renseignement l’utilisent.</p><p><strong>Source :</strong> LdB p. 213</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.gros-bras",
+    "folder": "Agents secrets",
+    "data": {
+      "name": "Gros bras",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "henchman",
+        "baseSkill": 35,
+        "specialty": {
+          "value": 55,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Agilité",
+            "value": 45,
+            "kind": "important"
+          },
+          {
+            "name": "Force",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Obéir aux ordres",
+            "value": 55,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Crochet du gauche",
+            "value": 55,
+            "damage": 2,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Pistolet Beretta 9 mm",
+            "value": 55,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (9-0), portée courte (3)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Pistolet HK MP5 9 mm",
+            "value": 45,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (9-0)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": null,
+        "protection": 0,
+        "vitality": {
+          "value": 3,
+          "max": 3
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 4
+        },
+        "descriptors": [
+          {
+            "key": "sous-fifre",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Les gros bras sont les muscles, pas vraiment le cerveau. C’est une vieille tradition.</p><p><strong>Source :</strong> LdB p. 213</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.graf-albrecht-vogelin-erwin-von-zadrith",
+    "folder": "La Pieuvre",
+    "data": {
+      "name": "Graf Albrecht Vogelin Erwin von Zadrith",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "boss",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 75,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Aboyer des ordres",
+            "value": 85,
+            "kind": "flavor"
+          },
+          {
+            "name": "Domination du monde",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Endurance",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Force",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Intimidation",
+            "value": 65,
+            "kind": "flavor"
+          },
+          {
+            "name": "Musique d’orgue sinistre",
+            "value": 105,
+            "kind": "flavor"
+          },
+          {
+            "name": "Vigilance",
+            "value": 65,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Rayon disneural",
+            "value": 75,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "munitions (0), paralysant",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Canne-épée",
+            "value": 65,
+            "damage": 5,
+            "uses": 2,
+            "descriptors": "contre",
+            "skill": "melee",
+            "counter": true,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 45,
+        "protection": 0,
+        "vitality": {
+          "value": 8,
+          "max": 8
+        },
+        "initiative": {
+          "mode": "roll",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "chef",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (4)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "commandant (8)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "contre-attaque",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (3)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "effrayant",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>La Pieuvre est une organisation secrète dont l’objectif est de dominer le monde. Ses tentacules sont partout, dans les entreprises, parmi les dirigeants mondiaux, dans le crime organisé, etc. GRAF VON ZADRITH, NUMÉRO 2 Le dirigeant actuel de la Pieuvre est Graf (le comte) Albrecht Vogelin Erwin von Zadrith. C’est une figure quasi mythique au sein de la Pieuvre. Rares sont les membres qui l’ont déjà réellement rencontré. Reste que c’est l’un des seuls membres de la Pieuvre à être connu par son nom et non par son numéro. En dehors de la Pieuvre et en tenue ordinaire d’homme d’affaires, il n’a rien de remarquable. Il ressemble simplement à un gentleman d’âge mûr, svelte et bien habillé avec un début de calvitie. Si vous le croisiez à l’aéroport, vous n’y prêteriez pas plus d’attention que cela. D’ailleurs, vous l’avez probablement déjà réellement croisé sans le remarquer.</p><p><strong>Source :</strong> LdB p. 214</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.baronne-katerina-zhurova-zonda",
+    "folder": "La Pieuvre",
+    "data": {
+      "name": "Baronne Katerina Zhurova Zonda",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "boss",
+        "baseSkill": 35,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Conception de plans excessivement compliqués",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Endurance",
+            "value": 75,
+            "kind": "important"
+          },
+          {
+            "name": "Force",
+            "value": 85,
+            "kind": "important"
+          },
+          {
+            "name": "Interrogatoire sadique",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Interrogatoire séducteur",
+            "value": 85,
+            "kind": "flavor"
+          },
+          {
+            "name": "Neuf vies",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Vigilance",
+            "value": 75,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Rapière",
+            "value": 75,
+            "damage": 5,
+            "uses": 2,
+            "descriptors": "contre",
+            "skill": "melee",
+            "counter": true,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Arts martiaux",
+            "value": 65,
+            "damage": 3,
+            "uses": 1,
+            "descriptors": "contre",
+            "skill": "melee",
+            "counter": true,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Talon aiguille empoisonnée",
+            "value": 55,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "enfilée, poison mortel 65 %, poison paralysant 75 %, un coup",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Paire de pistolets .357 Magnum Desert Eagle",
+            "value": 65,
+            "damage": 6,
+            "uses": 2,
+            "descriptors": "bruyant, contre, munitions (8-0), portée courte (3)",
+            "skill": "shooting",
+            "counter": true,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 55,
+        "protection": 1,
+        "vitality": {
+          "value": 8,
+          "max": 8
+        },
+        "initiative": {
+          "mode": "roll",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "chef",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "commandant (4)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (3)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (3)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "contre-attaque",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>BARONNE ZONDA, NUMÉRO 6 Si qui que ce soit peut rivaliser avec von Zadrith, c’est bien la baronne Zonda. Peut-être est-ce la raison pour laquelle elle n’est « que » numéro 6 au sein de la Pieuvre. Les rumeurs affirment qu’elle est en fait le « produit fini » d’un programme soviétique visant à créer un être surhumain, mais a été recrutée par la Pieuvre au lieu de rester en Russie.</p><p><em>Protection : combinaison moulante de combat en kevlar 1dR.</em></p><p><strong>Source :</strong> LdB p. 214</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.docteur-cutter",
+    "folder": "La Pieuvre",
+    "data": {
+      "name": "Docteur Cutter",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "lieutenant",
+        "baseSkill": 35,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Connaissances obscures, Mouahahahaha !",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Science",
+            "value": 95,
+            "kind": "important"
+          },
+          {
+            "name": "Se concentrer sur une expérience",
+            "value": 55,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Rayon mortel expérimental",
+            "value": 55,
+            "damage": 7,
+            "uses": 1,
+            "descriptors": "munitions (8-0), portée courte (2)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Rayon disneural de reprogrammation",
+            "value": 55,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "non létal, un coup spécial : le cerveau de la cible est reprogrammé pour y implanter les schémas cérébraux d’un animal pris au hasard jusqu’à ce qu’il puisse revenir à la normale par une bonne nuit de sommeil (la cible adopte une partie des traits comportementaux d’un animal). Si la cible est Hors de combat, le schéma cérébral d’un animal pris au hasard prend totalement le contrôle du cerveau de la cible pendant 24 heures.",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Poings métalliques d’exosquelette",
+            "value": 55,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": null,
+        "protection": 0,
+        "vitality": {
+          "value": 4,
+          "max": 4
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 5
+        },
+        "descriptors": [
+          {
+            "key": "lieutenant",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "effrayant",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Ce docteur bègue est un génie dans les domaines de la physique à haute puissance, de la robotique et de la génétique (même si elle n’en est encore qu’à ses balbutiements). Il est entièrement dévoué à ses recherches et très ambitieux, bien qu’il demeure toujours farouchement loyal envers la Pieuvre. Il considère la Pieuvre comme un outil qui lui permettra de parvenir à inventer l’être surhumain.</p><p><strong>Source :</strong> LdB p. 215</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.scientifique-de-la-pieuvre-generique",
+    "folder": "La Pieuvre",
+    "data": {
+      "name": "Scientifique de la Pieuvre générique",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "henchman",
+        "baseSkill": 35,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Connaissances obscures",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Science",
+            "value": 95,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Équipement de laboratoire",
+            "value": 45,
+            "damage": 3,
+            "uses": 1,
+            "descriptors": "fragile",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": null,
+        "protection": 0,
+        "vitality": {
+          "value": 2,
+          "max": 2
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 2
+        },
+        "descriptors": [
+          {
+            "key": "sous-fifre",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Les scientifiques de la Pieuvre travaillent dans de nombreux domaines différents allant de la fuséologie à la physique nucléaire en passant par la biologie et la virologie. Ne vous attendez pas à ce qu’ils se battent pour la Pieuvre, sauf s’ils ont inventé un robot géant qu’ils pilotent. Mais ils peuvent tout de même baigner dans des délires de grandeur.</p><p><strong>Source :</strong> LdB p. 215</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.brute-de-la-pieuvre",
+    "folder": "La Pieuvre",
+    "data": {
+      "name": "Brute de la Pieuvre",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "henchman",
+        "baseSkill": 35,
+        "specialty": {
+          "value": 55,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Agilité",
+            "value": 45,
+            "kind": "important"
+          },
+          {
+            "name": "Force",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Obéir aux ordres",
+            "value": 55,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Crochet du gauche",
+            "value": 55,
+            "damage": 2,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Projecteur disneural",
+            "value": 55,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "munitions (9-0), paralysant, portée courte (2)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": null,
+        "protection": 0,
+        "vitality": {
+          "value": 3,
+          "max": 3
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 4
+        },
+        "descriptors": [
+          {
+            "key": "sous-fifre",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "prédateur de meute",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Le gros bras de la Pieuvre générique est embauché pour sa loyauté et pour sa force, pas pour son intelligence. Il ne fera pas la conversation en dehors de : « Toute résistance est inutile », « Silence ! » et « Avancez ! »</p><p><strong>Source :</strong> LdB p. 215</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.drone-de-service",
+    "folder": "La Pieuvre",
+    "data": {
+      "name": "Drone de service",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "minion",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Immobilisation d’humains violents",
+            "value": 55,
+            "kind": "flavor"
+          },
+          {
+            "name": "Interprétation littérale des ordres",
+            "value": 85,
+            "kind": "flavor"
+          },
+          {
+            "name": "Proférer des avertissements inutiles",
+            "value": 55,
+            "kind": "flavor"
+          },
+          {
+            "name": "Servir le thé, des boissons et de la nourriture",
+            "value": 65,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Étreinte",
+            "value": 45,
+            "damage": 0,
+            "uses": 1,
+            "descriptors": "immobilisation, non létal",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 2,
+          "max": 2
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 2
+        },
+        "descriptors": [
+          {
+            "key": "sbire",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Le drone de service est un robot monté sur une roue qui se maintient en équilibre grâce au gyroscope miniature extrêmement avancé fixé dans son corps. Il possède deux bras à six degrés de liberté et une tête pourvue de senseurs, d’un générateur de voix artificielle et d’un cerveau positronique. C’est le modèle d’octobot le plus malin, avec une intelligence limitée, la capacité d’obéir à des ordres verbaux (à la lettre) et l’habitude très rudimentaire et très pénible de tenter d’assurer la sécurité de son propriétaire.</p><p><em>Le livre ne donne pas de valeur de spécialité : base + 20.</em></p><p><strong>Source :</strong> LdB p. 215</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.drone-de-reconnaissance",
+    "folder": "La Pieuvre",
+    "data": {
+      "name": "Drone de reconnaissance",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "minion",
+        "baseSkill": 35,
+        "specialty": {
+          "value": 55,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Repérage de cibles",
+            "value": 65,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Rayon disneural",
+            "value": 45,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "munitions (0), paralysant",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Fusil d’assaut CAM 7,62 mm",
+            "value": 45,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "bruyant, munitions (8-0)",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": null,
+        "protection": 0,
+        "vitality": {
+          "value": 2,
+          "max": 2
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 3
+        },
+        "descriptors": [
+          {
+            "key": "sbire",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "prédateur de meute",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Le drone de reconnaissance est un robot bipède très mince avec un rayon disneural intégré dans le bras droit. Les drones de reconnaissance sont utilisés comme éclaireurs et comme gardes à l’intérieur des bases de commandement importantes de la Pieuvre. Ils peuvent être produits en série et équipés d’armes à feu ordinaires pour jouer le rôle de soldats quand la révolution débutera. Leur intelligence est tactique, mais limitée. Leur cerveau positronique reconnaît uniquement les ordres venant d’un membre du personnel de la Pieuvre ayant le bon niveau d’accréditation, mais ils obéissent aux ordres à la lettre. Ils sont dotés d’un générateur de voix artificielle, mais sa fonctionnalité est très limitée.</p><p><em>Le livre ne donne pas de valeur de spécialité : base + 20.</em></p><p><strong>Source :</strong> LdB p. 216</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.sentinelle",
+    "folder": "La Pieuvre",
+    "data": {
+      "name": "Sentinelle",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "minion",
+        "baseSkill": 35,
+        "specialty": {
+          "value": 55,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Repérage de cibles",
+            "value": 65,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Rayon disneural",
+            "value": 55,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "paralysant",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Rayon laser",
+            "value": 65,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "contre, portée courte (2)",
+            "skill": "shooting",
+            "counter": true,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Tentacules",
+            "value": 65,
+            "damage": 8,
+            "uses": 2,
+            "descriptors": "allonge, immobilisation",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": null,
+        "protection": 3,
+        "vitality": {
+          "value": 12,
+          "max": 12
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 2
+        },
+        "descriptors": [
+          {
+            "key": "sbire",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "effrayant",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (3)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "lent",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "prédateur de meute",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>En forme de dôme et mesurant quatre mètres de hauteur, les sentinelles sont utilisées pour défendre des points fixes autour des bases de la Pieuvre. Le sommet du dôme tourne lentement sur lui-même et ses yeux scannent constamment son environnement. Les sentinelles sont lourdes et lentes, mais blindées. Elles utilisent des tentacules pour se mouvoir et pour attaquer. Elles peuvent ligoter une victime avec ces fameux appendices ou l’électrocuter. Leurs yeux sont dotés de rayons laser et de rayons disneuraux pour l’attaque. Leur cerveau positronique a une intelligence très limitée, il est réglé soit pour défendre une zone, soit pour rechercher et détruire les membres du personnel non autorisés. Les sentinelles ne parlent pas, mais elles se coordonnent par ondes radio.</p><p><em>Le livre ne donne pas de valeur de spécialité : base + 20.</em></p><p><em>Protection : armure 3dR.</em></p><p><strong>Source :</strong> LdB p. 216</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.jack",
+    "folder": "La Pieuvre",
+    "data": {
+      "name": "Jack",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "boss",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 75,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Disparaître dans les ombres 75 % Furtivité",
+            "value": 65,
+            "kind": "flavor"
+          },
+          {
+            "name": "Médecine",
+            "value": 95,
+            "kind": "important"
+          },
+          {
+            "name": "Vigilance",
+            "value": 65,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Poignard aiguisé",
+            "value": 75,
+            "damage": 4,
+            "uses": 2,
+            "descriptors": "précis",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Canne",
+            "value": 85,
+            "damage": 3,
+            "uses": 2,
+            "descriptors": "non létal",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 55,
+        "protection": 0,
+        "vitality": {
+          "value": 8,
+          "max": 8
+        },
+        "initiative": {
+          "mode": "roll",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "chef",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "effrayant",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (3)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Jack est l’un des fournisseurs habituels de la Pieuvre lorsqu’elle veut se débarrasser de certaines personnes. Il est discret quand il travaille et préfère les lames aux pistolets. Son long couteau extrêmement affûté est caché dans sa canne. Cependant, quand il se déplace en public, il est nettement moins banal : il est habillé comme un gentleman de l’Angleterre victorienne, mais porte un masque quand il est sur une mission. Cela dit, cet accoutrement peut jouer à son avantage : les gens se souviennent toujours du haut-de-forme, du costume et de la canne, mais rarement du visage. Peu de gens le reconnaîtraient s’il avait quelques minutes pour changer de vêtements.</p><p><strong>Source :</strong> LdB p. 216</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.alice",
+    "folder": "La Pieuvre",
+    "data": {
+      "name": "Alice",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "boss",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Acrobaties sur les toits",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Agilité",
+            "value": 75,
+            "kind": "important"
+          },
+          {
+            "name": "Furtivité",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Trouver la cible",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Vigilance",
+            "value": 65,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Revolver",
+            "value": 65,
+            "damage": 5,
+            "uses": 2,
+            "descriptors": "bruyant, contre, munitions (9-0)",
+            "skill": "shooting",
+            "counter": true,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Coups de pied de karaté",
+            "value": 75,
+            "damage": 3,
+            "uses": 2,
+            "descriptors": "contre",
+            "skill": "melee",
+            "counter": true,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 55,
+        "protection": 0,
+        "vitality": {
+          "value": 8,
+          "max": 8
+        },
+        "initiative": {
+          "mode": "roll",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "chef",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "effrayant",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "contre-attaque",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Plus flamboyante encore, Alice est une tueuse qui manie deux revolvers à canon long fabriqués sur un modèle unique dans le style des pistolets à silex et délicatement gravés et incrustés. Elle est vêtue à la mode du XVIIIe siècle avec une cape, un tricorne et un masque de carnaval en porcelaine représentant un visage souriant. Très acrobatique et capable de courir sur les toits, elle préfère coincer ses cibles dans une ruelle sombre avant de frapper et laisse toujours une rose rouge sur ses victimes. Alice prend la plupart de ses contrats en Italie, mais a été aperçue partout dans le monde.</p><p><strong>Source :</strong> LdB p. 216</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.tigre",
+    "folder": "Animaux",
+    "data": {
+      "name": "Tigre",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Embuscades",
+            "value": 75,
+            "kind": "important"
+          },
+          {
+            "name": "Nage",
+            "value": 55,
+            "kind": "important"
+          },
+          {
+            "name": "Traque à l’odorat",
+            "value": 85,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Morsure de tigre",
+            "value": 65,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "immobilisation",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Griffes de tigre",
+            "value": 55,
+            "damage": 5,
+            "uses": 2,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 8,
+          "max": 8
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 8
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (3)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Non seulement les aventuriers vont avoir affaire à des humains dangereux, mais le monde est également rempli d’animaux féroces. Voici quelques exemples.</p><p><strong>Source :</strong> LdB p. 217</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": 0
+      }
+    }
+  },
+  {
+    "seedKey": "npc.lion",
+    "folder": "Animaux",
+    "data": {
+      "name": "Lion",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Course",
+            "value": 75,
+            "kind": "important"
+          },
+          {
+            "name": "Saut",
+            "value": 75,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Morsure de lion",
+            "value": 65,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "immobilisation",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Griffes de lion",
+            "value": 55,
+            "damage": 5,
+            "uses": 2,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 8,
+          "max": 8
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (3)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "prédateur de meute",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><strong>Source :</strong> LdB p. 217</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": 0
+      }
+    }
+  },
+  {
+    "seedKey": "npc.santos",
+    "folder": "La Pieuvre",
+    "data": {
+      "name": "Santos",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "boss",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Contrebande",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Déguisement",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Vigilance",
+            "value": 75,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Fusil de précision",
+            "value": 95,
+            "damage": 7,
+            "uses": 1,
+            "descriptors": "bruyant, un coup",
+            "skill": "shooting",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Pistolet Beretta 9 mm",
+            "value": 65,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "bruyant, contre, munitions (9-0), portée courte (3)",
+            "skill": "shooting",
+            "counter": true,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Sambo (art martial soviétique)",
+            "value": 55,
+            "damage": 3,
+            "uses": 1,
+            "descriptors": "contre",
+            "skill": "melee",
+            "counter": true,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 55,
+        "protection": 0,
+        "vitality": {
+          "value": 8,
+          "max": 8
+        },
+        "initiative": {
+          "mode": "roll",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "chef",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "contre-attaque",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p>Santos est un exemple d’assassin moins théâtral de la Pieuvre. C’est un type ordinaire au physique d’Europe méridionale banal. C’est un excellent sniper et il tue à très longue distance avec un fusil de précision. Des rumeurs affirment que Santos était un vétéran communiste lors de la guerre d’Espagne, puis s’échappa et fut formé comme terroriste à Cuba. Il accepte parfois des missions pour d’autres organisations en dehors de la Pieuvre.</p><p><strong>Source :</strong> LdB p. 217</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.elephant",
+    "folder": "Animaux",
+    "data": {
+      "name": "Éléphant",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Barrissement",
+            "value": 65,
+            "kind": "flavor"
+          },
+          {
+            "name": "Force",
+            "value": 75,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Piétinement",
+            "value": 65,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Défenses",
+            "value": 55,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "impact",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Coup de trompe",
+            "value": 55,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "contre",
+            "skill": "melee",
+            "counter": true,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 1,
+        "vitality": {
+          "value": 16,
+          "max": 16
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 5
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "énorme (–2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "contre- attaque",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><em>Protection : cuir d’éléphant 1dR.</em></p><p><strong>Source :</strong> LdB p. 217</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": 0
+      }
+    }
+  },
+  {
+    "seedKey": "npc.crocodile",
+    "folder": "Animaux",
+    "data": {
+      "name": "Crocodile",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Dissimulation dans l’eau",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Nage",
+            "value": 75,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Morsure d’acier",
+            "value": 65,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "immobilisation",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Roulade mortelle (sur une cible Prisonnière et dans l’eau seulement)",
+            "value": 55,
+            "damage": 8,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 10,
+          "max": 10
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 7
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "amphibie",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><strong>Source :</strong> LdB p. 217</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": 0
+      }
+    }
+  },
+  {
+    "seedKey": "npc.boa-constrictor",
+    "folder": "Animaux",
+    "data": {
+      "name": "Boa constrictor",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Dissimulation",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Nage",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Prise",
+            "value": 75,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Étreinte",
+            "value": 65,
+            "damage": 3,
+            "uses": 1,
+            "descriptors": "immobilisation",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Constriction (sur une cible Prisonnière seulement)",
+            "value": 65,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "suffocation",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 5,
+          "max": 5
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 2
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "amphibie",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><strong>Source :</strong> LdB p. 218</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": 0
+      }
+    }
+  },
+  {
+    "seedKey": "npc.hippopotame",
+    "folder": "Animaux",
+    "data": {
+      "name": "Hippopotame",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 55,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Nage",
+            "value": 55,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Piétinement",
+            "value": 65,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Défenses",
+            "value": 55,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "impact",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 2,
+        "vitality": {
+          "value": 12,
+          "max": 12
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 5
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "amphibie",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "énorme (–2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><em>Protection : cuir d’hippopotame 2dR.</em></p><p><strong>Source :</strong> LdB p. 218</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": 0
+      }
+    }
+  },
+  {
+    "seedKey": "npc.loup",
+    "folder": "Animaux",
+    "data": {
+      "name": "Loup",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Attaques coordonnées",
+            "value": 65,
+            "kind": "flavor"
+          },
+          {
+            "name": "Course",
+            "value": 75,
+            "kind": "important"
+          },
+          {
+            "name": "Hurlement",
+            "value": 85,
+            "kind": "flavor"
+          },
+          {
+            "name": "Saut",
+            "value": 75,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Morsure de loup",
+            "value": 65,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "immobilisation",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Griffes de loup",
+            "value": 55,
+            "damage": 4,
+            "uses": 2,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 6,
+          "max": 6
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 8
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (3)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "prédateur de meute",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><strong>Source :</strong> LdB p. 218</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": 0
+      }
+    }
+  },
+  {
+    "seedKey": "npc.grizzly",
+    "folder": "Animaux",
+    "data": {
+      "name": "Grizzly",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Escalade",
+            "value": 75,
+            "kind": "important"
+          },
+          {
+            "name": "Nage",
+            "value": 55,
+            "kind": "important"
+          },
+          {
+            "name": "Traque à l’odorat",
+            "value": 85,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Morsure d’ours",
+            "value": 65,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "immobilisation",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Griffes d’ours",
+            "value": 55,
+            "damage": 5,
+            "uses": 2,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 1,
+        "vitality": {
+          "value": 12,
+          "max": 12
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 8
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (3)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "énorme (0)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><em>Protection : cuir d’ours 1dR.</em></p><p><strong>Source :</strong> LdB p. 218</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": 0
+      }
+    }
+  },
+  {
+    "seedKey": "npc.ours-polaire",
+    "folder": "Animaux",
+    "data": {
+      "name": "Ours polaire",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Nage",
+            "value": 65,
+            "kind": "important"
+          },
+          {
+            "name": "Survie en Arctique",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Traque à l’odorat",
+            "value": 95,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Morsure d’ours",
+            "value": 65,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "immobilisation",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Griffes d’ours",
+            "value": 55,
+            "damage": 5,
+            "uses": 2,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 1,
+        "vitality": {
+          "value": 14,
+          "max": 14
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 8
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (3)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "énorme (0)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><em>Protection : cuir d’ours 1dR.</em></p><p><strong>Source :</strong> LdB p. 218</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": 0
+      }
+    }
+  },
+  {
+    "seedKey": "npc.coyote",
+    "folder": "Animaux",
+    "data": {
+      "name": "Coyote",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Attaques coordonnées",
+            "value": 65,
+            "kind": "flavor"
+          },
+          {
+            "name": "Course",
+            "value": 75,
+            "kind": "important"
+          },
+          {
+            "name": "Saut",
+            "value": 75,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Morsure de coyote",
+            "value": 65,
+            "damage": 3,
+            "uses": 1,
+            "descriptors": "immobilisation",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Griffes de coyote",
+            "value": 55,
+            "damage": 4,
+            "uses": 2,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 4,
+          "max": 4
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 5
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "prédateur de meute",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><strong>Source :</strong> LdB p. 218</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": 0
+      }
+    }
+  },
+  {
+    "seedKey": "npc.cougar",
+    "folder": "Animaux",
+    "data": {
+      "name": "Cougar",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Course",
+            "value": 75,
+            "kind": "important"
+          },
+          {
+            "name": "Embuscade",
+            "value": 65,
+            "kind": "flavor"
+          },
+          {
+            "name": "Saut",
+            "value": 75,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Morsure de cougar",
+            "value": 65,
+            "damage": 3,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Griffes de cougar",
+            "value": 55,
+            "damage": 3,
+            "uses": 2,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 4,
+          "max": 4
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 10
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (3)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><strong>Source :</strong> LdB p. 218</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": 0
+      }
+    }
+  },
+  {
+    "seedKey": "npc.cheval",
+    "folder": "Animaux",
+    "data": {
+      "name": "Cheval",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Galop",
+            "value": 65,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Sabots avant",
+            "value": 65,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Sabots arrière",
+            "value": 55,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "contre, impact",
+            "skill": "melee",
+            "counter": true,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 12,
+          "max": 12
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 5
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "énorme (0)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "contre-attaque",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><strong>Source :</strong> LdB p. 218</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": 0
+      }
+    }
+  },
+  {
+    "seedKey": "npc.elan",
+    "folder": "Animaux",
+    "data": {
+      "name": "Élan",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Galop",
+            "value": 65,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Bois puissants",
+            "value": 55,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "immobilisation (cette attaque est réservée aux mâles)",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Charge d’encornement",
+            "value": 55,
+            "damage": 7,
+            "uses": 1,
+            "descriptors": "impact, recharge (5-6)",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Sabots avant",
+            "value": 65,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Sabots arrière",
+            "value": 55,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "contre, impact",
+            "skill": "melee",
+            "counter": true,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 14,
+          "max": 14
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 5
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "énorme (0)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "contre-attaque",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><strong>Source :</strong> LdB p. 219</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": 0
+      }
+    }
+  },
+  {
+    "seedKey": "npc.tyrannosaure",
+    "folder": "Dinosaures",
+    "data": {
+      "name": "Tyrannosaure",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Bras très courts",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Rugissement",
+            "value": 65,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Morsure",
+            "value": 65,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Piétinement",
+            "value": 55,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "impact",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Coup de queue",
+            "value": 55,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "contre",
+            "skill": "melee",
+            "counter": true,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 1,
+        "vitality": {
+          "value": 20,
+          "max": 20
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 5
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "énorme (–5)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "contre- attaque",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><em>Protection : cuir de dinosaure 1dR.</em></p><p><strong>Source :</strong> LdB p. 219</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.triceratops",
+    "folder": "Dinosaures",
+    "data": {
+      "name": "Tricératops",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Dinosaure herbivore",
+            "value": 85,
+            "kind": "flavor"
+          },
+          {
+            "name": "Force",
+            "value": 75,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Cornes",
+            "value": 65,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Charge",
+            "value": 55,
+            "damage": 8,
+            "uses": 1,
+            "descriptors": "impact, recharge (5-6)",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Coup de queue",
+            "value": 55,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "contre",
+            "skill": "melee",
+            "counter": true,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 45,
+        "protection": 2,
+        "vitality": {
+          "value": 16,
+          "max": 16
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 5
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "énorme (–5)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "contre- attaque",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><em>Protection : collerette crânienne 2dR.</em></p><p><strong>Source :</strong> LdB p. 219</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.allosaure",
+    "folder": "Dinosaures",
+    "data": {
+      "name": "Allosaure",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Rugissement",
+            "value": 65,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Morsure",
+            "value": 65,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Piétinement",
+            "value": 55,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "impact",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Coup de queue",
+            "value": 55,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "contre",
+            "skill": "melee",
+            "counter": true,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 1,
+        "vitality": {
+          "value": 16,
+          "max": 16
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 5
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "énorme (–5)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "contre- attaque",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><em>Protection : cuir de dinosaure 1dR.</em></p><p><strong>Source :</strong> LdB p. 219</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.utahraptor",
+    "folder": "Dinosaures",
+    "data": {
+      "name": "Utahraptor",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Attaques coordonnées",
+            "value": 65,
+            "kind": "flavor"
+          },
+          {
+            "name": "Course",
+            "value": 75,
+            "kind": "important"
+          },
+          {
+            "name": "Petite futée",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Saut",
+            "value": 75,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Morsure tranchante",
+            "value": 65,
+            "damage": 5,
+            "uses": 1,
+            "descriptors": "immobilisation",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Griffes acérées",
+            "value": 55,
+            "damage": 7,
+            "uses": 2,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 8,
+          "max": 8
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 8
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "inverser (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "attaques multiples (3)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "prédateur de meute",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><strong>Source :</strong> LdB p. 219</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.velociraptor",
+    "folder": "Dinosaures",
+    "data": {
+      "name": "Vélociraptor",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Attaques coordonnées",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Course",
+            "value": 75,
+            "kind": "important"
+          },
+          {
+            "name": "Saut",
+            "value": 65,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Morsure tranchante aux petites dents",
+            "value": 65,
+            "damage": 3,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Petites griffes acérées",
+            "value": 55,
+            "damage": 4,
+            "uses": 2,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 5,
+          "max": 5
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 5
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "prédateur de meute",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><strong>Source :</strong> LdB p. 219</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.pterosaure",
+    "folder": "Dinosaures",
+    "data": {
+      "name": "Ptérosaure",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Marche",
+            "value": 25,
+            "kind": "flavor"
+          },
+          {
+            "name": "Repérage de proies",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Vol",
+            "value": 75,
+            "kind": "flavor"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Griffes",
+            "value": 55,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Frappe venue du ciel",
+            "value": 65,
+            "damage": 6,
+            "uses": 1,
+            "descriptors": "recharge (5-6)",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 0,
+        "vitality": {
+          "value": 5,
+          "max": 5
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 5
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "volant (2)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><strong>Source :</strong> LdB p. 219</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  },
+  {
+    "seedKey": "npc.plesiosaure",
+    "folder": "Dinosaures",
+    "data": {
+      "name": "Plésiosaure",
+      "type": "npc",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "rank": "extra",
+        "baseSkill": 45,
+        "specialty": {
+          "value": 65,
+          "domain": ""
+        },
+        "skills": [
+          {
+            "name": "Déplacement terrestre",
+            "value": 15,
+            "kind": "flavor"
+          },
+          {
+            "name": "Embuscade de chasseurs",
+            "value": 75,
+            "kind": "flavor"
+          },
+          {
+            "name": "Nage",
+            "value": 85,
+            "kind": "important"
+          }
+        ],
+        "attacks": [
+          {
+            "name": "Morsure",
+            "value": 65,
+            "damage": 4,
+            "uses": 1,
+            "descriptors": "immobilisation",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          },
+          {
+            "name": "Plongeon mortel (sur une cible Prisonnière et dans l’eau seulement)",
+            "value": 55,
+            "damage": 8,
+            "uses": 1,
+            "descriptors": "suffocation",
+            "skill": "melee",
+            "counter": false,
+            "range": null,
+            "empty": false
+          }
+        ],
+        "defense": 35,
+        "protection": 1,
+        "vitality": {
+          "value": 8,
+          "max": 8
+        },
+        "initiative": {
+          "mode": "fixed",
+          "value": 8
+        },
+        "descriptors": [
+          {
+            "key": "bête",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "amphibie",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "counters": {
+          "reversesLeft": 0
+        },
+        "description": "<p><em>Initiative : 8 (dans l’eau), 4 (sur terre).</em></p><p><em>Protection : cuir glissant 1dR.</em></p><p><strong>Source :</strong> LdB p. 219</p>"
+      },
+      "prototypeToken": {
+        "actorLink": false,
+        "disposition": -1
+      }
+    }
+  }
+]

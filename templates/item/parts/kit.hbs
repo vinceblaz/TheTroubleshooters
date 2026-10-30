@@ -5,6 +5,7 @@
   <label class="tts-check-label"><input name="system.carried" type="checkbox" {{checked system.carried}}> {{localize "TTS.Kit.Carried"}}</label>
   <label class="tts-check-label"><input name="system.signature" type="checkbox" {{checked system.signature}}> {{localize "TTS.Kit.Signature"}}</label>
   <div class="form-group"><label>{{localize "TTS.Kit.Uses"}}</label><input name="system.uses" type="number" value="{{system.uses}}" min="0" max="9" placeholder="—"></div>
+  <label class="tts-check-label"><input name="system.broken" type="checkbox" {{checked system.broken}}> {{localize "TTS.Kit.Broken"}}</label>
 </div>
 {{#if system.signature}}
 <div class="form-group"><label>{{localize "TTS.Kit.SignatureDescription"}}</label><input name="system.signatureDescription" type="text" value="{{system.signatureDescription}}"></div>
@@ -35,13 +36,29 @@
   <legend><label class="tts-check-label"><input name="system.hasWeapon" type="checkbox" {{checked system.hasWeapon}}> {{localize "TTS.Kit.Weapon"}}</label></legend>
   {{#if system.hasWeapon}}
   <div class="tts-grid-3">
+    <div class="form-group tts-span-3"><label>{{localize "TTS.Weapon.ProfileName"}}</label><input name="system.weapon.name" type="text" value="{{system.weapon.name}}" placeholder="{{item.name}}"></div>
     <div class="form-group"><label>{{localize "TTS.Weapon.Skill"}}</label><select name="system.weapon.skill">{{selectOptions combatSkillChoices selected=system.weapon.skill}}</select></div>
     <div class="form-group"><label>{{localize "TTS.Weapon.Damage"}}</label><div class="tts-inline"><input name="system.weapon.damage" type="number" value="{{system.weapon.damage}}" min="0" max="20"> dX</div></div>
     <div class="form-group"><label>{{localize "TTS.Weapon.Ammo"}}</label><input name="system.weapon.ammo" type="text" value="{{system.weapon.ammo}}" placeholder="9-0"></div>
     <div class="form-group tts-span-3"><label>{{localize "TTS.Weapon.Descriptors"}}</label><input name="system.weapon.descriptors" type="text" value="{{system.weapon.descriptors}}"></div>
     <label class="tts-check-label"><input name="system.weapon.empty" type="checkbox" {{checked system.weapon.empty}}> {{localize "TTS.Weapon.Empty"}}</label>
     <label class="tts-check-label"><input name="system.weapon.jammed" type="checkbox" {{checked system.weapon.jammed}}> {{localize "TTS.Weapon.Jammed"}}</label>
+    <label class="tts-check-label"><input name="system.weapon.broken" type="checkbox" {{checked system.weapon.broken}}> {{localize "TTS.Weapon.Broken"}}</label>
   </div>
+  <h4>{{localize "TTS.Weapon.Extra"}} {{#if editable}}<a class="tts-icon-button" data-action="addRow" data-path="extraWeapons" data-tooltip="TTS.Sheet.Add"><i class="fa-solid fa-plus"></i></a>{{/if}}</h4>
+  <table class="tts-row-table">
+    {{#each system.extraWeapons as |w i|}}
+    <tr data-index="{{i}}">
+      <td><input name="system.extraWeapons.{{i}}.name" type="text" value="{{w.name}}" placeholder="{{localize 'TTS.Weapon.ProfileName'}}"></td>
+      <td><select name="system.extraWeapons.{{i}}.skill">{{selectOptions @root.combatSkillChoices selected=w.skill}}</select></td>
+      <td class="tts-num"><input name="system.extraWeapons.{{i}}.damage" type="number" value="{{w.damage}}" min="0" max="20"></td>
+      <td><input name="system.extraWeapons.{{i}}.descriptors" type="text" value="{{w.descriptors}}" placeholder="{{localize 'TTS.Weapon.Descriptors'}}"></td>
+      <td class="tts-num"><input name="system.extraWeapons.{{i}}.ammo" type="text" value="{{w.ammo}}" placeholder="9-0"></td>
+      <td class="tts-check"><input name="system.extraWeapons.{{i}}.empty" type="checkbox" {{checked w.empty}} data-tooltip="TTS.Weapon.Empty"></td>
+      <td class="tts-row-controls">{{#if @root.editable}}<a data-action="removeRow" data-path="extraWeapons"><i class="fa-solid fa-trash"></i></a>{{/if}}</td>
+    </tr>
+    {{/each}}
+  </table>
   {{/if}}
 </fieldset>
 

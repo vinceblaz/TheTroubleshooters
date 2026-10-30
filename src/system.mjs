@@ -23,7 +23,12 @@ import { registerConditionHandlers, onDeleteActiveEffect, addLevel, removeLevel 
 import { registerHazardHandlers, inflictHazard } from "./services/hazard-service.mjs";
 import { HazardsApp } from "./apps/hazards-app.mjs";
 import { ChallengeApp, DuelApp } from "./apps/challenge-app.mjs";
+import { NpcGenApp } from "./apps/npc-gen-app.mjs";
+import { DebriefApp } from "./apps/debrief-app.mjs";
+import { ProgressionApp } from "./apps/progression-app.mjs";
+import { ChargenApp } from "./apps/chargen-app.mjs";
 import { registerChallengeHandlers } from "./services/challenge-service.mjs";
+import { registerEquipmentHandlers, endOfStory } from "./services/equipment-service.mjs";
 import { onRenderChatMessage } from "./chat/chat-hooks.mjs";
 import { CHAT_PARTIALS } from "./chat/cards.mjs";
 import { rollCharacterSkill, rollNpcSkill } from "./services/roll-service.mjs";
@@ -53,6 +58,12 @@ Hooks.once("init", async () => {
     hazards: () => HazardsApp.open(),
     challenge: () => ChallengeApp.open(),
     duel: () => DuelApp.open(),
+    newNpc: () => NpcGenApp.createAndOpen(),
+    debrief: () => DebriefApp.open(),
+    progression: actor => ProgressionApp.open(actor),
+    npcCreation: actor => NpcGenApp.open(actor),
+    characterCreation: actor => ChargenApp.open(actor),
+    endOfStory: () => endOfStory(StoryPointsApp.characters()),
     inflictHazard,
     addConditionLevel: addLevel,
     removeConditionLevel: removeLevel
@@ -90,6 +101,9 @@ Hooks.once("init", async () => {
     ...Object.values(ITEM_BODY_PARTIALS),
     `${SYSTEM_PATH}/templates/shared/item-list.hbs`,
     `${SYSTEM_PATH}/templates/shared/conditions-panel.hbs`,
+    `${SYSTEM_PATH}/templates/actor/parts/kit-table.hbs`,
+    `${SYSTEM_PATH}/templates/apps/parts/draft-footer.hbs`,
+    `${SYSTEM_PATH}/templates/actor/parts/passport-stamps.hbs`,
     ...CHAT_PARTIALS
   ]);
 
@@ -100,6 +114,7 @@ Hooks.once("init", async () => {
   registerConditionHandlers();
   registerHazardHandlers();
   registerChallengeHandlers();
+  registerEquipmentHandlers();
   Hooks.on("renderChatMessageHTML", onRenderChatMessage);
 
   // Combat (phase 4)
@@ -113,6 +128,7 @@ Hooks.once("init", async () => {
 });
 
 Hooks.once("ready", async () => {
+  document.body.classList.toggle("tts-reduced-fx", Boolean(game.settings.get(SYSTEM_ID, "reducedEffects")));
   RelayService.initialize();
   await ensureInitMacro();
   await promptInitializationIfNeeded();

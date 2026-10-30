@@ -10,7 +10,7 @@ La matrice est complétée au fil des phases ; seules les règles touchées par 
 | Vitalité maximale 4 à 7 selon Agilité / combat | p. 34, 129 | automatisée | 1 | validé en Foundry réel |
 | Épuisé : Vitalité max ÷ 2 (cumulatif) | p. 100 | automatisée (niveaux, Risque-tout) | 1 → 5 | validé en Foundry réel |
 | Langues supplémentaires selon Langues | p. 34 | automatisée (indicatif) | 1 | validé en Foundry réel |
-| 5 emplacements de kits | p. 109 | automatisée (avertissement, non bloquant) | 1 | validé en Foundry réel |
+| 5 emplacements de kits | p. 109 | automatisée (avertissement, non bloquant) | 1 → 7 | validé en Foundry réel |
 | Points de récit : plafond 12 | p. 104 | automatisée | 1 | validé en Foundry réel |
 | Points de récit : 4 en début de session | p. 104 | réglage prêt ; outil « Nouvelle session » en phase 3 | 1 → 3 | validé en Foundry réel |
 | Tableau Blessé / Danger de mort par rang | p. 95 | automatisée (affichage) ; application en phase 4 | 1 → 4 | validé en Foundry réel |
@@ -111,16 +111,68 @@ La matrice est complétée au fil des phases ; seules les règles touchées par 
 | Sniper / attaque par-derrière (Vigilance ou Furtivité, 4 issues) | p. 103 | automatisée (conditions posées) ; bonus de dés : ajustement manuel | 5 | validé en Foundry réel |
 
 | Panneau des conditions sur les fiches PJ et PNJ | — | automatisée (D-057) | 5 | validé en Foundry réel |
-| Défi : 3 à 5 jets, simples ou en opposition | p. 84 | automatisée (application du Chef, carte de défi) | 6 | livré, non validé |
-| Table des résultats des défis | p. 84 | automatisée (D-058) | 6 | livré, non validé |
-| Répartition équitable des jets entre les personnages | p. 84 | narrative (lignes attribuées ou au choix des joueurs) | 6 | livré, non validé |
-| Modificateurs d'un défi (cumul à l'appréciation du Chef) | p. 84 | automatisée (un par ligne) ; cumul : circonstances | 6 | livré, non validé |
-| Textes des cinq résultats | p. 84 | automatisée (saisie facultative, affichée au résultat) | 6 | livré, non validé |
-| Modèles « Comment résoudre les situations » | p. 87 | automatisée (18 modèles) | 6 | livré, non validé |
-| Duel : nombre cible, objectifs, alternance des demandes | p. 85 | automatisée (application du Chef, carte de duel) | 6 | livré, non validé |
-| Duel : paire de compétences opposées | p. 85 | automatisée | 6 | livré, non validé |
-| Duel : égalité ou deux échecs → score inchangé, le demandeur décrit | p. 85 | automatisée | 6 | livré, non validé |
-| Duel : −2 pips par redemande d'une compétence | p. 85 | automatisée (portée réglable, D-065) | 6 | livré, non validé |
-| Duel : PNJ sans la compétence → proche, spécialité ou base | p. 85 | automatisée (choix du Chef à chaque jet) | 6 | livré, non validé |
-| Description par le gagnant | p. 85 | narrative (rappel sur la carte) | 6 | livré, non validé |
-
+| Défi : 3 à 5 jets, simples ou en opposition | p. 84 | automatisée (application du Chef, carte de défi) | 6 | validé en Foundry réel |
+| Table des résultats des défis | p. 84 | automatisée (D-058) | 6 | validé en Foundry réel |
+| Répartition équitable des jets entre les personnages | p. 84 | narrative (lignes attribuées ou au choix des joueurs) | 6 | validé en Foundry réel |
+| Modificateurs d'un défi (cumul à l'appréciation du Chef) | p. 84 | automatisée (un par ligne) ; cumul : circonstances | 6 | validé en Foundry réel |
+| Textes des cinq résultats | p. 84 | automatisée (saisie facultative, affichée au résultat) | 6 | validé en Foundry réel |
+| Modèles « Comment résoudre les situations » | p. 87 | automatisée (18 modèles) | 6 | validé en Foundry réel |
+| Duel : nombre cible, objectifs, alternance des demandes | p. 85 | automatisée (application du Chef, carte de duel) | 6 | validé en Foundry réel |
+| Duel : paire de compétences opposées | p. 85 | automatisée | 6 | validé en Foundry réel |
+| Duel : égalité ou deux échecs → score inchangé, le demandeur décrit | p. 85 | automatisée | 6 | validé en Foundry réel |
+| Duel : −2 pips par redemande d'une compétence | p. 85 | automatisée (portée réglable, D-065) | 6 | validé en Foundry réel |
+| Duel : PNJ sans la compétence → proche, spécialité ou base | p. 85 | automatisée (choix du Chef à chaque jet) | 6 | validé en Foundry réel |
+| Description par le gagnant | p. 85 | narrative (rappel sur la carte) | 6 | validé en Foundry réel |
+| Liste de matériel (kits standard, gadgets étranges) | p. 117-125 | automatisée (compendium de 95 kits) | 7 | validé en Foundry réel |
+| Armement (tableaux des armes) | p. 114 | automatisée (profils d'arme des kits, armes supplémentaires) | 7 | validé en Foundry réel |
+| Possessions courantes, argent, niveau de vie | p. 108-109 | narrative (Ressources) | 7 | validé en Foundry réel |
+| Obtenir du matériel : mission, PR (prérequis, coût), rendu en fin d'histoire | p. 110 | automatisée (glisser-déposer, dépense validée par le Chef, « Fin de l'histoire ») ; prérequis indicatifs | 7 | validé en Foundry réel |
+| Échange de kits en scène du plan ou au début de l'aventure | p. 109 | narrative (emporté / entrepôt) | 7 | validé en Foundry réel |
+| Bricoler du matériel (défi, usage unique, deux sur Excellent) | p. 110-112 | automatisée (mode fabrication du Défi, usages) | 7 | validé en Foundry réel |
+| Fabriquer / modifier un gadget (projet d'intersession, modificateurs) | p. 111-112 | automatisée (assistant, création du kit) ; suivi des intersessions en phase 9 (progression) | 7 → 9 | validé en Foundry réel |
+| Technologie d'espionnage, super-science, savoirs anciens et perdus | p. 112 | automatisée (catégorie du kit, malus de fabrication) | 7 | validé en Foundry réel |
+| Gadget signature (un, deux avec Gadget supplémentaire ; description) | p. 113 | automatisée (avertissements) ; disponibilité : narrative | 7 | validé en Foundry réel |
+| Objets trouvés rangés, assignés au début de l'aventure | p. 113 | automatisée (section « Objets trouvés ») | 7 | validé en Foundry réel |
+| Descripteurs de gadget : Peu fiable, Dangereux, Très dangereux, Fatigant, Assourdissant, Fumigène, Illégal | p. 116 | automatisée (déclenchement sur les unités) ; zone et Illégal : rappel / narrative | 7 | validé en Foundry réel |
+| Silencieux (retire « bruyant ») | p. 122 | narrative | 7 | validé en Foundry réel |
+| Archétypes : 15 modèles (compétences, capacités, désavantages, kits, accroches) | p. 40-46 | automatisée (compendium « Archétypes ») | 8 | validé en Foundry réel |
+| Création : compétences 75 / 65 ×4 / 45 ×6, le reste à 15 | p. 33 | automatisée (assistant de création) | 8 | validé en Foundry réel |
+| Personnage atypique (11 compétences au choix) | p. 34 | automatisée (mode atypique, capacités et kits libres) | 8 | validé en Foundry réel |
+| Personnalisation : transferts de 10, remplacements, échange, plafond 85 | p. 34 | automatisée (contrôles bloquants) ; accord du Chef : narratif | 8 | validé en Foundry réel |
+| Vitalité et langues supplémentaires recalculées | p. 34 | automatisée | 8 | validé en Foundry réel |
+| Capacités (2 de la liste ; une hors liste ; 3e contre un 2e désavantage ; prérequis niveau 2+) | p. 34-35 | automatisée (comptes bloquants, prérequis en avertissement) | 8 | validé en Foundry réel |
+| Langues de départ (français, anglais, maternelle) | p. 33 | automatisée | 8 | validé en Foundry réel |
+| Kits de départ (3 de l'archétype, 2 au choix, matériel signature) | p. 35 | automatisée | 8 | validé en Foundry réel |
+| Accroches (2, distinctes entre Risque-tout) | p. 36 | automatisée (avertissement) | 8 | validé en Foundry réel |
+| Idées de conception et lieux de rencontre (1d100) | p. 37-39 | automatisée (tables) ; rencontre racontée : narrative | 8 | validé en Foundry réel |
+| Personnages secondaires : base, spécialité, défense, compétences importantes et de personnalisation | p. 205 | automatisée (assistant PNJ, repères en avertissements) | 8 | validé en Foundry réel |
+| Modèles génériques par rang (figurant, sbire, sous-fifre, lieutenant, chef) | p. 207-209 | automatisée (5 modèles) | 8 | validé en Foundry réel |
+| Descripteurs d'adversaire (rang, inverser, contre-attaque…) | p. 206 | automatisée (texte, descripteur de rang synchronisé, inversions) | 8 | validé en Foundry réel |
+| Coches d'amélioration (une par compétence utilisée) | p. 127 | automatisée (case de la fiche, suggestion sur les cartes) ; usage significatif : narratif | 1 → 9 | à valider |
+| Phase post-session dans l'ordre du livre | p. 126 | automatisée (outil « Débriefing », fenêtre « Progression ») | 9 | validé en Foundry réel |
+| Coches gratuites : présent, interactions, accrochés, sans effusion de sang (+3), retrait pour meurtre | p. 127 | automatisée (critères cochés par le Chef) ; jugement des critères : narratif | 9 | validé en Foundry réel |
+| Jet d'expérience (d% ≥ valeur, table d'augmentation, ni inversion ni Karma) | p. 127, 130 | automatisée (carte de chat) | 9 | validé en Foundry réel |
+| Valeur 106 (100, puis 100 au d%, puis 6) | p. 127 | automatisée (D-088) | 9 | validé en Foundry réel |
+| Limite : une coche ordinaire et une gratuite par cible, deux jets au plus | p. 127-128 | automatisée (refus motivés) | 9 | validé en Foundry réel |
+| Apprendre une langue (5 croix, +1 pip par croix aux jets de Langues) | p. 128 | automatisée (croix, langue créée, bouton de jet sur la fiche) | 9 | validé en Foundry réel |
+| Apprendre une capacité (croix = coût, compétences associées, prérequis) | p. 128 | automatisée (prérequis bloquants, capacité créée depuis le compendium) | 9 | validé en Foundry réel |
+| Jets de récompense (conditions de victoire liées à une compétence, hors limite) | p. 129 | automatisée (saisie du Chef, usage par le joueur) | 9 | validé en Foundry réel |
+| Amélioration de la Vitalité | p. 129 | automatisée (dérivée, affichée sur la carte) | 9 | validé en Foundry réel |
+| Périodes d'intersession (table) | p. 129 | automatisée (choix du Chef) | 9 | validé en Foundry réel |
+| Convalescence (retire Blessé) | p. 129 | automatisée | 9 | validé en Foundry réel |
+| Fréquentations, Voyage (+2 PR à la prochaine session, description) | p. 130 | automatisée (bonus de début de session) ; usage par le Chef : narratif | 9 | validé en Foundry réel |
+| Achats, Artisanat | p. 129-130 | narrative (rappel ; glisser-déposer, outil « Défi ») | 9 | validé en Foundry réel |
+| Entraînement (un jet de plus, deux jets par cible au plus) | p. 130 | automatisée | 9 | validé en Foundry réel |
+| Règle alternative : points d'expérience et de récompense | p. 131 | automatisée (réglage « Système de progression ») | 9 | validé en Foundry réel |
+| Charte « Passeport » des Risque-tout (onglets à droite, tampons des conditions) | — | automatisée (habillage, D-097) | 10 | validé en Foundry réel |
+| Charte BD vintage des personnages secondaires | — | automatisée (habillage, D-098) | 10 | validé en Foundry réel |
+| Cartes de chat BD et onomatopées | — | automatisée (habillage, D-099) | 10 | validé en Foundry réel |
+| Fichier des menaces : personnages génériques, police, mafia, armée, agents secrets, la Pieuvre | p. 208-216 | automatisée (compendium, 31 fiches) | 11 | validé en Foundry réel |
+| Animaux et dinosaures | p. 217-219 | automatisée (compendium, 20 fiches) | 11 | validé en Foundry réel |
+| Personnages prétirés | — | hors périmètre : le livre ne publie pas leurs caractéristiques (D-103) | 11 | validé en Foundry réel |
+| Listes de noms (11 nationalités) | p. 224-227 | automatisée (33 tables aléatoires) | 11 | à valider |
+| Traits de personnalité (d%) | p. 227 | automatisée (table aléatoire) | 11 | à valider |
+| Jurons en bande dessinée | p. 228-230 | journal + table « Nom de Dieu » (d%) | 11 | à valider |
+| Calendrier de 1965 | p. 220-223 | journal (mois, jours fériés, saisons) ; phases de la lune non reprises | 11 | à valider |
+| Session pilote | p. 27-28 | journal-modèle | 11 | à valider |
+| Feuille d'indices | p. 231 | journal-modèle | 11 | à valider |

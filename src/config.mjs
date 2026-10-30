@@ -56,25 +56,25 @@ export const THETROUBLESHOOTERS = {
 
   /**
    * Les 16 conditions (LdB p. 100-101). Effets mécaniques : phase 5.
-   * Icônes : bibliothèque fournie avec Foundry (aucune illustration du livre).
+   * Icônes : tampons originaux fournis avec le système (charte phase 10, assets/icons/conditions).
    */
   conditions: {
-    blinded:       { label: "TTS.Condition.Blinded",       img: "icons/svg/blind.svg" },
-    wounded:       { label: "TTS.Condition.Wounded",       img: "icons/svg/blood.svg" },
-    mortalDanger:  { label: "TTS.Condition.MortalDanger",  img: "icons/svg/skull.svg" },
-    frightened:    { label: "TTS.Condition.Frightened",    img: "icons/svg/terror.svg" },
-    onFire:        { label: "TTS.Condition.OnFire",        img: "icons/svg/fire.svg" },
-    exhausted:     { label: "TTS.Condition.Exhausted",     img: "icons/svg/downgrade.svg" },
-    outOfAction:   { label: "TTS.Condition.OutOfAction",   img: "icons/svg/unconscious.svg" },
-    paralyzed:     { label: "TTS.Condition.Paralyzed",     img: "icons/svg/paralysis.svg" },
-    restrained:    { label: "TTS.Condition.Restrained",    img: "icons/svg/net.svg" },
-    drunk:         { label: "TTS.Condition.Drunk",         img: "icons/svg/acid.svg" },
-    stunned:       { label: "TTS.Condition.Stunned",       img: "icons/svg/daze.svg" },
-    deafened:      { label: "TTS.Condition.Deafened",      img: "icons/svg/deaf.svg" },
-    encumbered:    { label: "TTS.Condition.Encumbered",    img: "icons/svg/anchor.svg" },
-    surprised:     { label: "TTS.Condition.Surprised",     img: "icons/svg/lightning.svg" },
-    terrified:     { label: "TTS.Condition.Terrified",     img: "icons/svg/biohazard.svg" },
-    vulnerable:    { label: "TTS.Condition.Vulnerable",    img: "icons/svg/falling.svg" }
+    blinded:       { label: "TTS.Condition.Blinded",       img: "systems/thetroubleshooters/assets/icons/conditions/blinded.svg" },
+    wounded:       { label: "TTS.Condition.Wounded",       img: "systems/thetroubleshooters/assets/icons/conditions/wounded.svg" },
+    mortalDanger:  { label: "TTS.Condition.MortalDanger",  img: "systems/thetroubleshooters/assets/icons/conditions/mortalDanger.svg" },
+    frightened:    { label: "TTS.Condition.Frightened",    img: "systems/thetroubleshooters/assets/icons/conditions/frightened.svg" },
+    onFire:        { label: "TTS.Condition.OnFire",        img: "systems/thetroubleshooters/assets/icons/conditions/onFire.svg" },
+    exhausted:     { label: "TTS.Condition.Exhausted",     img: "systems/thetroubleshooters/assets/icons/conditions/exhausted.svg" },
+    outOfAction:   { label: "TTS.Condition.OutOfAction",   img: "systems/thetroubleshooters/assets/icons/conditions/outOfAction.svg" },
+    paralyzed:     { label: "TTS.Condition.Paralyzed",     img: "systems/thetroubleshooters/assets/icons/conditions/paralyzed.svg" },
+    restrained:    { label: "TTS.Condition.Restrained",    img: "systems/thetroubleshooters/assets/icons/conditions/restrained.svg" },
+    drunk:         { label: "TTS.Condition.Drunk",         img: "systems/thetroubleshooters/assets/icons/conditions/drunk.svg" },
+    stunned:       { label: "TTS.Condition.Stunned",       img: "systems/thetroubleshooters/assets/icons/conditions/stunned.svg" },
+    deafened:      { label: "TTS.Condition.Deafened",      img: "systems/thetroubleshooters/assets/icons/conditions/deafened.svg" },
+    encumbered:    { label: "TTS.Condition.Encumbered",    img: "systems/thetroubleshooters/assets/icons/conditions/encumbered.svg" },
+    surprised:     { label: "TTS.Condition.Surprised",     img: "systems/thetroubleshooters/assets/icons/conditions/surprised.svg" },
+    terrified:     { label: "TTS.Condition.Terrified",     img: "systems/thetroubleshooters/assets/icons/conditions/terrified.svg" },
+    vulnerable:    { label: "TTS.Condition.Vulnerable",    img: "systems/thetroubleshooters/assets/icons/conditions/vulnerable.svg" }
   }
 };
 

@@ -13,6 +13,11 @@ import { proposeSpend } from "../apps/spend-dialog.mjs";
 import { startAttack, reloadWeapon, catchBreath, setProne } from "../services/attack-service.mjs";
 import { reassessInitiative, pickHealer } from "../services/combat-service.mjs";
 import { conditionRows, conditionPanelActions, patchUpWounded } from "../services/condition-service.mjs";
+import { kitGroups, acquireKit, useKit } from "../services/equipment-service.mjs";
+import { ChargenApp } from "../apps/chargen-app.mjs";
+import { ProgressionApp } from "../apps/progression-app.mjs";
+import { languagePips } from "../domain/rules/progression.mjs";
+import { passportNumber, mrzLines, vitalityBoxes } from "../domain/rules/passport.mjs";
 import { weaponsOf, protectionOf, drunkLevelsOf, statusesOf, combatantOf, defenseChoicesOf } from "../services/combat-actors.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
@@ -39,15 +44,41 @@ export class TTSCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
       attack: TTSCharacterSheet.#onAttack,
       reload: TTSCharacterSheet.#onReload,
       catchBreath: TTSCharacterSheet.#onCatchBreath,
+      useKit: TTSCharacterSheet.#onUseKit,
       prone: TTSCharacterSheet.#onProne,
       reassess: TTSCharacterSheet.#onReassess,
       toggleStatus: TTSCharacterSheet.#onToggleStatus,
       levelUp: TTSCharacterSheet.#onLevelUp,
       levelDown: TTSCharacterSheet.#onLevelDown,
       exitRoll: TTSCharacterSheet.#onExitRoll,
-      patchUp: TTSCharacterSheet.#onPatchUp
+      patchUp: TTSCharacterSheet.#onPatchUp,
+      chargen: TTSCharacterSheet.#onChargen,
+      progression: TTSCharacterSheet.#onProgression,
+      rollLanguage: TTSCharacterSheet.#onRollLanguage
     }
   };
+
+  /** Bouton d'en-tête « Création » (phase 8). */
+  _getHeaderControls() {
+    const controls = super._getHeaderControls();
+    if (this.document.isOwner) {
+      controls.unshift({ icon: "fa-solid fa-arrow-trend-up", label: "TTS.Progression.Open", action: "progression" });
+      controls.unshift({ icon: "fa-solid fa-user-plus", label: "TTS.Chargen.Open", action: "chargen" });
+    }
+    return controls;
+  }
+
+  static #onChargen() { ChargenApp.open(this.document); }
+
+  static #onProgression() { ProgressionApp.open(this.document); }
+
+  /** Jet de Langues pour une langue en apprentissage : +1 pip par croix (LdB p. 128). */
+  static #onRollLanguage(event, target) {
+    const item = itemFromEvent(this.document, target);
+    if (!item) return;
+    const pips = languagePips(item.system);
+    return rollCharacterSkill(this.document, "languages", { extraMods: pips ? [{ label: `${item.name} (${item.system.crosses} ×)`, pips }] : [] });
+  }
 
   static PARTS = {
     header: { template: `${SYSTEM_PATH}/templates/actor/character-header.hbs` },
@@ -127,9 +158,19 @@ export class TTSCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
       prone: statuses.includes("vulnerable")
     };
 
+    const number = passportNumber(actor.id);
+    const passport = {
+      number,
+      mrz: mrzLines({ name: actor.name, nationality: system.identity.nationality, number }),
+      vitality: vitalityBoxes(system.vitality.value, system.vitality.max),
+      activeStamps: combat.conditions.filter(c => c.active).slice(0, 3)
+    };
+
     return Object.assign(context, {
       actor,
       combat,
+      passport,
+      gear: kitGroups(actor),
       abilityRows,
       penalties,
       system,
@@ -212,6 +253,21 @@ export class TTSCharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) 
   static async #onReload(event, target) {
     const ref = target.closest("[data-weapon-ref]")?.dataset.weaponRef;
     if (ref) await reloadWeapon(this.document, ref);
+  }
+
+  static async #onUseKit(event, target) {
+    await useKit(this.document, itemFromEvent(this.document, target));
+  }
+
+  /**
+   * Kit déposé depuis un compendium ou le monde : choix de l'origine, achat soumis au Chef (phase 7).
+   * @override
+   */
+  async _onDropItem(event, item) {
+    if (item?.type === "kit" && item.parent !== this.document && this.document.isOwner) {
+      return acquireKit(this.document, item);
+    }
+    return super._onDropItem(event, item);
   }
 
   static async #onCatchBreath() {

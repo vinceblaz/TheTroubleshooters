@@ -40,6 +40,7 @@ ok(`${mjs.length} fichiers .mjs contrôlés (syntaxe)`);
 const system = readJSON("system.json");
 const fr = readJSON("lang/fr.json");
 const itemTypes = Object.keys(system.documentTypes.Item);
+const actorTypes = Object.keys(system.documentTypes.Actor);
 for (const f of walk(join(ROOT, "data/catalogs"), ".json")) {
   let entries;
   try { entries = JSON.parse(readFileSync(f, "utf8")); } catch (e) { fail(`JSON invalide : ${rel(f)} — ${e.message}`); continue; }
@@ -48,7 +49,7 @@ for (const f of walk(join(ROOT, "data/catalogs"), ".json")) {
     if (!e.seedKey) fail(`${rel(f)} : entrée sans seedKey (${e.data?.name})`);
     if (keys.has(e.seedKey)) fail(`${rel(f)} : seedKey dupliqué ${e.seedKey}`);
     keys.add(e.seedKey);
-    if (!itemTypes.includes(e.data?.type)) fail(`${rel(f)} : type inconnu « ${e.data?.type} » (${e.seedKey})`);
+    if (e.data?.type !== undefined && ![...itemTypes, ...actorTypes].includes(e.data?.type)) fail(`${rel(f)} : type inconnu « ${e.data?.type} » (${e.seedKey})`);
   }
   ok(`${rel(f)} : ${entries.length} entrées`);
 }
@@ -80,7 +81,13 @@ for (const e of readJSON("data/catalogs/flaws.json")) {
     if (t.condition && !CFG.conditions[t.condition]) fail(`${w} : condition inconnue « ${t.condition} »`);
   }
 }
-ok("catalogues cohérents avec le domaine (compétences, activations, modes, conditions)");
+for (const e of readJSON("data/catalogs/kits.json")) {
+  const sys = e.data.system, w = `kits.json ${e.seedKey}`;
+  if (!Object.keys(CFG.kitCategories).includes(sys.category)) fail(`${w} : catégorie inconnue « ${sys.category} »`);
+  for (const wp of [sys.weapon, ...(sys.extraWeapons ?? [])]) if (!["melee", "shooting"].includes(wp.skill)) fail(`${w} : compétence d'arme « ${wp.skill} »`);
+  if (!Number.isInteger(sys.storyPointCost)) fail(`${w} : coût en PR manquant`);
+}
+ok("catalogues cohérents avec le domaine (compétences, activations, modes, conditions, kits)");
 
 /* 3. i18n */
 const hasKey = key => key.split(".").reduce((n, k) => (n && typeof n === "object" ? n[k] : undefined), fr) !== undefined;
@@ -142,6 +149,31 @@ for (const t of Object.keys(system.documentTypes.Actor)) used.add(`TYPES.Actor.$
   fam("TTS.Challenge.Result", ch.CHALLENGE_RESULTS);
   const refusals = ["challenge.mjs", "duel.mjs"].flatMap(f => [...readFileSync(join(ROOT, "src/domain/rules", f), "utf8").matchAll(/reason: "([a-z-]+)"/g)].map(m => m[1]));
   fam("TTS.Challenge.Refused", [...new Set(refusals)]);
+  // Phase 7
+  fam("TTS.Gadget.Outcome", ch.CHALLENGE_RESULTS);
+  fam("TTS.Gadget.Type", ["dangerous", "veryDangerous"]);
+  // Phase 8
+  const cgSrc = readFileSync(join(ROOT, "src/domain/rules/chargen.mjs"), "utf8");
+  const cgErrors = [...cgSrc.matchAll(/errors\.push\(([`"])([a-z-]+)/g)].map(m => m[2]);
+  fam("TTS.Chargen.Error", [...new Set([...cgErrors, "no-archetype", "atypical-skills"])]);
+  fam("TTS.Chargen.Warn", ["abilities-out-of-list", "prereq", "hookTaken"]);
+  fam("TTS.Chargen.Origin", ["french", "english", "other"]);
+  const ngSrc = readFileSync(join(ROOT, "src/domain/rules/npc-gen.mjs"), "utf8");
+  fam("TTS.NpcGen.Warn", [...new Set([...ngSrc.matchAll(/code: "([A-Za-z]+)"/g)].map(m => m[1]))]);
+  const { NPC_RANKS } = await import(join(ROOT, "src/domain/rules/npc.mjs"));
+  fam("TTS.NpcGen.RankHint", NPC_RANKS);
+  // Phase 9
+  const pg = await import(join(ROOT, "src/domain/rules/progression.mjs"));
+  const pgSrc = readFileSync(join(ROOT, "src/domain/rules/progression.mjs"), "utf8");
+  fam("TTS.Progression.Criteria", Object.keys(pg.FREE_TICK_CRITERIA));
+  fam("TTS.Progression.Span", Object.keys(pg.DOWNTIME_SPANS));
+  fam("TTS.Progression.Activity", pg.DOWNTIME_ACTIVITIES);
+  fam("TTS.Progression.Source", pg.SOURCES);
+  fam("TTS.Progression.Refused", [...new Set([...pgSrc.matchAll(/reason: "([a-z-]+)"/g)].map(m => m[1])), "no-source", "no-target", "already-fluent", "already-acquired", "prerequisites", "no-period"]);
+  fam("TTS.Progression.Downtime", ["craftingHint", "purchaseHint"]);
+  // Phase 10
+  const { SFX } = await import(join(ROOT, "src/chat/sfx.mjs"));
+  fam("TTS.Sfx", Object.keys(SFX));
 }
 const missing = [...used].filter(k => !hasKey(k)).sort();
 missing.forEach(k => fail(`clé i18n absente de fr.json : ${k}`));

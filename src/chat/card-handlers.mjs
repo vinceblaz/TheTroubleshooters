@@ -12,6 +12,7 @@ import { cardActivations } from "../domain/rules/activations.mjs";
 import { resolveSpend } from "../domain/rules/spend.mjs";
 import { STORY_POINT_GAINS, gainStoryPoints, spendStoryPoints } from "../domain/rules/story-points.mjs";
 import { getCard, updateCardMessage } from "./cards.mjs";
+import { deliverPurchasedKit } from "../services/equipment-service.mjs";
 import { initiativeFromTask, adjustInitiative } from "../domain/combat/initiative.mjs";
 
 /**
@@ -170,6 +171,7 @@ export function registerCardHandlers() {
       if (!r.ok) throw new Error(r.reason);
       await updateCardMessage(message, { ...card, spend: r.state });
       if (actor?.type !== "character") return;
+      await deliverPurchasedKit(actor, r.state);           // achat de kit validé : le kit rejoint la fiche (phase 7)
       if (r.refund) await gain(actor, r.refund);
       if (r.extra) {
         const left = Math.max(0, actor.system.storyPoints.value - r.extra);

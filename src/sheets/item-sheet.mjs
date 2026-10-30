@@ -19,7 +19,7 @@ export const ITEM_BODY_PARTIALS = Object.fromEntries(
 
 /** Champs saisis en lignes de tableau (objets à clés numériques → tableaux). */
 const ARRAY_PATHS = ["system.skills.secondary", "system.skills.tertiary", "system.descriptors", "system.triggers",
-  "system.activations", "system.prerequisites.skills"];
+  "system.activations", "system.prerequisites.skills", "system.extraWeapons"];
 /** Champs saisis en texte, une entrée par ligne. */
 const LIST_PATHS = ["system.abilities", "system.flaws", "system.kits", "system.suggestedHooks", "system.prerequisites.abilities", "system.aliases"];
 
@@ -27,7 +27,8 @@ const BLANK_ROWS = {
   descriptors: { key: "", pips: 0, situation: "", value: "" },
   triggers: { label: "", gain: 3, mode: "penalty", skills: [], condition: "" },
   activations: { key: "", type: "invert", cost: 1, skills: [], label: "", pips: 0, dice: 0, skill: "", gain: 0 },
-  "prerequisites.skills": { key: "agility", min: 65 }
+  "prerequisites.skills": { key: "agility", min: 65 },
+  extraWeapons: { name: "", skill: "melee", damage: 3, descriptors: "", ammo: "", empty: false, jammed: false, broken: false }
 };
 
 export class TTSItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {

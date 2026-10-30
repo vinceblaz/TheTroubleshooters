@@ -20,7 +20,7 @@ export async function activateFromSheet(actor, ability, index) {
   if (!act) return;
   const label = act.label || game.i18n.localize(`TTS.ActivationType.${act.type}`);
   if (act.cost > 0) {
-    const ok = await foundry.applications.api.DialogV2.confirm({
+    const ok = await foundry.applications.api.DialogV2.confirm({ classes: ["thetroubleshooters", "tts-dialog"],
       window: { title: ability.name },
       content: `<p>${game.i18n.format("TTS.Ability.ConfirmSpend", { label, cost: act.cost })}</p>`,
       rejectClose: false

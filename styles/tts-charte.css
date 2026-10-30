@@ -1,0 +1,566 @@
+/* ==========================================================================
+   The Troubleshooters — charte graphique (phase 10)
+   Polices libres (SIL OFL 1.1) embarquées : voir fonts/OFL-*.txt.
+   Les fiches et les cartes sont des documents papier : elles gardent leurs couleurs
+   quel que soit le thème clair ou sombre de Foundry (D-095).
+   ========================================================================== */
+
+@font-face { font-family: "TTS Caslon"; src: url("../fonts/LibreCaslonText-VF.woff") format("woff"); font-weight: 400 700; font-display: swap; }
+@font-face { font-family: "TTS Archivo"; src: url("../fonts/ArchivoNarrow-VF.woff") format("woff"); font-weight: 400 700; font-display: swap; }
+@font-face { font-family: "TTS Courier"; src: url("../fonts/CourierPrime-Regular.woff") format("woff"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "TTS Courier"; src: url("../fonts/CourierPrime-Bold.woff") format("woff"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "TTS Space Mono"; src: url("../fonts/SpaceMono-Regular.woff") format("woff"); font-display: swap; }
+@font-face { font-family: "TTS Bangers"; src: url("../fonts/Bangers-Regular.woff") format("woff"); font-display: swap; }
+@font-face { font-family: "TTS Comic"; src: url("../fonts/ComicNeue-Regular.woff") format("woff"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "TTS Comic"; src: url("../fonts/ComicNeue-Bold.woff") format("woff"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "TTS Comic"; src: url("../fonts/ComicNeue-BoldItalic.woff") format("woff"); font-weight: 700; font-style: italic; font-display: swap; }
+
+/* --------------------------------------------------------------------------
+   Jetons
+   -------------------------------------------------------------------------- */
+.thetroubleshooters {
+  /* Passeport */
+  --pp-paper: #F2EEDF;
+  --pp-paper-2: #E9E2CC;
+  --pp-ink: #1E2A44;
+  --pp-ink-soft: #4A5468;
+  --pp-rule: #8C836A;
+  --pp-rule-soft: #B9AE90;
+  --pp-cover: #6B1F2A;
+  --pp-cover-ink: #F2EEDF;
+  --pp-seal: #2E6E78;
+  --pp-red: #B3261E;
+  --ink-red: #B3261E;
+  --ink-teal: #2E6E78;
+  --ink-violet: #5B3A7A;
+  --ink-navy: #1E2A44;
+  --ink-green: #2F5A3A;
+  --pp-serif: "TTS Caslon", "Libre Caslon Text", Georgia, serif;
+  --pp-sans: "TTS Archivo", "Archivo Narrow", "Arial Narrow", sans-serif;
+  --pp-type: "TTS Courier", "Courier Prime", "Courier New", monospace;
+  --pp-mrz: "TTS Space Mono", "Space Mono", "DejaVu Sans Mono", monospace;
+  /* BD vintage */
+  --bd-ink: #1B1B1F;
+  --bd-paper: #F1E3C4;
+  --bd-cream: #F7EDD6;
+  --bd-red: #C7543B;
+  --bd-red-ink: #A33A26;
+  --bd-navy: #2F4A63;
+  --bd-mustard: #E6B34A;
+  --bd-teal: #9CC3C6;
+  --bd-green: #5C9A63;
+  --bd-yellow: #F6D24A;
+  --bd-title: "TTS Bangers", "Bangers", Impact, sans-serif;
+  --bd-text: "TTS Comic", "Comic Neue", "Comic Sans MS", sans-serif;
+}
+
+/* ==========================================================================
+   1. Fiche Risque-tout — « Passeport »
+   ========================================================================== */
+.thetroubleshooters.tts-character .window-content {
+  color-scheme: light;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 46px;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0;
+  padding: 10px 0 10px 10px;
+  background: #2A2622;
+  color: var(--pp-ink);
+  font-family: var(--pp-sans);
+}
+.thetroubleshooters.tts-character .window-content > .tts-passport-header,
+.thetroubleshooters.tts-character .window-content > .tab {
+  grid-column: 1;
+  background-color: var(--pp-paper);
+  background-image:
+    repeating-radial-gradient(circle at 18% 30%, rgba(46,110,120,0.09) 0 1px, transparent 1px 9px),
+    repeating-radial-gradient(circle at 85% 75%, rgba(120,60,90,0.07) 0 1px, transparent 1px 11px),
+    linear-gradient(180deg, rgba(220,232,214,0.55), rgba(242,238,223,0));
+  border-left: 1px solid var(--pp-rule-soft);
+  border-right: 1px solid var(--pp-rule-soft);
+}
+.thetroubleshooters.tts-character .window-content > .tts-passport-header { grid-row: 1; border-top: 1px solid var(--pp-rule-soft); border-radius: 6px 0 0 0; padding: 14px 18px 8px; }
+.thetroubleshooters.tts-character .window-content > .tab { grid-row: 2; border-bottom: 1px solid var(--pp-rule-soft); border-radius: 0 0 0 6px; padding: 6px 18px 14px; overflow-y: auto; }
+
+/* Champs et contrôles « tapés à la machine » */
+.thetroubleshooters.tts-character .window-content input[type="text"],
+.thetroubleshooters.tts-character .window-content input[type="number"],
+.thetroubleshooters.tts-character .window-content select,
+.thetroubleshooters.tts-character .window-content textarea {
+  background: rgba(255,255,255,0.35);
+  color: var(--pp-ink);
+  border: none;
+  border-bottom: 1px solid var(--pp-rule);
+  border-radius: 0;
+  font-family: var(--pp-type);
+  box-shadow: none;
+}
+.thetroubleshooters.tts-character .window-content input:focus, .thetroubleshooters.tts-character .window-content select:focus, .thetroubleshooters.tts-character .window-content textarea:focus { outline: 2px solid var(--pp-seal); outline-offset: 1px; }
+.thetroubleshooters.tts-character .window-content input[type="checkbox"] { accent-color: var(--pp-ink); }
+.thetroubleshooters.tts-character .window-content button { font-family: var(--pp-sans); color: var(--pp-ink); background: var(--pp-paper-2); border: 1px solid var(--pp-rule); border-radius: 3px; }
+.thetroubleshooters.tts-character .window-content button:hover { background: #fff; border-color: var(--pp-ink); }
+.thetroubleshooters.tts-character .window-content a { color: var(--pp-ink); }
+.thetroubleshooters.tts-character .window-content a:hover { color: var(--pp-cover); text-shadow: none; }
+.thetroubleshooters.tts-character .window-content h3,
+.thetroubleshooters.tts-character .tts-list-header h3 { font-family: var(--pp-serif); font-weight: 700; font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase; color: var(--pp-ink); border: none; }
+.thetroubleshooters.tts-character .tts-list-header { border-bottom: 1px solid var(--pp-rule); }
+.thetroubleshooters.tts-character .tts-hint, .thetroubleshooters.tts-character .tts-empty { color: var(--pp-ink-soft); }
+.thetroubleshooters.tts-character .tts-tag { border-color: var(--pp-rule); font-family: var(--pp-sans); }
+.thetroubleshooters.tts-character .tts-fieldset, .thetroubleshooters.tts-character .tts-skill-family { border: 1px solid var(--pp-rule); border-radius: 0; background: rgba(255,255,255,0.25); }
+.thetroubleshooters.tts-character .tts-fieldset legend, .thetroubleshooters.tts-character .tts-skill-family legend { font-family: var(--pp-serif); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: var(--pp-cover); }
+.thetroubleshooters.tts-character .tts-item-row { border-bottom: 1px dotted var(--pp-rule-soft); }
+.thetroubleshooters.tts-character .prosemirror, .thetroubleshooters.tts-character .editor-content { font-family: var(--pp-type); }
+
+/* Onglets verticaux à droite, en marque-pages */
+.thetroubleshooters.tts-character .window-content > nav.tts-tabs {
+  grid-column: 2; grid-row: 1 / span 2;
+  display: flex; flex-direction: column; gap: 5px;
+  border: none; padding: 28px 0 0; margin: 0;
+}
+.thetroubleshooters.tts-character nav.tts-tabs .tts-tab {
+  writing-mode: vertical-rl;
+  display: flex; align-items: center; justify-content: center;
+  width: 38px; min-height: 92px; padding: 10px 0;
+  border-radius: 0 8px 8px 0;
+  background: var(--pp-cover); color: var(--pp-cover-ink);
+  font-family: var(--pp-serif); font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase;
+  text-shadow: none; box-shadow: inset 3px 0 4px rgba(0,0,0,0.25);
+}
+.thetroubleshooters.tts-character nav.tts-tabs .tts-tab:hover { filter: brightness(1.15); }
+.thetroubleshooters.tts-character nav.tts-tabs .tts-tab.active {
+  width: 44px; margin-left: -1px;
+  background: var(--pp-paper); color: var(--pp-cover); font-weight: 700;
+  border: 1px solid var(--pp-rule-soft); border-left: none; box-shadow: none;
+}
+
+/* En-tête du passeport */
+.thetroubleshooters .tts-passport-header { display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
+.thetroubleshooters .tts-pp-top { display: flex; align-items: center; gap: 14px; border-bottom: 2px solid var(--pp-cover); padding-bottom: 8px; }
+.thetroubleshooters .tts-pp-emblem { color: var(--pp-ink); flex: 0 0 auto; }
+.thetroubleshooters .tts-pp-star { fill: var(--pp-cover); }
+.thetroubleshooters .tts-pp-titles { flex: 1 1 auto; display: flex; flex-direction: column; line-height: 1.15; }
+.thetroubleshooters .tts-pp-bureau { font-family: var(--pp-serif); font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; }
+.thetroubleshooters .tts-pp-title { font-family: var(--pp-serif); font-size: 1.55rem; font-weight: 700; letter-spacing: 6px; text-transform: uppercase; color: var(--pp-cover); }
+.thetroubleshooters .tts-pp-sub { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--pp-ink-soft); }
+.thetroubleshooters .tts-pp-codes { display: grid; grid-template-columns: repeat(3, auto); gap: 2px 12px; font-size: 0.6rem; text-transform: uppercase; color: var(--pp-ink-soft); }
+.thetroubleshooters .tts-pp-codes strong { font-family: var(--pp-type); font-size: 0.95rem; color: var(--pp-ink); }
+.thetroubleshooters .tts-pp-codes .tts-pp-number { color: var(--pp-red); }
+.thetroubleshooters .tts-pp-body { display: flex; gap: 18px; }
+.thetroubleshooters .tts-pp-photo { position: relative; flex: 0 0 116px; }
+.thetroubleshooters .tts-pp-photo .tts-portrait { width: 112px; height: 140px; object-fit: cover; border: 1px solid var(--pp-rule); border-radius: 0; background: #DCD6C3; filter: sepia(0.25) contrast(1.05); }
+.thetroubleshooters .tts-pp-seal { position: absolute; left: 66px; top: 92px; color: var(--pp-seal); opacity: 0.6; pointer-events: none; font-family: var(--pp-sans); }
+.thetroubleshooters .tts-pp-mini-stamp { position: absolute; left: -4px; top: 14px; transform: rotate(-12deg); font-family: var(--pp-sans); font-weight: 700; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; padding: 0 5px; border: 2px double currentColor; background: rgba(242,238,223,0.35); pointer-events: none; }
+.thetroubleshooters .tts-pp-mini-stamp + .tts-pp-mini-stamp { top: 46px; left: 20px; transform: rotate(8deg); }
+.thetroubleshooters .tts-pp-mini-stamp + .tts-pp-mini-stamp + .tts-pp-mini-stamp { top: 76px; left: -2px; transform: rotate(-5deg); }
+.thetroubleshooters .tts-pp-fields { flex: 1 1 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 18px; align-content: start; }
+.thetroubleshooters .tts-pp-field { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.thetroubleshooters .tts-pp-field.tts-pp-wide { grid-column: 1 / -1; }
+.thetroubleshooters .tts-pp-field > span { font-size: 0.62rem; text-transform: uppercase; color: var(--pp-ink-soft); letter-spacing: 0.5px; }
+.thetroubleshooters .tts-pp-field > strong { font-family: var(--pp-type); font-size: 0.95rem; text-transform: uppercase; }
+.thetroubleshooters.tts-character .tts-pp-field .tts-name { font-family: var(--pp-type); font-weight: 700; font-size: 1.35rem; text-transform: uppercase; height: auto; background: transparent; }
+.thetroubleshooters.tts-character .tts-pp-field .tts-concept { font-size: 0.95rem; text-transform: uppercase; background: transparent; }
+.thetroubleshooters .tts-pp-strip { display: grid; grid-template-columns: 1.4fr 1fr auto; border: 1px solid var(--pp-rule); background: rgba(255,255,255,0.35); }
+.thetroubleshooters .tts-pp-cell { padding: 5px 10px; display: flex; flex-direction: column; gap: 4px; border-right: 1px solid var(--pp-rule); justify-content: center; }
+.thetroubleshooters .tts-pp-cell:last-child { border-right: none; }
+.thetroubleshooters .tts-pp-label { font-size: 0.62rem; text-transform: uppercase; color: var(--pp-ink-soft); }
+.thetroubleshooters .tts-pp-vitality, .thetroubleshooters .tts-pp-sp { display: flex; align-items: center; gap: 4px; font-family: var(--pp-type); font-weight: 700; }
+.thetroubleshooters .tts-pp-box { width: 15px; height: 15px; border: 1.5px solid var(--pp-ink); box-sizing: border-box; }
+.thetroubleshooters .tts-pp-box.tts-filled { background: var(--pp-ink); }
+.thetroubleshooters.tts-character .tts-pp-vitality input, .thetroubleshooters.tts-character .tts-pp-sp input { width: 2.6rem; text-align: center; font-weight: 700; font-size: 1rem; margin-left: 6px; }
+.thetroubleshooters.tts-character .tts-pp-sp input { margin-left: 0; font-size: 1.25rem; }
+.thetroubleshooters .tts-pp-sub { display: flex; align-items: center; gap: 4px; font-size: 0.62rem; text-transform: uppercase; color: var(--pp-ink-soft); }
+.thetroubleshooters.tts-character .tts-pp-sub input { width: 2.4rem; height: 1.3rem; }
+.thetroubleshooters .tts-pp-mrz { display: flex; flex-direction: column; font-family: var(--pp-mrz); font-size: 0.78rem; letter-spacing: 1.6px; line-height: 1.35; color: var(--pp-ink); border-top: 1px solid var(--pp-rule-soft); padding-top: 5px; white-space: pre; overflow: hidden; }
+
+/* Compétences façon page de visas */
+.thetroubleshooters.tts-character .tts-skill-table td { border-bottom: 1px dotted var(--pp-rule-soft); }
+.thetroubleshooters.tts-character .tts-skill-label a { font-family: var(--pp-sans); font-size: 0.9rem; }
+.thetroubleshooters.tts-character .tts-skill-label a i { color: var(--pp-rule); }
+.thetroubleshooters.tts-character .tts-skill-value input { font-weight: 700; background: transparent; border-bottom: none; }
+.thetroubleshooters.tts-character .tts-skill-tick input[type="checkbox"] { width: 15px; height: 15px; }
+
+/* Planche de tampons */
+.thetroubleshooters .tts-stamp-sheet { margin-top: 10px; }
+.thetroubleshooters .tts-stamp-sheet .tts-list-header { display: flex; align-items: baseline; gap: 8px; }
+.thetroubleshooters .tts-stamp-sheet .tts-list-header .tts-hint { margin-left: auto; font-size: 0.7rem; }
+.thetroubleshooters .tts-stamps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px 12px; padding: 8px 2px; }
+.thetroubleshooters .tts-stamp-cell { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0; }
+.thetroubleshooters.tts-character .window-content button.tts-stamp,
+.thetroubleshooters button.tts-stamp {
+  width: 100%; height: 44px; padding: 0 6px;
+  background: transparent; border-radius: 0;
+  font-family: var(--pp-sans); font-weight: 700; font-size: 0.8rem; letter-spacing: 2px; line-height: 1.05; text-transform: uppercase;
+  color: var(--stamp-ink); border: 2px solid var(--stamp-ink);
+  opacity: 0.2; cursor: pointer; transition: opacity 0.15s, transform 0.15s;
+}
+.thetroubleshooters button.tts-stamp:hover { opacity: 0.5; background: transparent; }
+.thetroubleshooters button.tts-stamp.tts-shape-double { border: 3px double var(--stamp-ink); }
+.thetroubleshooters button.tts-stamp.tts-shape-oval { border-radius: 50%; }
+.thetroubleshooters button.tts-stamp.tts-shape-square { border-radius: 4px; }
+.thetroubleshooters button.tts-stamp.tts-inked {
+  opacity: 0.9;
+  -webkit-mask-image: radial-gradient(rgba(0,0,0,0.45) 0.9px, #000 1.5px); mask-image: radial-gradient(rgba(0,0,0,0.45) 0.9px, #000 1.5px);
+  -webkit-mask-size: 5px 5px; mask-size: 5px 5px;
+  transform: rotate(-6deg);
+}
+.thetroubleshooters .tts-stamp-cell:nth-child(3n) button.tts-stamp.tts-inked { transform: rotate(5deg); }
+.thetroubleshooters .tts-stamp-cell:nth-child(4n+1) button.tts-stamp.tts-inked { transform: rotate(-3deg); }
+.thetroubleshooters .tts-ink-red { --stamp-ink: var(--ink-red); color: var(--ink-red); }
+.thetroubleshooters .tts-ink-teal { --stamp-ink: var(--ink-teal); color: var(--ink-teal); }
+.thetroubleshooters .tts-ink-violet { --stamp-ink: var(--ink-violet); color: var(--ink-violet); }
+.thetroubleshooters .tts-ink-navy { --stamp-ink: var(--ink-navy); color: var(--ink-navy); }
+.thetroubleshooters .tts-ink-green { --stamp-ink: var(--ink-green); color: var(--ink-green); }
+.thetroubleshooters .tts-stamp-controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 3px; font-size: 0.75rem; }
+.thetroubleshooters .tts-stamp-controls a { padding: 0 3px; }
+.thetroubleshooters .tts-stamp-controls .tts-small-button { font-size: 0.7rem; padding: 0 4px; line-height: 1.5; width: auto; }
+
+/* ==========================================================================
+   2. Fiche PNJ — BD vintage tramée
+   ========================================================================== */
+.thetroubleshooters.tts-npc .window-content {
+  color-scheme: light;
+  padding: 12px;
+  color: var(--bd-ink);
+  font-family: var(--bd-text);
+  background-color: var(--bd-paper);
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(160,110,50,0.16), transparent 34%),
+    radial-gradient(circle at 92% 96%, rgba(160,110,50,0.18), transparent 38%),
+    radial-gradient(rgba(120,90,50,0.10) 0.8px, transparent 1px);
+  background-size: auto, auto, 4px 4px;
+}
+.thetroubleshooters.tts-npc .tts-npc-body { display: flex; flex-direction: column; gap: 12px; counter-reset: bdcase; }
+.thetroubleshooters.tts-npc .window-content input[type="text"], .thetroubleshooters.tts-npc .window-content input[type="number"], .thetroubleshooters.tts-npc .window-content select, .thetroubleshooters.tts-npc .window-content textarea {
+  background: var(--bd-cream); color: var(--bd-ink); border: 2px solid var(--bd-ink); border-radius: 8px; font-family: var(--bd-text); font-weight: 700; box-shadow: none;
+}
+.thetroubleshooters.tts-npc .window-content input[type="checkbox"] { accent-color: var(--bd-red); }
+.thetroubleshooters.tts-npc .window-content button { font-family: var(--bd-text); font-weight: 700; color: var(--bd-ink); background: var(--bd-cream); border: 2px solid var(--bd-ink); border-radius: 14px; }
+.thetroubleshooters.tts-npc .window-content button:hover { background: var(--bd-mustard); }
+.thetroubleshooters.tts-npc .window-content a { color: var(--bd-ink); }
+.thetroubleshooters.tts-npc .window-content a:hover { color: var(--bd-red-ink); text-shadow: none; }
+.thetroubleshooters.tts-npc .window-content label { font-weight: 700; }
+.thetroubleshooters.tts-npc .tts-hint { color: #5A4E3A; }
+.thetroubleshooters.tts-npc .window-content h3 { font-family: var(--bd-title); font-weight: 400; font-size: 1.3rem; letter-spacing: 1.5px; border: none; color: var(--bd-ink); }
+
+/* Bandeau titre */
+.thetroubleshooters.tts-npc .tts-npc-banner {
+  display: flex; align-items: center; gap: 14px;
+  padding: 10px 14px; border: 3px solid var(--bd-ink); border-radius: 6px; box-shadow: 5px 5px 0 var(--bd-ink);
+  background-color: var(--bd-red); background-image: radial-gradient(rgba(110,30,20,0.35) 1.5px, transparent 1.8px); background-size: 6px 6px;
+}
+.thetroubleshooters.tts-npc .tts-npc-banner .tts-portrait { width: 76px; height: 76px; border-radius: 50%; border: 3px solid var(--bd-ink); background: var(--bd-cream); object-fit: cover; }
+.thetroubleshooters.tts-npc .tts-npc-kicker { font-weight: 700; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--bd-cream); }
+.thetroubleshooters.tts-npc .tts-npc-banner .tts-name {
+  font-family: var(--bd-title); font-weight: 400; font-size: 2.2rem; letter-spacing: 2px; line-height: 1.05; height: auto;
+  color: var(--bd-cream); background: transparent; border: none; padding: 0;
+  -webkit-text-stroke: 1.5px var(--bd-ink); paint-order: stroke fill; text-shadow: 3px 3px 0 var(--bd-ink);
+}
+.thetroubleshooters.tts-npc .tts-npc-rank select { font-family: var(--bd-title); font-weight: 400; font-size: 1.2rem; letter-spacing: 2px; background: var(--bd-mustard); border: 3px solid var(--bd-ink); border-radius: 20px; box-shadow: 3px 3px 0 var(--bd-ink); height: auto; padding: 2px 10px; }
+.thetroubleshooters.tts-npc .tts-npc-values { display: grid; grid-template-columns: 1.3fr 1fr; gap: 12px; }
+.thetroubleshooters.tts-npc .tts-npc-values .form-group { display: flex; flex-direction: column; align-items: stretch; gap: 4px; padding: 8px 10px; border: 3px solid var(--bd-ink); border-radius: 6px; box-shadow: 4px 4px 0 var(--bd-ink); background-color: var(--bd-mustard); background-image: radial-gradient(rgba(150,90,20,0.30) 1.3px, transparent 1.6px); background-size: 6px 6px; }
+.thetroubleshooters.tts-npc .tts-npc-values .form-group:last-child { background-color: var(--bd-teal); background-image: radial-gradient(rgba(40,90,100,0.35) 1.3px, transparent 1.6px); }
+.thetroubleshooters.tts-npc .tts-npc-values label { font-family: var(--bd-title); font-weight: 400; font-size: 1.1rem; letter-spacing: 1px; }
+.thetroubleshooters.tts-npc .tts-npc-values input[type="number"] { width: 3.2rem; text-align: center; }
+.thetroubleshooters.tts-npc .tts-npc-gauge { height: 14px; border: 2.5px solid var(--bd-ink); border-radius: 10px; background: var(--bd-cream); overflow: hidden; }
+.thetroubleshooters.tts-npc .tts-npc-gauge span { display: block; height: 100%; border-right: 2.5px solid var(--bd-ink); background-color: var(--bd-red); background-image: radial-gradient(rgba(110,30,20,0.35) 1.5px, transparent 1.8px); background-size: 6px 6px; }
+.thetroubleshooters.tts-npc .tts-rank-capabilities { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
+.thetroubleshooters.tts-npc .tts-tag { font-family: var(--bd-text); font-weight: 700; font-size: 0.78rem; border: 2px solid var(--bd-ink); border-radius: 14px; background: var(--bd-cream); box-shadow: 2px 2px 0 var(--bd-ink); padding: 1px 9px; }
+.thetroubleshooters.tts-npc .tts-tag.tts-off { opacity: 0.45; box-shadow: none; text-decoration: line-through; }
+
+/* Cases numérotées */
+.thetroubleshooters.tts-npc .tts-fieldset,
+.thetroubleshooters.tts-npc .tts-conditions-panel {
+  counter-increment: bdcase;
+  position: relative;
+  margin: 0; padding: 34px 12px 10px;
+  border: 3px solid var(--bd-ink); border-radius: 6px; box-shadow: 5px 5px 0 var(--bd-ink);
+  background-color: var(--bd-cream); background-image: radial-gradient(rgba(150,120,80,0.22) 1px, transparent 1.3px); background-size: 5px 5px;
+}
+.thetroubleshooters.tts-npc .tts-fieldset > legend {
+  position: absolute; left: 8px; top: 5px; padding: 0;
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--bd-title); font-weight: 400; font-size: 1.2rem; letter-spacing: 1.5px;
+}
+.thetroubleshooters.tts-npc .tts-fieldset > legend::before,
+.thetroubleshooters.tts-npc .tts-conditions-panel > .tts-list-header::before {
+  content: counter(bdcase);
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; border: 2.5px solid var(--bd-ink); border-radius: 50%;
+  background: var(--bd-mustard); font-family: var(--bd-text); font-weight: 700; font-size: 0.8rem; letter-spacing: 0;
+}
+.thetroubleshooters.tts-npc .tts-fieldset:nth-of-type(2) > legend::before { background: var(--bd-red); color: var(--bd-cream); }
+.thetroubleshooters.tts-npc .tts-fieldset:nth-of-type(3) > legend::before { background: var(--bd-teal); }
+.thetroubleshooters.tts-npc .tts-fieldset:nth-of-type(4) > legend::before { background: var(--bd-cream); }
+.thetroubleshooters.tts-npc .tts-conditions-panel > .tts-list-header { position: absolute; left: 8px; top: 5px; display: flex; align-items: center; gap: 8px; border: none; }
+.thetroubleshooters.tts-npc .tts-conditions-panel > .tts-list-header h3 { margin: 0; }
+.thetroubleshooters.tts-npc .tts-conditions-panel { background-color: var(--bd-teal); background-image: radial-gradient(rgba(40,90,100,0.35) 1.3px, transparent 1.6px); background-size: 6px 6px; }
+.thetroubleshooters.tts-npc .tts-condition-row { border: 2px solid var(--bd-ink); border-radius: 12px; background: rgba(247,237,214,0.8); padding: 2px 8px; }
+.thetroubleshooters.tts-npc .tts-condition-row.tts-active { background-color: var(--bd-red); background-image: radial-gradient(rgba(110,30,20,0.35) 1.5px, transparent 1.8px); background-size: 6px 6px; box-shadow: 2px 2px 0 var(--bd-ink); }
+.thetroubleshooters.tts-npc .tts-condition-row.tts-active a, .thetroubleshooters.tts-npc .tts-condition-row.tts-active .tts-hint { color: var(--bd-cream); }
+.thetroubleshooters.tts-npc .tts-condition-row img { border: none; }
+.thetroubleshooters.tts-npc .tts-row-table th { font-family: var(--bd-title); font-weight: 400; font-size: 0.95rem; letter-spacing: 1px; color: var(--bd-ink); }
+.thetroubleshooters.tts-npc .tts-row-table tr { border-bottom: 2px dashed rgba(27,27,31,0.25); }
+.thetroubleshooters.tts-npc .tts-row-table input[type="text"], .thetroubleshooters.tts-npc .tts-row-table input[type="number"], .thetroubleshooters.tts-npc .tts-row-table select { border-width: 1.5px; border-radius: 6px; }
+.thetroubleshooters.tts-npc .tts-rollable i { color: var(--bd-red-ink); }
+
+/* ==========================================================================
+   3. Cartes de chat — BD 1960-70
+   ========================================================================== */
+.chat-message .thetroubleshooters.tts-card,
+.thetroubleshooters.tts-card {
+  position: relative;
+  color: var(--bd-ink);
+  font-family: var(--bd-text);
+  background-color: #F4E7CB;
+  background-image: radial-gradient(rgba(120,90,50,0.10) 0.8px, transparent 1px);
+  background-size: 4px 4px;
+  border: 3px solid var(--bd-ink); border-radius: 6px; box-shadow: 4px 4px 0 #000;
+  padding: 0 8px 8px; margin: 4px 4px 6px 0;
+  --tts-ok: #2F6B36; --tts-ko: #A33A26; --tts-muted: #5A4E3A; --tts-accent: var(--bd-red);
+}
+.thetroubleshooters.tts-card .tts-card-header {
+  margin: 0 -8px 4px; padding: 4px 8px;
+  border-bottom: 3px solid var(--bd-ink); border-radius: 3px 3px 0 0;
+  background-color: var(--bd-mustard); background-image: radial-gradient(rgba(150,90,20,0.30) 1.3px, transparent 1.6px); background-size: 6px 6px;
+}
+.thetroubleshooters.tts-card .tts-card-title { font-family: var(--bd-title); font-weight: 400; font-size: 1.15rem; letter-spacing: 1px; }
+.thetroubleshooters.tts-card .tts-card-value { color: var(--bd-ink); font-weight: 700; font-size: 0.85rem; }
+.thetroubleshooters.tts-attack-card .tts-card-header { background-color: var(--bd-red); background-image: radial-gradient(rgba(110,30,20,0.35) 1.5px, transparent 1.8px); color: var(--bd-cream); }
+.thetroubleshooters.tts-attack-card .tts-card-header .tts-card-value { color: var(--bd-cream); }
+.thetroubleshooters.tts-challenge-card .tts-card-header, .thetroubleshooters.tts-duel-card .tts-card-header, .thetroubleshooters.tts-opposed-card .tts-card-header { background-color: var(--bd-teal); background-image: radial-gradient(rgba(40,90,100,0.35) 1.3px, transparent 1.6px); }
+.thetroubleshooters.tts-log-card .tts-card-header { background-color: var(--bd-cream); background-image: radial-gradient(rgba(150,120,80,0.22) 1px, transparent 1.3px); background-size: 5px 5px; }
+.thetroubleshooters.tts-card .tts-die-result {
+  font-family: var(--bd-title); font-weight: 400; font-size: 1.9rem; letter-spacing: 1px;
+  min-width: 2.2em; line-height: 1.25; border: 3px solid var(--bd-ink); border-radius: 50%; background: var(--bd-cream); color: var(--bd-ink);
+}
+.thetroubleshooters.tts-card .tts-outcome { margin: 4px 0; }
+.thetroubleshooters.tts-card .tts-outcome .tts-success, .thetroubleshooters.tts-card .tts-outcome .tts-failure {
+  display: block; text-align: center; padding: 1px 4px; border: 3px solid var(--bd-ink); border-radius: 4px;
+  font-family: var(--bd-title); font-weight: 400; font-size: 1.25rem; letter-spacing: 2px; text-transform: uppercase; color: var(--bd-cream);
+  -webkit-text-stroke: 1px var(--bd-ink); paint-order: stroke fill;
+}
+.thetroubleshooters.tts-card .tts-outcome .tts-success { background-color: var(--bd-green); background-image: radial-gradient(rgba(20,60,25,0.35) 1.4px, transparent 1.7px); background-size: 6px 6px; }
+.thetroubleshooters.tts-card .tts-outcome .tts-failure { background-color: var(--bd-red); background-image: radial-gradient(rgba(110,30,20,0.35) 1.5px, transparent 1.8px); background-size: 6px 6px; }
+.thetroubleshooters.tts-card .tts-side .tts-outcome .tts-success, .thetroubleshooters.tts-card .tts-side .tts-outcome .tts-failure { font-size: 1rem; }
+.thetroubleshooters.tts-card .tts-karma { font-family: var(--bd-text); font-weight: 700; border: 2px solid var(--bd-ink); border-radius: 12px; color: var(--bd-ink); }
+.thetroubleshooters.tts-card .tts-karma-good { background: var(--bd-yellow); }
+.thetroubleshooters.tts-card .tts-karma-bad { background: var(--bd-mustard); }
+.thetroubleshooters.tts-card .tts-tag { border: 2px solid var(--bd-ink); border-radius: 12px; background: var(--bd-cream); font-weight: 700; }
+.thetroubleshooters.tts-card .tts-history { color: #4A3F2E; }
+.thetroubleshooters.tts-card .tts-card-buttons button {
+  font-family: var(--bd-text); font-weight: 700; color: var(--bd-ink);
+  background: var(--bd-cream); border: 2.5px solid var(--bd-ink); border-radius: 14px; box-shadow: 2px 2px 0 var(--bd-ink);
+}
+.thetroubleshooters.tts-card .tts-card-buttons button:hover { background: var(--bd-mustard); }
+.thetroubleshooters.tts-card .tts-side { border: 2.5px solid var(--bd-ink); border-radius: 8px; background: var(--bd-cream); }
+.thetroubleshooters.tts-card .tts-side.tts-winner { box-shadow: 3px 3px 0 var(--bd-ink); background: #FFF6C9; }
+.thetroubleshooters.tts-card .tts-face { border: 2px solid var(--bd-ink); border-radius: 5px; background: var(--bd-cream); font-family: var(--bd-title); font-weight: 400; font-size: 1.05rem; }
+.thetroubleshooters.tts-card .tts-face.tts-hit { background: var(--bd-red); color: var(--bd-cream); border-color: var(--bd-ink); }
+
+/* Onomatopées : explosion en couches, lignes de vitesse, lettrage cerné */
+.thetroubleshooters.tts-card .tts-sfx {
+  position: absolute; right: -6px; top: -36px; z-index: 2;
+  min-width: 112px; height: 86px; padding: 0 22px; box-sizing: border-box; transform: rotate(9deg);
+  pointer-events: none;
+  display: flex; align-items: center; justify-content: center;
+  --sfx-burst: var(--bd-yellow); --sfx-ring: var(--bd-red); --sfx-text: var(--bd-cream);
+}
+.thetroubleshooters.tts-card .tts-sfx::before,
+.thetroubleshooters.tts-card .tts-sfx::after {
+  content: ""; position: absolute;
+  clip-path: polygon(50% 0%, 58% 20%, 72% 4%, 74% 24%, 93% 14%, 86% 34%, 100% 40%, 87% 52%, 99% 66%, 80% 68%, 86% 88%, 66% 80%, 58% 100%, 48% 82%, 34% 97%, 31% 77%, 10% 86%, 17% 66%, 0% 58%, 14% 47%, 2% 30%, 22% 30%, 18% 9%, 38% 21%);
+}
+.thetroubleshooters.tts-card .tts-sfx::before { inset: 0; background: var(--bd-ink); box-shadow: 0 0 0 0; }
+.thetroubleshooters.tts-card .tts-sfx::after { inset: 5px; background: radial-gradient(circle, var(--sfx-burst) 0 46%, var(--sfx-ring) 47%); }
+.thetroubleshooters.tts-card .tts-sfx-text {
+  position: relative; z-index: 1;
+  font-family: var(--bd-title); font-size: 1.75rem; letter-spacing: 1.5px; line-height: 1; white-space: nowrap;
+  color: var(--sfx-text); -webkit-text-stroke: 2px var(--bd-ink); paint-order: stroke fill; text-shadow: 2px 2px 0 var(--bd-ink);
+  transform: rotate(-5deg);
+}
+.thetroubleshooters.tts-card .tts-sfx-yellow { --sfx-burst: var(--bd-yellow); --sfx-ring: var(--bd-red); --sfx-text: var(--bd-cream); }
+.thetroubleshooters.tts-card .tts-sfx-red { --sfx-burst: var(--bd-cream); --sfx-ring: var(--bd-yellow); --sfx-text: var(--bd-red); }
+.thetroubleshooters.tts-card .tts-sfx-mustard { --sfx-burst: var(--bd-mustard); --sfx-ring: var(--bd-navy); --sfx-text: var(--bd-cream); }
+.thetroubleshooters.tts-card .tts-sfx-teal { --sfx-burst: var(--bd-cream); --sfx-ring: var(--bd-teal); --sfx-text: var(--bd-navy); }
+.thetroubleshooters.tts-card .tts-sfx-mustard .tts-sfx-text, .thetroubleshooters.tts-card .tts-sfx-teal .tts-sfx-text { font-size: 1.45rem; }
+.thetroubleshooters.tts-card:has(.tts-sfx) { margin-top: 30px; }
+.thetroubleshooters.tts-card:has(.tts-sfx) .tts-card-header { padding-right: 72px; }
+@keyframes tts-sfx-pop { 0% { transform: rotate(9deg) scale(0.2); opacity: 0; } 70% { transform: rotate(9deg) scale(1.12); opacity: 1; } 100% { transform: rotate(9deg) scale(1); } }
+.thetroubleshooters.tts-card .tts-sfx { animation: tts-sfx-pop 0.35s ease-out both; }
+
+/* ==========================================================================
+   4. Effets réduits (réglage client) — trames et onomatopées retirées, lisibilité d'abord
+   ========================================================================== */
+body.tts-reduced-fx .thetroubleshooters.tts-card .tts-sfx { display: none; }
+body.tts-reduced-fx .thetroubleshooters.tts-card:has(.tts-sfx) { margin-top: 4px; }
+body.tts-reduced-fx .thetroubleshooters.tts-card:has(.tts-sfx) .tts-card-header { padding-right: 8px; }
+body.tts-reduced-fx .thetroubleshooters.tts-card,
+body.tts-reduced-fx .thetroubleshooters.tts-card *,
+body.tts-reduced-fx .thetroubleshooters.tts-npc .window-content,
+body.tts-reduced-fx .thetroubleshooters.tts-npc .window-content * { background-image: none !important; }
+body.tts-reduced-fx .thetroubleshooters button.tts-stamp.tts-inked { -webkit-mask-image: none; mask-image: none; transform: none; }
+@media (prefers-reduced-motion: reduce) { .thetroubleshooters.tts-card .tts-sfx { animation: none; } }
+
+/* Retouches après contrôle visuel */
+.thetroubleshooters.tts-character .tts-pp-sub, .thetroubleshooters.tts-character .tts-stat > label { color: var(--pp-ink-soft); font-weight: 400; }
+.thetroubleshooters.tts-npc .tts-condition-row a { color: var(--bd-ink); font-weight: 700; }
+.thetroubleshooters button.tts-stamp { opacity: 0.24; }
+
+/* ==========================================================================
+   5. Fenêtres : outils du Chef, boîtes de dialogue, assistants, fiches d'objets (D-101)
+   Registre BD vintage par défaut ; registre « Passeport » pour la création et la progression
+   d'un Risque-tout (documents de son passeport).
+   ========================================================================== */
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content {
+  color-scheme: light;
+  color: var(--bd-ink);
+  font-family: var(--bd-text);
+  background-color: var(--bd-paper);
+  background-image:
+    radial-gradient(circle at 10% 6%, rgba(160,110,50,0.14), transparent 36%),
+    radial-gradient(circle at 94% 96%, rgba(160,110,50,0.16), transparent 40%),
+    radial-gradient(rgba(120,90,50,0.10) 0.8px, transparent 1px);
+  background-size: auto, auto, 4px 4px;
+}
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content :is(input[type="text"], input[type="number"], input:not([type]), select, textarea) {
+  background: var(--bd-cream); color: var(--bd-ink);
+  border: 2px solid var(--bd-ink); border-radius: 8px; box-shadow: none;
+  font-family: var(--bd-text); font-weight: 700;
+}
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content select[multiple] { border-radius: 6px; }
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content :is(input, select, textarea):focus { outline: 2px solid var(--bd-red); outline-offset: 1px; }
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content :is(input[type="checkbox"], input[type="radio"]) { accent-color: var(--bd-red); }
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content button {
+  font-family: var(--bd-text); font-weight: 700; color: var(--bd-ink);
+  background: var(--bd-cream); border: 2.5px solid var(--bd-ink); border-radius: 14px; box-shadow: 2px 2px 0 var(--bd-ink);
+}
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content button:hover:not(:disabled) { background: var(--bd-mustard); }
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content button:disabled { opacity: 0.5; box-shadow: none; }
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content :is(.form-footer, .dialog-buttons, .tts-app-footer) button {
+  font-family: var(--bd-title); font-weight: 400; font-size: 1.15rem; letter-spacing: 1.5px;
+  background-color: var(--bd-mustard); background-image: radial-gradient(rgba(150,90,20,0.30) 1.3px, transparent 1.6px); background-size: 6px 6px;
+  border-width: 3px; box-shadow: 3px 3px 0 var(--bd-ink);
+}
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content :is(.form-footer, .dialog-buttons) button:first-child,
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content :is(.form-footer, .dialog-buttons) button[data-action="ok"],
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content :is(.form-footer, .dialog-buttons) button[data-action="yes"] {
+  background-color: var(--bd-red); background-image: radial-gradient(rgba(110,30,20,0.35) 1.5px, transparent 1.8px); color: var(--bd-cream);
+  -webkit-text-stroke: 1px var(--bd-ink); paint-order: stroke fill;
+}
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content a { color: var(--bd-ink); }
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content a:hover { color: var(--bd-red-ink); text-shadow: none; }
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content label { font-weight: 700; }
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content :is(.tts-hint, .hint) { color: #5A4E3A; }
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content :is(h2, h3, h4) { font-family: var(--bd-title); font-weight: 400; letter-spacing: 1.5px; border: none; color: var(--bd-ink); }
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content fieldset {
+  position: relative; margin: 8px 0; padding: 8px 10px 10px;
+  border: 2.5px solid var(--bd-ink); border-radius: 6px; box-shadow: 3px 3px 0 var(--bd-ink);
+  background-color: var(--bd-cream); background-image: radial-gradient(rgba(150,120,80,0.22) 1px, transparent 1.3px); background-size: 5px 5px;
+}
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content fieldset fieldset { box-shadow: none; border-width: 2px; }
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content legend {
+  font-family: var(--bd-title); font-weight: 400; font-size: 1.1rem; letter-spacing: 1.5px; color: var(--bd-ink);
+  padding: 0 8px; background: var(--bd-mustard); border: 2px solid var(--bd-ink); border-radius: 12px;
+}
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content .tts-tag { font-family: var(--bd-text); font-weight: 700; border: 2px solid var(--bd-ink); border-radius: 12px; background: var(--bd-cream); }
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content .tts-row-table th { font-family: var(--bd-title); font-weight: 400; font-size: 0.95rem; letter-spacing: 1px; color: var(--bd-ink); }
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content .tts-row-table tr { border-bottom: 2px dashed rgba(27,27,31,0.22); }
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content .tts-roll-summary { font-size: 1.05rem; }
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content .tts-roll-summary strong { font-family: var(--bd-title); font-weight: 400; letter-spacing: 1px; font-size: 1.2rem; }
+.thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content :is(.tts-draft-errors, .tts-draft-warnings) { border-width: 2.5px; background: var(--bd-cream); box-shadow: 2px 2px 0 var(--bd-ink); }
+
+/* Fiches d'objets : bandeau titre BD */
+.thetroubleshooters.tts-item .window-content .tts-item-header {
+  display: flex; align-items: center; gap: 12px; padding: 8px 12px;
+  border: 3px solid var(--bd-ink); border-radius: 6px; box-shadow: 4px 4px 0 var(--bd-ink);
+  background-color: var(--bd-navy); background-image: radial-gradient(rgba(240,226,196,0.20) 1.4px, transparent 1.7px); background-size: 7px 7px;
+}
+.thetroubleshooters.tts-item .window-content .tts-item-header .tts-portrait { width: 56px; height: 56px; border-radius: 50%; border: 3px solid var(--bd-ink); background: var(--bd-cream); object-fit: cover; }
+.thetroubleshooters.tts-item .window-content .tts-item-header .tts-name {
+  font-family: var(--bd-title); font-weight: 400; font-size: 1.7rem; letter-spacing: 1.5px; height: auto;
+  color: var(--bd-cream); background: transparent; border: none; padding: 0;
+  -webkit-text-stroke: 1.2px var(--bd-ink); paint-order: stroke fill; text-shadow: 2px 2px 0 var(--bd-ink);
+}
+.thetroubleshooters.tts-item .window-content .tts-item-type { display: inline-block; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--bd-ink); background: var(--bd-mustard); border: 2px solid var(--bd-ink); border-radius: 10px; padding: 0 8px; }
+
+/* Registre « Passeport » : création et progression d'un Risque-tout */
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content {
+  color: var(--pp-ink); font-family: var(--pp-sans);
+  background-color: var(--pp-paper);
+  background-image:
+    repeating-radial-gradient(circle at 18% 30%, rgba(46,110,120,0.09) 0 1px, transparent 1px 9px),
+    repeating-radial-gradient(circle at 85% 75%, rgba(120,60,90,0.07) 0 1px, transparent 1px 11px),
+    linear-gradient(180deg, rgba(220,232,214,0.55), rgba(242,238,223,0));
+  background-size: auto;
+}
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content :is(input[type="text"], input[type="number"], input:not([type]), select, textarea) {
+  background: rgba(255,255,255,0.4); color: var(--pp-ink); border: none; border-bottom: 1px solid var(--pp-rule); border-radius: 0; font-family: var(--pp-type); font-weight: 400;
+}
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content :is(input, select, textarea):focus { outline-color: var(--pp-seal); }
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content :is(input[type="checkbox"], input[type="radio"]) { accent-color: var(--pp-ink); }
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content button {
+  font-family: var(--pp-sans); font-weight: 700; color: var(--pp-ink); background: var(--pp-paper-2);
+  border: 1px solid var(--pp-rule); border-radius: 3px; box-shadow: none;
+}
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content button:hover:not(:disabled) { background: #fff; border-color: var(--pp-ink); }
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content .tts-app-footer button {
+  font-family: var(--pp-serif); font-size: 0.95rem; letter-spacing: 2px; text-transform: uppercase;
+  background: var(--pp-cover); background-image: none; color: var(--pp-cover-ink); border: none; border-radius: 3px; box-shadow: none; -webkit-text-stroke: 0;
+}
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content .tts-app-footer button:first-child { background: var(--pp-paper-2); color: var(--pp-ink); border: 1px solid var(--pp-rule); }
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content a { color: var(--pp-ink); }
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content label { font-weight: 500; }
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content :is(.tts-hint, .hint) { color: var(--pp-ink-soft); }
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content :is(h2, h3, h4) { font-family: var(--pp-serif); font-weight: 700; font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase; color: var(--pp-ink); }
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content fieldset {
+  border: 1px solid var(--pp-rule); border-radius: 0; box-shadow: none; background: rgba(255,255,255,0.28); background-image: none;
+}
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content legend {
+  font-family: var(--pp-serif); font-weight: 700; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--pp-cover); background: transparent; border: none; border-radius: 0; padding: 0 6px;
+}
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content .tts-tag { font-family: var(--pp-sans); font-weight: 500; border: 1px solid var(--pp-rule); border-radius: 0.6em; background: transparent; }
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content :is(.tts-draft-errors, .tts-draft-warnings) { background: rgba(255,255,255,0.5); box-shadow: none; border-width: 1px; border-style: dashed; }
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content .tts-chargen-description { border-left-color: var(--pp-cover); font-family: var(--pp-type); }
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content .tts-progression-label { font-family: var(--pp-type); }
+.thetroubleshooters:is(.tts-chargen, .tts-progression) .window-content .tts-chargen-skill strong { font-family: var(--pp-type); }
+
+body.tts-reduced-fx .thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content,
+body.tts-reduced-fx .thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .window-content * { background-image: none !important; }
+
+/* Nom des PNJ et des objets (retour de recette 0.11) : lettrage net, sans contour ni ombre, sur le champ crème */
+.thetroubleshooters.tts-npc .window-content .tts-npc-banner input.tts-name,
+.thetroubleshooters.tts-item .window-content .tts-item-header input.tts-name {
+  font-family: var(--bd-text); font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--bd-ink); background: var(--bd-cream);
+  -webkit-text-stroke: 0; text-shadow: none; paint-order: normal;
+  border: 2.5px solid var(--bd-ink); border-radius: 8px; padding: 2px 10px; height: auto; line-height: 1.2;
+}
+.thetroubleshooters.tts-npc .window-content .tts-npc-banner input.tts-name { font-size: 1.7rem; }
+.thetroubleshooters.tts-item .window-content .tts-item-header input.tts-name { font-size: 1.3rem; }
+
+/* ==========================================================================
+   6. Journaux d'aide (phase 11) : page BD vintage
+   ========================================================================== */
+.tts-journal {
+  color: #1B1B1F; font-family: "TTS Comic", "Comic Neue", sans-serif; font-size: 14px; line-height: 1.45;
+  padding: 16px 18px 20px; border: 3px solid #1B1B1F; border-radius: 6px; box-shadow: 5px 5px 0 #1B1B1F;
+  background-color: #F1E3C4;
+  background-image: radial-gradient(circle at 10% 6%, rgba(160,110,50,0.14), transparent 36%), radial-gradient(rgba(120,90,50,0.10) 0.8px, transparent 1px);
+  background-size: auto, 4px 4px;
+}
+.tts-journal h1 {
+  font-family: "TTS Bangers", "Bangers", sans-serif; font-weight: 400; font-size: 2rem; letter-spacing: 2px; line-height: 1.1;
+  margin: 0 0 4px; padding: 6px 12px; border: 3px solid #1B1B1F; border-radius: 6px; box-shadow: 4px 4px 0 #1B1B1F;
+  color: #1B1B1F; background-color: #E6B34A; background-image: radial-gradient(rgba(150,90,20,0.30) 1.3px, transparent 1.6px); background-size: 6px 6px;
+}
+.tts-journal h2 { font-family: "TTS Bangers", "Bangers", sans-serif; font-weight: 400; font-size: 1.35rem; letter-spacing: 1.5px; color: #A33A26; border-bottom: 2.5px solid #1B1B1F; margin: 18px 0 6px; }
+.tts-journal .tts-journal-kicker { font-weight: 700; font-style: italic; color: #5A4E3A; margin: 6px 0 12px; }
+.tts-journal table { width: 100%; border-collapse: collapse; margin: 6px 0 10px; background: #F7EDD6; border: 2.5px solid #1B1B1F; }
+.tts-journal th { font-family: "TTS Bangers", "Bangers", sans-serif; font-weight: 400; letter-spacing: 1px; text-align: left; background: #9CC3C6; border: 1.5px solid #1B1B1F; padding: 3px 6px; color: #1B1B1F; }
+.tts-journal td { border: 1.5px solid #1B1B1F; padding: 3px 6px; vertical-align: top; }
+.tts-journal table.tts-calendar { width: auto; min-width: 60%; text-align: center; }
+.tts-journal table.tts-calendar th, .tts-journal table.tts-calendar td { text-align: center; width: 2.4em; }
+.tts-journal td.tts-holiday { background: #C7543B; color: #F7EDD6; font-weight: 700; }
+.tts-journal .tts-calendar-notes { font-size: 0.85rem; margin-top: 0; }
+body.tts-reduced-fx .tts-journal, body.tts-reduced-fx .tts-journal * { background-image: none !important; }

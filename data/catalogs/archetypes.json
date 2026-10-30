@@ -1,0 +1,826 @@
+[
+  {
+    "seedKey": "archetype.archeologue-aventurier",
+    "data": {
+      "name": "Archéologue aventurier",
+      "type": "archetype",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "skills": {
+          "primary": "humanities",
+          "secondary": [
+            "contacts",
+            "investigation",
+            "languages",
+            "science"
+          ],
+          "tertiary": [
+            "melee",
+            "search",
+            "medicine",
+            "driving",
+            "status",
+            "willpower"
+          ]
+        },
+        "abilities": [
+          "Bonne réputation",
+          "Escrimeur",
+          "Professeur",
+          "Professionnel diplômé",
+          "Polyglotte"
+        ],
+        "flaws": [
+          "Honnête",
+          "Phobie",
+          "Reconnaissable"
+        ],
+        "vitality": 5,
+        "extraLanguages": 2,
+        "kits": [
+          "Matériel de détective",
+          "Voiture citadine",
+          "Outils d’archéologue"
+        ],
+        "suggestedHooks": [
+          "Amis haut placés",
+          "Étranger",
+          "Historien",
+          "Némésis : la Pieuvre"
+        ],
+        "ignorePrerequisites": true,
+        "description": "<p>En tant qu’expert, votre place est sur le terrain et non entre les murs d’une bibliothèque débordant de vieux livres moisis ou dans une salle de classe coincé en compagnie d’étudiants agaçants qui posent des questions stupides. On ne part pas à la recherche du passé dans des manuels. Ces ouvrages entreposés sur les rayonnages serviront de référence aux gens qui privilégient les explications simplistes. Dehors, l’histoire n’attend plus que vous, dans les souterrains et les tombes inexplorées, dans les tumulus laissés intacts, dans des langages encore hermétiques.</p><p><strong>Langues :</strong> choisissez deux langues supplémentaires.</p>",
+        "source": "LdB p. 40"
+      }
+    }
+  },
+  {
+    "seedKey": "archetype.artiste-incompris",
+    "data": {
+      "name": "Artiste incompris",
+      "type": "archetype",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "skills": {
+          "primary": "sleightOfHand",
+          "secondary": [
+            "charm",
+            "languages",
+            "performance",
+            "status"
+          ],
+          "tertiary": [
+            "agility",
+            "melee",
+            "search",
+            "driving",
+            "humanities",
+            "willpower"
+          ]
+        },
+        "abilities": [
+          "Artiste",
+          "Bonne descente",
+          "Célèbre",
+          "Comédien",
+          "Empathie"
+        ],
+        "flaws": [
+          "Alcoolique",
+          "Stupeur paralysante",
+          "Perdu"
+        ],
+        "vitality": 5,
+        "extraLanguages": 2,
+        "kits": [
+          "Appareil photo",
+          "Instrument de musique | Matériel d’artiste peintre | Machine à écrire",
+          "Scooter"
+        ],
+        "suggestedHooks": [
+          "Dette",
+          "Historien",
+          "Chevalier blanc",
+          "Coqueluche des médias"
+        ],
+        "ignorePrerequisites": true,
+        "description": "<p>Les paroles ne suffisent pas à exprimer la profondeur de votre être. À l’intérieur de vous se niche une âme emprisonnée que seul l’art parvient à libérer. Vous éprouvez une douleur pesante quand sa voix s’extirpe de votre chair, mais la souffrance serait pire si vous fermiez votre cœur à clé et dissimuliez votre véritable personnalité en vous fondant parmi le commun des mortels.</p><p><strong>Langues :</strong> choisissez deux langues supplémentaires.</p>",
+        "source": "LdB p. 40"
+      }
+    }
+  },
+  {
+    "seedKey": "archetype.avocat-justicier",
+    "data": {
+      "name": "Avocat justicier",
+      "type": "archetype",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "skills": {
+          "primary": "investigation",
+          "secondary": [
+            "bureaucracy",
+            "charm",
+            "search",
+            "sleightOfHand"
+          ],
+          "tertiary": [
+            "contacts",
+            "melee",
+            "driving",
+            "performance",
+            "vigilance",
+            "willpower"
+          ]
+        },
+        "abilities": [
+          "Avocat",
+          "Bonne réputation",
+          "Curieux",
+          "Fin limier",
+          "Uppercut fracassant"
+        ],
+        "flaws": [
+          "Code d’honneur",
+          "Malchanceux",
+          "Présomptueux"
+        ],
+        "vitality": 5,
+        "extraLanguages": 0,
+        "kits": [
+          "Matériel de détective",
+          "Magnétophone",
+          "Appareil photo | Caméra"
+        ],
+        "suggestedHooks": [
+          "Amis haut placés",
+          "Chevalier blanc",
+          "Dette",
+          "Enquêteur"
+        ],
+        "ignorePrerequisites": true,
+        "description": "<p>Vous êtes le dernier espoir des laissés-pour-compte de la justice. Vous leur donnez une chance devant les tribunaux de franchir les obstacles législatifs insurmontables pour les gens ordinaires. Vos adversaires sont impitoyables, et s’il faut tricher un peu pour faire pencher la balance en votre faveur lorsque vous affrontez votre Goliath, qu’il en soit ainsi.</p><p><strong>Langues :</strong> –</p>",
+        "source": "LdB p. 41"
+      }
+    }
+  },
+  {
+    "seedKey": "archetype.bourlingueur-debrouillard",
+    "data": {
+      "name": "Bourlingueur débrouillard",
+      "type": "archetype",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "skills": {
+          "primary": "charm",
+          "secondary": [
+            "contacts",
+            "languages",
+            "resources",
+            "willpower"
+          ],
+          "tertiary": [
+            "melee",
+            "endurance",
+            "humanities",
+            "survival",
+            "driving",
+            "vigilance"
+          ]
+        },
+        "abilities": [
+          "Bonne réputation",
+          "Curieux",
+          "Double nationalité",
+          "Empathie",
+          "Globe-trotter"
+        ],
+        "flaws": [
+          "Mauvaise réputation",
+          "Reconnaissable",
+          "Séducteur"
+        ],
+        "vitality": 5,
+        "extraLanguages": 2,
+        "kits": [
+          "Change de vêtements",
+          "Matériel de randonnée",
+          "Appareil photo"
+        ],
+        "suggestedHooks": [
+          "Agent secret",
+          "Aventurier",
+          "Chevalier blanc",
+          "Coqueluche des médias"
+        ],
+        "ignorePrerequisites": true,
+        "description": "<p>Il y a bien un domaine où vous êtes passé maître: explorer le monde sans un sou en poche. Vous avez des relations partout dans le monde et connaissez les sentiers et les sites mystérieux qui valent le détour, à l’écart des circuits touristiques.</p><p><strong>Langues :</strong> choisissez deux langues supplémentaires.</p>",
+        "source": "LdB p. 41"
+      }
+    }
+  },
+  {
+    "seedKey": "archetype.cambrioleur-audacieux",
+    "data": {
+      "name": "Cambrioleur audacieux",
+      "type": "archetype",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "skills": {
+          "primary": "security",
+          "secondary": [
+            "agility",
+            "search",
+            "stealth",
+            "sleightOfHand"
+          ],
+          "tertiary": [
+            "charm",
+            "melee",
+            "investigation",
+            "driving",
+            "deception",
+            "vigilance"
+          ]
+        },
+        "abilities": [
+          "Acrobate",
+          "Célèbre",
+          "Crochetage",
+          "Prestance",
+          "Sixième sens"
+        ],
+        "flaws": [
+          "Mauvaise réputation",
+          "Séducteur",
+          "Présomptueux"
+        ],
+        "vitality": 6,
+        "extraLanguages": 0,
+        "kits": [
+          "Outils de crochetage",
+          "Lampe torche",
+          "Jumelles"
+        ],
+        "suggestedHooks": [
+          "Aventurier",
+          "Chevalier blanc",
+          "Dette",
+          "Némésis : la Pieuvre"
+        ],
+        "ignorePrerequisites": true,
+        "description": "<p>Sans haine ni violence, mais toujours hors-la-loi, telle est la vie d’un cambrioleur. Quel frisson quand vous parvenez à vous introduire dans des sites sécurisés et à repartir avec votre modeste butin d’une valeur inestimable, sans que personne ne le sache ! Enfin, encore faudrait-il que vous ne laissiez pas votre carte de visite. Mais il vous paraît impensable de quitter les lieux sans signer votre œuvre.</p><p><strong>Langues :</strong> –</p>",
+        "source": "LdB p. 41"
+      }
+    }
+  },
+  {
+    "seedKey": "archetype.diplomate-ruse",
+    "data": {
+      "name": "Diplomate rusé",
+      "type": "archetype",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "skills": {
+          "primary": "status",
+          "secondary": [
+            "bureaucracy",
+            "charm",
+            "contacts",
+            "languages"
+          ],
+          "tertiary": [
+            "investigation",
+            "search",
+            "resources",
+            "deception",
+            "vigilance",
+            "willpower"
+          ]
+        },
+        "abilities": [
+          "Bonne descente",
+          "Bonne réputation",
+          "Célèbre",
+          "Grade militaire",
+          "Immunité diplomatique"
+        ],
+        "flaws": [
+          "Code d’honneur",
+          "Reconnaissable",
+          "Présomptueux"
+        ],
+        "vitality": 4,
+        "extraLanguages": 2,
+        "kits": [
+          "Robe de soirée | Costume de soirée",
+          "Change de vêtements",
+          "Magnétophone"
+        ],
+        "suggestedHooks": [
+          "Agent secret",
+          "Amis haut placés",
+          "Némésis : la Pieuvre",
+          "Dette"
+        ],
+        "ignorePrerequisites": true,
+        "description": "<p>Selon certaines définitions, la diplomatie est l’art d’envoyer son interlocuteur sur les roses tout en le persuadant qu’il passe un moment agréable. Rien de plus faux : il s’agit d’un métier plus cruel qu’on ne l’imagine, indispensable dans la bataille à mots couverts que se livrent les nations et à laquelle vous participez. Vous devez redoubler de perfidie dans ce panier de crabes mortel.</p><p><strong>Langues :</strong> choisissez deux langues supplémentaires.</p>",
+        "source": "LdB p. 42"
+      }
+    }
+  },
+  {
+    "seedKey": "archetype.etudiant-enthousiaste",
+    "data": {
+      "name": "Étudiant enthousiaste",
+      "type": "archetype",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "skills": {
+          "primary": "investigation",
+          "secondary": [
+            "electronics",
+            "search",
+            "engineering",
+            "humanities"
+          ],
+          "tertiary": [
+            "contacts",
+            "melee",
+            "languages",
+            "medicine",
+            "science",
+            "willpower"
+          ]
+        },
+        "abilities": [
+          "Curieux",
+          "Concentré",
+          "Génie",
+          "Jeune",
+          "Optimiste"
+        ],
+        "flaws": [
+          "Alcoolique",
+          "Grossier",
+          "Mineur"
+        ],
+        "vitality": 5,
+        "extraLanguages": 1,
+        "kits": [
+          "Outils d’électronique",
+          "Bicyclette",
+          "Laboratoire de chimiste"
+        ],
+        "suggestedHooks": [
+          "Chevalier blanc",
+          "Dette",
+          "Étranger",
+          "Historien"
+        ],
+        "ignorePrerequisites": true,
+        "description": "<p>Vous vivez la meilleure période de votre existence, à mi-chemin entre l’enfance et l’âge adulte. Les études sont la première étape vers l’indépendance et une carrière professionnelle. Vous arrivez à un seuil, le temps de la liberté, où vous dites adieu aux contraintes du foyer parental avant d’endosser les obligations de votre futur métier, où vous grandissez pour affronter l’avenir. Toutes les portes sont ouvertes et les lendemains sont radieux ! Si l’on met de côté le contrôle de la semaine prochaine, que vous avez vraiment intérêt à réviser.</p><p><strong>Langues :</strong> choisissez une langue supplémentaire.</p>",
+        "source": "LdB p. 42"
+      }
+    }
+  },
+  {
+    "seedKey": "archetype.explorateur-intrepide",
+    "data": {
+      "name": "Explorateur intrépide",
+      "type": "archetype",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "skills": {
+          "primary": "survival",
+          "secondary": [
+            "agility",
+            "endurance",
+            "driving",
+            "willpower"
+          ],
+          "tertiary": [
+            "contacts",
+            "search",
+            "languages",
+            "mechanics",
+            "shooting",
+            "vigilance"
+          ]
+        },
+        "abilities": [
+          "Broussard",
+          "Globe-trotter",
+          "Pair du royaume",
+          "Plongeur",
+          "Polyglotte"
+        ],
+        "flaws": [
+          "Honnête",
+          "Phobie",
+          "Présomptueux"
+        ],
+        "vitality": 6,
+        "extraLanguages": 1,
+        "kits": [
+          "Matériel de randonnée",
+          "Matériel de survie",
+          "Fusil de chasse | Appareil photo"
+        ],
+        "suggestedHooks": [
+          "Aventurier",
+          "Coqueluche des médias",
+          "Exilé",
+          "Historien"
+        ],
+        "ignorePrerequisites": true,
+        "description": "<p>Être le premier à explorer un site, ce n’est pas rien. Défier la nature, surmonter l’insurmontable, gravir des sommets vertigineux, traverser des étendues désertiques ou glacées, voilà ce qui vous motive dans la vie.</p><p><strong>Langues :</strong> choisissez une langue supplémentaire.</p>",
+        "source": "LdB p. 42"
+      }
+    }
+  },
+  {
+    "seedKey": "archetype.ingenieur-curieux",
+    "data": {
+      "name": "Ingénieur curieux",
+      "type": "archetype",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "skills": {
+          "primary": "engineering",
+          "secondary": [
+            "electronics",
+            "search",
+            "mechanics",
+            "science"
+          ],
+          "tertiary": [
+            "contacts",
+            "melee",
+            "investigation",
+            "driving",
+            "security",
+            "willpower"
+          ]
+        },
+        "abilities": [
+          "Concentré",
+          "Curieux",
+          "Génie",
+          "Optimiste",
+          "Professionnel diplômé"
+        ],
+        "flaws": [
+          "Stupeur paralysante",
+          "Grossier",
+          "Malchanceux"
+        ],
+        "vitality": 5,
+        "extraLanguages": 0,
+        "kits": [
+          "Trousse de mécanicien",
+          "Outils d’électronique",
+          "Radio amateur"
+        ],
+        "suggestedHooks": [
+          "Amis haut placés",
+          "Aventurier",
+          "Dette",
+          "Exilé"
+        ],
+        "ignorePrerequisites": true,
+        "description": "<p>Les machines sont merveilleuses. Elles font de ces choses ! Mais le meilleur, ce n’est pas la machine elle-même, c’est l’achèvement d’un projet qui est réellement source de fierté. Mais fabriquer un appareil, ou comprendre son fonctionnement, voilà le véritable défi, la raison pour laquelle vous avez choisi ce métier.</p><p><strong>Langues :</strong> –</p>",
+        "source": "LdB p. 43"
+      }
+    }
+  },
+  {
+    "seedKey": "archetype.journaliste-d-investigation",
+    "data": {
+      "name": "Journaliste d’investigation",
+      "type": "archetype",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "skills": {
+          "primary": "contacts",
+          "secondary": [
+            "investigation",
+            "search",
+            "deception",
+            "vigilance"
+          ],
+          "tertiary": [
+            "charm",
+            "melee",
+            "languages",
+            "sleightOfHand",
+            "driving",
+            "status"
+          ]
+        },
+        "abilities": [
+          "Bonne réputation",
+          "Carte de presse",
+          "Fin limier",
+          "Globe-trotter"
+        ],
+        "flaws": [
+          "Code d’honneur",
+          "Honnête",
+          "Mauvaise réputation"
+        ],
+        "vitality": 5,
+        "extraLanguages": 1,
+        "kits": [
+          "Appareil photo",
+          "Matériel de détective | Magnétophone",
+          "Voiture citadine | Scooter"
+        ],
+        "suggestedHooks": [
+          "Aventurier",
+          "Chevalier blanc",
+          "Dette",
+          "Étranger"
+        ],
+        "ignorePrerequisites": true,
+        "description": "<p>Le public a le droit de connaître la vérité ! Vous allez la lui apporter, mais il va falloir sacrément creuser. Vous n’allez pas vous faire des amis, vous n’allez probablement pas rouler sur l’or, mais votre nom va devenir célèbre et la vérité éclatera au grand jour !</p><p><strong>Langues :</strong> choisissez une langue supplémentaire.</p>",
+        "source": "LdB p. 43"
+      }
+    }
+  },
+  {
+    "seedKey": "archetype.millionnaire-cosmopolite",
+    "data": {
+      "name": "Millionnaire cosmopolite",
+      "type": "archetype",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "skills": {
+          "primary": "resources",
+          "secondary": [
+            "charm",
+            "contacts",
+            "status",
+            "deception"
+          ],
+          "tertiary": [
+            "languages",
+            "driving",
+            "performance",
+            "shooting",
+            "vigilance",
+            "willpower"
+          ]
+        },
+        "abilities": [
+          "Bonne réputation",
+          "Célèbre",
+          "Nouveau riche",
+          "Pair du royaume",
+          "Vieille fortune"
+        ],
+        "flaws": [
+          "Alcoolique",
+          "Farci de préjugés",
+          "Séducteur"
+        ],
+        "vitality": 4,
+        "extraLanguages": 1,
+        "kits": [
+          "Robe de soirée | Costume de soirée",
+          "Voiture de luxe | Voiture de sport",
+          "Liasse de billets"
+        ],
+        "suggestedHooks": [
+          "Aventurier",
+          "Chevalier blanc",
+          "Coqueluche des médias",
+          "Exilé"
+        ],
+        "ignorePrerequisites": true,
+        "description": "<p>Avoir été partout et connaître des gens très important suffit pour certaines carrières, surtout si l’on n’a aucune compétences ni qualifications. Vous faites partie ces personnes. Vous prenez l’avion, vous rencontrez des gens, vous connaissez quelqu’un qui connaît quelqu’un d’autre. Et même si vous ne faites guère les choses par vous-même, avoir le bras long et se trouver au bon endroit au bon moment peut changer la face du monde.</p><p><strong>Langues :</strong> choisissez une langue supplémentaire.</p>",
+        "source": "LdB p. 43"
+      }
+    }
+  },
+  {
+    "seedKey": "archetype.pilote-de-course",
+    "data": {
+      "name": "Pilote de course",
+      "type": "archetype",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "skills": {
+          "primary": "driving",
+          "secondary": [
+            "endurance",
+            "engineering",
+            "vigilance",
+            "willpower"
+          ],
+          "tertiary": [
+            "melee",
+            "strength",
+            "search",
+            "mechanics",
+            "resources",
+            "status"
+          ]
+        },
+        "abilities": [
+          "Bonne réputation",
+          "Génie",
+          "Globe-trotter",
+          "Né derrière un volant",
+          "Sixième sens"
+        ],
+        "flaws": [
+          "Grossier",
+          "Mauvaise réputation",
+          "Présomptueux"
+        ],
+        "vitality": 5,
+        "extraLanguages": 0,
+        "kits": [
+          "Voiture de course",
+          "Caméra",
+          "Trousse de mécanicien"
+        ],
+        "suggestedHooks": [
+          "Aventurier",
+          "Coqueluche des médias",
+          "Dette",
+          "Étranger"
+        ],
+        "ignorePrerequisites": true,
+        "description": "<p>Vous avez l’essence dans le sang et l’existence vous paraît si lente. C’est quand vous êtes sur le circuit, les oreilles assourdies par le rugissement des moteurs et les narines submergées par l’odeur de pneu brûlé, que le monde se cale enfin sur votre rythme. Vous multipliez les compétitions, affrontez la fine fleur des as du volant. Sur la route, vous vous sentez enfin vivant !</p><p><strong>Langues :</strong> –</p>",
+        "source": "LdB p. 44"
+      }
+    }
+  },
+  {
+    "seedKey": "archetype.policier-en-civil",
+    "data": {
+      "name": "Policier en civil",
+      "type": "archetype",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "skills": {
+          "primary": "investigation",
+          "secondary": [
+            "bureaucracy",
+            "search",
+            "shooting",
+            "vigilance"
+          ],
+          "tertiary": [
+            "melee",
+            "medicine",
+            "driving",
+            "science",
+            "deception",
+            "willpower"
+          ]
+        },
+        "abilities": [
+          "Concentré",
+          "Criminalistique",
+          "Fin limier",
+          "Insigne de police",
+          "Pistolero"
+        ],
+        "flaws": [
+          "Alcoolique",
+          "Reconnaissable",
+          "Présomptueux"
+        ],
+        "vitality": 6,
+        "extraLanguages": 0,
+        "kits": [
+          "Arme de poing",
+          "Voiture familiale",
+          "Matériel de détective"
+        ],
+        "suggestedHooks": [
+          "Agent secret",
+          "Chevalier blanc",
+          "Enquêteur",
+          "Némésis : la Pieuvre"
+        ],
+        "ignorePrerequisites": true,
+        "description": "<p>Vous êtes l’ultime rempart de la loi, celui qu’on appelle quand quelqu’un est allé trop loin ou qu’on a besoin de renfort pour enquêter sur un crime. Vous inspectez la scène, interrogez les suspects et les témoins et en déduisez le déroulement des événements. Et avec un peu de chance, une bonne dose de coopération et une grosse rasade de ténacité, vous arriverez peut-être à envoyer le fautif derrière les barreaux.</p><p><strong>Langues :</strong> –</p>",
+        "source": "LdB p. 44"
+      }
+    }
+  },
+  {
+    "seedKey": "archetype.sportif-de-haut-niveau",
+    "data": {
+      "name": "Sportif de haut niveau",
+      "type": "archetype",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "skills": {
+          "primary": "willpower",
+          "secondary": [
+            "agility",
+            "melee",
+            "endurance",
+            "strength"
+          ],
+          "tertiary": [
+            "medicine",
+            "resources",
+            "status",
+            "survival",
+            "shooting",
+            "vigilance"
+          ]
+        },
+        "abilities": [
+          "Acrobate",
+          "Athlète",
+          "Ceinture noire de judo",
+          "Jeune",
+          "Uppercut fracassant"
+        ],
+        "flaws": [
+          "Cupide",
+          "Grossier",
+          "Honnête"
+        ],
+        "vitality": 7,
+        "extraLanguages": 0,
+        "kits": [
+          "Bicyclette | Équipement de ski",
+          "Voiture citadine",
+          "Caméra"
+        ],
+        "suggestedHooks": [
+          "Aventurier",
+          "Coqueluche des médias",
+          "Dette",
+          "Exilé"
+        ],
+        "ignorePrerequisites": true,
+        "description": "<p>Votre esprit est prêt à en découdre et votre cœur s’emballe. Là-bas, que ce soit sur la piste ou sur le ring, vous profitez de chaque instant. Dans votre tête, la victoire est déjà vôtre.</p><p><strong>Langues :</strong> –</p>",
+        "source": "LdB p. 45"
+      }
+    }
+  },
+  {
+    "seedKey": "archetype.veterinaire-attentionne",
+    "data": {
+      "name": "Vétérinaire attentionné",
+      "type": "archetype",
+      "img": "icons/svg/mystery-man.svg",
+      "system": {
+        "skills": {
+          "primary": "medicine",
+          "secondary": [
+            "endurance",
+            "investigation",
+            "search",
+            "science"
+          ],
+          "tertiary": [
+            "agility",
+            "charm",
+            "contacts",
+            "driving",
+            "survival",
+            "shooting"
+          ]
+        },
+        "abilities": [
+          "Ami des bêtes",
+          "Animal de compagnie",
+          "Concentré",
+          "Professionnel diplômé",
+          "Sixième sens"
+        ],
+        "flaws": [
+          "Code d’honneur",
+          "Honnête",
+          "Stupeur paralysante"
+        ],
+        "vitality": 5,
+        "extraLanguages": 0,
+        "kits": [
+          "Camionnette",
+          "Trousse de premiers soins",
+          "Trousse de médecin"
+        ],
+        "suggestedHooks": [
+          "Amis haut placés",
+          "Chevalier blanc",
+          "Dette",
+          "Enquêteur"
+        ],
+        "ignorePrerequisites": true,
+        "description": "<p>Les animaux aussi subissent les affres de la maladie et des blessures. Ils ressentent la douleur, comme nous, mais ils ne peuvent pas indiquer à quel endroit ni décrire leurs maux. L’expression de leur détresse est leur unique recours. Il y a des milliers d’infirmières et de médecins pour s’occuper des humains, mais presque personne pour se soucier des animaux. Votre profession – non, votre passion – est de leur venir en aide quand ils en ont besoin. Après tout, notre façon de traiter les plus démunis en dit long sur nous.</p><p><strong>Langues :</strong> –</p>",
+        "source": "LdB p. 45"
+      }
+    }
+  }
+]

@@ -83,15 +83,26 @@ export async function patchUpWounded(healer, target) {
 }
 
 /** Lignes du panneau des conditions (fiches Risque-tout et PNJ). */
+/** Charte (phase 10) : encre du tampon par famille d'états. */
+export const CONDITION_INK = Object.freeze({
+  wounded: "red", mortalDanger: "red", outOfAction: "red", onFire: "red",
+  frightened: "teal", terrified: "teal", surprised: "teal", stunned: "teal",
+  drunk: "violet", exhausted: "violet", encumbered: "violet",
+  vulnerable: "navy",
+  blinded: "green", deafened: "green", paralyzed: "green", restrained: "green"
+});
+const STAMP_SHAPES = ["double", "oval", "square"];
+
 export function conditionRows(actor) {
   const st = statuses(actor);
   const levels = conditionLevelsOf(actor);
   const ignored = ignoredConditionsOf(actor);
-  return Object.entries(CONDITION_DEFS).map(([id, def]) => {
+  return Object.entries(CONDITION_DEFS).map(([id, def], index) => {
     const active = st.includes(id);
     const patched = id === "wounded" && ignored.includes("wounded");
     return {
       id, active, img: THETROUBLESHOOTERS.conditions[id].img,
+      ink: CONDITION_INK[id] ?? "navy", shape: STAMP_SHAPES[index % STAMP_SHAPES.length],
       label: conditionLabel(id),
       effect: `TTS.Condition.Effect.${id}`,
       ends: `TTS.Condition.Ends.${def.ends}`,

@@ -111,7 +111,7 @@ async function onPipClick(combatant, pip) {
   }
   if (pip === "actNow") return combatant.setFlag(SYSTEM_ID, "actNow", false);
   if (pip === "delay") {
-    const text = await foundry.applications.api.DialogV2.prompt({
+    const text = await foundry.applications.api.DialogV2.prompt({ classes: ["thetroubleshooters", "tts-dialog"],
       window: { title: t("TTS.Combat.Delay") },
       content: `<div class="form-group"><label>${t("TTS.Combat.DelayPrompt")}</label><input name="delay" type="text" value="${foundry.utils.escapeHTML(f.delay ?? "")}" placeholder="${t("TTS.Combat.DelayPlaceholder")}"></div>`,
       ok: { callback: (event, button) => button.form.elements.delay.value },
@@ -188,7 +188,7 @@ export async function pickHealer(excludeUuid) {
   const preferred = game.user.character && candidates.find(a => a.id === game.user.character.id);
   if (preferred || candidates.length === 1) return preferred ?? candidates[0];
   const options = candidates.map(a => `<option value="${a.id}">${foundry.utils.escapeHTML(a.name)}</option>`).join("");
-  const id = await foundry.applications.api.DialogV2.prompt({
+  const id = await foundry.applications.api.DialogV2.prompt({ classes: ["thetroubleshooters", "tts-dialog"],
     window: { title: t("TTS.Combat.Medicine") },
     content: `<div class="form-group"><label>${t("TTS.Combat.Healer")}</label><select name="healer">${options}</select></div>`,
     ok: { callback: (event, button) => button.form.elements.healer.value },

@@ -40,7 +40,7 @@ async function chooseActor(candidates, title) {
   const preferred = game.user.character && list.find(a => a.id === game.user.character.id);
   if (list.length === 1 || (preferred && !game.user.isGM)) return preferred ?? list[0];
   const options = list.map(a => `<option value="${a.uuid}">${foundry.utils.escapeHTML(a.name)}</option>`).join("");
-  const uuid = await foundry.applications.api.DialogV2.prompt({
+  const uuid = await foundry.applications.api.DialogV2.prompt({ classes: ["thetroubleshooters", "tts-dialog"],
     window: { title },
     content: `<div class="form-group"><label>${t("TTS.Challenge.WhoRolls")}</label><select name="who">${options}</select></div>`,
     ok: { callback: (event, button) => button.form.elements.who.value },
@@ -59,7 +59,7 @@ async function contextFor(actor, skill) {
     base: `${t("TTS.Npc.BaseSkill")} (${actor.system.baseSkill} %)`
   };
   const options = Object.entries(choices).map(([k, v]) => `<option value="${k}">${foundry.utils.escapeHTML(v)}</option>`).join("");
-  const source = await foundry.applications.api.DialogV2.prompt({
+  const source = await foundry.applications.api.DialogV2.prompt({ classes: ["thetroubleshooters", "tts-dialog"],
     window: { title: `${actor.name} — ${skillLabel(skill)}` },
     content: `<div class="form-group"><label>${t("TTS.Challenge.NpcSkill")}</label><select name="source">${options}</select></div><p class="hint">${t("TTS.Challenge.NpcSkillHint")}</p>`,
     ok: { callback: (event, button) => button.form.elements.source.value },
@@ -107,7 +107,7 @@ async function requestDuelExchange(message, card, side) {
     const pen = repeatPenalty(d, side, k, scope);
     return `<option value="${k}">${foundry.utils.escapeHTML(t(s.label))}${pen ? ` (${pen})` : ""}</option>`;
   }).join("");
-  const data = await foundry.applications.api.DialogV2.prompt({
+  const data = await foundry.applications.api.DialogV2.prompt({ classes: ["thetroubleshooters", "tts-dialog"],
     window: { title: `${t("TTS.Duel.Request")} — ${d.sides[side].name}` },
     content: `<div class="form-group"><label>${t("TTS.Duel.Skill")}</label><select name="skill">${skills}</select></div>
       <div class="form-group"><label>${t("TTS.Duel.OppSkill")}</label><select name="oppSkill"><option value="">${t("TTS.Duel.SameSkill")}</option>${skills}</select></div>

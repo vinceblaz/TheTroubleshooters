@@ -105,6 +105,14 @@ async function onCardAction(message, el) {
         return flawFail(message, card);
       case "unlucky":
         return RelayService.dispatch("taskUnlucky", { messageId: message.id, actorUuid: card.actorUuid });
+      case "gadgetDanger": {
+        const actor = await fromUuid(card.actorUuid);
+        if (!actor?.isOwner) return;
+        const { inflictHazard } = await import("../services/hazard-service.mjs");
+        return inflictHazard({ kind: "gadget", label: `${card.gadget?.kitName ?? ""} — ${game.i18n.localize(`TTS.Gadget.Type.${el.dataset.type}`)}`, actors: [actor], dice: Number(el.dataset.dice) || 4, soak: true });
+      }
+      case "gadgetCreate":
+        return RelayService.dispatch("gadgetCreate", { messageId: message.id }, { gmOnly: true });
       case "conditionExit":
         return RelayService.dispatch("conditionExit", { messageId: message.id, actorUuid: card.actorUuid }, { gmOnly: true });
       case "npcReverse":
@@ -177,7 +185,7 @@ async function flawFail(message, card) {
   let flawId = flaws[0].id;
   if (flaws.length > 1) {
     const options = flaws.map(f => `<option value="${f.id}">${foundry.utils.escapeHTML?.(f.name) ?? f.name}</option>`).join("");
-    flawId = await foundry.applications.api.DialogV2.prompt({
+    flawId = await foundry.applications.api.DialogV2.prompt({ classes: ["thetroubleshooters", "tts-dialog"],
       window: { title: game.i18n.localize("TTS.Chat.FlawFail") },
       content: `<div class="form-group"><label>${game.i18n.localize("TTS.Item.Flaws")}</label><select name="flawId">${options}</select></div>`,
       ok: { callback: (event, button) => button.form.elements.flawId.value },
@@ -193,7 +201,7 @@ async function resolveSpendFromCard(message, card, decision) {
   if (!game.user.isGM) return;
   const request = { messageId: message.id, actorUuid: card.spend.actorUuid, decision };
   if (decision === "modify") {
-    const data = await foundry.applications.api.DialogV2.prompt({
+    const data = await foundry.applications.api.DialogV2.prompt({ classes: ["thetroubleshooters", "tts-dialog"],
       window: { title: game.i18n.localize("TTS.Spend.Modify") },
       content: `<div class="form-group"><label>${game.i18n.localize("TTS.Spend.NewCost")}</label><input name="cost" type="number" min="0" max="12" value="${card.spend.reserved}"></div>
         <div class="form-group"><label>${game.i18n.localize("TTS.Spend.Note")}</label><input name="note" type="text"></div>`,

@@ -1,0 +1,21 @@
+{{!-- Planche de tampons des conditions (charte « Passeport »). Paramètres : conditions, editable, compact --}}
+<section class="tts-stamp-sheet">
+  <header class="tts-list-header"><h3>{{localize "TTS.Passport.Mentions"}}</h3>{{#unless compact}}<span class="tts-hint">{{localize "TTS.Passport.MentionsHint"}}</span>{{/unless}}</header>
+  <div class="tts-stamps">
+    {{#each conditions as |c|}}
+    <div class="tts-stamp-cell {{#if c.active}}tts-active{{/if}}" data-status="{{c.id}}">
+      <button type="button" class="tts-stamp tts-ink-{{c.ink}} tts-shape-{{c.shape}} {{#if c.active}}tts-inked{{/if}}" {{#if ../editable}}data-action="toggleStatus"{{/if}} data-status="{{c.id}}" data-tooltip="{{c.effect}}" aria-pressed="{{#if c.active}}true{{else}}false{{/if}}">{{c.label}}{{#if c.cumulative}}{{#if c.active}} ×{{c.level}}{{/if}}{{/if}}</button>
+      {{#unless ../compact}}{{#if c.active}}
+      <div class="tts-stamp-controls">
+        {{#if c.cumulative}}{{#if ../editable}}<a data-action="levelDown" data-status="{{c.id}}" aria-label="−"><i class="fa-solid fa-minus"></i></a><a data-action="levelUp" data-status="{{c.id}}" aria-label="+"><i class="fa-solid fa-plus"></i></a>{{/if}}{{/if}}
+        {{#if ../editable}}
+        {{#each c.exits as |x|}}<button type="button" class="tts-small-button" data-action="exitRoll" data-status="{{c.id}}" data-skill="{{x.skill}}" data-tooltip="TTS.Condition.ExitHint"><i class="fa-solid fa-dice-d10"></i> {{x.label}}</button>{{/each}}
+        {{#if c.patchUp}}<button type="button" class="tts-small-button" data-action="patchUp" data-tooltip="TTS.Condition.PatchUpHint"><i class="fa-solid fa-kit-medical"></i> {{localize "TTS.Condition.PatchUp"}}</button>{{/if}}
+        {{/if}}
+        {{#if c.patched}}<span class="tts-tag">{{localize "TTS.Condition.PatchedUp"}}</span>{{/if}}
+      </div>
+      {{/if}}{{/unless}}
+    </div>
+    {{/each}}
+  </div>
+</section>

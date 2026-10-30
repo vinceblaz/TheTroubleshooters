@@ -1,0 +1,47 @@
+{{!-- Tableau de kits. Paramètres : rows, title, counter, slots, editable, create --}}
+<section class="tts-item-list" data-type="kit">
+  <header class="tts-list-header">
+    <h3>{{localize title}}</h3>
+    {{#if counter}}<span class="tts-kit-count {{#if slots.over}}tts-warn{{/if}}">{{slots.carried}} / {{slots.max}}</span>{{/if}}
+    {{#if (and editable create)}}
+    <button type="button" class="tts-icon-button" data-action="createItem" data-type="kit" data-tooltip="TTS.Sheet.Add" aria-label="{{localize 'TTS.Sheet.Add'}}"><i class="fa-solid fa-plus"></i></button>
+    {{/if}}
+  </header>
+  {{#if rows.length}}
+  <table class="tts-kit-table">
+    <tbody>
+      {{#each rows as |r|}}
+      <tr class="tts-item-row {{#if r.kit.system.broken}}tts-broken{{/if}}" data-item-id="{{r.kit.id}}">
+        <td><img src="{{r.kit.img}}" alt="" width="24" height="24"></td>
+        <td>
+          <a class="tts-item-name" data-action="editItem">{{r.kit.name}}</a>
+          {{#if r.kit.system.signature}}<i class="fa-solid fa-star tts-signature" data-tooltip="{{r.kit.system.signatureDescription}}"></i>{{/if}}
+          <div class="tts-kit-tags">
+            <span class="tts-tag">{{r.originLabel}}</span>
+            {{#if r.categoryLabel}}<span class="tts-tag">{{r.categoryLabel}}</span>{{/if}}
+            {{#if r.returned}}<span class="tts-tag tts-warn" data-tooltip="TTS.Kit.ReturnedHint">{{localize "TTS.Kit.ToReturn"}}</span>{{/if}}
+            {{#if r.weapons}}<span class="tts-tag">{{r.weapons}}</span>{{/if}}
+            {{#if r.kit.system.hasProtection}}<span class="tts-tag">{{r.kit.system.protection.dice}}dR</span>{{/if}}
+            {{#if r.gadget}}<span class="tts-tag"><i class="fa-solid fa-gear"></i> {{localize "TTS.Kit.Gadget"}}</span>{{/if}}
+            {{#if r.juryRigged}}<span class="tts-tag">{{localize "TTS.Kit.UsesShort"}} {{r.kit.system.uses}}</span>{{/if}}
+            {{#if r.kit.system.broken}}<span class="tts-tag tts-warn">{{localize "TTS.Kit.Broken"}}</span>{{/if}}
+            {{#if r.kit.system.weapon.empty}}<span class="tts-tag tts-warn">{{localize "TTS.Weapon.Empty"}}</span>{{/if}}
+          </div>
+        </td>
+        <td class="tts-row-controls">
+          {{#if ../editable}}
+          {{#if (and r.juryRigged (not r.kit.system.broken))}}<a data-action="useKit" data-tooltip="TTS.Kit.UseHint"><i class="fa-solid fa-hand-sparkles"></i></a>{{/if}}
+          <a data-action="toggleItemFlag" data-flag="system.carried" data-tooltip="{{#if r.kit.system.carried}}TTS.Kit.Store{{else}}TTS.Kit.Carry{{/if}}"><i class="fa-solid {{#if r.kit.system.carried}}fa-box-archive{{else}}fa-suitcase{{/if}}"></i></a>
+          <a data-action="toggleItemFlag" data-flag="system.signature" data-tooltip="TTS.Kit.Signature"><i class="fa-{{#if r.kit.system.signature}}solid{{else}}regular{{/if}} fa-star"></i></a>
+          <a data-action="editItem" data-tooltip="TTS.Sheet.Edit"><i class="fa-solid fa-pen"></i></a>
+          <a data-action="deleteItem" data-tooltip="TTS.Sheet.Delete"><i class="fa-solid fa-trash"></i></a>
+          {{/if}}
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{else}}
+  <p class="tts-empty">{{localize "TTS.Sheet.Empty"}}</p>
+  {{/if}}
+</section>

@@ -16,7 +16,7 @@ import { promptTaskRoll } from "../apps/roll-dialog.mjs";
 import { createCardMessage } from "../chat/cards.mjs";
 import { evaluateTaskRoll, awardKarmaPoint, rollTask } from "./roll-service.mjs";
 import { defaultRollModeFor } from "./roll-mode.mjs";
-import { weaponsOf, combatantOf, targetInfo, defenseChoicesOf, soakDiceFor, statusesOf, abilityList } from "./combat-actors.mjs";
+import { weaponsOf, combatantOf, targetInfo, defenseChoicesOf, soakDiceFor, statusesOf, abilityList, updateKitWeapon } from "./combat-actors.mjs";
 import { attackContext, defenseContext } from "./combat-context.mjs";
 import { characterSkillContext } from "./roll-context.mjs";
 import { rollPool } from "./pool-service.mjs";
@@ -96,7 +96,7 @@ export async function startAttack(actor, ref, { targets: forced = null } = {}) {
     const attack = createAttackState({
       attacker: {
         actorUuid: actor.uuid, name: actor.name, isCharacter: actor.type === "character", skillKey: ctx.skillKey, label: ctx.label, task, mods,
-        weapon: { name: weapon.name, skill: weapon.skill, damage: weapon.damage, kitId: weapon.kitId, attackIndex: weapon.attackIndex, unarmed: weapon.unarmed },
+        weapon: { name: weapon.name, skill: weapon.skill, damage: weapon.damage, kitId: weapon.kitId, weaponIndex: weapon.weaponIndex ?? 0, attackIndex: weapon.attackIndex, unarmed: weapon.unarmed },
         flags: weapon.flags
       },
       target: targetInfo(target),
@@ -177,7 +177,7 @@ export async function onAttackAction(message, card, el) {
       if (choice === "vitality") {
         const res = applyAbsorb({ choice, vitality: actor.system.vitality.value, loss: s.loss, statuses: statusesOf(actor) });
         if (res.death) {
-          const ok = await foundry.applications.api.DialogV2.confirm({
+          const ok = await foundry.applications.api.DialogV2.confirm({ classes: ["thetroubleshooters", "tts-dialog"],
             window: { title: t("TTS.Attack.DeathTitle") },
             content: `<p>${game.i18n.format("TTS.Attack.DeathConfirm", { name: actor.name })}</p>`,
             rejectClose: false
@@ -311,7 +311,7 @@ export async function reloadWeapon(actor, ref) {
     const task = msg?.getFlag(SYSTEM_ID, "card")?.task;
     if (!task?.success) return;
   }
-  if (weapon.kitId) await actor.items.get(weapon.kitId)?.update({ "system.weapon.empty": false });
+  if (weapon.kitId) await updateKitWeapon(actor.items.get(weapon.kitId), weapon.weaponIndex ?? 0, { empty: false });
   else if (Number.isInteger(weapon.attackIndex)) {
     const attacks = foundry.utils.deepClone(actor.system._source.attacks);
     attacks[weapon.attackIndex].empty = false;

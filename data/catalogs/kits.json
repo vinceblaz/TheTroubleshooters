@@ -1,0 +1,4369 @@
+[
+  {
+    "seedKey": "kit.animalDeCompagnie",
+    "data": {
+      "name": "Animal de compagnie",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "animal, laisse ou harnais",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Tours et bêtises (9-0)",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> animal, laisse ou harnais</p><p><strong>Descripteurs :</strong> Tours et bêtises (9-0)</p>",
+        "source": "LdB p. 117",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.appareilPhoto",
+    "data": {
+      "name": "Appareil photo",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "appareil 35mm, objectifs, pellicule, sac antichocs",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Documentation et analyse des lieux",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> appareil 35mm, objectifs, pellicule, sac antichocs</p><p><strong>Descripteurs :</strong> Documentation et analyse des lieux : +2 pips</p>",
+        "source": "LdB p. 117",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.arbaleteDeChasse",
+    "data": {
+      "name": "Arbalète de chasse",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "arbalète moderne en acier avec crosse de fusil, valise de transport, 12 carreaux, carquois",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Arbalète",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "un coup",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> arbalète moderne en acier avec crosse de fusil, valise de transport, 12 carreaux, carquois</p><p><strong>Descripteurs :</strong> Arbalète : Tir, dégâts 5dX, un coup</p>",
+        "source": "LdB p. 117",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.arcDeCompetition",
+    "data": {
+      "name": "Arc de compétition",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "arc composite moderne pour la compétition, valise de transport, 12 flèches, carquois, bracelet de protection, gant (palette)",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Arc de compétition",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "précis, un coup",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> arc composite moderne pour la compétition, valise de transport, 12 flèches, carquois, bracelet de protection, gant (palette)</p><p><strong>Descripteurs :</strong> Arc de compétition : Tir, dégâts 5dX, précis, un coup</p>",
+        "source": "LdB p. 117",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.arcLong",
+    "data": {
+      "name": "Arc long",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "arc long en if ou en frêne, étui, 12 flèches, carquois, bracelet de protection, gant (palette)",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Arc long",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "rechargement rapide, un coup",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> arc long en if ou en frêne, étui, 12 flèches, carquois, bracelet de protection, gant (palette)</p><p><strong>Descripteurs :</strong> Arc long : Tir, dégâts 5dX, rechargement rapide, un coup</p>",
+        "source": "LdB p. 117",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.armeDePoing",
+    "data": {
+      "name": "Arme de poing",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "habituellement un 9 mm parabellum, holster, 5 chargeurs supplémentaires, sac ou poches pour chargeurs",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Arme de poing",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "bruyant, munitions (9-0), portée courte",
+          "ammo": "9-0",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> habituellement un 9 mm parabellum, holster, 5 chargeurs supplémentaires, sac ou poches pour chargeurs</p><p><strong>Descripteurs :</strong> Arme de poing : Tir, dégâts 5dX, bruyant, munitions (9-0), portée courte</p>",
+        "source": "LdB p. 117",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.armeDePoingLourde",
+    "data": {
+      "name": "Arme de poing lourde",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "habituellement un calibre .45, holster, 3 chargeurs supplémentaires, sac ou poches pour chargeurs",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Arme de poing lourde",
+          "skill": "shooting",
+          "damage": 6,
+          "descriptors": "bruyant, munitions (8-0), portée courte",
+          "ammo": "8-0",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> habituellement un calibre .45, holster, 3 chargeurs supplémentaires, sac ou poches pour chargeurs</p><p><strong>Descripteurs :</strong> Arme de poing lourde : Tir, dégâts 6dX, bruyant, munitions (8-0), portée courte</p>",
+        "source": "LdB p. 117",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.assistantRobotique",
+    "data": {
+      "name": "Assistant robotique",
+      "type": "kit",
+      "img": "systems/thetroubleshooters/assets/icons/kit-super-science.svg",
+      "system": {
+        "storyPointCost": 4,
+        "contents": "humanoïde bipède ou à roulettes avec commande vocale. Obéit à des ordres simples et réponds à des questions basiques. Bête comme un manche de pelle, cependant.",
+        "prerequisites": "",
+        "category": "superScience",
+        "descriptors": [
+          {
+            "key": "Servir le thé et autres tâches simples",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> humanoïde bipède ou à roulettes avec commande vocale. Obéit à des ordres simples et réponds à des questions basiques. Bête comme un manche de pelle, cependant.</p><p><strong>Descripteurs :</strong> Servir le thé et autres tâches simples : +2 pips</p>",
+        "source": "LdB p. 124",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.autogire",
+    "data": {
+      "name": "Autogire",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "petit aéronef à une ou deux places avec hélices et aile autopropulsée, casque",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Volant",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> petit aéronef à une ou deux places avec hélices et aile autopropulsée, casque</p><p><strong>Descripteurs :</strong> Volant</p>",
+        "source": "LdB p. 117",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.avionDeChasse",
+    "data": {
+      "name": "Avion de chasse",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 6,
+        "contents": "une ou deux places, hangar, radio, radar",
+        "prerequisites": "Pilote de chasse",
+        "category": "spyTech",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Missiles anti-aérien (4)",
+          "skill": "shooting",
+          "damage": 6,
+          "descriptors": "bruyant, un coup",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [
+          {
+            "name": "Mitrailleuses",
+            "skill": "shooting",
+            "damage": 6,
+            "descriptors": "munitions (9-0), portée courte",
+            "ammo": "9-0",
+            "empty": false,
+            "jammed": false,
+            "broken": false
+          }
+        ],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> une ou deux places, hangar, radio, radar</p><p><strong>Descripteurs :</strong> Missiles anti-aérien (4) : Tir, dégâts 6dX, bruyant, un coup ; Mitrailleuses : Tir, dégâts 6dX, munitions (9-0), portée courte</p><p><strong>Nécessite :</strong> Pilote de chasse</p>",
+        "source": "LdB p. 124",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.bicyclette",
+    "data": {
+      "name": "Bicyclette",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "bicyclette, boite de rustines, pompe, panier, antivol",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Voyage à courte distance ou dans les embouteillages",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> bicyclette, boite de rustines, pompe, panier, antivol</p><p><strong>Descripteurs :</strong> Voyage à courte distance ou dans les embouteillages : +2 pips</p>",
+        "source": "LdB p. 117",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.bouteillesDePlongee",
+    "data": {
+      "name": "Bouteilles de plongée",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "réservoir, mélangeur, jauge de pression, harnais, profondimètre",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Plongée sous-marine",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> réservoir, mélangeur, jauge de pression, harnais, profondimètre</p><p><strong>Descripteurs :</strong> Plongée sous-marine</p>",
+        "source": "LdB p. 117",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.camera",
+    "data": {
+      "name": "Caméra",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "caméra 8 mm ou 16 mm, cassettes ou bandes, sac antichoc",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Documentation et analyse d’événements",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> caméra 8 mm ou 16 mm, cassettes ou bandes, sac antichoc</p><p><strong>Descripteurs :</strong> Documentation et analyse d’événements : +2 pips</p>",
+        "source": "LdB p. 117",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.camionnette",
+    "data": {
+      "name": "Camionnette",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "trois places, volant, énorme compartiment à bagages",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Voyage sur route avec lourdes charges",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> trois places, volant, énorme compartiment à bagages</p><p><strong>Descripteurs :</strong> Voyage sur route avec lourdes charges</p>",
+        "source": "LdB p. 117",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.ceintureDeLevitation",
+    "data": {
+      "name": "Ceinture de lévitation",
+      "type": "kit",
+      "img": "systems/thetroubleshooters/assets/icons/kit-super-science.svg",
+      "system": {
+        "storyPointCost": 4,
+        "contents": "ceinture permettant de léviter et de transporter un poids équivalent à un adulte. Doit être arrêtée après deux minutes d’utilisation sans quoi elle surchauffe et cesse de fonctionner.",
+        "prerequisites": "",
+        "category": "superScience",
+        "descriptors": [
+          {
+            "key": "Vol individuel",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> ceinture permettant de léviter et de transporter un poids équivalent à un adulte. Doit être arrêtée après deux minutes d’utilisation sans quoi elle surchauffe et cesse de fonctionner.</p><p><strong>Descripteurs :</strong> Vol individuel</p>",
+        "source": "LdB p. 124",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.changeDeVetements",
+    "data": {
+      "name": "Change de vêtements",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "vêtements et sous-vêtements de rechange, paire de chaussures, trousse de toilette, maquillage (en option), sac de voyage",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Voyager confortablement",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> vêtements et sous-vêtements de rechange, paire de chaussures, trousse de toilette, maquillage (en option), sac de voyage</p><p><strong>Descripteurs :</strong> Voyager confortablement : +2 pips</p>",
+        "source": "LdB p. 117",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.cheval",
+    "data": {
+      "name": "Cheval",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "cheval, selle, couvertures de selle, mors et bride, brosse, couteau de fourrier, écurie",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Voyage hors des sentiers battus",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> cheval, selle, couvertures de selle, mors et bride, brosse, couteau de fourrier, écurie</p><p><strong>Descripteurs :</strong> Voyage hors des sentiers battus : +2 pips</p>",
+        "source": "LdB p. 118",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.costumeDeSoiree",
+    "data": {
+      "name": "Costume de soirée",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "costume noir, marine ou blanc, gilet noir ou blanc, chemise blanche, boutons de manchettes, nœud papillon noir, chaussures de cuir noires",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Faire bonne impression lors d’occasions formelles",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> costume noir, marine ou blanc, gilet noir ou blanc, chemise blanche, boutons de manchettes, nœud papillon noir, chaussures de cuir noires</p><p><strong>Descripteurs :</strong> Faire bonne impression lors d’occasions formelles : +2 pips</p>",
+        "source": "LdB p. 118",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.dague",
+    "data": {
+      "name": "Dague",
+      "type": "kit",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "dague, fourreau",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Couteau de survie",
+          "skill": "melee",
+          "damage": 4,
+          "descriptors": "précis",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> dague, fourreau</p><p><strong>Descripteurs :</strong> Couteau de survie : Corps-à-corps, dégâts 4dX, précis</p>",
+        "source": "LdB p. 118",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.deltaplane",
+    "data": {
+      "name": "Deltaplane",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "aile pliante, sac",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Vol libre",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> aile pliante, sac</p><p><strong>Descripteurs :</strong> Vol libre</p>",
+        "source": "LdB p. 118",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.equipementArctique",
+    "data": {
+      "name": "Équipement arctique",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "sous-vêtements en pilou, pantalons en duvet, doudoune avec capuche en fourrure, gants ou mitaines chaudes, bottes chaudes, crampons, lunettes de protection",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Survie (arctique)",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> sous-vêtements en pilou, pantalons en duvet, doudoune avec capuche en fourrure, gants ou mitaines chaudes, bottes chaudes, crampons, lunettes de protection</p><p><strong>Descripteurs :</strong> Survie (arctique) : +2 pips</p>",
+        "source": "LdB p. 118",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.equipementDeChasseur",
+    "data": {
+      "name": "Équipement de chasseur",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "bottes confortables, vêtements résistants et chauds, poncho, mitaines chaudes, couteau, harnais, bâche, joli chapeau",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Chasse et survie",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> bottes confortables, vêtements résistants et chauds, poncho, mitaines chaudes, couteau, harnais, bâche, joli chapeau</p><p><strong>Descripteurs :</strong> Chasse et survie : +2 pips</p>",
+        "source": "LdB p. 118",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.equipementDeSki",
+    "data": {
+      "name": "Équipement de ski",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "skis (de descente ou de fond), chaussures de ski, bâtons",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Voyage sur neige",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> skis (de descente ou de fond), chaussures de ski, bâtons</p><p><strong>Descripteurs :</strong> Voyage sur neige : +2 pips</p>",
+        "source": "LdB p. 118",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.fusilDeChasse",
+    "data": {
+      "name": "Fusil de chasse",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "calibre .25 ou équivalent, bandoulière, lunette de visée, étui, 4 recharges, poches à munitions",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Fusil de chasse",
+          "skill": "shooting",
+          "damage": 7,
+          "descriptors": "bruyant, un coup",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> calibre .25 ou équivalent, bandoulière, lunette de visée, étui, 4 recharges, poches à munitions</p><p><strong>Descripteurs :</strong> Fusil de chasse : Tir, dégâts 7dX, bruyant, un coup</p>",
+        "source": "LdB p. 119",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.fusilDePrecision",
+    "data": {
+      "name": "Fusil de précision",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "fusil (calibre 7,62 mm OTAN), bandoulière, viseur, étui, 4 chargeurs, sac ou poches pour chargeurs",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Fusil de précision",
+          "skill": "shooting",
+          "damage": 7,
+          "descriptors": "précis, bruyant, un coup",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> fusil (calibre 7,62 mm OTAN), bandoulière, viseur, étui, 4 chargeurs, sac ou poches pour chargeurs</p><p><strong>Descripteurs :</strong> Fusil de précision : Tir, dégâts 7dX, précis, bruyant, un coup</p>",
+        "source": "LdB p. 119",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.fusilDAssaut",
+    "data": {
+      "name": "Fusil d’assaut",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "fusil d’assaut (habituellement 7,62mm), bandoulière, 4 chargeurs, sac ou poches pour les munitions",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Fusil d’assaut",
+          "skill": "shooting",
+          "damage": 7,
+          "descriptors": "bruyant, munitions (8-0)",
+          "ammo": "8-0",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> fusil d’assaut (habituellement 7,62mm), bandoulière, 4 chargeurs, sac ou poches pour les munitions</p><p><strong>Descripteurs :</strong> Fusil d’assaut : Tir, dégâts 7dX, bruyant, munitions (8-0)</p>",
+        "source": "LdB p. 118",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.fusilADoubleCanon",
+    "data": {
+      "name": "Fusil à double canon",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "fusil à rechargement arrière (calibre 10 ou 12, habituellement), bandoulière, gilet de chasseur, casquette, 6 munitions",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Fusil",
+          "skill": "shooting",
+          "damage": 7,
+          "descriptors": "bruyant, munitions (6-0), portée courte",
+          "ammo": "6-0",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> fusil à rechargement arrière (calibre 10 ou 12, habituellement), bandoulière, gilet de chasseur, casquette, 6 munitions</p><p><strong>Descripteurs :</strong> Fusil : Tir, dégâts 7dX, bruyant, munitions (6-0), portée courte</p>",
+        "source": "LdB p. 118",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.fusilAPompe",
+    "data": {
+      "name": "Fusil à pompe",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "calibre 12 ou équivalent, bandoulière, 2 recharges",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Fusil",
+          "skill": "shooting",
+          "damage": 7,
+          "descriptors": "bruyant, munitions (7-0), portée courte",
+          "ammo": "7-0",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> calibre 12 ou équivalent, bandoulière, 2 recharges</p><p><strong>Descripteurs :</strong> Fusil : Tir, dégâts 7dX, bruyant, munitions (7-0), portée courte</p>",
+        "source": "LdB p. 118",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.helicoptere",
+    "data": {
+      "name": "Hélicoptère",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "hélicoptère léger monomoteur, flotteurs en option, hangar, radio",
+        "prerequisites": "Pilote",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Transport aérien polyvalent",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> hélicoptère léger monomoteur, flotteurs en option, hangar, radio</p><p><strong>Descripteurs :</strong> Transport aérien polyvalent : +2 pips</p><p><strong>Nécessite :</strong> Pilote</p>",
+        "source": "LdB p. 119",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.hydravion",
+    "data": {
+      "name": "Hydravion",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "appareil monomoteur à hélice avec flotteurs, six places, chargement limité",
+        "prerequisites": "Pilote",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Transport dans la nature",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> appareil monomoteur à hélice avec flotteurs, six places, chargement limité</p><p><strong>Descripteurs :</strong> Transport dans la nature : +2 pips</p><p><strong>Nécessite :</strong> Pilote</p>",
+        "source": "LdB p. 119",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.imprimanteAMasques",
+    "data": {
+      "name": "Imprimante à masques",
+      "type": "kit",
+      "img": "systems/thetroubleshooters/assets/icons/kit-super-science.svg",
+      "system": {
+        "storyPointCost": 4,
+        "contents": "imprime un masque en caoutchouc plus vrai que nature à partir d’une photo. Vous aurez besoin d’une perruque et possiblement d’une barbe ou moustache postiche.",
+        "prerequisites": "",
+        "category": "superScience",
+        "descriptors": [
+          {
+            "key": "Déguisement",
+            "pips": 5,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> imprime un masque en caoutchouc plus vrai que nature à partir d’une photo. Vous aurez besoin d’une perruque et possiblement d’une barbe ou moustache postiche.</p><p><strong>Descripteurs :</strong> Déguisement : +5 pips</p>",
+        "source": "LdB p. 124",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.instrumentDeMusique",
+    "data": {
+      "name": "Instrument de musique",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "instrument portatif, valise ou étui avec bandoulière, partitions, diapason",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Musique",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> instrument portatif, valise ou étui avec bandoulière, partitions, diapason</p><p><strong>Descripteurs :</strong> Musique : +2 pips</p>",
+        "source": "LdB p. 119",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.jetPrive",
+    "data": {
+      "name": "Jet privé",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "huit à douze places, champagne, vin, personnel navigant, hangar, pilote, radio, téléphone radio",
+        "prerequisites": "Vieille fortune ou Nouveau riche",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Voyage luxueux dans les airs",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> huit à douze places, champagne, vin, personnel navigant, hangar, pilote, radio, téléphone radio</p><p><strong>Descripteurs :</strong> Voyage luxueux dans les airs : +2 pips</p><p><strong>Nécessite :</strong> Vieille fortune ou Nouveau riche</p>",
+        "source": "LdB p. 119",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.jumelles",
+    "data": {
+      "name": "Jumelles",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "jumelles, bandoulière, sacoche",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Voir à distance",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> jumelles, bandoulière, sacoche</p><p><strong>Descripteurs :</strong> Voir à distance : +2 pips</p>",
+        "source": "LdB p. 119",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.katana",
+    "data": {
+      "name": "Katana",
+      "type": "kit",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "sabre, fourreau, boule de poudre uchiko, flasque d’huile, chiffon de coton",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Katana",
+          "skill": "melee",
+          "damage": 5,
+          "descriptors": "aiguisé",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> sabre, fourreau, boule de poudre uchiko, flasque d’huile, chiffon de coton</p><p><strong>Descripteurs :</strong> Katana : Corps-à-corps, dégâts 5dX, aiguisé</p>",
+        "source": "LdB p. 119",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.laboratoireDeChimiste",
+    "data": {
+      "name": "Laboratoire de chimiste",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "microscope, lames et lamelles, tubes à essais, erlenmeyers, pipettes, tubes en verre, catalyseurs, réactifs, brûleur à alcool, alcool à brûler, eau distillée, masque de protection, cotons-tiges et lingettes, boîte",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Analyse chimique ou investigation",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> microscope, lames et lamelles, tubes à essais, erlenmeyers, pipettes, tubes en verre, catalyseurs, réactifs, brûleur à alcool, alcool à brûler, eau distillée, masque de protection, cotons-tiges et lingettes, boîte</p><p><strong>Descripteurs :</strong> Analyse chimique ou investigation : +2 pips</p>",
+        "source": "LdB p. 119",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.lampeTorche",
+    "data": {
+      "name": "Lampe torche",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "lampe avec piles",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Distinguer les choses dans l’obscurité",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> lampe avec piles</p><p><strong>Descripteurs :</strong> Distinguer les choses dans l’obscurité : +2 pips</p>",
+        "source": "LdB p. 119",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.lanceFilet",
+    "data": {
+      "name": "Lance-filet",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "fusil projetant un filet de 2 m par 2 m qui piège la cible, 12 cartouches, bandoulière",
+        "prerequisites": "",
+        "category": "spyTech",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Lance-filet",
+          "skill": "shooting",
+          "damage": 4,
+          "descriptors": "collet, un coup",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> fusil projetant un filet de 2 m par 2 m qui piège la cible, 12 cartouches, bandoulière</p><p><strong>Descripteurs :</strong> Lance-filet : Tir, dégâts 4dX, collet, un coup</p>",
+        "source": "LdB p. 124",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.liasseDeBillets",
+    "data": {
+      "name": "Liasse de billets",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "billets de banque, élastique",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Acheter des choses",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "Éviter les questions indiscrètes",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> billets de banque, élastique</p><p><strong>Descripteurs :</strong> Acheter des choses : +2 pips, Éviter les questions indiscrètes : +2 pips</p>",
+        "source": "LdB p. 119",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.lunettesDeVisionNocturne",
+    "data": {
+      "name": "Lunettes de vision nocturne",
+      "type": "kit",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "storyPointCost": 4,
+        "contents": "lunettes qui amplifient la luminosité, permettant de voir dans le noir",
+        "prerequisites": "",
+        "category": "spyTech",
+        "descriptors": [
+          {
+            "key": "Vision nocturne",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> lunettes qui amplifient la luminosité, permettant de voir dans le noir</p><p><strong>Descripteurs :</strong> Vision nocturne</p>",
+        "source": "LdB p. 124",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.machineCryptographique",
+    "data": {
+      "name": "Machine cryptographique",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "machine à encoder/décoder, livre de code, carnet, stylo, piles, valise de transport",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Codage/décodage",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> machine à encoder/décoder, livre de code, carnet, stylo, piles, valise de transport</p><p><strong>Descripteurs :</strong> Codage/décodage</p>",
+        "source": "LdB p. 119",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.machineAEcrire",
+    "data": {
+      "name": "Machine à écrire",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "machine portative, valise ou étui avec bandoulière, feuilles de papier, ruban encreur",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Dactylographie",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> machine portative, valise ou étui avec bandoulière, feuilles de papier, ruban encreur</p><p><strong>Descripteurs :</strong> Dactylographie : +2 pips</p>",
+        "source": "LdB p. 119",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.magnetophone",
+    "data": {
+      "name": "Magnétophone",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "cassettes, microcassettes ou bandes magnétiques, magnétophone, microphone",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Enregistrement audio",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> cassettes, microcassettes ou bandes magnétiques, magnétophone, microphone</p><p><strong>Descripteurs :</strong> Enregistrement audio</p>",
+        "source": "LdB p. 119",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.materielDeCamping",
+    "data": {
+      "name": "Matériel de camping",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "sac à dos, tente, bâche, sac de couchage, couverture, rations déshydratées, couteau, pelote de ficelle, gamelle, poêle à frire, allumettes, réchaud, tabouret pliant",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Survie et camping",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> sac à dos, tente, bâche, sac de couchage, couverture, rations déshydratées, couteau, pelote de ficelle, gamelle, poêle à frire, allumettes, réchaud, tabouret pliant</p><p><strong>Descripteurs :</strong> Survie et camping : +2 pips</p>",
+        "source": "LdB p. 120",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.materielDeDetective",
+    "data": {
+      "name": "Matériel de détective",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "brosse à empreintes, adhésif, cotons-tiges, mètre ruban, bandes d’indicateurs chimiques, sacs hermétiques, sacs en papier, gants en latex, pinces à épiler, loupe",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Enquête et investigation",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> brosse à empreintes, adhésif, cotons-tiges, mètre ruban, bandes d’indicateurs chimiques, sacs hermétiques, sacs en papier, gants en latex, pinces à épiler, loupe</p><p><strong>Descripteurs :</strong> Enquête et investigation : +2 pips</p>",
+        "source": "LdB p. 120",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.materielDePlage",
+    "data": {
+      "name": "Matériel de plage",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "maillot de bain, sandalettes, robe d’été ou ensemble short/polo, lunettes de soleil, chapeau élégant, serviette de plage, parasol",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Faire bonne impression sur la Riviera",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> maillot de bain, sandalettes, robe d’été ou ensemble short/polo, lunettes de soleil, chapeau élégant, serviette de plage, parasol</p><p><strong>Descripteurs :</strong> Faire bonne impression sur la Riviera : +2 pips</p>",
+        "source": "LdB p. 120",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.materielDePlongee",
+    "data": {
+      "name": "Matériel de plongée",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "masque, tenue de plongée, palmes, tuba",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Nage et plongée en apnée",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> masque, tenue de plongée, palmes, tuba</p><p><strong>Descripteurs :</strong> Nage et plongée en apnée : +2 pips</p>",
+        "source": "LdB p. 120",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.materielDeRandonnee",
+    "data": {
+      "name": "Matériel de randonnée",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "bottes confortables, vêtements chauds et résistants, mitaines, bâton de marche",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Randonnée et longues marches",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> bottes confortables, vêtements chauds et résistants, mitaines, bâton de marche</p><p><strong>Descripteurs :</strong> Randonnée et longues marches : +2 pips</p>",
+        "source": "LdB p. 120",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.materielDeSurvie",
+    "data": {
+      "name": "Matériel de survie",
+      "type": "kit",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "couteau, boussole, ficelle, allumettes, briquet à amadou, couverture en mylar, hameçon, fil de pêche, scalpel, pastilles de purification d’eau et deux fusées éclairantes dans une boite hermétique",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Survie",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Couteau de survie",
+          "skill": "melee",
+          "damage": 4,
+          "descriptors": "précis",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> couteau, boussole, ficelle, allumettes, briquet à amadou, couverture en mylar, hameçon, fil de pêche, scalpel, pastilles de purification d’eau et deux fusées éclairantes dans une boite hermétique</p><p><strong>Descripteurs :</strong> Survie : +2 pips, Couteau de survie : Corps-à-corps, dégâts 4dX, précis</p>",
+        "source": "LdB p. 120",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.materielDAlpinisme",
+    "data": {
+      "name": "Matériel d’alpinisme",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "marteau, pitons, crampons, filins, mousquetons et attaches",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Montagnard",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> marteau, pitons, crampons, filins, mousquetons et attaches</p><p><strong>Descripteurs :</strong> Montagnard : +2 pips</p>",
+        "source": "LdB p. 120",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.materielDArtistePeintre",
+    "data": {
+      "name": "Matériel d’artiste peintre",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "chevalet pliant, toiles, sac de transport, peinture (huile ou acrylique), éponges, pinceaux, palette, couteaux à peinture, carnet de croquis, fusains ou crayons, nettoyant à pinceaux",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Art pictural",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> chevalet pliant, toiles, sac de transport, peinture (huile ou acrylique), éponges, pinceaux, palette, couteaux à peinture, carnet de croquis, fusains ou crayons, nettoyant à pinceaux</p><p><strong>Descripteurs :</strong> Art pictural : +2 pips</p>",
+        "source": "LdB p. 120",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.mitraillette",
+    "data": {
+      "name": "Mitraillette",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "bandoulière, mitraillette, 4 chargeurs, sac ou poches pour chargeurs",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Mitraillette",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "bruyant, munitions (9-0)",
+          "ammo": "9-0",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> bandoulière, mitraillette, 4 chargeurs, sac ou poches pour chargeurs</p><p><strong>Descripteurs :</strong> Mitraillette : Tir, dégâts 5dX, bruyant, munitions (9-0)</p>",
+        "source": "LdB p. 120",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.motocyclette",
+    "data": {
+      "name": "Motocyclette",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "moto, bottes, protège-pantalons de cuir, blouson, gants, casque",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Braver les embouteillages",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> moto, bottes, protège-pantalons de cuir, blouson, gants, casque</p><p><strong>Descripteurs :</strong> Braver les embouteillages : +2 pips</p>",
+        "source": "LdB p. 121",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.motoneige",
+    "data": {
+      "name": "Motoneige",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "deux places, peut tracter un traîneau",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Voyage sur neige",
+            "pips": 5,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> deux places, peut tracter un traîneau</p><p><strong>Descripteurs :</strong> Voyage sur neige : +5 pips</p>",
+        "source": "LdB p. 121",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.octopode",
+    "data": {
+      "name": "Octopode",
+      "type": "kit",
+      "img": "systems/thetroubleshooters/assets/icons/kit-super-science.svg",
+      "system": {
+        "storyPointCost": 4,
+        "contents": "petite soucoupe volante de la Pieuvre, deux places, espace en soute limité",
+        "prerequisites": "Pilote",
+        "category": "superScience",
+        "descriptors": [
+          {
+            "key": "Transport aérien polyvalent",
+            "pips": 5,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> petite soucoupe volante de la Pieuvre, deux places, espace en soute limité</p><p><strong>Descripteurs :</strong> Transport aérien polyvalent : +5 pips</p><p><strong>Nécessite :</strong> Pilote</p>",
+        "source": "LdB p. 124",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.ordinateurArtisanal",
+    "data": {
+      "name": "Ordinateur artisanal",
+      "type": "kit",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "unité centrale, bandes magnétiques, terminal télétype",
+        "prerequisites": "",
+        "category": "spyTech",
+        "descriptors": [
+          {
+            "key": "Science et calculs",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> unité centrale, bandes magnétiques, terminal télétype</p><p><strong>Descripteurs :</strong> Science et calculs : +2 pips</p>",
+        "source": "LdB p. 124",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.ordinateurCentral",
+    "data": {
+      "name": "Ordinateur central",
+      "type": "kit",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "storyPointCost": 4,
+        "contents": "énorme unité centrale, stockage pour disquettes et bandes magnétiques, terminal télétype, imprimante à aiguilles, réseau perfectionné, contrôle vocal, peut calculer n’importe quoi",
+        "prerequisites": "",
+        "category": "spyTech",
+        "descriptors": [
+          {
+            "key": "Science et calculs",
+            "pips": 5,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> énorme unité centrale, stockage pour disquettes et bandes magnétiques, terminal télétype, imprimante à aiguilles, réseau perfectionné, contrôle vocal, peut calculer n’importe quoi</p><p><strong>Descripteurs :</strong> Science et calculs : +5 pips</p>",
+        "source": "LdB p. 124",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.outilsDeCrochetage",
+    "data": {
+      "name": "Outils de crochetage",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "crochets, étui",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Crochetage",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> crochets, étui</p><p><strong>Descripteurs :</strong> Crochetage : +2 pips</p>",
+        "source": "LdB p. 121",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.outilsDArcheologue",
+    "data": {
+      "name": "Outils d’archéologue",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "pelle, pioche, truelle, brosses, tamis, outils de sculpture, outils de dentiste, mètre ruban, boussole, fil de pêche, flèche pour marquer l’échelle, stylos et carnets, assortiment de sacs en papier et plastique",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Archéologie ou excavation",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> pelle, pioche, truelle, brosses, tamis, outils de sculpture, outils de dentiste, mètre ruban, boussole, fil de pêche, flèche pour marquer l’échelle, stylos et carnets, assortiment de sacs en papier et plastique</p><p><strong>Descripteurs :</strong> Archéologie ou excavation : +2 pips</p>",
+        "source": "LdB p. 121",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.outilsDElectronique",
+    "data": {
+      "name": "Outils d’électronique",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "fer à souder, fil à souder, pompe à dessouder, multimètre, loupe, pinces crocodiles, câbles, câbles de liaison, composants assortis",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Bricoler, créer ou réparer des appareils électroniques",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> fer à souder, fil à souder, pompe à dessouder, multimètre, loupe, pinces crocodiles, câbles, câbles de liaison, composants assortis</p><p><strong>Descripteurs :</strong> Bricoler, créer ou réparer des appareils électroniques : +2 pips</p>",
+        "source": "LdB p. 121",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.panierDePiqueNique",
+    "data": {
+      "name": "Panier de pique-nique",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "panier couvert, nappe, nourriture, vin, assiettes, couverts, verres, tire-bouchon",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Pique-nique bucolique",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> panier couvert, nappe, nourriture, vin, assiettes, couverts, verres, tire-bouchon</p><p><strong>Descripteurs :</strong> Pique-nique bucolique : +2 pips</p>",
+        "source": "LdB p. 121",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.parachute",
+    "data": {
+      "name": "Parachute",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "parachute, parachute de secours, harnais, tenue coupe-vent, lunettes de protection, altimètre de poignet",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Parachutisme",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> parachute, parachute de secours, harnais, tenue coupe-vent, lunettes de protection, altimètre de poignet</p><p><strong>Descripteurs :</strong> Parachutisme</p>",
+        "source": "LdB p. 121",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.petitAvion",
+    "data": {
+      "name": "Petit avion",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "monomoteur, deux places, hangar, radio",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Volant",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> monomoteur, deux places, hangar, radio</p><p><strong>Descripteurs :</strong> Volant</p>",
+        "source": "LdB p. 121",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.pickUp",
+    "data": {
+      "name": "Pick-up",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "trois sièges, volant, espace à l’arrière avec haillons bas",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Voyage sur route, hors-piste, transport de lourdes charges",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> trois sièges, volant, espace à l’arrière avec haillons bas</p><p><strong>Descripteurs :</strong> Voyage sur route, hors-piste, transport de lourdes charges</p>",
+        "source": "LdB p. 121",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.pistoletDePoche",
+    "data": {
+      "name": "Pistolet de poche",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "colt automatique calibre .25 ou équivalent, holster, bandoulière, 6 recharges",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Pistolet de poche",
+          "skill": "shooting",
+          "damage": 4,
+          "descriptors": "discret, munitions (7-0), portée courte",
+          "ammo": "7-0",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> colt automatique calibre .25 ou équivalent, holster, bandoulière, 6 recharges</p><p><strong>Descripteurs :</strong> Pistolet de poche : Tir, dégâts 4dX, discret, munitions (7-0), portée courte</p>",
+        "source": "LdB p. 121",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.pistoletARayon",
+    "data": {
+      "name": "Pistolet à rayon",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 6,
+        "contents": "pistolet laser ou équivalent, holster, 2 batteries de rechange, poches de ceinture pour les batteries",
+        "prerequisites": "",
+        "category": "superScience",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Pistolet à rayon",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "munitions (0), portée courte",
+          "ammo": "0",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> pistolet laser ou équivalent, holster, 2 batteries de rechange, poches de ceinture pour les batteries</p><p><strong>Descripteurs :</strong> Pistolet à rayon : Tir, dégâts 5dX, munitions (0), portée courte</p>",
+        "source": "LdB p. 124",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.projecteurEncephalographiqueInverse",
+    "data": {
+      "name": "Projecteur encéphalographique inversé",
+      "type": "kit",
+      "img": "systems/thetroubleshooters/assets/icons/kit-super-science.svg",
+      "system": {
+        "storyPointCost": 4,
+        "contents": "projecteur, trépied, sac de transport avec bandoulière, batteries",
+        "prerequisites": "",
+        "category": "superScience",
+        "descriptors": [
+          {
+            "key": "Persuader ou donner des ordres",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> projecteur, trépied, sac de transport avec bandoulière, batteries</p><p><strong>Descripteurs :</strong> Persuader ou donner des ordres : +2 pips</p>",
+        "source": "LdB p. 124",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.propulseurDorsal",
+    "data": {
+      "name": "Propulseur dorsal",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "grosse fusée de la taille d’un sac à dos, tenue de vol, casque, protection pour les oreilles, temps de vol 30 secondes",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Volant",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> grosse fusée de la taille d’un sac à dos, tenue de vol, casque, protection pour les oreilles, temps de vol 30 secondes</p><p><strong>Descripteurs :</strong> Volant</p>",
+        "source": "LdB p. 121",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.propulseurDorsalAmeliore",
+    "data": {
+      "name": "Propulseur dorsal amélioré",
+      "type": "kit",
+      "img": "systems/thetroubleshooters/assets/icons/kit-super-science.svg",
+      "system": {
+        "storyPointCost": 4,
+        "contents": "grosse fusée de la taille d’un sac à dos, tenue de vol, casque, protections pour les oreilles, temps de vol 5 minutes",
+        "prerequisites": "Pilote",
+        "category": "superScience",
+        "descriptors": [
+          {
+            "key": "Vol individuel",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> grosse fusée de la taille d’un sac à dos, tenue de vol, casque, protections pour les oreilles, temps de vol 5 minutes</p><p><strong>Descripteurs :</strong> Vol individuel</p><p><strong>Nécessite :</strong> Pilote</p>",
+        "source": "LdB p. 125",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.protectionsAntiPei",
+    "data": {
+      "name": "Protections anti-PEI",
+      "type": "kit",
+      "img": "systems/thetroubleshooters/assets/icons/kit-super-science.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "Bouchons d’oreilles qui protègent le porteur contre les champs encéphalographiques inversés (et contre les bruits forts)",
+        "prerequisites": "",
+        "category": "superScience",
+        "descriptors": [
+          {
+            "key": "Ignorer les effets des PEI",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> Bouchons d’oreilles qui protègent le porteur contre les champs encéphalographiques inversés (et contre les bruits forts)</p><p><strong>Descripteurs :</strong> Ignorer les effets des PEI</p>",
+        "source": "LdB p. 125",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.radioAmateur",
+    "data": {
+      "name": "Radio amateur",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "transmetteur, micro, code morse, batterie, antenne",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Communication radio à très longue portée",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> transmetteur, micro, code morse, batterie, antenne</p><p><strong>Descripteurs :</strong> Communication radio à très longue portée</p>",
+        "source": "LdB p. 121",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.radioOndesCourtes",
+    "data": {
+      "name": "Radio ondes courtes",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "transmetteur, micro, piles, antenne, sac à dos, étui",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Communication radio à longue portée",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> transmetteur, micro, piles, antenne, sac à dos, étui</p><p><strong>Descripteurs :</strong> Communication radio à longue portée</p>",
+        "source": "LdB p. 121",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.rapiere",
+    "data": {
+      "name": "Rapière",
+      "type": "kit",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "rapière, fourreau, pierre à aiguiser, chiffon",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Rapière",
+          "skill": "melee",
+          "damage": 5,
+          "descriptors": "précis",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> rapière, fourreau, pierre à aiguiser, chiffon</p><p><strong>Descripteurs :</strong> Rapière : Corps-à-corps, dégâts 5dX, précis</p>",
+        "source": "LdB p. 121",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.rayonDisneural",
+    "data": {
+      "name": "Rayon disneural",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 6,
+        "contents": "projecteur de rayon paralysant, câble, batterie de poche, batterie de rechange",
+        "prerequisites": "",
+        "category": "superScience",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Rayon disneural",
+          "skill": "shooting",
+          "damage": 4,
+          "descriptors": "paralysant, munitions (0)",
+          "ammo": "0",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> projecteur de rayon paralysant, câble, batterie de poche, batterie de rechange</p><p><strong>Descripteurs :</strong> Rayon disneural : Tir, 4dX, paralysant, munitions (0)</p>",
+        "source": "LdB p. 125",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.revolver",
+    "data": {
+      "name": "Revolver",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "calibre .38 Spécial ou équivalent, holster, 6 recharges, cartouchière",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Revolver",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "bruyant, munitions (9-0), portée courte",
+          "ammo": "9-0",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> calibre .38 Spécial ou équivalent, holster, 6 recharges, cartouchière</p><p><strong>Descripteurs :</strong> Revolver : Tir, dégâts 5dX, bruyant, munitions (9-0), portée courte</p>",
+        "source": "LdB p. 122",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.revolverLourd",
+    "data": {
+      "name": "Revolver lourd",
+      "type": "kit",
+      "img": "icons/svg/target.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "calibre .357 magnum ou équivalent, holster, 4 recharges, cartouchière",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Revolver lourd",
+          "skill": "shooting",
+          "damage": 6,
+          "descriptors": "bruyant, munitions (8-0), portée courte",
+          "ammo": "8-0",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> calibre .357 magnum ou équivalent, holster, 4 recharges, cartouchière</p><p><strong>Descripteurs :</strong> Revolver lourd : Tir, dégâts 6dX, bruyant, munitions (8-0), portée courte</p>",
+        "source": "LdB p. 122",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.robeDeSoiree",
+    "data": {
+      "name": "Robe de soirée",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "toilette accessoirisée, maquillage, parfum",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Faire bonne impression lors d’occasions formelles",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> toilette accessoirisée, maquillage, parfum</p><p><strong>Descripteurs :</strong> Faire bonne impression lors d’occasions formelles : +2 pips</p>",
+        "source": "LdB p. 122",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.scooter",
+    "data": {
+      "name": "Scooter",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "scooter chic, casque, antivol",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Bonne impression",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "Braver les embouteillages",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> scooter chic, casque, antivol</p><p><strong>Descripteurs :</strong> Bonne impression : +2 pips, Braver les embouteillages : +2 pips</p>",
+        "source": "LdB p. 122",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.silencieux",
+    "data": {
+      "name": "Silencieux",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "silencieux amovible pour les pistolets et fusils",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "élimine le descripteur « bruyant » des armes à feu",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> silencieux amovible pour les pistolets et fusils</p><p><strong>Descripteurs :</strong> élimine le descripteur « bruyant » des armes à feu</p>",
+        "source": "LdB p. 122",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.sousMarinDePoche",
+    "data": {
+      "name": "Sous-marin de poche",
+      "type": "kit",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "storyPointCost": 4,
+        "contents": "sous-marin à une place. Le pilote a besoin d’équipement de plongée.",
+        "prerequisites": "",
+        "category": "spyTech",
+        "descriptors": [
+          {
+            "key": "Voyage sous-marin",
+            "pips": 5,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> sous-marin à une place. Le pilote a besoin d’équipement de plongée.</p><p><strong>Descripteurs :</strong> Voyage sous-marin : +5 pips</p>",
+        "source": "LdB p. 125",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.talkieWalkie",
+    "data": {
+      "name": "Talkie-walkie",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "combiné, piles, micro, attache de ceinture",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Communication radio à courte portée",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> combiné, piles, micro, attache de ceinture</p><p><strong>Descripteurs :</strong> Communication radio à courte portée</p>",
+        "source": "LdB p. 122",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.tenueDeNinja",
+    "data": {
+      "name": "Tenue de ninja",
+      "type": "kit",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "gi noir avec capuchon, bottes souples, Ninjatō (épée courte de ninja), 6 shurikens, griffes d’escalade",
+        "prerequisites": "",
+        "category": "spyTech",
+        "descriptors": [],
+        "hasWeapon": true,
+        "weapon": {
+          "name": "Ninjatō",
+          "skill": "melee",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [
+          {
+            "name": "Griffes d’escalade",
+            "skill": "melee",
+            "damage": 4,
+            "descriptors": "enfilé",
+            "ammo": "",
+            "empty": false,
+            "jammed": false,
+            "broken": false
+          },
+          {
+            "name": "Shuriken",
+            "skill": "shooting",
+            "damage": 3,
+            "descriptors": "lancé, portée courte, silencieux",
+            "ammo": "",
+            "empty": false,
+            "jammed": false,
+            "broken": false
+          }
+        ],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> gi noir avec capuchon, bottes souples, Ninjatō (épée courte de ninja), 6 shurikens, griffes d’escalade</p><p><strong>Descripteurs :</strong> Ninjatō : Corps-à-corps, dégâts 5dX ; Griffes d’escalade : Corps-à-corps, Mains nues, dégâts 4dX, Enfilé ; Shuriken : Tir, dégâts 3dX, lancé, portée courte, silencieux</p>",
+        "source": "LdB p. 125",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.tenueSpatiale",
+    "data": {
+      "name": "Tenue spatiale",
+      "type": "kit",
+      "img": "icons/svg/lightning.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "tenue moulante qui utilise la pression mécanique plutôt que la pression de l’air. Légère et flexible, elle ne protège cependant pas des radiations ou des micrométéorites. Ni des pistolets à rayons.",
+        "prerequisites": "",
+        "category": "spyTech",
+        "descriptors": [
+          {
+            "key": "Sorties spatiales",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> tenue moulante qui utilise la pression mécanique plutôt que la pression de l’air. Légère et flexible, elle ne protège cependant pas des radiations ou des micrométéorites. Ni des pistolets à rayons.</p><p><strong>Descripteurs :</strong> Sorties spatiales : +2 pips</p>",
+        "source": "LdB p. 125",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.trousseDeDeguisement",
+    "data": {
+      "name": "Trousse de déguisement",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "perruque, maquillage, lentilles de contact, boules de coton",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Déguisement, jouer la comédie",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> perruque, maquillage, lentilles de contact, boules de coton</p><p><strong>Descripteurs :</strong> Déguisement, jouer la comédie : +2 pips</p>",
+        "source": "LdB p. 122",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.trousseDeMecanicien",
+    "data": {
+      "name": "Trousse de mécanicien",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "assortiment de tournevis, démonte-pneu, écrous, clé anglaise, pinces, pinces coupantes, marteau",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Bricoler, créer ou réparer des machines",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> assortiment de tournevis, démonte-pneu, écrous, clé anglaise, pinces, pinces coupantes, marteau</p><p><strong>Descripteurs :</strong> Bricoler, créer ou réparer des machines : +2 pips</p>",
+        "source": "LdB p. 122",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.trousseDeMedecin",
+    "data": {
+      "name": "Trousse de médecin",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "sutures, stéthoscope, tensiomètre, adhésif chirurgical, ciseaux, pinces chirurgicales, assortiment de médicaments, seringues et aiguilles, sacoche de médecin",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Traiter maladies, blessures et empoisonnements",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> sutures, stéthoscope, tensiomètre, adhésif chirurgical, ciseaux, pinces chirurgicales, assortiment de médicaments, seringues et aiguilles, sacoche de médecin</p><p><strong>Descripteurs :</strong> Traiter maladies, blessures et empoisonnements : +2 pips</p>",
+        "source": "LdB p. 122",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.trousseDePremiersSoins",
+    "data": {
+      "name": "Trousse de premiers soins",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "bandages, pansements, compresses, lingettes antiseptiques, ciseaux, sparadrap, pinces de chirurgie, antalgiques légers (paracétamol ou aspirine)",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Premiers soins",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> bandages, pansements, compresses, lingettes antiseptiques, ciseaux, sparadrap, pinces de chirurgie, antalgiques légers (paracétamol ou aspirine)</p><p><strong>Descripteurs :</strong> Premiers soins : +2 pips</p>",
+        "source": "LdB p. 122",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.ulm",
+    "data": {
+      "name": "ULM",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "petit appareil mono ou biplace avec hélice et aile de toile pliante, casque",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Vol",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> petit appareil mono ou biplace avec hélice et aile de toile pliante, casque</p><p><strong>Descripteurs :</strong> Vol : +2 pips</p>",
+        "source": "LdB p. 122",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.van",
+    "data": {
+      "name": "Van",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "quatre places, volant, compartiment à bagages spacieux, porte arrière",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Voyage sur route",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> quatre places, volant, compartiment à bagages spacieux, porte arrière</p><p><strong>Descripteurs :</strong> Voyage sur route</p>",
+        "source": "LdB p. 122",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.vehiculeToutTerrain",
+    "data": {
+      "name": "Véhicule tout-terrain",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "quatre places, volant, compartiment à bagages spacieux, porte arrière",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Voyage sur route",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "Hors-piste",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> quatre places, volant, compartiment à bagages spacieux, porte arrière</p><p><strong>Descripteurs :</strong> Voyage sur route, Hors-piste : +2 pips</p>",
+        "source": "LdB p. 123",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.voitureCitadine",
+    "data": {
+      "name": "Voiture citadine",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "quatre places, volant",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Voyage sur route",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> quatre places, volant</p><p><strong>Descripteurs :</strong> Voyage sur route</p>",
+        "source": "LdB p. 123",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.voitureDeCourse",
+    "data": {
+      "name": "Voiture de course",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "une ou deux places, volant, pas de coffre, arceaux de sécurité",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Courses-poursuites en voiture ou courses de voiture",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> une ou deux places, volant, pas de coffre, arceaux de sécurité</p><p><strong>Descripteurs :</strong> Courses-poursuites en voiture ou courses de voiture : +2 pips</p>",
+        "source": "LdB p. 123",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.voitureDeLuxe",
+    "data": {
+      "name": "Voiture de luxe",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 2,
+        "contents": "voiture très confortable avec isolation phonique, champagne, chauffeur privé",
+        "prerequisites": "Vieille fortune ou Nouveau riche",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Bonne impression",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> voiture très confortable avec isolation phonique, champagne, chauffeur privé</p><p><strong>Descripteurs :</strong> Bonne impression : +2 pips</p><p><strong>Nécessite :</strong> Vieille fortune ou Nouveau riche</p>",
+        "source": "LdB p. 123",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.voitureDeSport",
+    "data": {
+      "name": "Voiture de sport",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "deux places, volant, petit coffre",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Poursuites en voiture",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          },
+          {
+            "key": "Voyager avec style",
+            "pips": 2,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> deux places, volant, petit coffre</p><p><strong>Descripteurs :</strong> Poursuites en voiture, Voyager avec style : +2 pips</p>",
+        "source": "LdB p. 123",
+        "broken": false
+      }
+    }
+  },
+  {
+    "seedKey": "kit.voitureFamiliale",
+    "data": {
+      "name": "Voiture familiale",
+      "type": "kit",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "storyPointCost": 1,
+        "contents": "quatre places, volant, coffre",
+        "prerequisites": "",
+        "category": "standard",
+        "descriptors": [
+          {
+            "key": "Voyage sur route",
+            "pips": 0,
+            "situation": "",
+            "value": ""
+          }
+        ],
+        "hasWeapon": false,
+        "weapon": {
+          "name": "",
+          "skill": "shooting",
+          "damage": 5,
+          "descriptors": "",
+          "ammo": "",
+          "empty": false,
+          "jammed": false,
+          "broken": false
+        },
+        "extraWeapons": [],
+        "hasProtection": false,
+        "protection": {
+          "dice": 1,
+          "initiativePenalty": 0
+        },
+        "carried": true,
+        "signature": false,
+        "signatureDescription": "",
+        "origin": "owned",
+        "uses": null,
+        "description": "<p><strong>Contenu :</strong> quatre places, volant, coffre</p><p><strong>Descripteurs :</strong> Voyage sur route</p>",
+        "source": "LdB p. 123",
+        "broken": false
+      }
+    }
+  }
+]

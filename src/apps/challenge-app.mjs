@@ -3,6 +3,7 @@
  */
 import { SYSTEM_PATH, THETROUBLESHOOTERS } from "../config.mjs";
 import { CHALLENGE_PRESETS, CHALLENGE_RESULTS, createChallenge, MIN_ROWS, MAX_ROWS } from "../domain/rules/challenge.mjs";
+import { GADGET_SKILLS, gadgetGlobalPips, gadgetTokens, gadgetBalance, KIT_CATEGORIES } from "../domain/rules/equipment.mjs";
 import { createDuel, DEFAULT_TARGET } from "../domain/rules/duel.mjs";
 import { publishChallenge, publishDuel } from "../services/challenge-service.mjs";
 
@@ -23,13 +24,15 @@ export class ChallengeApp extends HandlebarsApplicationMixin(ApplicationV2) {
     window: { title: "TTS.Challenge.AppTitle", resizable: true, icon: "fa-solid fa-list-check" },
     position: { width: 640, height: "auto" },
     form: { closeOnSubmit: false },
-    actions: { loadPreset: ChallengeApp.#onLoadPreset, publish: ChallengeApp.#onPublish, setCount: ChallengeApp.#onSetCount }
+    actions: { loadPreset: ChallengeApp.#onLoadPreset, publish: ChallengeApp.#onPublish, setCount: ChallengeApp.#onSetCount,
+      prepareGadget: ChallengeApp.#onPrepareGadget, toggleGadget: ChallengeApp.#onToggleGadget, recalc: ChallengeApp.#onRecalc }
   };
 
   static PARTS = { body: { template: `${SYSTEM_PATH}/templates/apps/challenge.hbs` } };
 
   static #instance = null;
-  #draft = { title: "", count: 4, rows: Array.from({ length: MAX_ROWS }, () => ({ skill: "investigation", pips: 0, actorUuid: "", oppLabel: "", oppValue: "" })), outcomes: {} };
+  #draft = { title: "", count: 4, rows: Array.from({ length: MAX_ROWS }, () => ({ skill: "investigation", pips: 0, actorUuid: "", oppLabel: "", oppValue: "" })), outcomes: {},
+    gadget: null };   // { name, actorUuid, kitId, category, descriptors, positive, limiting, modification, extraTime, juryRigged }
 
   static open() {
     if (!game.user.isGM) return ui.notifications.warn(t("TTS.Init.GmOnly"));
@@ -46,7 +49,26 @@ export class ChallengeApp extends HandlebarsApplicationMixin(ApplicationV2) {
       skills: skillChoices(),
       participants: { "": t("TTS.Challenge.AnyCharacter"), ...Object.fromEntries(actorsOf(["character"]).map(a => [a.uuid, a.name])) },
       presets: Object.fromEntries(Object.keys(CHALLENGE_PRESETS).map(k => [k, t(`TTS.Challenge.Preset.${k}`)])),
-      results: CHALLENGE_RESULTS.map(k => ({ key: k, label: t(`TTS.Challenge.Result.${k}`), text: this.#draft.outcomes[k] ?? "" }))
+      results: CHALLENGE_RESULTS.map(k => ({ key: k, label: t(`TTS.Challenge.Result.${k}`), text: this.#draft.outcomes[k] ?? "" })),
+      gadget: this.#gadgetContext()
+    };
+  }
+
+  /** Assistant de fabrication de gadget (LdB p. 112). */
+  #gadgetContext() {
+    const g = this.#draft.gadget;
+    if (!g) return null;
+    const owner = g.actorUuid ? fromUuidSync(g.actorUuid) : null;
+    const tokens = gadgetTokens(g);
+    const balance = gadgetBalance(this.#draft.rows.slice(0, this.#draft.count).map(r => r.pips), { category: g.category, tokens });
+    return {
+      ...g,
+      categories: Object.fromEntries(KIT_CATEGORIES.map(k => [k, t(THETROUBLESHOOTERS.kitCategories[k])])),
+      owners: { "": "—", ...Object.fromEntries(actorsOf(["character"]).map(a => [a.uuid, a.name])) },
+      kits: { "": t("TTS.Gadget.NewKit"), ...Object.fromEntries((owner?.items.filter(i => i.type === "kit") ?? []).map(k => [k.id, k.name])) },
+      global: gadgetGlobalPips(g.category),
+      tokensLabel: tokens.length ? tokens.map(x => (x > 0 ? `+${x}` : `${x}`)).join(" ") : "—",
+      balance
     };
   }
 
@@ -63,7 +85,41 @@ export class ChallengeApp extends HandlebarsApplicationMixin(ApplicationV2) {
       r.oppValue = d[`oppValue${i}`] ?? "";
     }
     for (const k of CHALLENGE_RESULTS) this.#draft.outcomes[k] = d[`outcome_${k}`] ?? "";
+    if (this.#draft.gadget) {
+      const g = this.#draft.gadget;
+      Object.assign(g, {
+        name: d.gName ?? g.name, actorUuid: d.gActor ?? g.actorUuid, kitId: d.gKit ?? "", category: d.gCategory || g.category,
+        descriptors: d.gDescriptors ?? g.descriptors, positive: Number(d.gPositive) || 0, limiting: Number(d.gLimiting) || 0,
+        modification: Boolean(d.gKit), extraTime: Number(d.gExtraTime) || 0, juryRigged: Boolean(d.gJuryRigged)
+      });
+    }
     return d;
+  }
+
+  static async #onToggleGadget() {
+    this.#read();
+    this.#draft.gadget = this.#draft.gadget ? null : { name: "", actorUuid: "", kitId: "", category: "standard", descriptors: "", positive: 1, limiting: 0, modification: false, extraTime: 0, juryRigged: false };
+    if (this.#draft.gadget) {
+      for (const k of CHALLENGE_RESULTS) this.#draft.outcomes[k] ||= t(`TTS.Gadget.Outcome.${k}`);
+      this.#draft.title ||= t("TTS.Gadget.Title");
+    }
+    this.render();
+  }
+
+  /** Compétences de fabrication et malus de catégorie appliqués à toutes les tâches ; jetons à répartir ensuite. */
+  static async #onPrepareGadget() {
+    this.#read();
+    const g = this.#draft.gadget;
+    if (!g) return;
+    this.#draft.count = GADGET_SKILLS.length;
+    const global = gadgetGlobalPips(g.category);
+    GADGET_SKILLS.forEach((skill, i) => Object.assign(this.#draft.rows[i], { skill, pips: global, oppLabel: "", oppValue: "" }));
+    this.render();
+  }
+
+  static async #onRecalc() {
+    this.#read();
+    this.render();
   }
 
   static async #onSetCount(event, target) {
@@ -95,6 +151,10 @@ export class ChallengeApp extends HandlebarsApplicationMixin(ApplicationV2) {
     }
     const res = createChallenge({ title: this.#draft.title, rows, outcomes: this.#draft.outcomes });
     if (!res.ok) return ui.notifications.warn(t("TTS.Challenge.Refused.row-count"));
+    if (this.#draft.gadget) {
+      const g = this.#draft.gadget;
+      res.state.gadget = { name: g.name, actorUuid: g.actorUuid, kitId: g.kitId, category: g.category, descriptors: g.descriptors, juryRigged: g.juryRigged, created: false };
+    }
     await publishChallenge(res.state);
   }
 }

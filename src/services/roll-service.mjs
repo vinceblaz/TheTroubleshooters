@@ -12,6 +12,7 @@ import { defaultRollModeFor } from "./roll-mode.mjs";
 import { characterSkillContext, npcSkillContext, opponentSkillChoices, contextFromChoice, conditionModsFor } from "./roll-context.mjs";
 import { autoFailFor } from "../domain/rules/conditions.mjs";
 import { autoFailTask } from "../domain/dice/task-state.mjs";
+import { applyKitUse } from "./equipment-service.mjs";
 
 
 /** Cibles possibles d'une opposition : jetons ciblés par l'utilisateur. */
@@ -118,6 +119,9 @@ export async function rollTask(ctx, opts = {}) {
   }
   const karmaAwarded = await awardKarmaPoint(actor, task);
   const speaker = ChatMessage.getSpeaker({ actor });
+  // Kit utilisé comme matériel : descripteurs de gadget et usages d'un kit bricolé (phase 7)
+  const kitId = choices.gearId && !choices.gearId.startsWith("weapon:") ? choices.gearId.split(":")[0] : "";
+  const gadget = kitId ? await applyKitUse(actor, kitId, task) : null;
 
   if (choices.opposed && choices.opponentUuid) {
     const opponent = await fromUuid(choices.opponentUuid);
@@ -153,6 +157,7 @@ export async function rollTask(ctx, opts = {}) {
     task,
     karmaAwarded,
     requestMessageId: opts.requestMessageId ?? "",
+    gadget,
     ...(opts.cardExtra ?? {})
   };
   return createCardMessage(card, { speaker, rolls: [roll], rollMode: choices.rollMode });

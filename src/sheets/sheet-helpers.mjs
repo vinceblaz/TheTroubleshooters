@@ -15,7 +15,7 @@ export async function enrich(html, document) {
 /** Demande confirmation puis supprime un Item intégré. */
 export async function confirmDeleteItem(item) {
   if (!item) return;
-  const confirmed = await foundry.applications.api.DialogV2.confirm({
+  const confirmed = await foundry.applications.api.DialogV2.confirm({ classes: ["thetroubleshooters", "tts-dialog"],
     window: { title: game.i18n.localize("TTS.Sheet.DeleteTitle") },
     content: `<p>${game.i18n.format("TTS.Sheet.DeleteConfirm", { name: foundry.utils.escapeHTML?.(item.name) ?? item.name })}</p>`,
     rejectClose: false

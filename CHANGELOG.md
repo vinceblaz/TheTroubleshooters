@@ -1,6 +1,93 @@
 # Journal des modifications
 
-## 0.6.0 — phase 6 : défis et duels (livré, non validé)
+## 0.11.1 — phase 11 : contenus (2) — tables aléatoires et journaux d'aide
+
+- Compendium « Tables aléatoires » (37 tables, en dossiers) : prénoms masculins, prénoms féminins et noms de famille de 11 nationalités
+  (LdB p. 224-227), traits de personnalité (d%), idées de conception, lieux de rencontre, jurons signifiant « Nom de Dieu » (d%).
+- Compendium « Journaux d'aide », mis en page dans la charte : À propos du système, Aide-mémoire des règles, Session pilote (modèle),
+  Feuille d'indices (modèle), Calendrier de 1965 (jours fériés et saisons), Les jurons en bande dessinée.
+- L'initialisation conserve les pages de journal et les résultats de table lors d'une mise à jour.
+- Retour de recette : nom des PNJ et des objets en lettrage net, sans contour ni ombre portée.
+
+## 0.11.0 — phase 11 : contenus (1) — fichier des menaces (validé en Foundry réel, 10/10)
+
+- Compendium « Fichier des menaces » : les 51 personnages secondaires du livre (LdB p. 208-219), rangés en dossiers :
+  Génériques, Police et justice, Mafia, Armée, Agents secrets, La Pieuvre, Animaux, Dinosaures.
+  Rang, compétence de base et spécialité, compétences importantes et de personnalisation, attaques (valeur, dégâts, utilisations,
+  descripteurs, contre), défense, protection, Vitalité, initiative, descripteurs d'adversaire, description du livre et source.
+- L'initialisation sait désormais créer des dossiers dans un compendium.
+
+## 0.10.4 — icônes des conditions (validé)
+
+- 16 icônes originales des conditions, en tampons encreurs ronds (papier, double cercle, pictogramme), à l'encre de leur famille
+  comme les tampons du passeport : jetons, menu des statuts, panneau des conditions de la fiche PNJ (`assets/icons/conditions/`).
+
+## 0.10.3 — retour de recette (validé)
+
+- Icône des 7 kits de super-science (Assistant robotique, Ceinture de lévitation, Imprimante à masques, Octopode,
+  Projecteur encéphalographique inversé, Propulseur dorsal amélioré, Protections anti-PEI) : l'icône visée n'existe pas dans Foundry ;
+  remplacée par une icône originale fournie avec le système (`assets/icons/kit-super-science.svg`). La ré-initialisation met le compendium à jour.
+
+## 0.10.2 — charte étendue à toutes les fenêtres
+
+- Registre BD vintage (papier tramé, champs cerclés, boutons en pastilles, cadres à ombre portée, titres en lettrage) appliqué à toutes les fenêtres
+  du système : boîtes de jet, demande de jet, dépenses, dégâts, déclenchement de désavantage, confirmations, outils du Chef (points de récit,
+  Dangers, Défi, Duel, Débriefing), création de personnage secondaire et fiches d'objets (bandeau titre bleu nuit tramé).
+- Registre « Passeport » pour la création et la progression d'un Risque-tout.
+- Toutes les boîtes de dialogue du système portent désormais les classes de la charte.
+
+## 0.10.1 — retour de recette
+
+- Icônes de la barre de titre des fiches Risque-tout et PNJ de nouveau visibles : les styles de la charte (police, boutons, liens)
+  sont limités au contenu de la fiche et n'écrasent plus la police des icônes de Foundry.
+
+## 0.10.0 — phase 10 : charte graphique (validé en Foundry réel, 41/41)
+
+- Polices libres (SIL OFL 1.1) embarquées dans le système : Libre Caslon Text, Archivo Narrow, Courier Prime, Space Mono, Bangers, Comic Neue (`fonts/`).
+- Fiche de Risque-tout « Passeport » : page guillochée, en-tête du Bureau international des Risque-tout (emblème original), photo et cachet,
+  champs tapés à la machine, cases de Vitalité, bande de lecture automatique, onglets verticaux à droite en marque-pages.
+- Les 16 conditions en tampons : planche « Mentions officielles » (encrés quand actifs, empreinte pâle sinon ; encre par famille d'états),
+  dans l'onglet Compétences et l'onglet Combat (niveaux et jets de sortie sous le tampon) ; tampons actifs rappelés sur la photo.
+- Fiche PNJ BD vintage tramée : papier jauni, trames de points, bandeau titre, rang en pastille, jauge de Vitalité, cases numérotées.
+- Cartes de chat BD 1960-70 : papier, bandeaux tramés, résultats en lettrage, onomatopées sur les moments forts
+  (BIM ! Bon Karma, PATATRAS ! Mauvais Karma, PAF ! attaque qui touche, POUM ! Hors de combat, ZIOUM ! attaque manquée,
+  VROOOM ! défi excellent, CATASTROPHE ! défi désastreux, TCHAC ! duel gagné).
+- Réglage client « Effets graphiques réduits » (onomatopées, trames et grain retirés).
+
+## 0.9.0 — phase 9 : progression et intersession (validé en Foundry réel, 28/28)
+
+- Outil du Chef « Débriefing » (macro, bouton de l'outil des points de récit) : critères des coches gratuites (ou points d'expérience) par Risque-tout,
+  retrait pour meurtre de sang-froid, fin d'aventure (sans effusion de sang +3, conditions de victoire → jets ou points de récompense, périodes d'intersession).
+- Fenêtre « Progression » de la fiche : coches ordinaires, coches gratuites, jets de récompense, dans l'ordre du livre ; jets d'expérience en carte de chat
+  (table d'augmentation, plafond 100, 106 depuis 100) ; croix de langue (courante à 5) et de capacité (acquise au coût, prérequis, compétences associées) ;
+  limites d'usage par cible ; Vitalité recalculée et annoncée.
+- Intersession : convalescence (retire Blessé), fréquentations et voyage (+2 PR à la prochaine session), achats et artisanat (rappels), entraînement.
+- Règle alternative en points (réglage « Système de progression ») : points d'expérience et points de récompense.
+- Langues en apprentissage : bouton de jet de Langues sur la fiche (+1 pip par croix).
+
+## 0.8.0 — phase 8 : création de personnages (Risque-tout et personnages secondaires) (validé en Foundry réel, 33/33)
+
+- Compendium « Archétypes » : les 15 archétypes du livre (compétences 75 / 65 ×4 / 45 ×6, capacités, désavantages, kits avec choix « A | B », accroches suggérées, description).
+- Modèle commun d'assistant de création (brouillon conservé sur la fiche, contrôles bloquants et avertissements, « Appliquer », « Recommencer »).
+- Assistant de création de Risque-tout (bouton « Création » de la fiche) : archétype ou personnage atypique, personnalisation des compétences
+  (transferts, remplacements, échange), Vitalité et langues recalculées, capacités et désavantages (3e capacité contre un 2e désavantage, prérequis à partir du niveau 2),
+  langues (maternelle selon l'origine), kits (3 de l'archétype + 2 au choix, matériel signature), accroches (avertissement si déjà prise), identité,
+  tables « Idée de conception » et « Lieu de rencontre » (1d100). Une nouvelle application remplace les objets de la création précédente.
+- Assistant de création de personnage secondaire (bouton « Création » de la fiche PNJ, macro « Nouveau personnage secondaire ») :
+  modèles génériques des cinq rangs (spécialiste ultra-générique, sbire, sous-fifre, lieutenant, chef), repères du livre en avertissements
+  (base, spécialité, défense, Vitalité, initiative, compétences importantes, attaques, descripteurs de rang et inversions).
+
+## 0.7.0 — phase 7 : équipement (validé en Foundry réel, 31/31)
+
+- Compendium « Kits de matériel » : les 95 kits du livre (contenu, coût, descripteurs à pips, profils d'arme, prérequis, catégories).
+- Kits à plusieurs armes (profil principal + armes supplémentaires), état « hors d'usage », usages des kits bricolés.
+- Onglet Matériel : kits emportés (5 emplacements), entrepôt, objets trouvés ; avertissements sur les gadgets signature.
+- Obtention par glisser-déposer : personnel, mission, trouvé, bricolé, ou acheté avec des PR (dépense validée par le Chef, kit livré à la validation) ; prérequis indicatifs.
+- Fin de l'histoire (outil des points de récit) : kits achetés et de mission rendus.
+- Descripteurs de gadget déclenchés sur les unités quand le kit sert de matériel (Peu fiable, Dangereux, Très dangereux, Fatigant, Assourdissant, Fumigène).
+- Défi : mode « Fabrication de gadget » (compétences, malus de catégorie, jetons à répartir, contrôle) et création ou modification du kit par le Chef.
+
+## 0.6.0 — phase 6 : défis et duels (validé en Foundry réel, 28/28)
 
 - Application du Chef « Défi » (macro) : titre, 3 à 5 jets (compétence, modificateur, participant attribué ou au choix des joueurs,
   opposition libellé + valeur), textes des cinq résultats, 18 modèles tirés de « Comment résoudre les situations ».

@@ -6,6 +6,32 @@
     <span class="tts-hint">{{localize "TTS.Challenge.Count"}} :</span>
     {{#each counts as |label n|}}<button type="button" class="tts-small-button {{#if (eq n (concat ../draft.count))}}tts-active{{/if}}" data-action="setCount" data-count="{{n}}">{{label}}</button>{{/each}}
   </div>
+  <div class="tts-inline"><button type="button" class="tts-small-button {{#if gadget}}tts-active{{/if}}" data-action="toggleGadget"><i class="fa-solid fa-screwdriver-wrench"></i> {{localize "TTS.Gadget.Mode"}}</button></div>
+  {{#if gadget}}
+  <fieldset class="tts-fieldset tts-gadget-form">
+    <legend>{{localize "TTS.Gadget.Title"}}</legend>
+    <div class="tts-grid-2">
+      <div class="form-group"><label>{{localize "TTS.Gadget.Name"}}</label><input name="gName" type="text" value="{{gadget.name}}"></div>
+      <div class="form-group"><label>{{localize "TTS.Gadget.Owner"}}</label><select name="gActor">{{selectOptions gadget.owners selected=gadget.actorUuid}}</select></div>
+      <div class="form-group"><label>{{localize "TTS.Gadget.Modify"}}</label><select name="gKit">{{selectOptions gadget.kits selected=gadget.kitId}}</select></div>
+      <div class="form-group"><label>{{localize "TTS.Kit.Category"}}</label><select name="gCategory">{{selectOptions gadget.categories selected=gadget.category}}</select></div>
+    </div>
+    <div class="form-group"><label>{{localize "TTS.Gadget.Descriptors"}}</label><input name="gDescriptors" type="text" value="{{gadget.descriptors}}" placeholder="Volant, Bonne impression : +2 pips"></div>
+    <div class="tts-inline">
+      <label>{{localize "TTS.Gadget.Positive"}}</label><input name="gPositive" type="number" value="{{gadget.positive}}" min="0" max="9">
+      <label>{{localize "TTS.Gadget.Limiting"}}</label><input name="gLimiting" type="number" value="{{gadget.limiting}}" min="0" max="9">
+      <label>{{localize "TTS.Gadget.ExtraTime"}}</label><input name="gExtraTime" type="number" value="{{gadget.extraTime}}" min="0" max="5">
+      <label class="tts-check-label"><input name="gJuryRigged" type="checkbox" {{checked gadget.juryRigged}}> {{localize "TTS.Gadget.JuryRigged"}}</label>
+    </div>
+    <div class="tts-inline">
+      <button type="button" class="tts-small-button" data-action="prepareGadget"><i class="fa-solid fa-wand-magic-sparkles"></i> {{localize "TTS.Gadget.Prepare"}}</button>
+      <span>{{localize "TTS.Gadget.Global"}} : <strong>{{gadget.global}}</strong> ; {{localize "TTS.Gadget.Tokens"}} : <strong>{{gadget.tokensLabel}}</strong></span>
+      <button type="button" class="tts-small-button" data-action="recalc"><i class="fa-solid fa-calculator"></i> {{localize "TTS.Gadget.Recalc"}}</button>
+      <span class="{{#if gadget.balance.ok}}tts-success{{else}}tts-warn{{/if}}">{{localize "TTS.Gadget.Balance"}} : {{gadget.balance.actual}} / {{gadget.balance.expected}}</span>
+    </div>
+    <p class="tts-hint">{{localize "TTS.Gadget.Hint"}}</p>
+  </fieldset>
+  {{/if}}
   <table class="tts-row-table">
     <thead><tr><th>{{localize "TTS.Duel.Skill"}}</th><th>±</th><th>{{localize "TTS.Challenge.Participant"}}</th><th>{{localize "TTS.Challenge.Opposition"}}</th><th>%</th></tr></thead>
     <tbody>

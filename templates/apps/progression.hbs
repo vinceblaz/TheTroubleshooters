@@ -1,0 +1,78 @@
+<div class="tts-progression-app">
+  <p class="tts-hint">{{#if points}}{{localize "TTS.Progression.IntroPoints"}}{{else}}{{localize "TTS.Progression.IntroTicks"}}{{/if}}</p>
+  {{#if nothing}}<p class="tts-empty">{{localize "TTS.Progression.Nothing"}}</p>{{/if}}
+
+  {{#unless points}}
+  {{!-- 1. Coches ordinaires --}}
+  <fieldset class="tts-fieldset">
+    <legend>1. {{localize "TTS.Progression.OrdinaryTitle"}}</legend>
+    {{#each ordinary as |o|}}
+    <div class="tts-progression-row">
+      <span class="tts-progression-label"><i class="fa-solid fa-square-check"></i> {{o.label}} ({{o.value}} %)</span>
+      <select name="target-{{o.row}}">{{selectOptions o.options}}</select>
+      <input type="text" name="newlang-{{o.row}}" placeholder="{{localize 'TTS.Progression.NewLanguageName'}}">
+      <button type="button" class="tts-small-button" data-action="use" data-source="ordinary" data-skill="{{o.skill}}" data-row="{{o.row}}"><i class="fa-solid fa-dice"></i> {{localize "TTS.Progression.Use"}}</button>
+    </div>
+    {{else}}<p class="tts-empty">{{localize "TTS.Progression.NoOrdinary"}}</p>{{/each}}
+  </fieldset>
+
+  {{!-- 2-3. Coches gratuites --}}
+  <fieldset class="tts-fieldset">
+    <legend>2. {{localize "TTS.Progression.FreeTicksTitle"}} : {{freeTicks}}</legend>
+    {{#if freeTicks}}
+    <div class="tts-progression-row">
+      <select name="target-free">{{selectOptions allTargets}}</select>
+      <input type="text" name="newlang-free" placeholder="{{localize 'TTS.Progression.NewLanguageName'}}">
+      <button type="button" class="tts-small-button" data-action="use" data-source="free" data-row="free"><i class="fa-solid fa-dice"></i> {{localize "TTS.Progression.Use"}}</button>
+    </div>
+    {{/if}}
+    <p class="tts-hint">{{localize "TTS.Progression.LimitHint"}}</p>
+  </fieldset>
+  {{else}}
+  {{!-- Points d'expérience --}}
+  <fieldset class="tts-fieldset">
+    <legend>1. {{localize "TTS.Progression.XpTitle"}} : {{xp}}</legend>
+    {{#if xp}}
+    <div class="tts-progression-row">
+      <select name="target-xp">{{selectOptions allTargets}}</select>
+      <input type="text" name="newlang-xp" placeholder="{{localize 'TTS.Progression.NewLanguageName'}}">
+      <button type="button" class="tts-small-button" data-action="use" data-source="xp" data-row="xp"><i class="fa-solid fa-plus"></i> {{localize "TTS.Progression.Spend"}}</button>
+    </div>
+    {{/if}}
+    <p class="tts-hint">{{localize "TTS.Progression.XpHint"}}</p>
+  </fieldset>
+  {{/unless}}
+
+  {{!-- Récompenses --}}
+  <fieldset class="tts-fieldset">
+    <legend>3. {{#if points}}{{localize "TTS.Progression.RewardPointsTitle"}}{{else}}{{localize "TTS.Progression.RewardRollsTitle"}}{{/if}}</legend>
+    {{#each rewards as |r|}}
+    <div class="tts-progression-row">
+      <span class="tts-progression-label"><i class="fa-solid fa-trophy"></i> {{r.label}}{{#if r.source}} — <em>{{r.source}}</em>{{/if}}</span>
+      <select name="target-{{r.row}}">{{selectOptions r.options}}</select>
+      <input type="text" name="newlang-{{r.row}}" placeholder="{{localize 'TTS.Progression.NewLanguageName'}}">
+      <button type="button" class="tts-small-button" data-action="use" data-source="{{#if @root.points}}rewardPoint{{else}}reward{{/if}}" data-index="{{r.index}}" data-row="{{r.row}}"><i class="fa-solid fa-dice"></i> {{localize "TTS.Progression.Use"}}</button>
+    </div>
+    {{else}}<p class="tts-empty">{{localize "TTS.Progression.NoRewards"}}</p>{{/each}}
+  </fieldset>
+
+  {{!-- Intersession --}}
+  <fieldset class="tts-fieldset">
+    <legend>4. {{localize "TTS.Progression.DowntimeTitle"}} : {{periods}}</legend>
+    {{#if periods}}
+    <div class="tts-progression-row">
+      <select name="activity">{{selectOptions activities}}</select>
+      <input type="text" name="downtimeText" placeholder="{{localize 'TTS.Progression.DowntimeText'}}">
+      <button type="button" class="tts-small-button" data-action="downtime"><i class="fa-solid fa-umbrella-beach"></i> {{localize "TTS.Progression.DoActivity"}}</button>
+    </div>
+    <div class="tts-progression-row">
+      <span class="tts-progression-label">{{localize "TTS.Progression.TrainingTarget"}}</span>
+      <select name="target-training">{{selectOptions allTargets}}</select>
+      <input type="text" name="newlang-training" placeholder="{{localize 'TTS.Progression.NewLanguageName'}}">
+    </div>
+    {{/if}}
+    <p class="tts-hint">{{localize "TTS.Progression.DowntimeHint"}}{{#if pendingBonus}} — {{localize "TTS.SP.PendingBonus"}} : +{{pendingBonus}}{{/if}}</p>
+  </fieldset>
+
+  <p class="tts-hint">{{localize "TTS.Vitality.Label"}} : <strong>{{vitality}}</strong> — {{localize "TTS.Progression.VitalityHint"}}</p>
+</div>

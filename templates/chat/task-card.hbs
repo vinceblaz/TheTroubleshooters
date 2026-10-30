@@ -11,6 +11,14 @@
   {{/if}}
   {{> "systems/thetroubleshooters/templates/chat/task-result.hbs" task=card.task}}
   {{#if card.karmaAwarded}}<div class="tts-history">★ {{localize "TTS.Chat.KarmaPoint"}}</div>{{/if}}
+  {{#if card.gadget}}
+  <div class="tts-gadget-effects">
+    {{#each card.gadget.effects as |e|}}
+    <div class="tts-history">⚙ {{e.text}}</div>
+    {{#if e.dice}}<div class="tts-card-buttons" data-owner-uuid="{{../card.actorUuid}}"><button type="button" data-tts-action="gadgetDanger" data-dice="{{e.dice}}" data-type="{{e.type}}"><i class="fa-solid fa-burst"></i> {{localize "TTS.Gadget.Suffer"}} ({{e.dice}}dX)</button></div>{{/if}}
+    {{/each}}
+  </div>
+  {{/if}}
   {{#if card.exit}}
   <div class="tts-history">{{exitLabel}}{{#if card.exit.applied}} — ✔ {{localize "TTS.Condition.ExitApplied"}}{{/if}}</div>
   {{#if (and card.task.success (not card.exit.applied))}}

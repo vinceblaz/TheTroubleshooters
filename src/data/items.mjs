@@ -95,6 +95,20 @@ export class HookData extends foundry.abstract.TypeDataModel {
   }
 }
 
+/** Profil d'arme d'un kit (LdB p. 114-115). */
+function weaponField() {
+  return new fields.SchemaField({
+    name: stringField(),                          // nom du profil (« Arme de poing », « Shuriken »…)
+    skill: stringField("shooting", { choices: ["melee", "shooting"], blank: false }),
+    damage: intField(5, { min: 0, max: 20 }),
+    descriptors: stringField(),
+    ammo: stringField(),                          // plage munitions (X), ex. « 9-0 »
+    empty: boolField(false),
+    jammed: boolField(false),
+    broken: boolField(false)                      // Fragile : cassée après un jet avec Karma
+  });
+}
+
 /** Kit de matériel (LdB p. 108-125), y compris armes, protections et véhicules. */
 export class KitData extends foundry.abstract.TypeDataModel {
   static defineSchema() {
@@ -105,15 +119,8 @@ export class KitData extends foundry.abstract.TypeDataModel {
       category: stringField("standard", { choices: ["standard", "spyTech", "superScience", "ancientLore", "lostLore"], blank: false }),
       descriptors: new fields.ArrayField(descriptorField()),
       hasWeapon: boolField(false),
-      weapon: new fields.SchemaField({
-        skill: stringField("shooting", { choices: ["melee", "shooting"], blank: false }),
-        damage: intField(5, { min: 0, max: 20 }),
-        descriptors: stringField(),
-        ammo: stringField(),                          // plage munitions (X), ex. « 9-0 »
-        empty: boolField(false),
-        jammed: boolField(false),
-        broken: boolField(false)                      // Fragile : cassée après un jet avec Karma
-      }),
+      weapon: weaponField(),
+      extraWeapons: new fields.ArrayField(weaponField()),   // kits à plusieurs armes (Tenue de ninja, Avion de chasse…)
       hasProtection: boolField(false),
       protection: new fields.SchemaField({
         dice: intField(1, { min: 0, max: 10 }),
@@ -123,7 +130,8 @@ export class KitData extends foundry.abstract.TypeDataModel {
       signature: boolField(false),
       signatureDescription: stringField(),
       origin: stringField("owned", { choices: ["owned", "mission", "purchased", "juryRigged", "found"], blank: false }),
-      uses: intField(null, { min: 0, max: 9, nullable: true }),
+      uses: intField(null, { min: 0, max: 9, nullable: true }),    // usages restants d'un kit bricolé (1 ou 2)
+      broken: boolField(false),                                    // gadget hors d'usage (peu fiable, usages épuisés)
       description: htmlField(),
       source: sourceField()
     };

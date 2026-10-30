@@ -14,7 +14,7 @@ import { ammoAfterAttack, absorbOptions, applyAbsorb, recover, sumDice, DEFENSE_
 import { adjustInitiative, AIMED_SHOT_COST } from "../domain/combat/initiative.mjs";
 import { setAttackerTask, setDefense, setDefenseTask, declineDefense, applyKnockout, chooseVlan, expectedDamageParts,
   setDamage, rerollDamage, addBonusDamage, setSoak, chooseAbsorb, markRecovery } from "../domain/combat/attack-state.mjs";
-import { statusesOf, capsOf, soakDiceFor, combatantOf, abilityList } from "../services/combat-actors.mjs";
+import { statusesOf, capsOf, soakDiceFor, combatantOf, abilityList, updateKitWeapon } from "../services/combat-actors.mjs";
 import { getCard, updateCardMessage } from "./cards.mjs";
 import { applyCardActivation, prepareSpend, gain } from "./card-handlers.mjs";
 
@@ -84,7 +84,9 @@ async function setWeaponState(actor, weapon, { empty, jammed }) {
   if (!actor) return;
   if (weapon.kitId) {
     const kit = actor.items.get(weapon.kitId);
-    if (kit) await kit.update({ "system.weapon.empty": empty, "system.weapon.jammed": jammed || kit.system.weapon.jammed });
+    const idx = weapon.weaponIndex ?? 0;
+    const current = idx ? kit?.system.extraWeapons?.[idx - 1] : kit?.system.weapon;
+    if (kit) await updateKitWeapon(kit, idx, { empty, jammed: jammed || Boolean(current?.jammed) });
   } else if (Number.isInteger(weapon.attackIndex) && actor.type === "npc") {
     const attacks = foundry.utils.deepClone(actor.system._source.attacks);
     if (attacks[weapon.attackIndex]) {
@@ -135,7 +137,7 @@ function planEffects(card, messageId, attacker, target) {
   }
   if (card.primary && s.attacker.flags.fragile && s.attacker.task.karma && ["done", "miss"].includes(s.stage) && !e.fragile && w.kitId) {
     e.fragile = true;
-    actions.push(async () => attacker?.items.get(w.kitId)?.update({ "system.weapon.broken": true }));
+    actions.push(async () => updateKitWeapon(attacker?.items.get(w.kitId), w.weaponIndex ?? 0, { broken: true }));
   }
   card.effects = e;
   return actions;

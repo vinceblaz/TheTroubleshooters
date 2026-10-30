@@ -14,13 +14,34 @@ export const SP_MACRO_NAME = "The Troubleshooters — Points de récit et scène
 export const HAZARD_MACRO_NAME = "The Troubleshooters — Dangers";
 export const CHALLENGE_MACRO_NAME = "The Troubleshooters — Défi";
 export const DUEL_MACRO_NAME = "The Troubleshooters — Duel";
+export const DEBRIEF_MACRO_NAME = "The Troubleshooters — Débriefing";
+export const NPC_MACRO_NAME = "The Troubleshooters — Nouveau personnage secondaire";
 
 /** Étapes ordonnées. Chaque nouvelle phase ajoute ses catalogues ici. */
 export const INIT_STEPS = [
   { key: "hooks", catalog: "hooks.json", pack: "tts-hooks", label: "TTS.Init.Pack.Hooks", type: "Item" },
   { key: "abilities", catalog: "abilities.json", pack: "tts-abilities", label: "TTS.Init.Pack.Abilities", type: "Item" },
-  { key: "flaws", catalog: "flaws.json", pack: "tts-flaws", label: "TTS.Init.Pack.Flaws", type: "Item" }
+  { key: "flaws", catalog: "flaws.json", pack: "tts-flaws", label: "TTS.Init.Pack.Flaws", type: "Item" },
+  { key: "kits", catalog: "kits.json", pack: "tts-kits", label: "TTS.Init.Pack.Kits", type: "Item" },
+  { key: "archetypes", catalog: "archetypes.json", pack: "tts-archetypes", label: "TTS.Init.Pack.Archetypes", type: "Item" },
+  { key: "npcs", catalog: "npcs.json", pack: "tts-npcs", label: "TTS.Init.Pack.Npcs", type: "Actor" },
+  { key: "tables", catalog: "tables.json", pack: "tts-tables", label: "TTS.Init.Pack.Tables", type: "RollTable" },
+  { key: "journals", catalog: "journals.json", pack: "tts-journals", label: "TTS.Init.Pack.Journals", type: "JournalEntry" }
 ];
+
+/** Documents intégrés (pages de journal, résultats de table) : on garde leurs identifiants lors d'une mise à jour. */
+const EMBEDDED = ["pages", "results"];
+function keepEmbeddedIds(data, existing) {
+  const out = { ...data };
+  for (const field of EMBEDDED) {
+    if (!Array.isArray(data[field]) || !Array.isArray(existing?.[field])) continue;
+    out[field] = data[field].map((child, i) => {
+      const match = existing[field].find(e => e.name && e.name === child.name && field === "pages") ?? existing[field][i];
+      return match?._id ? { ...child, _id: match._id } : child;
+    });
+  }
+  return out;
+}
 
 async function loadCatalog(file) {
   const response = await fetch(`${SYSTEM_PATH}/data/catalogs/${file}`);
@@ -28,6 +49,7 @@ async function loadCatalog(file) {
   const entries = await response.json();
   return entries.map(e => ({
     seedKey: e.seedKey,
+    folder: e.folder ?? null,
     data: foundry.utils.mergeObject(e.data, { flags: { [SYSTEM_ID]: { seedKey: e.seedKey } } }, { inplace: false })
   }));
 }
@@ -46,6 +68,17 @@ async function ensurePack({ pack, label, type }) {
 async function runStep(step) {
   const catalog = await loadCatalog(step.catalog);
   const compendium = await ensurePack(step);
+  // Dossiers du compendium (phase 11) : créés au besoin, puis référencés par chaque entrée.
+  const folderNames = [...new Set(catalog.map(e => e.folder).filter(Boolean))];
+  if (folderNames.length) {
+    const known = new Map((compendium.folders?.contents ?? [...(compendium.folders ?? [])]).map(f => [f.name, f.id]));
+    const missing = folderNames.filter(n => !known.has(n));
+    if (missing.length) {
+      const made = await getDocumentClass("Folder").createDocuments(missing.map((name, i) => ({ name, type: step.type, sorting: "m", sort: (folderNames.indexOf(name) + 1) * 1000 })), { pack: compendium.collection });
+      for (const f of made) known.set(f.name, f.id);
+    }
+    for (const e of catalog) if (e.folder && known.has(e.folder)) e.data.folder = known.get(e.folder);
+  }
   const docs = await compendium.getDocuments();
   const existing = docs.map(d => ({ id: d.id, seedKey: d.getFlag(SYSTEM_ID, "seedKey"), data: d.toObject() }));
   const plan = planSeed(catalog, existing);
@@ -54,7 +87,7 @@ async function runStep(step) {
   if (plan.create.length) await cls.createDocuments(plan.create, { pack: compendium.collection });
   if (plan.update.length) {
     const updates = plan.update.map(({ id, data }) => {
-      const { type, ...rest } = data;                 // le type d'un document existant ne change pas
+      const { type, ...rest } = keepEmbeddedIds(data, existing.find(e => e.id === id)?.data);   // le type d'un document existant ne change pas
       return { ...rest, _id: id };
     });
     await cls.updateDocuments(updates, { pack: compendium.collection });
@@ -107,7 +140,9 @@ const GM_MACROS = [
   { name: SP_MACRO_NAME, img: "icons/svg/aura.svg", command: "game.thetroubleshooters.storyPoints();" },
   { name: HAZARD_MACRO_NAME, img: "icons/svg/hazard.svg", command: "game.thetroubleshooters.hazards();" },
   { name: CHALLENGE_MACRO_NAME, img: "icons/svg/book.svg", command: "game.thetroubleshooters.challenge();" },
-  { name: DUEL_MACRO_NAME, img: "icons/svg/combat.svg", command: "game.thetroubleshooters.duel();" }
+  { name: DUEL_MACRO_NAME, img: "icons/svg/combat.svg", command: "game.thetroubleshooters.duel();" },
+  { name: NPC_MACRO_NAME, img: "icons/svg/mystery-man.svg", command: "game.thetroubleshooters.newNpc();" },
+  { name: DEBRIEF_MACRO_NAME, img: "icons/svg/upgrade.svg", command: "game.thetroubleshooters.debrief();" }
 ];
 
 export async function ensureInitMacro() {
@@ -123,7 +158,7 @@ export async function promptInitializationIfNeeded() {
   if (!game.user.isGM) return;
   const done = game.settings.get(SYSTEM_ID, "initializedVersion");
   if (!needsInitialization(done, game.system.version)) return;
-  const proceed = await foundry.applications.api.DialogV2.confirm({
+  const proceed = await foundry.applications.api.DialogV2.confirm({ classes: ["thetroubleshooters", "tts-dialog"],
     window: { title: game.i18n.localize("TTS.Init.PromptTitle") },
     content: `<p>${game.i18n.format("TTS.Init.PromptContent", { version: game.system.version })}</p>`,
     rejectClose: false

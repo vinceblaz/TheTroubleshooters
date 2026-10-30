@@ -26,6 +26,7 @@ import { ChallengeApp, DuelApp } from "./apps/challenge-app.mjs";
 import { NpcGenApp } from "./apps/npc-gen-app.mjs";
 import { DebriefApp } from "./apps/debrief-app.mjs";
 import { ProgressionApp } from "./apps/progression-app.mjs";
+import { newCharacter, registerCharacterCreationHandlers } from "./services/character-creation-service.mjs";
 import { ChargenApp } from "./apps/chargen-app.mjs";
 import { registerChallengeHandlers } from "./services/challenge-service.mjs";
 import { registerEquipmentHandlers, endOfStory } from "./services/equipment-service.mjs";
@@ -59,6 +60,7 @@ Hooks.once("init", async () => {
     challenge: () => ChallengeApp.open(),
     duel: () => DuelApp.open(),
     newNpc: () => NpcGenApp.createAndOpen(),
+    newCharacter,
     debrief: () => DebriefApp.open(),
     progression: actor => ProgressionApp.open(actor),
     npcCreation: actor => NpcGenApp.open(actor),
@@ -115,6 +117,7 @@ Hooks.once("init", async () => {
   registerHazardHandlers();
   registerChallengeHandlers();
   registerEquipmentHandlers();
+  registerCharacterCreationHandlers();
   Hooks.on("renderChatMessageHTML", onRenderChatMessage);
 
   // Combat (phase 4)

@@ -15,6 +15,7 @@ export const HAZARD_MACRO_NAME = "The Troubleshooters — Dangers";
 export const CHALLENGE_MACRO_NAME = "The Troubleshooters — Défi";
 export const DUEL_MACRO_NAME = "The Troubleshooters — Duel";
 export const DEBRIEF_MACRO_NAME = "The Troubleshooters — Débriefing";
+export const CHARACTER_MACRO_NAME = "The Troubleshooters — Nouveau Risque-tout";
 export const NPC_MACRO_NAME = "The Troubleshooters — Nouveau personnage secondaire";
 
 /** Étapes ordonnées. Chaque nouvelle phase ajoute ses catalogues ici. */
@@ -142,14 +143,17 @@ const GM_MACROS = [
   { name: CHALLENGE_MACRO_NAME, img: "icons/svg/book.svg", command: "game.thetroubleshooters.challenge();" },
   { name: DUEL_MACRO_NAME, img: "icons/svg/combat.svg", command: "game.thetroubleshooters.duel();" },
   { name: NPC_MACRO_NAME, img: "icons/svg/mystery-man.svg", command: "game.thetroubleshooters.newNpc();" },
-  { name: DEBRIEF_MACRO_NAME, img: "icons/svg/upgrade.svg", command: "game.thetroubleshooters.debrief();" }
+  { name: DEBRIEF_MACRO_NAME, img: "icons/svg/upgrade.svg", command: "game.thetroubleshooters.debrief();" },
+  { name: CHARACTER_MACRO_NAME, img: "systems/thetroubleshooters/assets/icons/new-character.svg", command: "game.thetroubleshooters.newCharacter();", shared: true }
 ];
 
 export async function ensureInitMacro() {
   if (!game.user.isGM) return;
   for (const m of GM_MACROS) {
     if (game.macros.find(x => x.name === m.name)) continue;
-    await Macro.create({ name: m.name, type: "script", img: m.img, command: m.command });
+    // Macros partagées (phase 11) : visibles et utilisables par les joueurs.
+    const ownership = m.shared ? { default: CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER } : undefined;
+    await Macro.create({ name: m.name, type: "script", img: m.img, command: m.command, ...(ownership ? { ownership } : {}) });
   }
 }
 

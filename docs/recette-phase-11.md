@@ -33,3 +33,15 @@ Au premier chargement de la 0.11.1, accepter la ré-initialisation : elle crée 
 | 17 | Journaux « Jurons », « Session pilote », « Feuille d'indices », « À propos » | Contenu lisible ; les modèles se complètent après import dans le monde | |
 | 18 | Fiche PNJ et fiche d'objet | Nom en lettrage net, sans ombre portée | |
 | 19 | Relancer l'initialisation | Tout inchangé, aucun doublon de page ni de résultat | |
+
+## C. Macro « Nouveau Risque-tout » (0.11.2)
+
+Au chargement, la macro est créée par le compte MJ (dossier des macros) ; la glisser dans la barre de raccourcis des joueurs si besoin.
+
+| # | Vérification | Attendu | Statut |
+|---|---|---|---|
+| 20 | MJ : macro, nom « Margaux », propriétaire « Aucun » | Fiche créée ; l'assistant de création s'ouvre chez le MJ | |
+| 21 | MJ : macro, propriétaire = un joueur connecté | Fiche créée et confiée au joueur ; associée à son compte s'il n'avait pas de personnage ; l'assistant s'ouvre chez le joueur | |
+| 22 | Joueur (sans droit de créer des acteurs) : macro | Message « Demande envoyée » ; la fiche apparaît, propriété du joueur ; l'assistant s'ouvre chez lui | |
+| 23 | Joueur, MJ déconnecté | Avertissement : aucun MJ connecté | |
+| 24 | Joueur ayant le droit « Créer des acteurs » | Création directe, assistant ouvert | |

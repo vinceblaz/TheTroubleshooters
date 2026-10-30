@@ -1,5 +1,12 @@
 # Journal des modifications
 
+## 0.11.2 — macro « Nouveau Risque-tout »
+
+- Macro « Nouveau Risque-tout », visible et utilisable par les joueurs : nom de la fiche, création, ouverture de l'assistant de création.
+- Le MJ peut choisir le joueur propriétaire : la fiche lui est confiée, associée à son compte s'il n'a pas encore de personnage,
+  et l'assistant s'ouvre chez ce joueur.
+- Un joueur sans le droit de créer des acteurs passe par le relais MJ (le MJ doit être connecté) ; l'assistant s'ouvre chez lui dès la création.
+
 ## 0.11.1 — phase 11 : contenus (2) — tables aléatoires et journaux d'aide
 
 - Compendium « Tables aléatoires » (37 tables, en dossiers) : prénoms masculins, prénoms féminins et noms de famille de 11 nationalités

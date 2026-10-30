@@ -1271,6 +1271,16 @@
       "excellent": "VROOOM !",
       "disaster": "CATASTROPHE !",
       "duelWon": "TCHAC !"
+    },
+    "NewCharacter": {
+      "Title": "Nouveau Risque-tout",
+      "DefaultName": "Nouveau Risque-tout",
+      "Owner": "Joueur propriétaire",
+      "NoOwner": "Aucun (je le garde)",
+      "Hint": "La fiche est créée puis l'assistant de création s'ouvre. Un joueur sans droit de création passe par le Chef des Opérations, qui doit être connecté.",
+      "Create": "Créer",
+      "CreatedFor": "« {name} » créé pour {user} : l'assistant de création s'ouvre chez ce joueur.",
+      "Requested": "Demande envoyée au Chef des Opérations : l'assistant de création s'ouvrira dès que la fiche sera créée."
     }
   }
 }

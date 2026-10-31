@@ -1027,7 +1027,8 @@
         "Kits": "Kits de matériel",
         "Hooks": "Accroches",
         "Identity": "Identité",
-        "Meeting": "Rencontre de l'équipe"
+        "Meeting": "Rencontre de l'équipe",
+        "Vitality": "Vitalité maximale"
       },
       "ModeArchetype": "Archétype du livre",
       "Atypical": "Personnage atypique",
@@ -1083,6 +1084,15 @@
         "abilities-out-of-list": "Plus de capacités hors liste que la personnalisation n'en permet",
         "prereq": "prérequis non remplis (niveau 2 et plus)",
         "hookTaken": "accroche déjà prise par un autre Risque-tout"
+      },
+      "BestCombat": "Meilleure compétence de combat",
+      "VitalityResult": "Vitalité maximale du Risque-tout :",
+      "VitalityHint": "Calculée automatiquement d'après les compétences (LdB p. 34) ; elle évoluera avec la progression.",
+      "VitalityRule": {
+        "base": "Par défaut",
+        "r45": "Agilité ou une compétence de combat de 45 à 64",
+        "r65": "Agilité ou une compétence de combat à 65 ou plus",
+        "both65": "Agilité et une compétence de combat à 65 ou plus"
       }
     },
     "Draft": {
@@ -1273,14 +1283,25 @@
       "duelWon": "TCHAC !"
     },
     "NewCharacter": {
-      "Title": "Nouveau Risque-tout",
       "DefaultName": "Nouveau Risque-tout",
       "Owner": "Joueur propriétaire",
       "NoOwner": "Aucun (je le garde)",
-      "Hint": "La fiche est créée puis l'assistant de création s'ouvre. Un joueur sans droit de création passe par le Chef des Opérations, qui doit être connecté.",
-      "Create": "Créer",
-      "CreatedFor": "« {name} » créé pour {user} : l'assistant de création s'ouvre chez ce joueur.",
-      "Requested": "Demande envoyée au Chef des Opérations : l'assistant de création s'ouvrira dès que la fiche sera créée."
+      "CreatedFor": "« {name} » est créé et confié à {user}."
+    },
+    "Wizard": {
+      "Title": "Nouveau Risque-tout",
+      "Intro": "Les six premières étapes de la création du livre (p. 32). La fiche n'est créée qu'à la fin ; vous pouvez fermer la fenêtre et reprendre plus tard.",
+      "Prev": "Précédent",
+      "Next": "Suivant",
+      "Finish": "Créer le Risque-tout",
+      "Reset": "Recommencer",
+      "ResetPrompt": "Effacer cette création et repartir de l'étape 1 ?",
+      "NameRequired": "Donnez un nom au Risque-tout (étape 1).",
+      "Requested": "Demande envoyée au Chef des Opérations : la fiche sera remplie et ouverte dès sa création.",
+      "Created": "« {name} » est prêt : complétez accroches, description et rencontre sur sa fiche.",
+      "OpenError": "L'assistant « Nouveau Risque-tout » n'a pas pu s'ouvrir : {error} (détail dans la console, F12).",
+      "Button": "Nouveau Risque-tout",
+      "After": "Après la création : accroches, description, idée de conception et rencontre de l'équipe se complètent sur la fiche (onglets Capacités et Identité, bouton « Création »)."
     }
   }
 }

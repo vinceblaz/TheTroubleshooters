@@ -1,0 +1,15 @@
+{{!-- Section « kits » de la création de Risque-tout. Paramètre : num (numéro affiché) --}}
+  <fieldset class="tts-fieldset">
+    <legend>{{#if num}}{{num}}. {{/if}}{{localize "TTS.Chargen.Step.Kits"}}</legend>
+    <div class="tts-chargen-grid">
+      {{#each kitLines as |line|}}
+        <label>{{localize "TTS.Chargen.ArchetypeKit"}} {{line.n}}</label>
+        {{#if line.single}}<span>{{line.pick}}</span>{{else}}<select name="kitPicks.{{line.i}}">{{selectOptions line.options selected=line.pick}}</select>{{/if}}
+      {{/each}}
+      {{#each freeKitSlots as |slot|}}
+        <label>{{localize "TTS.Chargen.FreeKit"}} {{slot.n}}</label><select name="freeKits.{{slot.i}}">{{selectOptions @root.kitOpts selected=slot.value}}</select>
+      {{/each}}
+      <label>{{localize "TTS.Kit.Signature"}}</label><select name="signature">{{selectOptions signatureOpts selected=d.signature}}</select>
+      <label>{{localize "TTS.Kit.SignatureDescription"}}</label><input type="text" name="signatureDescription" value="{{d.signatureDescription}}">
+    </div>
+  </fieldset>

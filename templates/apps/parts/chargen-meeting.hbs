@@ -1,0 +1,6 @@
+{{!-- Section « meeting » de la création de Risque-tout. Paramètre : num (numéro affiché) --}}
+  <fieldset class="tts-fieldset">
+    <legend>{{#if num}}{{num}}. {{/if}}{{localize "TTS.Chargen.Step.Meeting"}}</legend>
+    <textarea name="meeting" rows="3">{{d.meeting}}</textarea>
+    <button type="button" class="tts-small-button" data-action="rollMeeting"><i class="fa-solid fa-dice-d20"></i> {{localize "TTS.Chargen.MeetingPlace"}}</button>
+  </fieldset>

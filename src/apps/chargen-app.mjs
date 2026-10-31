@@ -57,7 +57,7 @@ export class ChargenApp extends DraftApp {
 
   initialDraft() { return EMPTY(); }
 
-  get title() { return `${t("TTS.Chargen.Title")} — ${this.actor.name}`; }
+  get title() { return `${t("TTS.Chargen.Title")} — ${this.actor?.name ?? ""}`; }
 
   /** Calcule l'état complet de la création à partir du brouillon. */
   async evaluate() {
@@ -97,21 +97,25 @@ export class ChargenApp extends DraftApp {
     const kitWarnings = [...(as ? free : d.freeKits)].filter(Boolean)
       .map(n => ({ n, r: checkPrerequisites(kits.get(n)?.system.prerequisites ?? "", { abilityNames }) }))
       .filter(x => !x.r.ok).map(x => `${x.n} : ${x.r.missing.join(", ")}`);
-    const takenHooks = game.actors.filter(a => a.type === "character" && a.id !== this.actor.id)
+    const takenHooks = game.actors.filter(a => a.type === "character" && a.id !== this.actor?.id)
       .flatMap(a => a.items.filter(i => i.type === "hook").map(i => i.name));
     const conflicts = hookConflicts(d.hooks.filter(Boolean), takenHooks);
     const languages = startingLanguages({ origin: d.origin, native: d.native, extra: d.extraLangs.slice(0, derived.extraLanguages) });
-    let errors = [...custom.errors.map(e => t(`TTS.Chargen.Error.${e}`)), ...traits.errors.map(e => t(`TTS.Chargen.Error.${e}`)),
-      ...kitCheck.errors.map(e => t(`TTS.Chargen.Error.${e.split(":")[0]}`))];
-    if (d.mode === "archetype" && !arch) errors.push(t("TTS.Chargen.Error.no-archetype"));
-    if (d.mode === "atypical" && d.atypical.filter(Boolean).length !== 11) errors.push(t("TTS.Chargen.Error.atypical-skills"));
-    errors = [...new Set(errors)];
+    // Erreurs rattachées à leur étape du livre (1 archétype, 2 compétences, 3 capacités, 6 kits) pour l'assistant pas à pas.
+    const errorSteps = [];
+    const err = (step, code) => { const text = t(`TTS.Chargen.Error.${code}`); if (!errorSteps.some(e => e.text === text)) errorSteps.push({ step, text }); };
+    if (d.mode === "archetype" && !arch) err(1, "no-archetype");
+    if (d.mode === "atypical" && d.atypical.filter(Boolean).length !== 11) err(2, "atypical-skills");
+    custom.errors.forEach(e => err(2, e));
+    traits.errors.forEach(e => err(3, e));
+    kitCheck.errors.forEach(e => err(6, e.split(":")[0]));
+    const errors = errorSteps.map(e => e.text);
     const warnings = [
       ...traits.warnings.map(w => (w.startsWith("prereq:") ? `${w.slice(7)} : ${t("TTS.Chargen.Warn.prereq")}` : t(`TTS.Chargen.Warn.${w}`))),
       ...kitWarnings.map(w => `${t("TTS.Kit.Prerequisites")} — ${w}`),
       ...conflicts.map(h => `${h} : ${t("TTS.Chargen.Warn.hookTaken")}`)
     ];
-    return { arch, as, archetypes, abilities, flaws, kits, hooks, skills, derived, abilityNames, flawNames, picks, kitList: kitCheck.kits, languages, errors, warnings, freeSlots };
+    return { arch, as, archetypes, abilities, flaws, kits, hooks, skills, derived, abilityNames, flawNames, picks, kitList: kitCheck.kits, languages, errors, errorSteps, warnings, freeSlots };
   }
 
   /** @override */
@@ -205,6 +209,7 @@ export class ChargenApp extends DraftApp {
   /** Écrit la fiche : compétences, Vitalité, identité, objets (archétype, capacités, désavantages, kits, accroches, langues). */
   /** @override */
   applyNotice() {
+    if (!this.actor) return "";
     const count = this.actor.items.filter(i => i.getFlag(SYSTEM_ID, "chargen")).length;
     return count ? `<p class="tts-warning">${game.i18n.format("TTS.Chargen.ApplyReplace", { count })}</p>` : "";
   }

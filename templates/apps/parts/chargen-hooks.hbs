@@ -1,0 +1,8 @@
+{{!-- Section « hooks » de la création de Risque-tout. Paramètre : num (numéro affiché) --}}
+  <fieldset class="tts-fieldset">
+    <legend>{{#if num}}{{num}}. {{/if}}{{localize "TTS.Chargen.Step.Hooks"}}</legend>
+    <div class="tts-chargen-grid">
+      {{#each hookRows as |h|}}<label>{{localize "TTS.Chargen.Hook"}} {{h.n}}</label><select name="hooks.{{h.i}}">{{selectOptions @root.hookOpts selected=h.value}}</select>{{/each}}
+    </div>
+    <p class="tts-hint">{{localize "TTS.Chargen.HooksHint"}}</p>
+  </fieldset>

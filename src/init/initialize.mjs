@@ -144,13 +144,22 @@ const GM_MACROS = [
   { name: DUEL_MACRO_NAME, img: "icons/svg/combat.svg", command: "game.thetroubleshooters.duel();" },
   { name: NPC_MACRO_NAME, img: "icons/svg/mystery-man.svg", command: "game.thetroubleshooters.newNpc();" },
   { name: DEBRIEF_MACRO_NAME, img: "icons/svg/upgrade.svg", command: "game.thetroubleshooters.debrief();" },
-  { name: CHARACTER_MACRO_NAME, img: "systems/thetroubleshooters/assets/icons/new-character.svg", command: "game.thetroubleshooters.newCharacter();", shared: true }
+  { name: CHARACTER_MACRO_NAME, img: "systems/thetroubleshooters/assets/icons/new-character.svg", command: "game.thetroubleshooters?.newCharacter?.() ?? ui.notifications.error(\"The Troubleshooters : système non chargé (voir la console, F12).\");", shared: true }
 ];
 
 export async function ensureInitMacro() {
   if (!game.user.isGM) return;
   for (const m of GM_MACROS) {
-    if (game.macros.find(x => x.name === m.name)) continue;
+    const existing = game.macros.find(x => x.name === m.name);
+    if (existing) {
+      // Mise à jour : commande et partage remis à niveau (une ancienne macro pouvait garder une commande périmée).
+      const fix = {};
+      if (m.shared && existing.command !== m.command) fix.command = m.command;
+      if (existing.type !== "script") fix.type = "script";
+      if (m.shared && (existing.ownership?.default ?? 0) < CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER) fix["ownership.default"] = CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER;
+      if (Object.keys(fix).length) await existing.update(fix);
+      continue;
+    }
     // Macros partagées (phase 11) : visibles et utilisables par les joueurs.
     const ownership = m.shared ? { default: CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER } : undefined;
     await Macro.create({ name: m.name, type: "script", img: m.img, command: m.command, ...(ownership ? { ownership } : {}) });

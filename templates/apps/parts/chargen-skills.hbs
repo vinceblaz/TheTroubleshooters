@@ -1,0 +1,29 @@
+{{!-- Section « skills » de la création de Risque-tout. Paramètre : num (numéro affiché) --}}
+  <fieldset class="tts-fieldset">
+    <legend>{{#if num}}{{num}}. {{/if}}{{localize "TTS.Chargen.Step.Skills"}}</legend>
+    {{#if @root.wizard}}{{#if (eq d.mode "atypical")}}
+      <p class="tts-hint">{{localize "TTS.Chargen.AtypicalHint"}}</p>
+      <div class="tts-chargen-grid">
+        {{#each @root.atypicalSlots as |slot|}}
+          <label>{{slot.value}}</label><select name="atypical.{{slot.i}}">{{selectOptions @root.skillOpts selected=slot.key}}</select>
+        {{/each}}
+      </div>
+    {{/if}}{{/if}}
+    <div class="tts-chargen-skills">
+      {{#each skillRows as |row|}}<span class="tts-chargen-skill">{{row.label}} <strong>{{row.value}}</strong></span>{{/each}}
+    </div>
+    <p class="tts-hint">{{localize "TTS.Chargen.SkillsHint"}}</p>
+    <div class="tts-chargen-grid tts-chargen-custom">
+      {{#each transferRows as |tr|}}
+        <label>{{localize "TTS.Chargen.Transfer"}} {{tr.n}}</label>
+        <span class="tts-inline"><select name="transfers.{{tr.i}}.from">{{selectOptions @root.skillOpts selected=tr.from}}</select> → <select name="transfers.{{tr.i}}.to">{{selectOptions @root.skillOpts selected=tr.to}}</select></span>
+      {{/each}}
+      {{#each replacementRows as |rp|}}
+        <label>{{localize "TTS.Chargen.Replacement"}} {{rp.n}}</label>
+        <span class="tts-inline"><select name="replacements.{{rp.i}}.from">{{selectOptions @root.skillOpts selected=rp.from}}</select> → <select name="replacements.{{rp.i}}.to">{{selectOptions @root.skillOpts selected=rp.to}}</select></span>
+      {{/each}}
+      <label>{{localize "TTS.Chargen.Swap"}}</label>
+      <span class="tts-inline"><select name="swap.a">{{selectOptions skillOpts selected=d.swap.a}}</select> ⇄ <select name="swap.b">{{selectOptions skillOpts selected=d.swap.b}}</select></span>
+    </div>
+    <p class="tts-chargen-derived">{{localize "TTS.Vitality.Label"}} <strong>{{c.derived.vitality}}</strong> · {{localize "TTS.Chargen.ExtraLanguages"}} <strong>{{c.derived.extraLanguages}}</strong></p>
+  </fieldset>

@@ -1,0 +1,10 @@
+{{!-- Section « languages » de la création de Risque-tout. Paramètre : num (numéro affiché) --}}
+  <fieldset class="tts-fieldset">
+    <legend>{{#if num}}{{num}}. {{/if}}{{localize "TTS.Chargen.Step.Languages"}}</legend>
+    <div class="tts-chargen-grid">
+      <label>{{localize "TTS.Chargen.OriginLabel"}}</label><select name="origin">{{selectOptions origins selected=d.origin}}</select>
+      {{#if (eq d.origin "other")}}<label>{{localize "TTS.Language.Native"}}</label><input type="text" name="native" value="{{d.native}}">{{/if}}
+      {{#each extraLangSlots as |slot|}}<label>{{localize "TTS.Chargen.ExtraLanguage"}} {{slot.n}}</label><input type="text" name="extraLangs.{{slot.i}}" value="{{slot.value}}">{{/each}}
+    </div>
+    <p class="tts-hint">{{languagesLabel}}</p>
+  </fieldset>

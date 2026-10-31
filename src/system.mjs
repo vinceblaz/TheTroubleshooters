@@ -105,6 +105,8 @@ Hooks.once("init", async () => {
     `${SYSTEM_PATH}/templates/shared/conditions-panel.hbs`,
     `${SYSTEM_PATH}/templates/actor/parts/kit-table.hbs`,
     `${SYSTEM_PATH}/templates/apps/parts/draft-footer.hbs`,
+    ...["archetype", "skills", "traits", "languages", "kits", "hooks", "identity", "meeting"].map(n => `${SYSTEM_PATH}/templates/apps/parts/chargen-${n}.hbs`),
+    `${SYSTEM_PATH}/templates/apps/parts/chargen-vitality.hbs`,
     `${SYSTEM_PATH}/templates/actor/parts/passport-stamps.hbs`,
     ...CHAT_PARTIALS
   ]);

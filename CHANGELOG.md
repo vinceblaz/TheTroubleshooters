@@ -1,5 +1,39 @@
 # Journal des modifications
 
+## 0.11.6 — retour de recette : bandeau des étapes de l'assistant
+
+- Bandeau des six étapes de l'assistant « Nouveau Risque-tout » plus haut : la hauteur fixe des boutons de Foundry est levée,
+  les libellés longs (« Compétences et personnalisation », « Capacités et désavantages ») passent sur deux lignes en entier.
+
+## 0.11.5 — correctif : propriété « state » réservée par Foundry v14
+
+- Cause du « La macro ne lance aucune action » (erreur remontée grâce à la 0.11.4) : `ApplicationV2` de Foundry v14 expose
+  une propriété `state` en lecture seule ; le modèle commun des assistants (DraftApp) y écrivait son état calculé.
+  Renommée `draftState`. Touchait l'assistant « Nouveau Risque-tout », l'assistant « Création » de la fiche
+  et l'assistant de personnage secondaire.
+- Par précaution, l'état du débriefing est renommé `debriefState` (il masquait la même propriété).
+
+## 0.11.4 — retour de recette : « La macro ne lance aucune action »
+
+- L'ouverture de l'assistant « Nouveau Risque-tout » ne dépend plus du registre interne des fenêtres de Foundry ;
+  une erreur à l'ouverture (préparation ou gabarit) s'affiche désormais à l'écran avec son message, détaillé dans la console (F12),
+  au lieu d'être perdue.
+- Nouveau bouton « Nouveau Risque-tout » en tête du répertoire des acteurs, pour tous les utilisateurs : il ouvre l'assistant
+  sans passer par une macro (un joueur sans le droit « Utiliser les macros de script » ne peut pas lancer la macro).
+- Au chargement, la macro partagée existante est remise à niveau (commande, type script, partage) ; sa commande signale
+  un système non chargé au lieu d'échouer en silence.
+
+## 0.11.3 — « Nouveau Risque-tout » : assistant pas à pas
+
+- La macro « Nouveau Risque-tout » ouvre un assistant qui suit les étapes 1 à 6 de la création du livre (p. 32) :
+  1 archétype (et nom, joueur propriétaire pour le MJ), 2 compétences et personnalisation (11 compétences pour un atypique),
+  3 deux capacités et un désavantage, 4 Vitalité maximale (calcul détaillé), 5 langues, 6 cinq kits de matériel.
+- Bandeau des étapes cliquable, Précédent / Suivant ; on ne passe pas une étape qui comporte une erreur bloquante.
+- La fiche n'est créée qu'à la fin, déjà remplie, puis ouverte ; le brouillon est gardé sur l'utilisateur (on peut fermer et reprendre).
+- Joueur sans droit de création : le MJ crée la fiche (dont le joueur est propriétaire), l'assistant du joueur la remplit et l'ouvre.
+- Les étapes 7 à 10 (accroches, description, idée de conception, rencontre) se complètent sur la fiche ; l'assistant complet de la fiche
+  (bouton « Création ») est inchangé et partage les mêmes sections.
+
 ## 0.11.2 — macro « Nouveau Risque-tout »
 
 - Macro « Nouveau Risque-tout », visible et utilisable par les joueurs : nom de la fiche, création, ouverture de l'assistant de création.

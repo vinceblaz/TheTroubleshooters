@@ -1,133 +1,14 @@
 <div class="tts-chargen-app">
   <p class="tts-hint">{{localize "TTS.Chargen.Intro"}}</p>
 
-  {{!-- 1. Archétype --}}
-  <fieldset class="tts-fieldset">
-    <legend>1. {{localize "TTS.Chargen.Step.Archetype"}}</legend>
-    <div class="tts-inline">
-      <label class="tts-check-label"><input type="radio" name="mode" value="archetype" {{checked (eq d.mode "archetype")}}> {{localize "TTS.Chargen.ModeArchetype"}}</label>
-      <label class="tts-check-label"><input type="radio" name="mode" value="atypical" {{checked (eq d.mode "atypical")}}> {{localize "TTS.Chargen.Atypical"}}</label>
-    </div>
-    {{#if (eq d.mode "archetype")}}
-      <select name="archetype">{{selectOptions archetypeOptions selected=d.archetype}}</select>
-      {{#if archDescription}}<div class="tts-chargen-description">{{{archDescription}}}</div>{{/if}}
-    {{else}}
-      <p class="tts-hint">{{localize "TTS.Chargen.AtypicalHint"}}</p>
-      <div class="tts-chargen-grid">
-        {{#each atypicalSlots as |slot|}}
-          <label>{{slot.value}}</label><select name="atypical.{{slot.i}}">{{selectOptions @root.skillOpts selected=slot.key}}</select>
-        {{/each}}
-      </div>
-    {{/if}}
-  </fieldset>
-
-  {{!-- 2. Compétences et personnalisation --}}
-  <fieldset class="tts-fieldset">
-    <legend>2. {{localize "TTS.Chargen.Step.Skills"}}</legend>
-    <div class="tts-chargen-skills">
-      {{#each skillRows as |row|}}<span class="tts-chargen-skill">{{row.label}} <strong>{{row.value}}</strong></span>{{/each}}
-    </div>
-    <p class="tts-hint">{{localize "TTS.Chargen.SkillsHint"}}</p>
-    <div class="tts-chargen-grid tts-chargen-custom">
-      {{#each transferRows as |tr|}}
-        <label>{{localize "TTS.Chargen.Transfer"}} {{tr.n}}</label>
-        <span class="tts-inline"><select name="transfers.{{tr.i}}.from">{{selectOptions @root.skillOpts selected=tr.from}}</select> → <select name="transfers.{{tr.i}}.to">{{selectOptions @root.skillOpts selected=tr.to}}</select></span>
-      {{/each}}
-      {{#each replacementRows as |rp|}}
-        <label>{{localize "TTS.Chargen.Replacement"}} {{rp.n}}</label>
-        <span class="tts-inline"><select name="replacements.{{rp.i}}.from">{{selectOptions @root.skillOpts selected=rp.from}}</select> → <select name="replacements.{{rp.i}}.to">{{selectOptions @root.skillOpts selected=rp.to}}</select></span>
-      {{/each}}
-      <label>{{localize "TTS.Chargen.Swap"}}</label>
-      <span class="tts-inline"><select name="swap.a">{{selectOptions skillOpts selected=d.swap.a}}</select> ⇄ <select name="swap.b">{{selectOptions skillOpts selected=d.swap.b}}</select></span>
-    </div>
-    <p class="tts-chargen-derived">{{localize "TTS.Vitality.Label"}} <strong>{{c.derived.vitality}}</strong> · {{localize "TTS.Chargen.ExtraLanguages"}} <strong>{{c.derived.extraLanguages}}</strong></p>
-  </fieldset>
-
-  {{!-- 3. Capacités et désavantages --}}
-  <fieldset class="tts-fieldset">
-    <legend>3. {{localize "TTS.Chargen.Step.Traits"}}</legend>
-    {{#if archAbilities.length}}
-      <p class="tts-hint">{{localize "TTS.Chargen.AbilitiesHint"}}</p>
-      <div class="tts-chargen-checks">
-        {{#each archAbilities as |a|}}<label class="tts-check-label"><input type="checkbox" name="abilities.{{a.i}}" {{checked a.checked}}> {{a.name}} ({{a.level}})</label>{{/each}}
-      </div>
-    {{/if}}
-    <div class="tts-chargen-grid">
-      {{#each extraAbilitySlots as |slot|}}
-        <label>{{#if @root.c.as}}{{localize "TTS.Chargen.ExtraAbility"}}{{else}}{{localize "TTS.Chargen.Ability"}}{{/if}} {{slot.n}}</label>
-        <select name="extraAbilities.{{slot.i}}">{{selectOptions @root.abilityOpts selected=slot.value}}</select>
-      {{/each}}
-    </div>
-    {{#if archFlaws.length}}
-      <div class="tts-chargen-checks">
-        {{#each archFlaws as |f|}}<label class="tts-check-label"><input type="radio" name="flaw" value="{{f.name}}" {{checked f.checked}}> {{f.name}}</label>{{/each}}
-      </div>
-    {{else}}
-      <div class="tts-chargen-grid"><label>{{localize "TTS.Chargen.Flaw"}}</label><select name="flaw">{{selectOptions flawOpts selected=d.flaw}}</select></div>
-    {{/if}}
-    <div class="tts-chargen-grid"><label>{{localize "TTS.Chargen.ExtraFlaw"}}</label><select name="extraFlaw">{{selectOptions flawOpts selected=d.extraFlaw}}</select></div>
-    <p class="tts-hint">{{localize "TTS.Chargen.TraitsHint"}}</p>
-  </fieldset>
-
-  {{!-- 4. Langues --}}
-  <fieldset class="tts-fieldset">
-    <legend>4. {{localize "TTS.Chargen.Step.Languages"}}</legend>
-    <div class="tts-chargen-grid">
-      <label>{{localize "TTS.Chargen.OriginLabel"}}</label><select name="origin">{{selectOptions origins selected=d.origin}}</select>
-      {{#if (eq d.origin "other")}}<label>{{localize "TTS.Language.Native"}}</label><input type="text" name="native" value="{{d.native}}">{{/if}}
-      {{#each extraLangSlots as |slot|}}<label>{{localize "TTS.Chargen.ExtraLanguage"}} {{slot.n}}</label><input type="text" name="extraLangs.{{slot.i}}" value="{{slot.value}}">{{/each}}
-    </div>
-    <p class="tts-hint">{{languagesLabel}}</p>
-  </fieldset>
-
-  {{!-- 5. Kits --}}
-  <fieldset class="tts-fieldset">
-    <legend>5. {{localize "TTS.Chargen.Step.Kits"}}</legend>
-    <div class="tts-chargen-grid">
-      {{#each kitLines as |line|}}
-        <label>{{localize "TTS.Chargen.ArchetypeKit"}} {{line.n}}</label>
-        {{#if line.single}}<span>{{line.pick}}</span>{{else}}<select name="kitPicks.{{line.i}}">{{selectOptions line.options selected=line.pick}}</select>{{/if}}
-      {{/each}}
-      {{#each freeKitSlots as |slot|}}
-        <label>{{localize "TTS.Chargen.FreeKit"}} {{slot.n}}</label><select name="freeKits.{{slot.i}}">{{selectOptions @root.kitOpts selected=slot.value}}</select>
-      {{/each}}
-      <label>{{localize "TTS.Kit.Signature"}}</label><select name="signature">{{selectOptions signatureOpts selected=d.signature}}</select>
-      <label>{{localize "TTS.Kit.SignatureDescription"}}</label><input type="text" name="signatureDescription" value="{{d.signatureDescription}}">
-    </div>
-  </fieldset>
-
-  {{!-- 6. Accroches --}}
-  <fieldset class="tts-fieldset">
-    <legend>6. {{localize "TTS.Chargen.Step.Hooks"}}</legend>
-    <div class="tts-chargen-grid">
-      {{#each hookRows as |h|}}<label>{{localize "TTS.Chargen.Hook"}} {{h.n}}</label><select name="hooks.{{h.i}}">{{selectOptions @root.hookOpts selected=h.value}}</select>{{/each}}
-    </div>
-    <p class="tts-hint">{{localize "TTS.Chargen.HooksHint"}}</p>
-  </fieldset>
-
-  {{!-- 7. Identité --}}
-  <fieldset class="tts-fieldset">
-    <legend>7. {{localize "TTS.Chargen.Step.Identity"}}</legend>
-    <div class="tts-chargen-grid">
-      <label>{{localize "TTS.Identity.Concept"}}</label><input type="text" name="identity.concept" value="{{d.identity.concept}}">
-      <label>{{localize "TTS.Identity.Nationality"}}</label><input type="text" name="identity.nationality" value="{{d.identity.nationality}}">
-      <label>{{localize "TTS.Identity.Birthplace"}}</label><input type="text" name="identity.birthplace" value="{{d.identity.birthplace}}">
-      <label>{{localize "TTS.Identity.Residence"}}</label><input type="text" name="identity.residence" value="{{d.identity.residence}}">
-      <label>{{localize "TTS.Identity.Age"}}</label><input type="text" name="identity.age" value="{{d.identity.age}}">
-      <label>{{localize "TTS.Identity.Height"}}</label><input type="text" name="identity.height" value="{{d.identity.height}}">
-      <label>{{localize "TTS.Identity.Weight"}}</label><input type="text" name="identity.weight" value="{{d.identity.weight}}">
-      <label>{{localize "TTS.Identity.DistinctiveFeatures"}}</label>
-      <span class="tts-inline"><input type="text" name="identity.distinctiveFeatures" value="{{d.identity.distinctiveFeatures}}">
-        <button type="button" class="tts-small-button" data-action="rollIdea" data-tooltip="{{localize 'TTS.Chargen.DesignIdea'}}"><i class="fa-solid fa-dice-d20"></i></button></span>
-    </div>
-  </fieldset>
-
-  {{!-- 8. Rencontre --}}
-  <fieldset class="tts-fieldset">
-    <legend>8. {{localize "TTS.Chargen.Step.Meeting"}}</legend>
-    <textarea name="meeting" rows="3">{{d.meeting}}</textarea>
-    <button type="button" class="tts-small-button" data-action="rollMeeting"><i class="fa-solid fa-dice-d20"></i> {{localize "TTS.Chargen.MeetingPlace"}}</button>
-  </fieldset>
+  {{> "systems/thetroubleshooters/templates/apps/parts/chargen-archetype.hbs" num=1}}
+  {{> "systems/thetroubleshooters/templates/apps/parts/chargen-skills.hbs" num=2}}
+  {{> "systems/thetroubleshooters/templates/apps/parts/chargen-traits.hbs" num=3}}
+  {{> "systems/thetroubleshooters/templates/apps/parts/chargen-languages.hbs" num=4}}
+  {{> "systems/thetroubleshooters/templates/apps/parts/chargen-kits.hbs" num=5}}
+  {{> "systems/thetroubleshooters/templates/apps/parts/chargen-hooks.hbs" num=6}}
+  {{> "systems/thetroubleshooters/templates/apps/parts/chargen-identity.hbs" num=7}}
+  {{> "systems/thetroubleshooters/templates/apps/parts/chargen-meeting.hbs" num=8}}
 
   {{> "systems/thetroubleshooters/templates/apps/parts/draft-footer.hbs"}}
 </div>

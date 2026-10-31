@@ -1,0 +1,14 @@
+{{!-- Étape « Vitalité » de l'assistant pas à pas (LdB p. 34) : calcul expliqué. Paramètre : num --}}
+  <fieldset class="tts-fieldset">
+    <legend>{{#if num}}{{num}}. {{/if}}{{localize "TTS.Chargen.Step.Vitality"}}</legend>
+    <p>{{localize "TTS.Skill.Agility"}} <strong>{{vitality.agility}}</strong> · {{localize "TTS.Chargen.BestCombat"}} <strong>{{vitality.combat}}</strong> ({{vitality.combatLabel}})</p>
+    <table class="tts-row-table tts-vitality-rules">
+      <tbody>
+        {{#each vitality.rows as |r|}}
+        <tr class="{{#if r.met}}tts-met{{/if}}"><td>{{#if r.met}}<i class="fa-solid fa-check"></i>{{/if}}</td><td>{{r.label}}</td><td class="tts-num"><strong>{{r.value}}</strong></td></tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <p class="tts-chargen-derived">{{localize "TTS.Chargen.VitalityResult"}} <strong>{{c.derived.vitality}}</strong></p>
+    <p class="tts-hint">{{localize "TTS.Chargen.VitalityHint"}}</p>
+  </fieldset>

@@ -1,0 +1,39 @@
+<div class="tts-chargen-app tts-wizard">
+  <nav class="tts-wizard-steps" aria-label="{{localize 'TTS.Wizard.Title'}}">
+    {{#each steps as |s|}}
+    <button type="button" class="tts-wizard-step {{#if s.current}}tts-current{{/if}} {{#if s.done}}tts-done{{/if}} {{#if s.blocked}}tts-blocked{{/if}}" data-action="goto" data-step="{{s.n}}" {{#if s.current}}aria-current="step"{{/if}}>
+      <span class="tts-wizard-num">{{s.n}}</span><span class="tts-wizard-label">{{s.label}}</span>
+    </button>
+    {{/each}}
+  </nav>
+  <p class="tts-hint">{{localize "TTS.Wizard.Intro"}}</p>
+
+  {{#if isFirst}}
+  <div class="tts-chargen-grid tts-wizard-identity">
+    <label for="tts-wizard-name">{{localize "TTS.Passport.Name"}}</label>
+    <input id="tts-wizard-name" type="text" name="name" value="{{d.name}}" placeholder="{{localize 'TTS.NewCharacter.DefaultName'}}">
+    {{#if ownerOptions}}<label>{{localize "TTS.NewCharacter.Owner"}}</label><select name="owner">{{selectOptions ownerOptions selected=d.owner}}</select>{{/if}}
+  </div>
+  {{/if}}
+
+  {{#if (eq section "archetype")}}{{> "systems/thetroubleshooters/templates/apps/parts/chargen-archetype.hbs" num=1}}{{/if}}
+  {{#if (eq section "skills")}}{{> "systems/thetroubleshooters/templates/apps/parts/chargen-skills.hbs" num=2}}{{/if}}
+  {{#if (eq section "traits")}}{{> "systems/thetroubleshooters/templates/apps/parts/chargen-traits.hbs" num=3}}{{/if}}
+  {{#if (eq section "vitality")}}{{> "systems/thetroubleshooters/templates/apps/parts/chargen-vitality.hbs" num=4}}{{/if}}
+  {{#if (eq section "languages")}}{{> "systems/thetroubleshooters/templates/apps/parts/chargen-languages.hbs" num=5}}{{/if}}
+  {{#if (eq section "kits")}}{{> "systems/thetroubleshooters/templates/apps/parts/chargen-kits.hbs" num=6}}{{/if}}
+
+  {{#if stepErrors.length}}<ul class="tts-draft-errors">{{#each stepErrors as |e|}}<li><i class="fa-solid fa-circle-xmark"></i> {{e}}</li>{{/each}}</ul>{{/if}}
+  {{#if isLast}}{{#if warnings.length}}<ul class="tts-draft-warnings">{{#each warnings as |w|}}<li><i class="fa-solid fa-triangle-exclamation"></i> {{w}}</li>{{/each}}</ul>{{/if}}
+    <p class="tts-hint">{{localize "TTS.Wizard.After"}}</p>{{/if}}
+
+  <footer class="tts-app-footer">
+    <button type="button" data-action="reset"><i class="fa-solid fa-rotate-left"></i> {{localize i18n.reset}}</button>
+    {{#unless isFirst}}<button type="button" data-action="prev"><i class="fa-solid fa-arrow-left"></i> {{localize "TTS.Wizard.Prev"}}</button>{{/unless}}
+    {{#if isLast}}
+    <button type="button" data-action="finish" {{#unless canFinish}}disabled{{/unless}}><i class="fa-solid fa-passport"></i> {{localize "TTS.Wizard.Finish"}}</button>
+    {{else}}
+    <button type="button" data-action="next" {{#unless canNext}}disabled{{/unless}}>{{localize "TTS.Wizard.Next"}} <i class="fa-solid fa-arrow-right"></i></button>
+    {{/if}}
+  </footer>
+</div>

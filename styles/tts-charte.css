@@ -564,3 +564,24 @@ body.tts-reduced-fx .thetroubleshooters:is(.tts-app, .tts-dialog, .tts-item) .wi
 .tts-journal td.tts-holiday { background: #C7543B; color: #F7EDD6; font-weight: 700; }
 .tts-journal .tts-calendar-notes { font-size: 0.85rem; margin-top: 0; }
 body.tts-reduced-fx .tts-journal, body.tts-reduced-fx .tts-journal * { background-image: none !important; }
+
+/* Assistant pas à pas « Nouveau Risque-tout » (registre Passeport) */
+.thetroubleshooters.tts-chargen-wizard .window-content { color: var(--pp-ink); font-family: var(--pp-sans);
+  background-color: var(--pp-paper);
+  background-image: repeating-radial-gradient(circle at 18% 30%, rgba(46,110,120,0.09) 0 1px, transparent 1px 9px), repeating-radial-gradient(circle at 85% 75%, rgba(120,60,90,0.07) 0 1px, transparent 1px 11px);
+  background-size: auto; }
+.thetroubleshooters.tts-chargen-wizard .tts-wizard-steps { display: flex; align-items: stretch; flex: none; gap: 4px; flex-wrap: wrap; margin-bottom: 6px; border-bottom: 2px solid var(--pp-cover); padding-bottom: 6px; }
+.thetroubleshooters.tts-chargen-wizard .window-content button.tts-wizard-step { flex: 1 1 0; min-width: 92px; height: auto; min-height: 64px; max-height: none; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 4px; padding: 6px 4px 8px; white-space: normal; overflow: visible; background: transparent; border: 1px solid var(--pp-rule-soft); border-radius: 0 0 6px 6px; font-family: var(--pp-sans); font-size: 0.72rem; line-height: 1.1; color: var(--pp-ink-soft); box-shadow: none; }
+.thetroubleshooters.tts-chargen-wizard .tts-wizard-label { display: block; white-space: normal; overflow-wrap: anywhere; text-align: center; line-height: 1.2; }
+.thetroubleshooters.tts-chargen-wizard .tts-wizard-num { flex: none; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid currentColor; display: inline-flex; align-items: center; justify-content: center; font-family: var(--pp-serif); font-weight: 700; }
+.thetroubleshooters.tts-chargen-wizard .window-content button.tts-wizard-step.tts-current { background: var(--pp-cover); color: var(--pp-cover-ink); border-color: var(--pp-cover); }
+.thetroubleshooters.tts-chargen-wizard .window-content button.tts-wizard-step.tts-done { color: var(--pp-ink); }
+.thetroubleshooters.tts-chargen-wizard .window-content button.tts-wizard-step.tts-blocked:not(.tts-current) .tts-wizard-num { border-color: var(--ink-red); color: var(--ink-red); }
+.thetroubleshooters.tts-chargen-wizard .tts-wizard-identity { margin: 4px 0 8px; }
+.thetroubleshooters.tts-chargen-wizard .tts-wizard-identity input[name="name"] { font-size: 1.15rem; font-weight: 700; text-transform: uppercase; }
+.thetroubleshooters.tts-chargen-wizard .tts-vitality-rules tr { border-bottom: 1px dotted var(--pp-rule-soft); }
+.thetroubleshooters.tts-chargen-wizard .tts-vitality-rules tr.tts-met { background: rgba(107,31,42,0.10); font-weight: 700; }
+.thetroubleshooters.tts-chargen-wizard .tts-app-footer button[data-action="finish"], .thetroubleshooters.tts-chargen-wizard .tts-app-footer button[data-action="next"] { background: var(--pp-cover); color: var(--pp-cover-ink); }
+
+/* Bouton « Nouveau Risque-tout » du répertoire des acteurs (0.11.4) */
+.tts-new-character { flex: 1 1 100%; display: flex; align-items: center; justify-content: center; gap: 6px; }

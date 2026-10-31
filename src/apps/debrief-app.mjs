@@ -35,10 +35,10 @@ export class DebriefApp extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   /** Saisie en cours : critères par Risque-tout, récompenses, fin d'aventure. */
-  state = { rows: {}, rewards: [], endOfAdventure: false, span: "none" };
+  debriefState = { rows: {}, rewards: [], endOfAdventure: false, span: "none" };
 
   #row(id) {
-    return this.state.rows[id] ??= { criteria: { present: true }, penalty: 0 };
+    return this.debriefState.rows[id] ??= { criteria: { present: true }, penalty: 0 };
   }
 
   /** @override */
@@ -53,28 +53,28 @@ export class DebriefApp extends HandlebarsApplicationMixin(ApplicationV2) {
         const r = this.#row(a.id);
         return {
           id: a.id, name: a.name, img: a.img, penalty: r.penalty,
-          checks: CRITERIA.map(k => ({ key: k, checked: Boolean(r.criteria[k]), disabled: k === "bloodless" && !this.state.endOfAdventure })),
-          total: freeTicksFor({ ...r.criteria, bloodless: r.criteria.bloodless && this.state.endOfAdventure }, r.penalty)
+          checks: CRITERIA.map(k => ({ key: k, checked: Boolean(r.criteria[k]), disabled: k === "bloodless" && !this.debriefState.endOfAdventure })),
+          total: freeTicksFor({ ...r.criteria, bloodless: r.criteria.bloodless && this.debriefState.endOfAdventure }, r.penalty)
         };
       }),
-      rewards: this.state.rewards.map((r, i) => ({ ...r, i, actors: actors.map(a => ({ id: a.id, name: a.name, checked: r.actorIds.includes(a.id) })) })),
+      rewards: this.debriefState.rewards.map((r, i) => ({ ...r, i, actors: actors.map(a => ({ id: a.id, name: a.name, checked: r.actorIds.includes(a.id) })) })),
       skillOpts,
-      endOfAdventure: this.state.endOfAdventure,
+      endOfAdventure: this.debriefState.endOfAdventure,
       spanOpts: Object.fromEntries(Object.entries(DOWNTIME_SPANS).map(([k, n]) => [k, `${t(`TTS.Progression.Span.${k}`)} (${n})`])),
-      span: this.state.span
+      span: this.debriefState.span
     };
   }
 
   static async #onChange(event, form, formData) {
     const data = foundry.utils.expandObject(formData.object);
-    this.state.endOfAdventure = Boolean(data.endOfAdventure);
-    this.state.span = data.span ?? this.state.span;
+    this.debriefState.endOfAdventure = Boolean(data.endOfAdventure);
+    this.debriefState.span = data.span ?? this.debriefState.span;
     for (const [id, r] of Object.entries(data.rows ?? {})) {
       const row = this.#row(id);
       row.criteria = Object.fromEntries(CRITERIA.map(k => [k, Boolean(r.criteria?.[k])]));
       row.penalty = Math.max(0, Number(r.penalty) || 0);
     }
-    this.state.rewards = this.state.rewards.map((rw, i) => {
+    this.debriefState.rewards = this.debriefState.rewards.map((rw, i) => {
       const d = data.rewards?.[i] ?? {};
       return { label: d.label ?? rw.label, skill: d.skill ?? rw.skill, actorIds: Object.entries(d.actors ?? {}).filter(([, v]) => v).map(([k]) => k) };
     });
@@ -82,12 +82,12 @@ export class DebriefApp extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   static #onAddReward() {
-    this.state.rewards.push({ label: "", skill: "", actorIds: StoryPointsApp.characters().map(a => a.id) });
+    this.debriefState.rewards.push({ label: "", skill: "", actorIds: StoryPointsApp.characters().map(a => a.id) });
     this.render();
   }
 
   static #onRemoveReward(event, target) {
-    this.state.rewards.splice(Number(target.dataset.index), 1);
+    this.debriefState.rewards.splice(Number(target.dataset.index), 1);
     this.render();
   }
 
@@ -95,12 +95,12 @@ export class DebriefApp extends HandlebarsApplicationMixin(ApplicationV2) {
     const actors = StoryPointsApp.characters();
     const ok = await DialogV2.confirm({ classes: ["thetroubleshooters", "tts-dialog"], window: { title: t("TTS.Progression.Grant") }, content: `<p>${t("TTS.Progression.GrantPrompt")}</p>`, rejectClose: false });
     if (!ok) return;
-    const end = this.state.endOfAdventure;
+    const end = this.debriefState.endOfAdventure;
     await grantDebrief(actors.map(actor => {
       const r = this.#row(actor.id);
       return { actor, criteria: { ...r.criteria, bloodless: end && r.criteria.bloodless }, penalty: r.penalty };
-    }), { rewards: end ? this.state.rewards.filter(r => r.skill) : [], periods: end ? DOWNTIME_SPANS[this.state.span] ?? 0 : 0 });
-    this.state = { rows: {}, rewards: [], endOfAdventure: false, span: "none" };
+    }), { rewards: end ? this.debriefState.rewards.filter(r => r.skill) : [], periods: end ? DOWNTIME_SPANS[this.debriefState.span] ?? 0 : 0 });
+    this.debriefState = { rows: {}, rewards: [], endOfAdventure: false, span: "none" };
     this.close();
   }
 }

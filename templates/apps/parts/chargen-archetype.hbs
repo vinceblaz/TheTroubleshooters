@@ -1,0 +1,21 @@
+{{!-- Section « archetype » de la création de Risque-tout. Paramètre : num (numéro affiché) --}}
+  <fieldset class="tts-fieldset">
+    <legend>{{#if num}}{{num}}. {{/if}}{{localize "TTS.Chargen.Step.Archetype"}}</legend>
+    <div class="tts-inline">
+      <label class="tts-check-label"><input type="radio" name="mode" value="archetype" {{checked (eq d.mode "archetype")}}> {{localize "TTS.Chargen.ModeArchetype"}}</label>
+      <label class="tts-check-label"><input type="radio" name="mode" value="atypical" {{checked (eq d.mode "atypical")}}> {{localize "TTS.Chargen.Atypical"}}</label>
+    </div>
+    {{#if (eq d.mode "archetype")}}
+      <select name="archetype">{{selectOptions archetypeOptions selected=d.archetype}}</select>
+      {{#if archDescription}}<div class="tts-chargen-description">{{{archDescription}}}</div>{{/if}}
+    {{else}}
+      <p class="tts-hint">{{localize "TTS.Chargen.AtypicalHint"}}</p>
+      {{#unless @root.wizard}}
+      <div class="tts-chargen-grid">
+        {{#each atypicalSlots as |slot|}}
+          <label>{{slot.value}}</label><select name="atypical.{{slot.i}}">{{selectOptions @root.skillOpts selected=slot.key}}</select>
+        {{/each}}
+      </div>
+      {{/unless}}
+    {{/if}}
+  </fieldset>

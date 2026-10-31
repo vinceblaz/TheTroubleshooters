@@ -27,8 +27,8 @@ export class DraftApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
   constructor(options = {}) {
     super(options);
-    this.actor = options.actor;
-    const saved = this.actor.getFlag(SYSTEM_ID, this.constructor.DRAFT_FLAG);
+    this.actor = options.actor ?? null;
+    const saved = this.readSavedDraft();
     this.draft = saved ? foundry.utils.mergeObject(this.initialDraft(), saved, { inplace: false, insertKeys: true }) : this.initialDraft();
   }
 
@@ -43,15 +43,20 @@ export class DraftApp extends HandlebarsApplicationMixin(ApplicationV2) {
   /** Texte HTML complémentaire de la confirmation d'application. */
   applyNotice(_state) { return ""; }
 
+  /** Où vit le brouillon : sur l'acteur par défaut (l'assistant pas à pas le garde sur l'utilisateur). */
+  get draftHolder() { return this.actor; }
+  readSavedDraft() { return this.draftHolder?.getFlag(SYSTEM_ID, this.constructor.DRAFT_FLAG) ?? null; }
+  async clearDraft() { await this.draftHolder?.unsetFlag(SYSTEM_ID, this.constructor.DRAFT_FLAG); }
+
   async saveDraft({ render = true } = {}) {
-    await this.actor.setFlag(SYSTEM_ID, this.constructor.DRAFT_FLAG, this.draft);
+    await this.draftHolder?.setFlag(SYSTEM_ID, this.constructor.DRAFT_FLAG, this.draft);
     if (render) this.render();
   }
 
   /** Contexte commun (contrôles et bouton Appliquer) ; les sous-classes l'étendent. */
   async _prepareContext(options) {
     const state = await this.evaluate();
-    this.state = state;
+    this.draftState = state;
     return { d: this.draft, c: state, errors: state.errors, warnings: state.warnings, canApply: state.errors.length === 0, i18n: this.constructor.I18N };
   }
 
@@ -65,7 +70,7 @@ export class DraftApp extends HandlebarsApplicationMixin(ApplicationV2) {
     const ok = await DialogV2.confirm({ classes: ["thetroubleshooters", "tts-dialog"], window: { title: L.reset }, content: `<p>${game.i18n.localize(L.resetPrompt)}</p>`, rejectClose: false });
     if (!ok) return;
     this.draft = this.initialDraft({ reset: true });
-    await this.actor.unsetFlag(SYSTEM_ID, this.constructor.DRAFT_FLAG);
+    await this.clearDraft();
     this.render();
   }
 
@@ -80,7 +85,7 @@ export class DraftApp extends HandlebarsApplicationMixin(ApplicationV2) {
     });
     if (!ok) return;
     await this.applyDraft(state);
-    if (!this.constructor.KEEP_DRAFT) await this.actor.unsetFlag(SYSTEM_ID, this.constructor.DRAFT_FLAG);
+    if (!this.constructor.KEEP_DRAFT) await this.clearDraft();
     ui.notifications.info(game.i18n.localize(L.applied));
     this.close();
   }

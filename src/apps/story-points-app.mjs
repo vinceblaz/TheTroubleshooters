@@ -27,7 +27,7 @@ export class StoryPointsApp extends HandlebarsApplicationMixin(ApplicationV2) {
     }
   };
 
-  static PARTS = { body: { template: `${SYSTEM_PATH}/templates/apps/story-points.hbs` } };
+  static PARTS = { body: { template: `${SYSTEM_PATH}/templates/apps/story-points.hbs`, scrollable: [""] } };
 
   static #instance = null;
 

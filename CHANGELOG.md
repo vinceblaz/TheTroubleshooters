@@ -1,5 +1,14 @@
 # Journal des modifications
 
+## 0.11.7 — ascenseur vertical dans les fenêtres des macros
+
+- Les fenêtres ouvertes par les macros « Dangers », « Défi » (et « Duel »), « Nouveau personnage secondaire »,
+  « Nouveau Risque-tout » (assistant pas à pas et création complète de la fiche), « Points de récit et scène »
+  et « Débriefing » (ainsi que « Progression ») ne dépassent plus le bas de l'écran : leur contenu défile
+  avec un ascenseur vertical.
+- Le pied de fenêtre (Précédent / Suivant / Terminer, Appliquer, Accorder) reste visible en bas pendant le défilement.
+- La position de défilement est conservée quand la fenêtre se met à jour (saisie dans un assistant, ajout d'une ligne).
+
 ## 0.11.6 — retour de recette : bandeau des étapes de l'assistant
 
 - Bandeau des six étapes de l'assistant « Nouveau Risque-tout » plus haut : la hauteur fixe des boutons de Foundry est levée,

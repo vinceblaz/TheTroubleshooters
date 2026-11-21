@@ -35,7 +35,7 @@ export class HazardsApp extends HandlebarsApplicationMixin(ApplicationV2) {
     }
   };
 
-  static PARTS = { body: { template: `${SYSTEM_PATH}/templates/apps/hazards.hbs` } };
+  static PARTS = { body: { template: `${SYSTEM_PATH}/templates/apps/hazards.hbs`, scrollable: [""] } };
 
   static #instance = null;
 

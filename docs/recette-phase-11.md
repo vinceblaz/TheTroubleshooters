@@ -60,3 +60,5 @@ La macro est créée au chargement par le compte MJ (dossier des macros), partag
 | 37 | Fiche d'un Risque-tout : bouton « Création » ; fiche PNJ : assistant de personnage secondaire | Les deux assistants s'ouvrent (même correctif) | |
 | 38 | Macro « Débriefing » | S'ouvre, critères et récompenses fonctionnent | |
 | 39 | Bandeau des étapes (0.11.6) | Numéro et libellé complet de chaque étape lisibles, libellés longs sur deux lignes | |
+| 40 | Ascenseur vertical (0.11.7) : ouvrir « Dangers », « Défi », « Nouveau personnage secondaire », « Nouveau Risque-tout », « Points de récit et scène », « Débriefing », dans une fenêtre de navigateur peu haute | Aucune fenêtre ne dépasse le bas de l'écran ; la molette ou l'ascenseur fait défiler le contenu de haut en bas ; les boutons du pied restent visibles (assistants, débriefing) | |
+| 41 | Défilement conservé (0.11.7) : dans un assistant, descendre puis modifier un champ | La fenêtre reste à la même position après la mise à jour | |

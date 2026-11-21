@@ -585,3 +585,21 @@ body.tts-reduced-fx .tts-journal, body.tts-reduced-fx .tts-journal * { backgroun
 
 /* Bouton « Nouveau Risque-tout » du répertoire des acteurs (0.11.4) */
 .tts-new-character { flex: 1 1 100%; display: flex; align-items: center; justify-content: center; gap: 6px; }
+
+/* Ascenseur vertical des fenêtres d'outils (0.11.7) : Dangers, Défi, Duel, Nouveau personnage secondaire,
+   Nouveau Risque-tout (assistant et création complète), Points de récit et scène, Débriefing, Progression.
+   La fenêtre ne dépasse jamais l'écran ; le contenu défile dans la fenêtre, le pied (boutons) reste visible. */
+.thetroubleshooters:is(.tts-hazards, .tts-challenge-app, .tts-duel-app, .tts-npcgen, .tts-chargen, .tts-chargen-wizard, .tts-story-points, .tts-debrief, .tts-progression) {
+  max-height: calc(100vh - 16px);
+}
+.thetroubleshooters:is(.tts-hazards, .tts-challenge-app, .tts-duel-app, .tts-npcgen, .tts-chargen, .tts-chargen-wizard, .tts-story-points, .tts-debrief, .tts-progression) .window-content {
+  display: flex; flex-direction: column; min-height: 0; overflow: hidden;
+}
+.thetroubleshooters:is(.tts-hazards, .tts-challenge-app, .tts-duel-app, .tts-npcgen, .tts-chargen, .tts-chargen-wizard, .tts-story-points, .tts-debrief, .tts-progression) .window-content > [data-application-part] {
+  flex: 1 1 auto; min-height: 0; overflow-x: hidden; overflow-y: auto; scrollbar-gutter: stable; padding-right: 4px;
+}
+.thetroubleshooters:is(.tts-npcgen, .tts-chargen, .tts-chargen-wizard, .tts-debrief) .window-content > [data-application-part] .tts-app-footer {
+  position: sticky; bottom: 0; z-index: 2; padding: 0.35rem 0 0.1rem; background: var(--bd-paper);
+  box-shadow: 0 -6px 8px -6px rgba(27, 27, 31, 0.35);
+}
+.thetroubleshooters:is(.tts-chargen, .tts-chargen-wizard) .window-content > [data-application-part] .tts-app-footer { background: var(--pp-paper); }

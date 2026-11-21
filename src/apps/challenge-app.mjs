@@ -28,7 +28,7 @@ export class ChallengeApp extends HandlebarsApplicationMixin(ApplicationV2) {
       prepareGadget: ChallengeApp.#onPrepareGadget, toggleGadget: ChallengeApp.#onToggleGadget, recalc: ChallengeApp.#onRecalc }
   };
 
-  static PARTS = { body: { template: `${SYSTEM_PATH}/templates/apps/challenge.hbs` } };
+  static PARTS = { body: { template: `${SYSTEM_PATH}/templates/apps/challenge.hbs`, scrollable: [""] } };
 
   static #instance = null;
   #draft = { title: "", count: 4, rows: Array.from({ length: MAX_ROWS }, () => ({ skill: "investigation", pips: 0, actorUuid: "", oppLabel: "", oppValue: "" })), outcomes: {},
@@ -174,7 +174,7 @@ export class DuelApp extends HandlebarsApplicationMixin(ApplicationV2) {
     actions: { publish: DuelApp.#onPublish }
   };
 
-  static PARTS = { body: { template: `${SYSTEM_PATH}/templates/apps/duel.hbs` } };
+  static PARTS = { body: { template: `${SYSTEM_PATH}/templates/apps/duel.hbs`, scrollable: [""] } };
 
   static #instance = null;
 
